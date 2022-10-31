@@ -20,16 +20,35 @@ export default {
       return await request.json();
     }
   },
+
+  getZones: async (restaurantId) => {
+    let urlApi = "/location/zones/restaurant/"+restaurantId;
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+
+
+  getRestaurantInfoForCheckout: async (restaurantId) => {
+    let urlApi = "/payment/checkout/"+restaurantId+"/location/provinces";
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+
   getMunicipalities: async (provinceId) => {
-    let urlApi = "/v1/location/province/"+provinceId+"/municipalities";
+    let urlApi = "/location/province/"+provinceId+"/municipalities";
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();
     }
   },
   
-  getRestaurants: async () => {
-    let urlApi = "/restaurants/all";
+  getRestaurants: async (locationId) => {
+    console.log(locationId);
+    let urlApi = "/restaurants/all/"+locationId;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();
@@ -37,8 +56,17 @@ export default {
   },
 
   getRestaurantDetails: async (restaurantSlug) => {
-  
+    console.log(restaurantSlug);
     let urlApi = "/restaurants/view/"+restaurantSlug;
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+  
+  getDataForCheckOut: async (restaurantId) => {
+    console.log(restaurantId);
+    let urlApi = "/payment/checkout/"+restaurantId;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();
@@ -77,21 +105,21 @@ export default {
   //   }
   // },
 
-  // saveBook: async (shopSlug,serviceId,serviceDay,clientName,clientEmail,clientPhone) => {
-  //   let urlApi = '/shops/books/new';
+  newOrder: async (data) => {
+    let urlApi = '/payment/pay';
 
-  //   const request = await fetch(UrlApiBase  + urlApi, {
-  //       method:'POST',
-  //       headers:{
-  //           'Content-Type': 'application/json',
-  //           'Accept': 'application/json',
-  //       },
-  //       body: JSON.stringify({shopSlug, serviceId,serviceDay,clientName,clientEmail,clientPhone})
-  //   });
-  //   if(request){
-  //       return await request.json();
-  //   }
-  // },
+    const request = await fetch(UrlApiBase  + urlApi, {
+        method:'POST',
+        headers:{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+    if(request){
+        return await request.json();
+    }
+  },
 
   // getAlbunByCategory: async (categorySlug) => {
   //   let urlApi = "/shops/front/" + shopSlug + "/" + categorySlug + "/album";

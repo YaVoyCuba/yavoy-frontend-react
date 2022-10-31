@@ -17,7 +17,7 @@ const CartIconGlobal = () => {
     cart.forEach((item) => {
       total += item.quantity;
     });
-    return total;
+    return Number(total).toFixed();
   };
 
   const getTotalPrice = () => {
@@ -25,7 +25,7 @@ const CartIconGlobal = () => {
     cart.forEach((item) => {
       total += item.price;
     });
-    return getTotalQuantity() * total;
+    return Number(getTotalQuantity() * total).toFixed(2);
   };
 
   return (
@@ -181,11 +181,12 @@ const CartIconGlobal = () => {
                             </span>
                           </Link>
                           <Link
+                           onClick={() => setOpen(false)}
                             className="btn-main  mt-5 text-center"
                             to={"caja"}
                           >
                             <button
-                              onClick={() => setOpen(false)}
+                             
                               className="uppercase"
                             >
                               Completar pago

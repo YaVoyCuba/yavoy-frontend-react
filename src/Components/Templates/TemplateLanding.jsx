@@ -4,6 +4,7 @@ import { Outlet, Navigate, useLocation, Link } from "react-router-dom";
  
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+ 
 
 const TemplateLanding = () => {
 
@@ -30,6 +31,7 @@ const TemplateLanding = () => {
     <>
       <div className="px-3 lg:px-14 lg:max-w-7xl mx-auto">
         <Header info={info} />
+      
 
         {/* <div className="flex ">
           <div className=" mx-auto">
@@ -57,7 +59,7 @@ const TemplateLanding = () => {
         </div> */}
         <Outlet />
       </div>
-      {/* <Footer info={info} /> */}
+      <Footer info={info} /> 
     </>
   );
 };

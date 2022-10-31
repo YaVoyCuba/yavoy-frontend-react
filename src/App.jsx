@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CheckOutPage from "./pages/frontend/CheckOutPage";
 import ProductDetailPage from "./pages/frontend/ProductDetailPage";
 import Restaurants from "./Components/Landing/Restaurants";
 import Houses from "./Components/Landing/Houses";
@@ -11,6 +10,7 @@ import TemplateLanding from "./Components/Templates/TemplateLanding";
 import RestaurantPage from "./Pages/frontend/RestaurantPage";
 import { ToastContainer } from "react-toastify";
 import Cart from "./Pages/frontend/Cart";
+import CheckOut from "./Pages/frontend/CheckOut";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -38,7 +38,7 @@ function App() {
                 element={<Houses />}
               />
               <Route key={"/login"} path="/login" element={<LoginPage />} />
-              <Route key={"/caja"} path="caja" element={<CheckOutPage />} />
+              <Route key={"/caja"} path="caja" element={<CheckOut />} />
               <Route key={"/carrito"} path="/carrito" element={<Cart />} />
             </Route>
           </Routes>

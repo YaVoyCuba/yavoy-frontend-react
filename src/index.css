@@ -93,7 +93,7 @@
     border-color: #f3754f;
 }
 
-.btn-main { @apply bg-main text-white font-medium px-7 hover:bg-black py-2 text-lg rounded-lg mx-1 }
+.btn-main { @apply bg-main text-white font-medium px-7 hover:bg-[#cb5a38] py-2 text-lg rounded-lg mx-1 }
 .btn-secundary { @apply bg-white color-main font-medium px-7 hover:bg-black py-2 text-lg rounded-lg mx-1 }
 
 .input-text { @apply text-gray-900 border-2 border-gray-700 p-3 rounded-md focus:outline-none }

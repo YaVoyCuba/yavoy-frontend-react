@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import apiManager from "../../api/apiManager";
 import CardProductHorizontal from "../../Components/Misc/CardProductHorizontal";
 import CardProductVertical from "../../Components/Misc/CardProductVertical";
-import ProductRestaurant from "../../Components/Misc/ProductRestaurant";
+import ProductRestaurant from "../../Components/Misc/ProductRestaurantDELETE";
 import { Loading } from "../../common/Landing";
 
 function RestaurantPage() {
@@ -95,12 +95,19 @@ function RestaurantPage() {
                   <div className="lg:col-span-2">
                     <div className="lg:grid lg:grid-cols-2">
                       {restaurant.experiences.map((exp) => {
-                        if(exp.status == 'active'){
-                        return (
-                          <div key={`exp--` + exp.id}>
-                            <ProductRestaurant product={exp} />
-                          </div>
-                        );
+                        if (exp.status == "active") {
+                          return (
+                            <div key={`exp--` + exp.id}>
+                              <CardProductVertical
+                                rating={4}
+                                price={exp.price}
+                                img={exp.photos[0]?.path_photo}
+                                name={exp.name}
+                                slug={exp.slug}
+                                id={exp.id}
+                              />
+                            </div>
+                          );
                         }
                       })}
                     </div>
@@ -137,6 +144,8 @@ function RestaurantPage() {
                                         img={product.photos[0]?.path_photo}
                                         name={product.name}
                                         slug={product.slug}
+                                        id={product.id}
+                                        restaurantId={product.restaurant_id}
                                       />
 
                                       {/* <ProductRestaurant product={product} /> */}

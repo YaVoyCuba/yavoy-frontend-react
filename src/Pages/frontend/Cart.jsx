@@ -22,8 +22,10 @@ const Cart = () => {
     cart.forEach((item) => {
       total += item.price;
     });
-    return totalProduct * total;
+    return Number(totalProduct * total).toFixed(2);
   };
+
+
   return   <div className="mx-auto">
   {cart.length > 0 ? (
     <div className="grid grid-cols-7 overflow-x-scroll ">

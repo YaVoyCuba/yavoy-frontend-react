@@ -1,6 +1,6 @@
 import React from "react";
 import StarRatings from "react-star-ratings";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const CardProductVertical = (props) => {
+  const { cart } = useSelector((state) => state.cart);
+
   const productAdd = (type) => {
     toast.success("Producto agregado!", {
       position: "top-center",
@@ -19,20 +21,52 @@ const CardProductVertical = (props) => {
       progress: undefined,
     });
   };
+  const productExisted = (type) => {
+    toast.warning("No puedes comprar productos de diferentes restaurantes en un mismo pedido!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  
   const dispatch = useDispatch();
-  const { id, name, price, img, rating,slug } = props;
+  const { id, name, price, img, rating, slug, restaurantId } = props;
+
+  const addToCartHandler = () => {
+
+    //check if not exist another product with same restaurantId
+    let exist = cart.find((item) => item.restaurantId != restaurantId);
+    if (exist) {
+      productExisted();
+    } else {
+       console.log("cart",{ id, name, price, img, rating, slug, restaurantId });
+          dispatch(addToCart({ id, name, price, img, rating, slug, restaurantId,quantity:1 }));
+          productAdd();
+    }
+  };
 
   return (
     <div className="bg-gray-100  rounded-lg m-2   mt-3  shadow-xl">
       <div className="flex text-left flex-col ">
         <div className="flex relative  ">
           <div className="flex">
-            <img className="h-auto object-cover w-32  object-center " src={img} alt={name} />
+            <img
+              className="h-auto object-cover w-32  object-center "
+              src={img}
+              alt={name}
+            />
             <div className="flex flex-col">
-              <Link className="cursor-poiner pt-3 px-3" to={"/producto/"+slug}>
-              <span className="text-xl   font-medium  text-gray-800  ">
-                {name}
-              </span>
+              <Link
+                className="cursor-poiner pt-3 px-3"
+                to={"/producto/" + slug}
+              >
+                <span className="text-xl   font-medium  text-gray-800  ">
+                  {name}
+                </span>
                 <div className="flex  flex-col">
                   <span className="text-xl font-bold pt-3 px-3 text-gray-700  ">
                     ${price}
@@ -55,18 +89,7 @@ const CardProductVertical = (props) => {
           </div>
           <div className="flex p-4 flex-col">
             <button
-              onClick={() => {
-                dispatch(
-                  addToCart({
-                    id,
-                    name,
-                    img,
-                    price,
-                    quantity: 1,
-                  })
-                );
-                productAdd();
-              }}
+              onClick={() => addToCartHandler()}
               className="bg-main p-1
           
           rounded-full absolute top-2 right-1 "

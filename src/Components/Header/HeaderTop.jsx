@@ -31,7 +31,7 @@ const HeaderTop = () => {
         <div className=" lg:hidden">
              <SearchPage />
           </div>
-          <div>
+          {/* <div>
             <Link to={"login"} className="flex   pt-1  cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const HeaderTop = () => {
                 />
               </svg>
             </Link>
-          </div>
+          </div> */}
 
           <CartIconGlobal key={"34"} />
           <div className="flex  t cursor-pointer">
@@ -91,7 +91,7 @@ const HeaderTop = () => {
 
       <div className="hidden lg:flex  justify-between  text-sm text-white ">
         <div className=" sm:flex">
-          <span className=" font-medium ">¡Bienvenido a RentalHo Market!</span>
+          <span className=" font-medium ">¡Bienvenido a YaVoy MarketPlace!</span>
         </div>
         <div className="px-3 lg:space-x-5   flex">
           <div className="  sm:flex   cursor-pointer">
@@ -234,7 +234,7 @@ const HeaderTop = () => {
                       <div className="flex mt-20 mx-auto space-y-2 flex-col">
                         <hr className="h-0.5 w-68 bg-white" />
                         <span className="text-white text-center">
-                          RentalHo Market 2022
+                          YaVoy Market 2022
                         </span>
                       </div>
                     </div>

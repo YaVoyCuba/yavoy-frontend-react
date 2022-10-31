@@ -5,9 +5,11 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import apiManager from "../../api/apiManager";
 import { setLocation } from "../../redux/locationSlice";
+import {toast} from 'react-toastify';
 
 const Location = () => {
   const location = useSelector((state) => state.location.location);
+  const { cart } = useSelector((state) => state.cart);
   const [provinces, setProvinces] = useState([]);
   const [provinceSelected, setProvinceSelected] = useState([]);
   const [municipalitieSelected, setMunicipalitieSelected] = useState([]);
@@ -21,21 +23,17 @@ const Location = () => {
     console.log(json);
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
-      setMunicipalities();
-      setMunicipalitieSelected(json.data.municipalities[0]?.id);
+      // setMunicipalities();
     }
   };
 
   const setMunicipalitiesByProvince = async (event) => {
     setProvinceSelected(event.target.value);
-     
     let json = await apiManager.getMunicipalities(event.target.value);
-
-    if( json.code == "ok"){
-          console.log(municipalities);
-         setMunicipalities(json.municipalities);
+    if (json.code == "ok") {
+      setMunicipalities(json.data);
+      setMunicipalitieSelected(json.data[0]?.id);
     }
- 
   };
 
   const storeLocation = () => {
@@ -43,31 +41,82 @@ const Location = () => {
 
     let locationName = "";
     let locationId = "";
+    let provinceId = "";
 
     if (municipalitieSelected != "") {
-      locationName = municipalities.find(
+      let location = municipalities.find(
         (muni) => muni.id == municipalitieSelected
-      ).name;
-      locationId = municipalitieSelected;
+      );
+      locationName = location.name;
+      locationId = location.id;
+      provinceId = location.province_id;
     }
 
     console.log("locationName", locationName);
     console.log("locationId", locationId);
 
-    dispatch(
-      setLocation({ locationName: locationName, locationId: locationId })
-    );
+    if (cart.length > 0) {
+      let can = checkIfNewLocationCanBeAddedWithRestaurantInCart();
+      if (can) {
+        dispatch(
+          setLocation({
+            locationName: locationName,
+            locationId: locationId,
+            provinceId: provinceId,
+          })
+        );
+      } else {
+        toast.warning("No puedes cambiar a esta ubicación porque el restaurante del carrito no hace envíos a la misma!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    } else {
+      dispatch(
+        setLocation({
+          locationName: locationName,
+          locationId: locationId,
+          provinceId: provinceId,
+        })
+      );
+    }
+  };
+
+  const checkIfNewLocationCanBeAddedWithRestaurantInCart = () => {
+    let zones = apiManager.getZones(cart[0].restaurantId);
+  };
+
+  const checkLocationInStorage = () => {
+    let location = localStorage.getItem("location");
+    if (location) {
+      dispatch(setLocation(JSON.parse(location)));
+      setMunicipalitieSelected(JSON.parse(location).locationId);
+      setProvinceSelected(JSON.parse(location).provinceId);
+    }
+
+    if (!location) {
+      setOpen(true);
+    }
   };
 
   useEffect(() => {
     getLocation();
+    checkLocationInStorage();
   }, []);
 
   const cancelButtonRef = useRef(null);
   return (
     <>
-      <div className="flex py-3  bg-gray-200 mt-1 mb-3 rounded-lg px-3   w-3/4">
-        <button className="btn flex" onClick={(event) => setOpen(!open)}>
+      <div className="flex py-3 mx-auto  bg-gray-200 mt-1 mb-3 rounded-lg px-3   lg:w-3/4">
+        <button
+          className="btn flex mx-auto "
+          onClick={(event) => setOpen(!open)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -107,7 +156,7 @@ const Location = () => {
           as="div"
           className="relative z-10"
           initialFocus={cancelButtonRef}
-          onClose={setOpen}
+          onClose={() => location.locationName && setOpen(false)}
         >
           <Transition.Child
             as={Fragment}
@@ -155,11 +204,13 @@ const Location = () => {
                       </div>
                       <div className="flex my-5 flex-col">
                         <select
+                          value={provinceSelected}
                           onChange={(event) =>
                             setMunicipalitiesByProvince(event)
                           }
                           className="input-text"
                         >
+                          <option value="">-Selecciona Provincia-</option>
                           {provinces?.map((province) => {
                             return (
                               <option
@@ -171,17 +222,18 @@ const Location = () => {
                             );
                           })}
                         </select>
+
                         <select
+                          value={municipalitieSelected}
                           onChange={(event) =>
                             setMunicipalitieSelected(event.target.value)
                           }
                           className="input-text mt-3"
                         >
-                          {municipalities?.map((mu) => {
+                          {municipalities.map((mu) => {
                             return (
-                              //Number random
                               <option
-                                key={`province2d-${mu.id}${Math.random()}`}
+                                key={`municipality-${mu.id}`}
                                 value={mu.id}
                               >
                                 {mu.name}
@@ -203,7 +255,9 @@ const Location = () => {
                     <button
                       type="button"
                       className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm"
-                      onClick={() => setOpen(false)}
+                      onClick={() => {
+                        location.locationName && setOpen(false);
+                      }}
                       ref={cancelButtonRef}
                     >
                       Cancel

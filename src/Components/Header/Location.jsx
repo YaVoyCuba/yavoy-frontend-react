@@ -18,32 +18,46 @@ const Location = () => {
 
   const getLocation = async () => {
     let json = await apiManager.getLocationData();
+    console.log(json);
     if (json.code == "ok") {
-      setProvinces(json.data);
-      json.data.forEach((province) => {
-        province.municipalities.forEach((muni) => {
-          setMunicipalities((municipalities) => [...municipalities, muni]);
-        });
-        //Save in municipalities all municipalities for each province
-      });
+      setProvinces(json.data.provinces);
+      setMunicipalities();
+      setMunicipalitieSelected(json.data.municipalities[0]?.id);
     }
   };
 
-  const setMunicipalitiesByProvince = (event) => {
-    console.log('event',event.value);
+  const setMunicipalitiesByProvince = async (event) => {
     setProvinceSelected(event.target.value);
-    let province = provinces.find((prov) => 
-        prov.id == event.target.value
-     );
-    setMunicipalities(province.municipalities);
-    setMunicipalitieSelected(province.municipalities[0].id)
+     
+    let json = await apiManager.getMunicipalities(event.target.value);
+
+    if( json.code == "ok"){
+          console.log(municipalities);
+         setMunicipalities(json.municipalities);
+    }
+ 
   };
 
-  const storeLocation = () =>{
-     
+  const storeLocation = () => {
     setOpen(false);
-    dispatch(setLocation({'locationName': municipalitieSelected.splice(',')[0],'locationId':municipalitieSelected.splice(',')[1]}))
-   }
+
+    let locationName = "";
+    let locationId = "";
+
+    if (municipalitieSelected != "") {
+      locationName = municipalities.find(
+        (muni) => muni.id == municipalitieSelected
+      ).name;
+      locationId = municipalitieSelected;
+    }
+
+    console.log("locationName", locationName);
+    console.log("locationId", locationId);
+
+    dispatch(
+      setLocation({ locationName: locationName, locationId: locationId })
+    );
+  };
 
   useEffect(() => {
     getLocation();
@@ -52,7 +66,7 @@ const Location = () => {
   const cancelButtonRef = useRef(null);
   return (
     <>
-      <div className="flex py-3 -mt-3 bg-gray-200 rounded-lg px-3   w-3/4">
+      <div className="flex py-3  bg-gray-200 mt-1 mb-3 rounded-lg px-3   w-3/4">
         <button className="btn flex" onClick={(event) => setOpen(!open)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +83,7 @@ const Location = () => {
             />
           </svg>
           <span className="text-gray-700 font-medium pl-3">
-            Delivery fijado en {location.locationName} 
+            Delivery fijado en {location.locationName}
           </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -157,14 +171,18 @@ const Location = () => {
                             );
                           })}
                         </select>
-                        <select   onChange={(event) => setMunicipalitieSelected(event.target.value)} className="input-text mt-3">
-                          
+                        <select
+                          onChange={(event) =>
+                            setMunicipalitieSelected(event.target.value)
+                          }
+                          className="input-text mt-3"
+                        >
                           {municipalities?.map((mu) => {
                             return (
                               //Number random
-                              <option 
+                              <option
                                 key={`province2d-${mu.id}${Math.random()}`}
-                                value={[mu.id,mu.name]}
+                                value={mu.id}
                               >
                                 {mu.name}
                               </option>

@@ -20,6 +20,13 @@ export default {
       return await request.json();
     }
   },
+  getMunicipalities: async (provinceId) => {
+    let urlApi = "/v1/location/province/"+provinceId+"/municipalities";
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
   
   getRestaurants: async () => {
     let urlApi = "/restaurants/all";

@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+
+.scroll {
+  overflow:auto;
+  
+}
+
+.scroll::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.scroll::-webkit-scrollbar:vertical {
+  width:10px;
+}
+
+.scroll::-webkit-scrollbar-button:increment,.scroll::-webkit-scrollbar-button {
+  display: none;
+}
+
+.scroll::-webkit-scrollbar:horizontal {
+  height: 5px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #797979;
+  border-radius: 20px;
+  border: 2px solid #f1f2f3;
+}
+
+.scroll::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+ 
+
+.text-color {
+  color: #e25328;
+}
+
+.bg-main {
+  background-color: #f3754f;
+}
+
+.bg-color-100 {
+  background-color: #fad3c7;
+}
+ 
+
+.LegendList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none; /* Remove default bullets */
+}
+
+.LegendList li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.BulletLabel {
+  display: flex;
+  align-items: center;
+}
+
+.CirecleBullet {
+  border-radius: 50%;
+}
+
+.BulletLabelText {
+  margin-left: 10px;
+}
+
+.CenteredLabelValue {
+  font-size: 36px;
+  font-weight: 600;
+  fill: #0088fe;
+}
+
+
+
+.color-green {
+    color: #f3754f;
+}
+
+.color-main {
+  color: #44526d;
+}
+
+.border-color {
+    border-color: #f3754f;
+}
+
+.btn-main { @apply bg-main text-white font-medium px-7 hover:bg-black py-2 text-lg rounded-lg mx-1 }
+.btn-secundary { @apply bg-white color-main font-medium px-7 hover:bg-black py-2 text-lg rounded-lg mx-1 }
+
+.input-text { @apply text-gray-900 border-2 border-gray-700 p-3 rounded-md focus:outline-none }
+
+.border-main { @apply border-color border-b-2 }
+
+ /* Text */
+.title { @apply text-2xl text-gray-800 font-bold }
+.subtitle  { @apply text-lg text-gray-800 font-bold }
+.subtitle-2  { @apply text-lg text-gray-800 font-medium }
+
+/* Misc */
+.separator { @apply bg-gray-400 h-0.5 }
+
+@tailwind utilities;

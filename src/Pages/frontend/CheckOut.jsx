@@ -20,6 +20,7 @@ function classNames(...classes) {
 
 const CheckOut = () => {
   const [empty, setEmpty] = useState(false);
+  const [tropipayData, setTropipayData] = useState(false);
   const [loading, setLoading] = useState(false);
   const { cart } = useSelector((state) => state.cart);
   const location = useSelector((state) => state.location.location);
@@ -41,6 +42,15 @@ const CheckOut = () => {
   const [method, setMethod] = useState(methodsDeliveries[0]);
 
   const dispatch = useDispatch();
+
+ const removeItemLocal = (id) => {
+    dispatch(removeItem(id));
+
+    //check if cart is empty
+    if (cart.length === 1) {
+      setEmpty(true);
+    }
+  };
 
   const getTotalQuantity = () => {
     let total = 0;
@@ -134,7 +144,7 @@ const CheckOut = () => {
     if (json.code == "ok") {
       dispatch(clearCart());
       window.location.href = json.url;
-    }else{
+    } else {
       toast.error("Ocurrió un error al procesar el pago!", {
         position: "top-center",
         autoClose: 5000,
@@ -357,99 +367,6 @@ const CheckOut = () => {
                       placeholder="Ejemplo: Incluir tarjeta de felicitación a nombre de ...; Soy alérgico a.."
                     ></textarea>
                   </div>
-
-                  <span className="title p-3">Datos de facturación</span>
-                  <div className="p-3">
-                    <div className="flex flex-col space-y-3">
-                      <span className="text-gray-700">Nombre</span>
-                      <input
-                        type="text"
-                        className="input-text"
-                        {...register("clientName", { required: true })}
-                      />
-                      {errors.clientName && (
-                        <span className="text-red-500 font-medium">
-                          Este campo es requerido
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex flex-col space-y-3">
-                      <span className="text-gray-700">Apellidos</span>
-                      <input
-                        type="text"
-                        className="input-text"
-                        {...register("clientLastName", { required: true })}
-                      />
-                      {errors.clientLastName && (
-                        <span className="text-red-500 font-medium">
-                          Este campo es requerido
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex flex-col space-y-3">
-                      <span className="text-gray-700">Dirección</span>
-                      <input
-                        type="text"
-                        className="input-text"
-                        {...register("clientAddress", { required: true })}
-                      />
-                      {errors.clientAddress && (
-                        <span className="text-red-500 font-medium">
-                          Este campo es requerido
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex flex-col space-y-3">
-                      <span className="text-gray-700">Email</span>
-                      <input
-                        type="text"
-                        className="input-text"
-                        {...register("clientEmail", { required: true })}
-                      />
-                      {errors.clientEmail && (
-                        <span className="text-red-500 font-medium">
-                          Este campo es requerido
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex flex-col space-y-3">
-                      <span className="text-gray-700">Teléfono</span>
-                      <input
-                        type="text"
-                        className="input-text"
-                        {...register("clientPhone", { required: true })}
-                      />
-                      {errors.clientPhone && (
-                        <span className="text-red-500 font-medium">
-                          Este campo es requerido
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex flex-col space-y-3">
-                      <span className="text-gray-700   mt-2">País</span>
-                      <select
-                        {...register("clientCountry", { required: true })}
-                        className="input-text"
-                      >
-                        <option value="">-Selecciona-</option>
-                        {countries?.map((country, index) => {
-                          return (
-                            <option
-                              key={`country-${country.id}`}
-                              value={country.id}
-                            >
-                              {country.name}
-                            </option>
-                          );
-                        })}
-                      </select>
-                      {errors.clientCountry && (
-                        <span className="text-red-500 font-medium">
-                          Este campo es requerido
-                        </span>
-                      )}
-                    </div>
-                  </div>
                 </div>
                 <div className="col-span-12 lg:col-span-6 bg-gray-50">
                   <div className="bg-gray-10">
@@ -491,7 +408,7 @@ const CheckOut = () => {
                               }}
                             >
                               <button
-                                onClick={() => dispatch(removeItem(product.id))}
+                                onClick={() => removeItemLocal(product.id) }
                                 style={{
                                   borderColor: "black",
                                   borderStyle: "solid",
@@ -537,18 +454,135 @@ const CheckOut = () => {
 
                       <hr className="separator  " />
                       <span className="title p-3">Método de pago</span>
-                      <button
-                        type="submit"
-                        className="btn-main flex  mt-7 px-7 mx-auto"
-                      >
-                        <span className="px-7 text-lg font-medium">
-                          Pagar con tarjeta
-                        </span>
-                        <img
-                          src="/assets/img/tropipay.png"
-                          className="h-10 w-auto"
-                        />
-                      </button>
+                      {tropipayData ? (
+                        <div>
+                          <span className="title p-3">
+                            Datos de facturación
+                          </span>
+                          <div className="p-3">
+                            <div className="flex flex-col space-y-3">
+                              <span className="text-gray-700">Nombre</span>
+                              <input
+                                type="text"
+                                className="input-text"
+                                {...register("clientName", { required: true })}
+                              />
+                              {errors.clientName && (
+                                <span className="text-red-500 font-medium">
+                                  Este campo es requerido
+                                </span>
+                              )}
+                            </div>
+                            <div className="flex flex-col space-y-3">
+                              <span className="text-gray-700">Apellidos</span>
+                              <input
+                                type="text"
+                                className="input-text"
+                                {...register("clientLastName", {
+                                  required: true,
+                                })}
+                              />
+                              {errors.clientLastName && (
+                                <span className="text-red-500 font-medium">
+                                  Este campo es requerido
+                                </span>
+                              )}
+                            </div>
+                            <div className="flex flex-col space-y-3">
+                              <span className="text-gray-700">Dirección</span>
+                              <input
+                                type="text"
+                                className="input-text"
+                                {...register("clientAddress", {
+                                  required: true,
+                                })}
+                              />
+                              {errors.clientAddress && (
+                                <span className="text-red-500 font-medium">
+                                  Este campo es requerido
+                                </span>
+                              )}
+                            </div>
+                            <div className="flex flex-col space-y-3">
+                              <span className="text-gray-700">Email</span>
+                              <input
+                                type="text"
+                                className="input-text"
+                                {...register("clientEmail", { required: true })}
+                              />
+                              {errors.clientEmail && (
+                                <span className="text-red-500 font-medium">
+                                  Este campo es requerido
+                                </span>
+                              )}
+                            </div>
+                            <div className="flex flex-col space-y-3">
+                              <span className="text-gray-700">Teléfono</span>
+                              <input
+                                type="text"
+                                className="input-text"
+                                {...register("clientPhone", { required: true })}
+                              />
+                              {errors.clientPhone && (
+                                <span className="text-red-500 font-medium">
+                                  Este campo es requerido
+                                </span>
+                              )}
+                            </div>
+                            <div className="flex flex-col space-y-3">
+                              <span className="text-gray-700   mt-2">País</span>
+                              <select
+                                {...register("clientCountry", {
+                                  required: true,
+                                })}
+                                className="input-text"
+                              >
+                                <option value="">-Selecciona-</option>
+                                {countries?.map((country, index) => {
+                                  return (
+                                    <option
+                                      key={`country-${country.id}`}
+                                      value={country.id}
+                                    >
+                                      {country.name}
+                                    </option>
+                                  );
+                                })}
+                              </select>
+                              {errors.clientCountry && (
+                                <span className="text-red-500 font-medium">
+                                  Este campo es requerido
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                          <button
+                            type="submit"
+                            className="btn-main flex  mt-7 px-7 mx-auto"
+                          >
+                            <span className="px-7 text-lg font-medium">
+                              Pagar con tarjeta
+                            </span>
+                            <img
+                              src="/assets/img/tropipay.png"
+                              className="h-10 w-auto"
+                            />
+                          </button>
+                        </div>
+                      ) : (
+                        <button
+                          onClick={() => setTropipayData(true)}
+                          className="btn-main flex  mt-7 px-7 mx-auto"
+                        >
+                          <span className="px-7 text-lg font-medium">
+                            Pagar con tarjeta
+                          </span>
+                          <img
+                            src="/assets/img/tropipay.png"
+                            className="h-10 w-auto"
+                          />
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -560,8 +594,8 @@ const CheckOut = () => {
         <div className="flex flex-col my-7 justify-center items-center">
           <img src="/assets/img/notfound.png" className="h-96 w-auto" />
           <span className="text-2xl font-bold">Tu carrito está vacío</span>
-          <Link href="/">
-            <button className="btn-main mt-5">Ir a la tienda</button>
+          <Link to={'/'}>
+            <button className="btn-main mt-5">Ir al inicio</button>
           </Link>
         </div>
       )}

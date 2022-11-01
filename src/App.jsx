@@ -24,6 +24,8 @@ function App() {
           <Routes>
             <Route element={<TemplateLanding />}>
               <Route key={"/"} path="/" element={<Restaurants />} />
+              <Route key={"/dulcerias"} path="/dulcerias"  element={<Restaurants />} />
+              
               <Route
                 key={"/restaurante"}
                 path="/restaurante/:restaurantSlug"

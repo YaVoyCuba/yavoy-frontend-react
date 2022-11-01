@@ -53,9 +53,9 @@ export default {
     }
   },
   
-  getRestaurants: async (locationId) => {
+  getRestaurants: async (locationId,type) => {
     
-    let urlApi = "/restaurants/all/"+locationId;
+    let urlApi = "/restaurants/all/"+locationId+"/"+type;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();

@@ -28,6 +28,13 @@ export default {
       return await request.json();
     }
   },
+  getTropiapayCountries: async () => {
+    let urlApi = "/payment/tropipay/countries";
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
 
 
   getRestaurantInfoForCheckout: async (restaurantId) => {
@@ -47,7 +54,7 @@ export default {
   },
   
   getRestaurants: async (locationId) => {
-    console.log(locationId);
+    
     let urlApi = "/restaurants/all/"+locationId;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
@@ -56,7 +63,7 @@ export default {
   },
 
   getRestaurantDetails: async (restaurantSlug) => {
-    console.log(restaurantSlug);
+   
     let urlApi = "/restaurants/view/"+restaurantSlug;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
@@ -65,7 +72,7 @@ export default {
   },
   
   getDataForCheckOut: async (restaurantId) => {
-    console.log(restaurantId);
+ 
     let urlApi = "/payment/checkout/"+restaurantId;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
@@ -82,7 +89,7 @@ export default {
   },
 
   getProductDetails: async (productSlug) => {
-    console.log(productSlug);
+    
     let urlApi = "/products/view/"+productSlug;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
@@ -117,6 +124,7 @@ export default {
         body: JSON.stringify(data)
     });
     if(request){
+      
         return await request.json();
     }
   },

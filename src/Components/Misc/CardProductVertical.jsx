@@ -43,7 +43,7 @@ const CardProductVertical = (props) => {
     if (exist) {
       productExisted();
     } else {
-       console.log("cart",{ id, name, price, img, rating, slug, restaurantId });
+       
           dispatch(addToCart({ id, name, price, img, rating, slug, restaurantId,quantity:1 }));
           productAdd();
     }

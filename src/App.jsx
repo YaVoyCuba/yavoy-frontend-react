@@ -11,6 +11,8 @@ import RestaurantPage from "./Pages/frontend/RestaurantPage";
 import { ToastContainer } from "react-toastify";
 import Cart from "./Pages/frontend/Cart";
 import CheckOut from "./Pages/frontend/CheckOut";
+import PaymentCompleted from "./Pages/frontend/PaymentCompleted";
+import PaymentFailed from "./Pages/frontend/PaymentFailed";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,6 +28,16 @@ function App() {
                 key={"/restaurante"}
                 path="/restaurante/:restaurantSlug"
                 element={<RestaurantPage />}
+              />
+              <Route
+                key={"/pagocompletado"}
+                path="/pagocompletado"
+                element={<PaymentCompleted />}
+              />
+              <Route
+                key={"/errorenpago"}
+                path="/errorenpago"
+                element={<PaymentFailed />}
               />
                  <Route
                 key={"/producto"}

@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Outlet, Navigate, useLocation, Link } from "react-router-dom";
+ 
+import { useSelector } from "react-redux";
+import { Outlet, useLocation } from "react-router-dom";
  
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
@@ -10,7 +10,7 @@ const TemplateLanding = () => {
 
  
 
-  const info = useSelector((state) => state.info.info.settings);
+  const info = useSelector((state) => state.info.info);
 
   // const tabs = [
   //   { name: "Restaurantes", href: "/restaurantes", current: true, rutes: ["/", "restaurante","producto","restaurantes"] },

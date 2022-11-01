@@ -20,7 +20,7 @@ const Location = () => {
 
   const getLocation = async () => {
     let json = await apiManager.getLocationData();
-    console.log(json);
+ 
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
       // setMunicipalities();
@@ -52,8 +52,7 @@ const Location = () => {
       provinceId = location.province_id;
     }
 
-    console.log("locationName", locationName);
-    console.log("locationId", locationId);
+     
 
     if (cart.length > 0) {
       let can = checkIfNewLocationCanBeAddedWithRestaurantInCart();

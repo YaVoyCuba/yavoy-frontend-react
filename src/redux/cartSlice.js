@@ -44,4 +44,5 @@ export const {
   incrementQuantity,
   decrementQuantity,
   removeItem,
+  clearCart,
 } = cartSlice.actions;

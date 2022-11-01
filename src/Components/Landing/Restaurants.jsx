@@ -14,8 +14,7 @@ const Restaurants = () => {
 
   async function getRestaurants() {
     let location2 = store.getState().location.location;
-    console.log("location2", location2);
-    console.log("location1", location);
+  
     let locationFinal = "";
     if (location.locationName == "") {
       locationFinal = location2.locationId;
@@ -23,7 +22,7 @@ const Restaurants = () => {
       locationFinal = location.locationId;
     }
 
-    console.log("locationFinal", locationFinal);
+    
 
     let json = await apiManager.getRestaurants(locationFinal);
     if (json != 500) {

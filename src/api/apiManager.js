@@ -20,6 +20,16 @@ export default {
       return await request.json();
     }
   },
+  
+
+  getLocationDataForHouses: async () => {
+    let urlApi = "/location/houses/provinces";
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+
 
   getZones: async (restaurantId) => {
     let urlApi = "/location/zones/restaurant/"+restaurantId;
@@ -28,6 +38,7 @@ export default {
       return await request.json();
     }
   },
+
   getTropiapayCountries: async () => {
     let urlApi = "/payment/tropipay/countries";
     const request = await fetch(UrlApiBase + urlApi);
@@ -52,10 +63,27 @@ export default {
       return await request.json();
     }
   },
+
+  getZonesForHouses: async (provinceId) => {
+    let urlApi = "/location/province/"+provinceId+"/zoneshouses";
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
   
   getRestaurants: async (locationId,type) => {
-    
+     
     let urlApi = "/restaurants/all/"+locationId+"/"+type;
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+
+  getHouses: async (locationId,type) => {
+   
+    let urlApi = "/houses/all/"+locationId+"/"+type;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();

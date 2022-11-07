@@ -24,7 +24,11 @@ function App() {
           <Routes>
             <Route element={<TemplateLanding />}>
               <Route key={"/"} path="/" element={<Restaurants />} />
+              <Route key={"/mercados"} path="/mercados"  element={<Restaurants />} />
+              <Route key={"/restaurantes"} path="/restaurantes"  element={<Restaurants />} />
+              <Route key={"/regalitos"} path="/regalitos"  element={<Restaurants />} />
               <Route key={"/dulcerias"} path="/dulcerias"  element={<Restaurants />} />
+              <Route key={"/alojamiento"} path="/alojamiento"  element={<Houses />} />
               
               <Route
                 key={"/restaurante"}

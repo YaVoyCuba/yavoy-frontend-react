@@ -265,7 +265,7 @@ const HeaderTop = () => {
                                 </svg>
                               </button>
                             </Link>
-                            <Link to={"/"}>
+                            <Link to={"/mercados"}>
                               <button
                                 onClick={() => setOpen(!open)}
                                 className="w-full px-7 text-lg color-main flex self-center justify-between  "
@@ -287,7 +287,7 @@ const HeaderTop = () => {
                                 </svg>
                               </button>
                             </Link>
-                            <Link to={"/"}>
+                            <Link to={"/dulcerias"}>
                               <button
                                 onClick={() => setOpen(!open)}
                                 className="w-full px-7 text-lg color-main flex self-center justify-between  "
@@ -309,7 +309,7 @@ const HeaderTop = () => {
                                 </svg>
                               </button>
                             </Link>
-                            <Link to={"/"}>
+                            <Link to={"/regalitos"}>
                               <button
                                 onClick={() => setOpen(!open)}
                                 className="w-full px-7 text-lg color-main flex self-center justify-between  "

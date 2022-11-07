@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import apiManager from "../../api/apiManager";
-import { setLocation } from "../../redux/locationSlice";
+import { setLocationHouse } from "../../redux/locationSlice";
 import {toast} from 'react-toastify';
 
-const Location = () => {
-  const location = useSelector((state) => state.location.location);
+const LocationHouses = () => {
+  const location = useSelector((state) => state.location.locationHouse);
   const { cart } = useSelector((state) => state.cart);
   const [provinces, setProvinces] = useState([]);
   const [provinceSelected, setProvinceSelected] = useState('');
@@ -19,7 +19,7 @@ const Location = () => {
   const dispatch = useDispatch();
 
   const getLocation = async () => {
-    let json = await apiManager.getLocationData();
+    let json = await apiManager.getLocationDataForHouses();
  
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
@@ -29,7 +29,7 @@ const Location = () => {
 
   const setMunicipalitiesByProvince = async (event) => {
     setProvinceSelected(event.target.value);
-    let json = await apiManager.getMunicipalities(event.target.value);
+    let json = await apiManager.getZonesForHouses(event.target.value);
     if (json.code == "ok") {
       setMunicipalities(json.data);
       setMunicipalitieSelected(json.data[0]?.id);
@@ -58,14 +58,14 @@ const Location = () => {
       let can = checkIfNewLocationCanBeAddedWithRestaurantInCart();
       if (can) {
         dispatch(
-          setLocation({
+          setLocationHouse({
             locationName: locationName,
             locationId: locationId,
             provinceId: provinceId,
           })
         );
 
-        localStorage.setItem("location", JSON.stringify({
+        localStorage.setItem("locationHouses", JSON.stringify({
           locationName: locationName,
           locationId: locationId,
           provinceId: provinceId,
@@ -83,14 +83,14 @@ const Location = () => {
       }
     } else {
       dispatch(
-        setLocation({
+        setLocationHouse({
           locationName: locationName,
           locationId: locationId,
           provinceId: provinceId,
         })
       );
 
-      localStorage.setItem("location", JSON.stringify({
+      localStorage.setItem("locationHouses", JSON.stringify({
         locationName: locationName,
         locationId: locationId,
         provinceId: provinceId,
@@ -99,28 +99,30 @@ const Location = () => {
   };
 
   const checkIfNewLocationCanBeAddedWithRestaurantInCart = () => {
-    let zones = apiManager.getZones(cart[0].restaurantId);
+    let municipalities = apiManager.getZones(cart[0].restaurantId);
   };
 
   const checkLocationInStorage = () => {
-    let location = localStorage.getItem("location");
+    let location = localStorage.getItem("locationHouses");
     if (location) {
-      dispatch(setLocation(JSON.parse(location)));
+
+      dispatch(setLocationHouse(JSON.parse(location)));
       setMunicipalitieSelected(JSON.parse(location).locationId);
       setProvinceSelected(JSON.parse(location).provinceId);
     }
 
     if (!location) {
+       
       setOpen(true);
     }
   };
 
   useEffect(() => {
-    if(localStorage.getItem("location")){
-      dispatch(setLocation(JSON.parse(localStorage.getItem("location"))));
-    }else{
-      getLocation();
-    }
+    if(localStorage.getItem("locationHouses")){
+        dispatch(setLocationHouse(JSON.parse(localStorage.getItem("locationHouses"))));
+      }else{
+        getLocation();
+      }
     checkLocationInStorage();
   }, []);
 
@@ -147,7 +149,7 @@ const Location = () => {
             />
           </svg>
           <span className="text-gray-700 font-medium pl-3">
-            Delivery fijado en {location.locationName}
+            Ubicación fijada en {location.locationName}
           </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -288,4 +290,4 @@ const Location = () => {
   );
 };
 
-export default Location;
+export default LocationHouses;

@@ -27,17 +27,19 @@ const Restaurants = () => {
       locationFinal = location.locationId;
     }
 
-    let type = "restaurant";
+    let type = "restaurant" 
+
     if(path == '/dulcerias'){
-      let type = "dulcerias";
+        type = "dulceria";
     }
+
     if(path == '/mercados'){
-      let type = "mercados";
+        type = "market";
     }
+
     if(path == '/regalitos'){
-      let type = "regalitos";
+        type = "regalos";
     }
-   
 
     let json = await apiManager.getRestaurants(locationFinal,type);
     if (json != 500) {
@@ -47,9 +49,9 @@ const Restaurants = () => {
 
   useEffect(() => {
     setLoading(true);
-    getRestaurants();
+     location.locationId != 0 && getRestaurants();
     setLoading(false);
-  }, [location]);
+  }, [location,path]);
 
   return (
     <>

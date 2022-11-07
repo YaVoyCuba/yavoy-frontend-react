@@ -34,7 +34,7 @@ const SearchPage = () => {
   const searchInput = useRef(null);
 
   useEffect(() => {
-    getRestaurants();
+    location.locationId != 0 && getRestaurants();
   }, []);
 
   const onSearch = (searchInputValue) => {
@@ -45,7 +45,7 @@ const SearchPage = () => {
       );
       setRestaurants(restaurantFiltereds);
     } else {
-      getRestaurants();
+     location && getRestaurants();
     }
   };
 

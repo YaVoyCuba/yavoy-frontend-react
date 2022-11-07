@@ -104,7 +104,7 @@ const ProductDetailPage = (props) => {
           </div>
           <div className="grid  grid-cols-5">
             <div className="col-span-5 p-1 lg:col-span-5">
-              <div className="grid mt-3 grid-cols-2">
+              <div className="col-span-5  grid mt-3 grid-cols-2">
                 <div className="col-span-2 lg:col-span-1 mb-7 sm:mb-0  pl-3 pr-7">
                   <ImageGallery items={photos} />
                 </div>

@@ -8,7 +8,7 @@ const HouseCard = (props) => {
 
   return (
     <div>
-      <Link className="cursor-pointer" to={"/restaurante/" + house.slug}>
+      <Link className="cursor-pointer" to={"/alojamiento/" + house.slug}>
         <div className="grid grid-cols-3 rounded-lgmy-3 lg:my-2   mx-0 lg:mx-2 bg-white shadow-lg cursor-pointer hover:opacity-80">
           <div
             className="col-span-1 bg-contain aspect-4/3 h-28   w-32 object-cover "

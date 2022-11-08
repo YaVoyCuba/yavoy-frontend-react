@@ -6,7 +6,7 @@ import apiManager from "../../api/apiManager";
 import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
 import RestaurantCard from "../Misc/RestaurantCard";
-import { login } from "../../redux/signinSlice";
+ 
 
 const SearchPage = () => {
   const [search, setSearch] = useState(null);

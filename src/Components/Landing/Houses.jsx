@@ -15,6 +15,7 @@ const Houses = () => {
   
   const [houses, setHouses] = useState([]);
   const [loading, setLoading] = useState(true);
+ 
   const location = useSelector((state) => state.location.locationHouse);
 
   async function getHouses() {
@@ -63,7 +64,7 @@ const Houses = () => {
         <Loading />
       ) : (
         <div>
-          <span className="text-lg font-bold text-gray-700">Restaurantes</span>
+          <span className="text-lg font-bold text-gray-700">Casas</span>
           <div className="grid grid-cols-3">
             {houses.map((house) => {
               return (

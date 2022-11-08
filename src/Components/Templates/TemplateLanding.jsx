@@ -11,10 +11,11 @@ const TemplateLanding = () => {
  
 
   const info = useSelector((state) => state.info.info);
+  
 
   const tabs = [
     { name: "Restaurantes", href: "/restaurantes", current: true, rutes: ["", "restaurante","producto","restaurantes","mercados","dulcerias","regalitos"] },
-    { name: "Alojamiento", href: "/alojamiento", current: false, rutes: ["alojamiento" ] },
+    { name: "Alojamiento", href: "/alojamientos", current: false, rutes: ["alojamiento" ] },
   ];
 
  

@@ -13,6 +13,14 @@ export default {
     }
   },
 
+  getHouseDetailsForBooking: async (houseSlug) => {
+    let urlApi = "/houses/book/"+houseSlug;
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+
   getLocationData: async () => {
     let urlApi = "/location/provinces";
     const request = await fetch(UrlApiBase + urlApi);
@@ -93,6 +101,16 @@ export default {
   getRestaurantDetails: async (restaurantSlug) => {
    
     let urlApi = "/restaurants/view/"+restaurantSlug;
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+  
+
+  getHouseDetails: async (houseSlug) => {
+   
+    let urlApi = "/houses/view/"+houseSlug;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();

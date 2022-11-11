@@ -9,11 +9,11 @@ import LocationHouses from "./LocationHouses";
 
 const Header = (props) => {
   const locationType = props.locationType;
-
   return (
     <div>
       <HeaderTop />
       {locationType == "restaurantes" ||
+       locationType == "/" ||
       locationType == "restaurante" ||
       locationType == "mercados" ||
       locationType == "regalitos" ||
@@ -22,9 +22,6 @@ const Header = (props) => {
       ) : (
         <LocationHouses />
       )}
-
-      {/* <HeaderCenter />
-      <HeaderCategories /> */}
     </div>
   );
 };

@@ -44,13 +44,14 @@ const Restaurants = () => {
     let json = await apiManager.getRestaurants(locationFinal,type);
     if (json != 500) {
       setRestaurants(json.restaurants);
+      setLoading(false);
     }
   }
 
   useEffect(() => {
     setLoading(true);
      location.locationId != 0 && getRestaurants();
-    setLoading(false);
+  
   }, [location,path]);
 
   return (
@@ -59,7 +60,7 @@ const Restaurants = () => {
         <Loading />
       ) : (
         <div>
-          <span className="text-lg font-bold text-gray-700">Restaurantes</span>
+          {/* <span className="text-lg font-bold text-gray-700">Restaurantes</span> */}
           <div className="grid grid-cols-3">
             {restaurants.map((restaurant) => {
               return (
@@ -73,7 +74,7 @@ const Restaurants = () => {
             })}
           </div>
 
-          <div className="mt-3 ">
+          {/* <div className="mt-3 ">
             <span className="text-lg font-bold text-gray-700">
               Ofertas especiales
             </span>
@@ -81,7 +82,7 @@ const Restaurants = () => {
               <div className="swiper-wrapper"></div>
               <div className="swiper-pagination"></div>
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </>

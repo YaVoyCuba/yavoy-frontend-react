@@ -10,16 +10,16 @@ const RestaurantCard = (props) => {
       <Link className="cursor-pointer" to={"/restaurante/" + restaurant.slug}>
         <div className="grid grid-cols-3 rounded-lgmy-3 lg:my-2   mx-0 lg:mx-2 bg-white shadow-lg cursor-pointer hover:opacity-80">
           <div
-            className="col-span-1 bg-contain aspect-4/3 h-28   w-32 object-cover "
+            className="col-span-1 bg-contain aspect-4/3 h-full w-32  object-cover "
             style={{
               backgroundImage: `url(${apiManager.UrlBase + restaurant.avatar})`,
               borderTopLeftRadius: "7px",
               borderBottomLeftRadius: "7px",
             }}
           ></div>
-          <div className="col-span-2  h-28 ml-3 lg:ml-0">
+          <div className="col-span-2  h-auto max-h-32 pb-1 ml-3 lg:ml-0">
             <div className="flex justify-between p-3">
-              <span className="inline-block   h-8 w-8 rounded-full overflow-hidden bg-gray-100">
+              <span className="inline-block   h-7 w-7 rounded-full overflow-hidden bg-gray-100">
                 <img
                   className="h-full w-full text-gray-300 "
                   src={`${apiManager.UrlBase + restaurant.avatar}`}
@@ -41,7 +41,7 @@ const RestaurantCard = (props) => {
             </div>
             <div>
               <div className="flex justify-between">
-                <span className="text-md pl-3 pr-1 pb-0 color uppercase font-bold ">
+                <span className="text-md pl-3 pr-0.5 pb-0 color uppercase font-bold ">
                   {restaurant.name}
                 </span>
               </div>

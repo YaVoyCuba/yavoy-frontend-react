@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { Provider } from "react-redux";
  
+import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductDetailPage from "./pages/frontend/ProductDetailPage";
 import Restaurants from "./Components/Landing/Restaurants";
@@ -9,18 +8,18 @@ import TemplateLanding from "./Components/Templates/TemplateLanding";
 import RestaurantPage from "./Pages/frontend/RestaurantPage";
 import { ToastContainer } from "react-toastify";
 import Cart from "./Pages/frontend/Cart";
- 
 import CheckOut from "./Pages/frontend/CheckOut";
 import PaymentCompleted from "./Pages/frontend/PaymentCompleted";
 import PaymentFailed from "./Pages/frontend/PaymentFailed";
 import HousePage from "./Components/Landing/HousePage";
 import Login from "./Pages/frontend/LoginPage";
-import { persistor, store } from './redux/store';
-import { PersistGate } from 'redux-persist/integration/react';
-
-function App() {
+import { persistor, store } from "./redux/store";
+import { PersistGate } from "redux-persist/integration/react";
+import TemplateUser from "./Components/Templates/TemplateUser";
+import ProfilePage from "./Pages/backend/user/ProfilePage";
  
 
+function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -60,6 +59,7 @@ function App() {
                   element={<HousePage />}
                 />
                 <Route key={"/login"} path="/login" element={<Login />} />
+             
 
                 <Route
                   key={"/restaurante"}
@@ -89,6 +89,9 @@ function App() {
 
                 <Route key={"/caja"} path="caja" element={<CheckOut />} />
                 <Route key={"/carrito"} path="/carrito" element={<Cart />} />
+              </Route>
+              <Route element={<TemplateUser />}>
+                <Route key={"/perfil"} path="/perfil" element={<ProfilePage />} />
               </Route>
             </Routes>
           </div>

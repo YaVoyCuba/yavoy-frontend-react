@@ -157,6 +157,57 @@ export default {
   //     return request.message;
   //   }
   // },
+  register: async (data) => {
+    let urlApi = '/register';
+
+    const request = await fetch(UrlApiBase  + urlApi, {
+        method:'POST',
+        headers:{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+    if(request){
+      
+        return await request.json();
+    }
+  },
+
+
+  newBook: async (data) => {
+    let urlApi = '/houses/newbook';
+
+    const request = await fetch(UrlApiBase  + urlApi, {
+        method:'POST',
+        headers:{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+    if(request){
+      
+        return await request.json();
+    }
+  },
+
+  userInfo: async (token) => {
+    let urlApi = '/user/me';
+
+    const request = await fetch(UrlApiBase  + urlApi, {
+        method:'POST',
+        headers:{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': 'Bearer ' + token
+        } 
+    });
+    if(request){
+      
+        return await request.json();
+    }
+  },
 
   newOrder: async (data) => {
     let urlApi = '/payment/pay';

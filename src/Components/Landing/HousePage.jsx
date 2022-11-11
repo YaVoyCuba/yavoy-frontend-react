@@ -6,7 +6,7 @@ import apiManager from "../../api/apiManager";
 import { Loading } from "../../common/Landing";
 import format from "date-fns/format";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
@@ -14,11 +14,17 @@ import { addDays } from "date-fns";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 
+import { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { CheckIcon } from "@heroicons/react/24/outline";
+
 import { DateRangePicker } from "react-date-range";
 import { useSelector } from "react-redux";
 import LoginPage from "../../Pages/frontend/LoginPage";
 
 const HousePage = (props) => {
+  const [bookCompleted, setBookCompleted] = useState(false);
+  const [bookCompletedCode, setBookCompletedCode] = useState(0);
   const auth = useSelector((state) => state.auth);
   const { houseSlug } = useParams();
   const [house, setHouse] = useState([]);
@@ -37,16 +43,42 @@ const HousePage = (props) => {
   const [babies, setBabies] = useState(0);
   const [totalQuests, setTotalQuests] = useState(0);
   const [countries, setCountries] = useState([]);
+  const [contactName, setContactName] = useState([]);
+  const [contactPhone, setContactPhone] = useState([]);
+  const [contactEmail, setContactEmail] = useState([]);
+  const [contactCountry, setContactCountry] = useState(1);
 
   const [errorQuantity, setErrorQuantity] = useState(false);
 
-  const valdiateBook = () => {
+  const valdiateBook = async () => {
     setTotalQuests(adults + children + babies);
 
     if (adults + children + babies > house.guests) {
       setErrorQuantity(true);
     } else {
       setErrorQuantity(false);
+
+      let date =
+        format(range[0].startDate, "dd-MM-yyyy") +
+        "," +
+        format(range[0].endDate, "dd-MM-yyyy");
+
+      let payload = {
+        house_id: house.id,
+        contactName: auth.user.name,
+        contactPhone: auth.user.phone,
+        contactEmail: auth.user.email,
+        contactCountry: contactCountry,
+        dates: date,
+      };
+
+      let json = await apiManager.newBook(payload);
+
+      if (json.code == "ok") {
+        setBookCompleted(true);
+        setBookCompletedCode(json.bookingCode);
+        return handleBook();
+      }
     }
   };
 
@@ -65,10 +97,10 @@ const HousePage = (props) => {
   };
 
   const handleLogin = () => {
-    if(auth.token){
-        setLoginView(false);
-    }else{
-        setLoginView(true);
+    if (auth.token) {
+      setLoginView(false);
+    } else {
+      setLoginView(true);
     }
   };
 
@@ -151,7 +183,7 @@ const HousePage = (props) => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="pb-32">
+        <div className="pb-32 ">
           {loginView && (
             <div className="">
               <div className="mb-20 text-center lg:rounded-2xl lg:m-10 lg:max-w-2xl absolute z-50 max-h-screen shadow-2xl inset-y-0 lg:w-full inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
@@ -188,7 +220,7 @@ const HousePage = (props) => {
               <Loading />
             ) : (
               <div className="">
-                <div className="mb-20 text-center lg:rounded-2xl lg:m-10 lg:max-w-2xl absolute z-50 h-full lg:w-full inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
+                <div className="mb-0  overflow-y-auto text-center lg:rounded-2xl lg:m-10 lg:max-w-2xl absolute z-50  lg:w-full inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
                   <div className="mt-1">
                     <button onClick={() => handleBook()} className="pl-3 flex">
                       <span className="text-gray-700 flex text-lg pt-3 pl-2">
@@ -254,6 +286,7 @@ const HousePage = (props) => {
                       {open && (
                         <div>
                           <DateRangePicker
+                            dateDisplayFormat="dd/MM/yyyy"
                             onChange={(item) => setRange([item.selection])}
                             editableDateInputs={true}
                             moveRangeOnFirstSelection={false}
@@ -456,7 +489,12 @@ const HousePage = (props) => {
                     {/* Bebes */}
                     <span>País</span>
                     <div className="flex px-7 mt-4">
-                      <select className="input-text w-full px-3">
+                      <select
+                        onChange={(event) =>
+                          setContactCountry(event.target.value)
+                        }
+                        className="input-text w-full px-3"
+                      >
                         {countries?.map((element) => {
                           return (
                             <option value={element.id}>
@@ -586,6 +624,94 @@ const HousePage = (props) => {
               </div>
             </div>
           )}
+
+          <Transition.Root show={bookCompleted} as={Fragment}>
+            <Dialog
+              as="div"
+              className="relative z-10"
+              onClose={setBookCompleted}
+            >
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <div className="fixed  inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+              </Transition.Child>
+
+              <div className="fixed inset-0 z-10 overflow-y-auto">
+                <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                    enterTo="opacity-100 translate-y-0 sm:scale-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                    leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                  >
+                    <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                      <div className="space-y-5">
+                        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+                          <CheckIcon
+                            className="h-6 w-6 text-green-600"
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <div className="mt-3 text-center sm:mt-5">
+                          <Dialog.Title
+                            as="h3"
+                            className="text-lg font-medium leading-6 text-gray-900"
+                          >
+                            Pre reserva completada
+                          </Dialog.Title>
+                          <div className="mt-2">
+                            <p className="text-sm text-gray-500">
+                              El anfitrión le contactará para confirmar la
+                              reserva.
+                            </p>
+                            <br />
+                            <span className="text-2xl bg-green-300 text-green-700 rounded-lg p-3 px-7 text-center">
+                              {bookCompletedCode}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="mt-5 flex justify-center sm:mt-6">
+                        <Link to={'/perfil'} >
+                        <button
+                          type="button"
+                          className="btn-main flex my-3 items-center"
+                          onClick={() => setBookCompleted(false)}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-5 h-5 pt-1"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                            />
+                          </svg>
+                          Ver todas mis reservas
+                        </button>
+                        </Link>
+                      </div>
+                    </Dialog.Panel>
+                  </Transition.Child>
+                </div>
+              </div>
+            </Dialog>
+          </Transition.Root>
         </div>
       )}
     </>

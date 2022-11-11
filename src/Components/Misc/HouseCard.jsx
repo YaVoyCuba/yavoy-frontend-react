@@ -8,24 +8,19 @@ const HouseCard = (props) => {
 
   return (
     <div>
-      <Link className="cursor-pointer" to={"/alojamiento/" + house.slug}>
+      <Link className="cursor-pointer hover:opacity-95" to={"/alojamiento/" + house.slug} >
         <div className="grid grid-cols-3 rounded-lgmy-3 lg:my-2   mx-0 lg:mx-2 bg-white shadow-lg cursor-pointer hover:opacity-80">
-          <div
-            className="col-span-1 bg-contain aspect-4/3 h-28   w-32 object-cover "
+          <img
+            className="h-full w-full text-gray-300 "
+            src={`${apiManager.UrlBase + house.photos?.[0].path_image}`}
             style={{
-              backgroundImage: `url(${apiManager.UrlBase + house.avatar})`,
               borderTopLeftRadius: "7px",
               borderBottomLeftRadius: "7px",
             }}
-          ></div>
+          />
           <div className="col-span-2  h-28 ml-3 lg:ml-0">
-            <div className="flex justify-between p-3">
-              <span className="inline-block   h-8 w-8 rounded-full overflow-hidden bg-gray-100">
-                <img
-                  className="h-full w-full text-gray-300 "
-                  src={`${apiManager.UrlBase + house.avatar}`}
-                />
-              </span>
+            <div className="flex justify-between p-1">
+             
               {house.valoration > 0 && (
                 <span className="text-lg px-3 flex color">
                   {house.valoration}
@@ -41,13 +36,14 @@ const HouseCard = (props) => {
               )}
             </div>
             <div>
-              <div className="flex justify-between">
+              <div className="flex flex-col">
                 <span className="text-md pl-3 pr-1 pb-0 color uppercase font-bold ">
                   {house.title}
                 </span>
+                <span className="text-md line-clamp-3 text-gray-700  pl-3 pr-1 pb-0       ">
+                  {house.resume }
+                </span>
               </div>
-              
-              
             </div>
           </div>
         </div>

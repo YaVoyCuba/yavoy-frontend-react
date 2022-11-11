@@ -3,7 +3,7 @@ import React, { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+  
 
 import CartIconGlobal from "../Misc/CartIconGlobal";
 import SearchPage from "../Landing/SearchPage";

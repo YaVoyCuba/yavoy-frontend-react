@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import apiManager from "../../api/apiManager";
-import RestaurantCard from "../Misc/RestaurantCard";
 import { Loading } from "../../common/Landing";
 import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
@@ -45,16 +44,14 @@ const Houses = () => {
     let json = await apiManager.getHouses(locationFinal,type);
    
     if (json != 500) {
-      console.log(json);
       setHouses(json.houses);
+       setLoading(false);
     }
   }
 
   useEffect(() => {
     setLoading(true);
-    console.log(location);
-     location.locationId != 0 && getHouses();
-    setLoading(false);
+    location.locationId != 0 && getHouses();
   }, [location,path]);
 
 
@@ -64,8 +61,8 @@ const Houses = () => {
         <Loading />
       ) : (
         <div>
-          <span className="text-lg font-bold text-gray-700">Casas</span>
-          <div className="grid grid-cols-3">
+          {/* <span className="text-lg font-bold text-gray-700"> alojamientos</span> */}
+          <div className="grid grid-cols-3 mb-20">
             {houses.map((house) => {
               return (
                 <div
@@ -79,7 +76,7 @@ const Houses = () => {
             })}
           </div>
 
-          <div className="mt-3 ">
+          {/* <div className="mt-3 ">
             <span className="text-lg font-bold text-gray-700">
               Ofertas especiales
             </span>
@@ -87,7 +84,7 @@ const Houses = () => {
               <div className="swiper-wrapper"></div>
               <div className="swiper-pagination"></div>
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </>

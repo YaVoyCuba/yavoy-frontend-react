@@ -5,14 +5,14 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import apiManager from "../../api/apiManager";
 import { setLocationHouse } from "../../redux/locationSlice";
-import {toast} from 'react-toastify';
+import { toast } from "react-toastify";
 
 const LocationHouses = () => {
   const location = useSelector((state) => state.location.locationHouse);
   const { cart } = useSelector((state) => state.cart);
   const [provinces, setProvinces] = useState([]);
-  const [provinceSelected, setProvinceSelected] = useState('');
-  const [municipalitieSelected, setMunicipalitieSelected] = useState('');
+  const [provinceSelected, setProvinceSelected] = useState("");
+  const [municipalitieSelected, setMunicipalitieSelected] = useState("");
   const [municipalities, setMunicipalities] = useState([]);
   const [open, setOpen] = useState(false);
 
@@ -20,7 +20,7 @@ const LocationHouses = () => {
 
   const getLocation = async () => {
     let json = await apiManager.getLocationDataForHouses();
- 
+
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
       // setMunicipalities();
@@ -52,8 +52,6 @@ const LocationHouses = () => {
       provinceId = location.province_id;
     }
 
-     
-
     if (cart.length > 0) {
       let can = checkIfNewLocationCanBeAddedWithRestaurantInCart();
       if (can) {
@@ -65,21 +63,27 @@ const LocationHouses = () => {
           })
         );
 
-        localStorage.setItem("locationHouses", JSON.stringify({
-          locationName: locationName,
-          locationId: locationId,
-          provinceId: provinceId,
-        }));
+        localStorage.setItem(
+          "locationHouses",
+          JSON.stringify({
+            locationName: locationName,
+            locationId: locationId,
+            provinceId: provinceId,
+          })
+        );
       } else {
-        toast.warning("No puedes cambiar a esta ubicación porque el restaurante del carrito no hace envíos a la misma!", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        toast.warning(
+          "No puedes cambiar a esta ubicación porque el restaurante del carrito no hace envíos a la misma!",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
       }
     } else {
       dispatch(
@@ -90,11 +94,14 @@ const LocationHouses = () => {
         })
       );
 
-      localStorage.setItem("locationHouses", JSON.stringify({
-        locationName: locationName,
-        locationId: locationId,
-        provinceId: provinceId,
-      }));
+      localStorage.setItem(
+        "locationHouses",
+        JSON.stringify({
+          locationName: locationName,
+          locationId: locationId,
+          provinceId: provinceId,
+        })
+      );
     }
   };
 
@@ -105,24 +112,24 @@ const LocationHouses = () => {
   const checkLocationInStorage = () => {
     let location = localStorage.getItem("locationHouses");
     if (location) {
-
       dispatch(setLocationHouse(JSON.parse(location)));
       setMunicipalitieSelected(JSON.parse(location).locationId);
       setProvinceSelected(JSON.parse(location).provinceId);
     }
 
     if (!location) {
-       
       setOpen(true);
     }
   };
 
   useEffect(() => {
-    if(localStorage.getItem("locationHouses")){
-        dispatch(setLocationHouse(JSON.parse(localStorage.getItem("locationHouses"))));
-      }else{
-        getLocation();
-      }
+    if (localStorage.getItem("locationHouses")) {
+      dispatch(
+        setLocationHouse(JSON.parse(localStorage.getItem("locationHouses")))
+      );
+    } else {
+      getLocation();
+    }
     checkLocationInStorage();
   }, []);
 
@@ -132,7 +139,10 @@ const LocationHouses = () => {
       <div className="flex py-3 mx-auto  bg-gray-200 mt-1 mb-3 rounded-lg px-3   lg:w-3/4">
         <button
           className="btn flex mx-auto "
-          onClick={(event) => {setOpen(!open); getLocation()}}
+          onClick={(event) => {
+            setOpen(!open);
+            getLocation();
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +158,7 @@ const LocationHouses = () => {
               d="M3 3v1.5M3 21v-6m0 0l2.77-.693a9 9 0 016.208.682l.108.054a9 9 0 006.086.71l3.114-.732a48.524 48.524 0 01-.005-10.499l-3.11.732a9 9 0 01-6.085-.711l-.108-.054a9 9 0 00-6.208-.682L3 4.5M3 15V4.5"
             />
           </svg>
-          <span className="text-gray-700 font-medium pl-3">
+          <span className="text-gray-700 text-sm font-medium pl-3">
             Ubicación fijada en {location.locationName}
           </span>
           <svg

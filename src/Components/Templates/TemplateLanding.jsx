@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux";
+import { setInfo } from "../../redux/infoSlice";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import apiManager from "../../api/apiManager";
 
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import { useEffect } from "react";
 
 const TemplateLanding = () => {
   const locationRouter = useLocation();
@@ -35,6 +38,20 @@ const TemplateLanding = () => {
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
+
+  const getInfo = async () => {
+    let json = await apiManager.getGeneralData();
+    if (json != 500) {
+      store.dispatch(setInfo(json.info));
+    }
+   }
+
+
+
+  useEffect(() => {
+    getInfo();
+  }, [] );
+  
 
   const path = locationRouter.pathname;
 

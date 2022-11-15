@@ -1,15 +1,21 @@
 // src/redux/cartSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import apiManager from "../api/apiManager";
+ 
 
 const infoSlice = createSlice({
   name: "info",
   initialState: {
-    info:  await apiManager.getGeneralData(),
+    info:  [],
   },
   reducers: {
     getInfo: (state, action) => {},
+    setInfo: (state, action) => {
+      state.info = action.payload;
+    }
+
   },
 });
 
 export const infoReducer = infoSlice.reducer;
+
+export const {setInfo} = infoSlice.actions;

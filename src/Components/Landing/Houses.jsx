@@ -7,19 +7,21 @@ import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
 import { useLocation } from "react-router";
 import HouseCard from "../Misc/HouseCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const Houses = () => {
   const locationRouter = useLocation();
   const path = locationRouter.pathname;
-  
+  const [promoHouses, setPromoHouses] = useState([]);
   const [houses, setHouses] = useState([]);
   const [loading, setLoading] = useState(true);
- 
+
   const location = useSelector((state) => state.location.locationHouse);
 
   async function getHouses() {
     let location2 = store.getState().location.location;
-  
+
     let locationFinal = "";
     if (location.locationName == "") {
       locationFinal = location2.locationId;
@@ -27,33 +29,39 @@ const Houses = () => {
       locationFinal = location.locationId;
     }
 
-    let type = "house" 
+    let type = "house";
 
-    if(path == '/dulcerias'){
-        type = "dulceria";
+    if (path == "/dulcerias") {
+      type = "dulceria";
     }
 
-    if(path == '/mercados'){
-        type = "market";
+    if (path == "/mercados") {
+      type = "market";
     }
 
-    if(path == '/regalitos'){
-        type = "regalos";
+    if (path == "/regalitos") {
+      type = "regalos";
     }
 
-    let json = await apiManager.getHouses(locationFinal,type);
-   
+    let json = await apiManager.getHouses(locationFinal, type);
+
     if (json != 500) {
       setHouses(json.houses);
-       setLoading(false);
+      setLoading(false);
+    }
+
+    let json2 = await apiManager.getPromosHouses();
+    if (json2 != 500) {
+      {
+        setPromoHouses(json2.promos);
+      }
     }
   }
 
   useEffect(() => {
     setLoading(true);
     location.locationId != 0 && getHouses();
-  }, [location,path]);
-
+  }, [location, path]);
 
   return (
     <>
@@ -61,7 +69,28 @@ const Houses = () => {
         <Loading />
       ) : (
         <div>
-          {/* <span className="text-lg font-bold text-gray-700"> alojamientos</span> */}
+          {promoHouses.length > 0 && (
+            <span className="text-lg  font-bold text-gray-700 mt-3">
+              Ofertas especiales
+            </span>
+          )}
+          <div className="my-3">
+            <Swiper spaceBetween={50} slidesPerView={1}>
+              {promoHouses?.map((photo) => (
+                <SwiperSlide>
+                  <a href={photo.link}>
+                    <img
+                      src={
+                        apiManager.UrlBase + photo.image ??
+                        apiManager.UrlBase + photo.image_movil
+                      }
+                    />
+                  </a>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+          <span className="text-lg font-bold text-gray-700"> Alojamientos</span>
           <div className="grid grid-cols-3 mb-20">
             {houses.map((house) => {
               return (
@@ -70,25 +99,14 @@ const Houses = () => {
                   className="col-span-3 my-2 lg:col-span-1"
                 >
                   <HouseCard house={house} />
-                  {/* <RestaurantCard restaurant={restaurant} /> */}
                 </div>
               );
             })}
           </div>
-
-          {/* <div className="mt-3 ">
-            <span className="text-lg font-bold text-gray-700">
-              Ofertas especiales
-            </span>
-            <div className="swiper mySwiper  z-0">
-              <div className="swiper-wrapper"></div>
-              <div className="swiper-pagination"></div>
-            </div>
-          </div> */}
         </div>
       )}
     </>
   );
-}
+};
 
-export default Houses
+export default Houses;

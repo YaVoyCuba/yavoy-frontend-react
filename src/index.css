@@ -67,6 +67,14 @@
   background-color: #fad3c7;
 }
  
+.app-image-gallery {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .LegendList {
   display: grid;

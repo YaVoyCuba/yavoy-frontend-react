@@ -107,6 +107,24 @@ export default {
     }
   },
   
+  getPromosRestaurants: async () => {
+   
+    let urlApi = "/promos/restaurants";
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+  
+  getPromosHouses: async () => {
+   
+    let urlApi = "/promos/houses";
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+  
 
   getHouseDetails: async (houseSlug) => {
    

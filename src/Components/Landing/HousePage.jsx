@@ -63,13 +63,24 @@ const HousePage = (props) => {
         "," +
         format(range[0].endDate, "dd-MM-yyyy");
 
+      let days = 0;
+      if (range[0].startDate != null) {
+        days = Math.round(
+          (range[0].endDate.getTime() - range[0].startDate.getTime()) /
+            (1000 * 60 * 60 * 24)
+        );
+      }
+
       let payload = {
         house_id: house.id,
+        price: totalPrice(),
         contactName: auth.user.name,
         contactPhone: auth.user.phone,
+        daysBookings: days,
         contactEmail: auth.user.email,
         contactCountry: contactCountry,
         dates: date,
+        quests: totalQuests,
       };
 
       let json = await apiManager.newBook(payload);
@@ -80,6 +91,25 @@ const HousePage = (props) => {
         return handleBook();
       }
     }
+  };
+
+  useEffect(() => {
+    setTotalQuests(adults + children + babies);
+  }, [adults, children, babies]);
+
+  const totalPrice = () => {
+    let price = 0;
+    let days = 0;
+    if (range[0].startDate != null) {
+      days = Math.round(
+        (range[0].endDate.getTime() - range[0].startDate.getTime()) /
+          (1000 * 60 * 60 * 24)
+      );
+    }
+
+    price = house.price * days * totalQuests;
+
+    return price;
   };
 
   const handleBook = () => {
@@ -510,7 +540,7 @@ const HousePage = (props) => {
                     onClick={() => valdiateBook()}
                     className="btn-main w-[98%] mx-auto"
                   >
-                    Hacer pre reserva
+                    Hacer pre reserva por ${totalPrice()}
                   </button>
 
                   {errorQuantity && (
@@ -682,28 +712,28 @@ const HousePage = (props) => {
                         </div>
                       </div>
                       <div className="mt-5 flex justify-center sm:mt-6">
-                        <Link to={'/perfil'} >
-                        <button
-                          type="button"
-                          className="btn-main flex my-3 items-center"
-                          onClick={() => setBookCompleted(false)}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-5 h-5 pt-1"
+                        <Link to={"/perfil"}>
+                          <button
+                            type="button"
+                            className="btn-main flex my-3 items-center"
+                            onClick={() => setBookCompleted(false)}
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                            />
-                          </svg>
-                          Ver todas mis reservas
-                        </button>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-5 h-5 pt-1"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                              />
+                            </svg>
+                            Ver todas mis reservas
+                          </button>
                         </Link>
                       </div>
                     </Dialog.Panel>

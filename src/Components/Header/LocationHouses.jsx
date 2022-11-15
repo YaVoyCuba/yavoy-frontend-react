@@ -23,7 +23,6 @@ const LocationHouses = () => {
 
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
-      // setMunicipalities();
     }
   };
 

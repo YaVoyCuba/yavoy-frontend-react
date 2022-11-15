@@ -1,7 +1,7 @@
  
 import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProductDetailPage from "./pages/frontend/ProductDetailPage";
+import ProductDetailPage from "./Pages/frontend/ProductDetailPage";
 import Restaurants from "./Components/Landing/Restaurants";
 import Houses from "./Components/Landing/Houses";
 import TemplateLanding from "./Components/Templates/TemplateLanding";

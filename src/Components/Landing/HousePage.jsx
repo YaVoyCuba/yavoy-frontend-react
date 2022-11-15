@@ -205,7 +205,7 @@ const HousePage = (props) => {
     document.addEventListener("keydown", hideOnEscape, true);
     document.addEventListener("click", hideOnClickOutside, true);
     getHouseDetails(houseSlug);
-    handleLogin();
+  //  handleLogin();
   }, [houseSlug, auth]);
 
   return (

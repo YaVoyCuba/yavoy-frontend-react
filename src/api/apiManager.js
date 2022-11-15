@@ -1,7 +1,16 @@
-//const UrlBase = "https://crecexdiez.com";
-const UrlBase = "http://127.0.0.1:8000";
+
+let UrlBase = "https://api.yavoycuba.com";
+
+if (window.location.href.indexOf("127.0.0.1") > -1) {
+  UrlBase = "http://127.0.0.1:8000";
+} else {
+  UrlBase = "https://api.yavoycuba.com";
+}
+
+
 const UrlApiBase = UrlBase + "/api/v1";
-const shopSlug = "corazon-de-fotografo";
+ 
+
 
 export default {
 

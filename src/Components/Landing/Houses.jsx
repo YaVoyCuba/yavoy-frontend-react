@@ -45,6 +45,7 @@ const Houses = () => {
 
     let json = await apiManager.getHouses(locationFinal, type);
 
+    console.log(json);
     if (json != 500) {
       setHouses(json.houses);
       setLoading(false);

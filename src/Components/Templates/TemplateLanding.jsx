@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+
 import { setInfo } from "../../redux/infoSlice";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import apiManager from "../../api/apiManager";
@@ -6,11 +6,12 @@ import apiManager from "../../api/apiManager";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { useEffect } from "react";
+import { store } from "../../redux/store";
 
 const TemplateLanding = () => {
   const locationRouter = useLocation();
 
-  const info = useSelector((state) => state.info.info);
+ 
 
   const tabs = [
     {
@@ -42,7 +43,7 @@ const TemplateLanding = () => {
   const getInfo = async () => {
     let json = await apiManager.getGeneralData();
     if (json != 500) {
-      store.dispatch(setInfo(json.info));
+      store.dispatch(setInfo(json.settings));
     }
    }
 
@@ -59,7 +60,7 @@ const TemplateLanding = () => {
     <>
       <div className="px-3 lg:px-14 lg:max-w-7xl mx-auto">
         <Header
-          info={info}
+          
           locationType={path.split("/")[1] === "" ? "/" : path.split("/")[1]}
         />
 
@@ -88,7 +89,7 @@ const TemplateLanding = () => {
         </div>
         <Outlet />
       </div>
-      <Footer info={info} />
+      <Footer   />
     </>
   );
 };

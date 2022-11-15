@@ -1,9 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Footer = (props) => {
  
 
-  const info = props.info.settings ?? [];
+  const info = useSelector((state) => state.info.info);
 
   return (
     <>

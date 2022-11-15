@@ -9,6 +9,7 @@ import LocationHouses from "./LocationHouses";
 
 const Header = (props) => {
   const locationType = props.locationType;
+ 
   return (
     <div>
       <HeaderTop />

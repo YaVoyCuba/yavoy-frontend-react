@@ -97,7 +97,7 @@ const CartIconGlobal = () => {
                           return (
                             <div
                             key={`productcartglobal-${index}`}
-                              className="grid grid-cols-9 p-3 justify-items-center"
+                              className="grid  grid-cols-9 p-3  items-center"
                             >
                               <div className="col-span-3 bg-slate-100 rounded-lg">
                                 <img
@@ -105,7 +105,7 @@ const CartIconGlobal = () => {
                                   src={product.img}
                                 />
                               </div>
-                              <div className="col-span-5 p-3">
+                              <div className="col-span-5 items-center p-3">
                                 <div className="flex flex-col">
                                   <span className="text-lg font-medium text-gray-800">
                                     {product.name}

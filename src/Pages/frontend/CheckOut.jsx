@@ -4,7 +4,7 @@ import apiManager from "../../api/apiManager";
 import { removeItem } from "../../redux/cartSlice";
 import { RadioGroup } from "@headlessui/react";
 import { useForm } from "react-hook-form";
-import { Loading } from "../../common/Landing";
+import { Loading } from "../../common/Loading";
 import { clearCart } from "../../redux/cartSlice";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";

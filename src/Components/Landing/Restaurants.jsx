@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import apiManager from "../../api/apiManager";
 import RestaurantCard from "../Misc/RestaurantCard";
-import { Loading } from "../../common/Landing";
+import { Loading } from "../../common/Loading";
 import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
 import { useLocation } from "react-router";

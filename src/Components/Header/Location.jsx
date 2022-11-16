@@ -5,14 +5,16 @@ import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import apiManager from "../../api/apiManager";
 import { setLocation } from "../../redux/locationSlice";
-import {toast} from 'react-toastify';
+import { toast } from "react-toastify";
+import { LoadingSmall } from "../../common/LoadingSmall";
 
 const Location = () => {
   const location = useSelector((state) => state.location.location);
   const { cart } = useSelector((state) => state.cart);
   const [provinces, setProvinces] = useState([]);
-  const [provinceSelected, setProvinceSelected] = useState('');
-  const [municipalitieSelected, setMunicipalitieSelected] = useState('');
+  const [loadingProvinces, setLoadingProvinces] = useState(true);
+  const [provinceSelected, setProvinceSelected] = useState("");
+  const [municipalitieSelected, setMunicipalitieSelected] = useState("");
   const [municipalities, setMunicipalities] = useState([]);
   const [open, setOpen] = useState(false);
 
@@ -20,9 +22,10 @@ const Location = () => {
 
   const getLocation = async () => {
     let json = await apiManager.getLocationData();
- 
+
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
+        setLoadingProvinces(false);
       // setMunicipalities();
     }
   };
@@ -52,8 +55,6 @@ const Location = () => {
       provinceId = location.province_id;
     }
 
-     
-
     if (cart.length > 0) {
       let can = checkIfNewLocationCanBeAddedWithRestaurantInCart();
       if (can) {
@@ -65,21 +66,27 @@ const Location = () => {
           })
         );
 
-        localStorage.setItem("location", JSON.stringify({
-          locationName: locationName,
-          locationId: locationId,
-          provinceId: provinceId,
-        }));
+        localStorage.setItem(
+          "location",
+          JSON.stringify({
+            locationName: locationName,
+            locationId: locationId,
+            provinceId: provinceId,
+          })
+        );
       } else {
-        toast.warning("No puedes cambiar a esta ubicación porque el restaurante del carrito no hace envíos a la misma!", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        toast.warning(
+          "No puedes cambiar a esta ubicación porque el restaurante del carrito no hace envíos a la misma!",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          }
+        );
       }
     } else {
       dispatch(
@@ -90,11 +97,14 @@ const Location = () => {
         })
       );
 
-      localStorage.setItem("location", JSON.stringify({
-        locationName: locationName,
-        locationId: locationId,
-        provinceId: provinceId,
-      }));
+      localStorage.setItem(
+        "location",
+        JSON.stringify({
+          locationName: locationName,
+          locationId: locationId,
+          provinceId: provinceId,
+        })
+      );
     }
   };
 
@@ -112,15 +122,18 @@ const Location = () => {
 
     if (!location) {
       setOpen(true);
+      getLocation();
     }
   };
 
   useEffect(() => {
-    if(localStorage.getItem("location")){
-      dispatch(setLocation(JSON.parse(localStorage.getItem("location"))));
-    }else{
-      getLocation();
-    }
+    setLoadingProvinces(true);
+    // if (localStorage.getItem("location")) {
+    //   dispatch(setLocation(JSON.parse(localStorage.getItem("location"))));
+    //   setLoadingProvinces(false);
+    // } else {
+    //   getLocation();
+    // }
     checkLocationInStorage();
   }, []);
 
@@ -130,7 +143,10 @@ const Location = () => {
       <div className="flex py-3 mx-auto  bg-gray-200 mt-1 mb-3 rounded-lg px-3   lg:w-3/4">
         <button
           className="btn flex mx-auto "
-          onClick={(event) => {setOpen(!open); getLocation()}}
+          onClick={(event) => {
+            setOpen(!open);
+            getLocation();
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -217,46 +233,52 @@ const Location = () => {
                           esta ubicación
                         </p>
                       </div>
-                      <div className="flex my-5 flex-col">
-                        <select
-                          value={provinceSelected}
-                          onChange={(event) =>
-                            setMunicipalitiesByProvince(event)
-                          }
-                          className="input-text"
-                        >
-                          <option value="">-Selecciona Provincia-</option>
-                          {provinces?.map((province) => {
-                            return (
-                              <option
-                                key={`provincew-${province.id}`}
-                                value={province.id}
-                              >
-                                {province.name}
-                              </option>
-                            );
-                          })}
-                        </select>
+                      {loadingProvinces ? (
+                        <div className="my-20">
+                          <LoadingSmall />
+                        </div>
+                      ) : (
+                        <div className="flex my-5 flex-col">
+                          <select
+                            value={provinceSelected}
+                            onChange={(event) =>
+                              setMunicipalitiesByProvince(event)
+                            }
+                            className="input-text"
+                          >
+                            <option value="">-Selecciona Provincia-</option>
+                            {provinces?.map((province) => {
+                              return (
+                                <option
+                                  key={`provincew-${province.id}`}
+                                  value={province.id}
+                                >
+                                  {province.name}
+                                </option>
+                              );
+                            })}
+                          </select>
 
-                        <select
-                          value={municipalitieSelected}
-                          onChange={(event) =>
-                            setMunicipalitieSelected(event.target.value)
-                          }
-                          className="input-text mt-3"
-                        >
-                          {municipalities.map((mu) => {
-                            return (
-                              <option
-                                key={`municipality-${mu.id}`}
-                                value={mu.id}
-                              >
-                                {mu.name}
-                              </option>
-                            );
-                          })}
-                        </select>
-                      </div>
+                          <select
+                            value={municipalitieSelected}
+                            onChange={(event) =>
+                              setMunicipalitieSelected(event.target.value)
+                            }
+                            className="input-text mt-3"
+                          >
+                            {municipalities.map((mu) => {
+                              return (
+                                <option
+                                  key={`municipality-${mu.id}`}
+                                  value={mu.id}
+                                >
+                                  {mu.name}
+                                </option>
+                              );
+                            })}
+                          </select>
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
@@ -275,7 +297,7 @@ const Location = () => {
                       }}
                       ref={cancelButtonRef}
                     >
-                      Cancel
+                      Cancelar
                     </button>
                   </div>
                 </Dialog.Panel>

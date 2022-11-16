@@ -13,7 +13,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import { Error } from "../../common/Error";
-import { Loading } from "../../common/Landing";
+import { Loading } from "../../common/Loading";
 import { checkAuth, logout, selectSignin } from "../../redux/signinSlice";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";

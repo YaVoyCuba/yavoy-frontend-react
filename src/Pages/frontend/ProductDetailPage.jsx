@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import apiManager from "../../api/apiManager";
 import { useParams } from "react-router-dom";
-import { Loading } from "../../common/Landing";
+import { Loading } from "../../common/Loading";
 
 const ProductDetailPage = (props) => {
   //history

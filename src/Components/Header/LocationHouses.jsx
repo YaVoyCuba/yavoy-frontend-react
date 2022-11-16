@@ -2,7 +2,7 @@ import React, { useState, Fragment, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
-import { Loading } from "../../common/Landing";
+import { Loading } from "../../common/Loading";
 import apiManager from "../../api/apiManager";
 import { setLocationHouse } from "../../redux/locationSlice";
 import { toast } from "react-toastify";

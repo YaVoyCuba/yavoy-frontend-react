@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import apiManager from "../../api/apiManager";
-import { Loading } from "../../common/Landing";
+import { Loading } from "../../common/Loading";
 import { notificationOptions } from "../../mock/notification";
 import { login } from "../../redux/authSlice";
 import authService from "../../services/authService";

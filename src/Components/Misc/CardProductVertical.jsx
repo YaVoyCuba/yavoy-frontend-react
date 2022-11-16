@@ -65,9 +65,10 @@ const CardProductVertical = (props) => {
     <div className="bg-gray-100  rounded-lg m-2   mt-3  shadow-xl">
       <div className="flex text-left flex-col ">
         <div className="flex ">
+        
           <img
             className="h-auto object-cover w-32  object-center "
-            src={img}
+            src={img ?? '/assets/img/sinfotos.jpg'}
             alt={name}
           />
           <div className="flex w-full flex-col">

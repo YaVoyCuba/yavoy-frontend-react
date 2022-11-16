@@ -43,6 +43,8 @@ const SearchPage = () => {
       let restaurantFiltereds = restaurants.filter((restaurant) =>
         restaurant.name.toLowerCase().includes(searchInputValue.toLowerCase())
       );
+
+      
       setRestaurants(restaurantFiltereds);
     } else {
      location && getRestaurants();

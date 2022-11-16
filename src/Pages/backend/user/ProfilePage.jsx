@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
 import apiManager from "../../../api/apiManager";
-import { Loading } from "../../../common/Landing";
+import { Loading } from "../../../common/Loading";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";

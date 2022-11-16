@@ -4,7 +4,7 @@ import apiManager from "../../api/apiManager";
 import CardProductHorizontal from "../../Components/Misc/CardProductHorizontal";
 import CardProductVertical from "../../Components/Misc/CardProductVertical";
 import ProductRestaurant from "../../Components/Misc/ProductRestaurantDELETE";
-import { Loading } from "../../common/Landing";
+import { Loading } from "../../common/Loading";
 
 function RestaurantPage() {
   useEffect(() => window.scrollTo(0, 0));

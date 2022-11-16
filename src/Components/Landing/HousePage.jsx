@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { useParams } from "react-router";
 import apiManager from "../../api/apiManager";
-import { Loading } from "../../common/Landing";
+import { Loading } from "../../common/Loading";
 import format from "date-fns/format";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";

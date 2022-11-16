@@ -6,7 +6,7 @@ import CategoryWidget from "../../Components/Landing/CategoryWidget";
 import PromoWidget from "../../Components/Landing/PromoWidget";
 import MostSelledProductsWidget from "../../Components/Landing/MostSelledProductsWidget";
 import { useEffect } from "react";
-import { Loading } from "../../common/Landing";
+import { Loading } from "../../common/Loading";
  
 
 

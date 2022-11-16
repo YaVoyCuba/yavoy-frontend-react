@@ -1,14 +1,15 @@
 import React, { useState, Fragment, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
+import { Loading } from "../../common/Landing";
 import apiManager from "../../api/apiManager";
 import { setLocationHouse } from "../../redux/locationSlice";
 import { toast } from "react-toastify";
 
 const LocationHouses = () => {
   const location = useSelector((state) => state.location.locationHouse);
+  const [loading, setLoading] = useState(true);
   const { cart } = useSelector((state) => state.cart);
   const [provinces, setProvinces] = useState([]);
   const [provinceSelected, setProvinceSelected] = useState("");
@@ -23,6 +24,7 @@ const LocationHouses = () => {
 
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
+      setLoading(false);
     }
   };
 
@@ -127,6 +129,7 @@ const LocationHouses = () => {
         setLocationHouse(JSON.parse(localStorage.getItem("locationHouses")))
       );
     } else {
+      setLoading(true);
       getLocation();
     }
     checkLocationInStorage();
@@ -228,46 +231,50 @@ const LocationHouses = () => {
                           esta ubicación
                         </p>
                       </div>
-                      <div className="flex my-5 flex-col">
-                        <select
-                          value={provinceSelected}
-                          onChange={(event) =>
-                            setMunicipalitiesByProvince(event)
-                          }
-                          className="input-text"
-                        >
-                          <option value="">-Selecciona Provincia-</option>
-                          {provinces?.map((province) => {
-                            return (
-                              <option
-                                key={`provincew-${province.id}`}
-                                value={province.id}
-                              >
-                                {province.name}
-                              </option>
-                            );
-                          })}
-                        </select>
+                      {loading ? (
+                        <Loading />
+                      ) : (
+                        <div className="flex my-5 flex-col">
+                          <select
+                            value={provinceSelected}
+                            onChange={(event) =>
+                              setMunicipalitiesByProvince(event)
+                            }
+                            className="input-text"
+                          >
+                            <option value="">-Selecciona Provincia-</option>
+                            {provinces?.map((province) => {
+                              return (
+                                <option
+                                  key={`provincew-${province.id}`}
+                                  value={province.id}
+                                >
+                                  {province.name}
+                                </option>
+                              );
+                            })}
+                          </select>
 
-                        <select
-                          value={municipalitieSelected}
-                          onChange={(event) =>
-                            setMunicipalitieSelected(event.target.value)
-                          }
-                          className="input-text mt-3"
-                        >
-                          {municipalities.map((mu) => {
-                            return (
-                              <option
-                                key={`municipality-${mu.id}`}
-                                value={mu.id}
-                              >
-                                {mu.name}
-                              </option>
-                            );
-                          })}
-                        </select>
-                      </div>
+                          <select
+                            value={municipalitieSelected}
+                            onChange={(event) =>
+                              setMunicipalitieSelected(event.target.value)
+                            }
+                            className="input-text mt-3"
+                          >
+                            {municipalities.map((mu) => {
+                              return (
+                                <option
+                                  key={`municipality-${mu.id}`}
+                                  value={mu.id}
+                                >
+                                  {mu.name}
+                                </option>
+                              );
+                            })}
+                          </select>
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
@@ -286,7 +293,7 @@ const LocationHouses = () => {
                       }}
                       ref={cancelButtonRef}
                     >
-                      Cancel
+                      Cancelar
                     </button>
                   </div>
                 </Dialog.Panel>

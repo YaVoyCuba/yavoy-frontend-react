@@ -19,6 +19,7 @@ const Restaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [promoRestaurants, setPromoRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
+
   const location = useSelector((state) => state.location.location);
 
   async function getRestaurants() {

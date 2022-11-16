@@ -45,7 +45,6 @@ const Houses = () => {
 
     let json = await apiManager.getHouses(locationFinal, type);
 
-    console.log(json);
     if (json != 500) {
       setHouses(json.houses);
       setLoading(false);
@@ -103,6 +102,18 @@ const Houses = () => {
                 </div>
               );
             })}
+
+            {houses.length == 0 && (
+              <div className="col-span-3 my-2 lg:col-span-1">
+                <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+                  <div className="px-4 py-5 sm:px-6">
+                    <h3 className="text-lg leading-6 font-medium text-gray-900">
+                      No hay alojamientos disponibles en esta ubicación
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

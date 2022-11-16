@@ -4,7 +4,6 @@ export function Loading() {
   return (
     <>
       <div className="grid h-screen place-items-center">
-        
         <TailSpin
           height="80"
           width="80"

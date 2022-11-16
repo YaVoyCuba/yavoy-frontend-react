@@ -13,6 +13,9 @@ const RestaurantCard = (props) => {
             className="col-span-1 bg-contain aspect-4/3 h-full w-32  object-cover "
             style={{
               backgroundImage: `url(${apiManager.UrlBase + restaurant.avatar})`,
+              backgroundPosition: "center",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
               borderTopLeftRadius: "7px",
               borderBottomLeftRadius: "7px",
             }}

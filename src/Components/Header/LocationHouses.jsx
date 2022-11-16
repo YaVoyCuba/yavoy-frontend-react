@@ -6,12 +6,14 @@ import { Loading } from "../../common/Loading";
 import apiManager from "../../api/apiManager";
 import { setLocationHouse } from "../../redux/locationSlice";
 import { toast } from "react-toastify";
+import { LoadingSmall } from "../../common/LoadingSmall";
 
 const LocationHouses = () => {
   const location = useSelector((state) => state.location.locationHouse);
   const [loading, setLoading] = useState(true);
   const { cart } = useSelector((state) => state.cart);
   const [provinces, setProvinces] = useState([]);
+  const [loadingProvinces, setLoadingProvinces] = useState(false);
   const [provinceSelected, setProvinceSelected] = useState("");
   const [municipalitieSelected, setMunicipalitieSelected] = useState("");
   const [municipalities, setMunicipalities] = useState([]);
@@ -25,6 +27,7 @@ const LocationHouses = () => {
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
       setLoading(false);
+      setLoadingProvinces(false);
     }
   };
 
@@ -112,26 +115,29 @@ const LocationHouses = () => {
 
   const checkLocationInStorage = () => {
     let location = localStorage.getItem("locationHouses");
-    if (location) {
-      dispatch(setLocationHouse(JSON.parse(location)));
-      setMunicipalitieSelected(JSON.parse(location).locationId);
-      setProvinceSelected(JSON.parse(location).provinceId);
-    }
+    // if (location) {
+    //   dispatch(setLocationHouse(JSON.parse(location)));
+    //   setMunicipalitieSelected(JSON.parse(location).locationId);
+    //   setProvinceSelected(JSON.parse(location).provinceId);
+    //    setLoadingProvinces(false);
+    // }
 
-    if (!location) {
-      setOpen(true);
-    }
+    // if (!location) {
+    //   setOpen(true);
+      getLocation();
+    //}
   };
 
   useEffect(() => {
-    if (localStorage.getItem("locationHouses")) {
-      dispatch(
-        setLocationHouse(JSON.parse(localStorage.getItem("locationHouses")))
-      );
-    } else {
-      setLoading(true);
-      getLocation();
-    }
+    setLoadingProvinces(true);
+    // if (localStorage.getItem("locationHouses")) {
+    //   dispatch(
+    //     setLocationHouse(JSON.parse(localStorage.getItem("locationHouses")))
+    //   );
+    // } else {
+    //   setLoading(true);
+    //   getLocation();
+    // }
     checkLocationInStorage();
   }, []);
 
@@ -231,8 +237,8 @@ const LocationHouses = () => {
                           esta ubicación
                         </p>
                       </div>
-                      {loading ? (
-                        <Loading />
+                      {loadingProvinces ? (
+                        <LoadingSmall />
                       ) : (
                         <div className="flex my-5 flex-col">
                           <select
@@ -255,6 +261,7 @@ const LocationHouses = () => {
                             })}
                           </select>
 
+                          
                           <select
                             value={municipalitieSelected}
                             onChange={(event) =>
@@ -273,6 +280,7 @@ const LocationHouses = () => {
                               );
                             })}
                           </select>
+                          
                         </div>
                       )}
                     </div>

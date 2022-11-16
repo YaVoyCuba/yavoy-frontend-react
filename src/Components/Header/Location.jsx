@@ -12,7 +12,7 @@ const Location = () => {
   const location = useSelector((state) => state.location.location);
   const { cart } = useSelector((state) => state.cart);
   const [provinces, setProvinces] = useState([]);
-  const [loadingProvinces, setLoadingProvinces] = useState(true);
+  const [loadingProvinces, setLoadingProvinces] = useState(false);
   const [provinceSelected, setProvinceSelected] = useState("");
   const [municipalitieSelected, setMunicipalitieSelected] = useState("");
   const [municipalities, setMunicipalities] = useState([]);
@@ -25,8 +25,10 @@ const Location = () => {
 
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
-        setLoadingProvinces(false);
+      setLoadingProvinces(false);
       // setMunicipalities();
+
+
     }
   };
 
@@ -113,17 +115,17 @@ const Location = () => {
   };
 
   const checkLocationInStorage = () => {
-    let location = localStorage.getItem("location");
-    if (location) {
-      dispatch(setLocation(JSON.parse(location)));
-      setMunicipalitieSelected(JSON.parse(location).locationId);
-      setProvinceSelected(JSON.parse(location).provinceId);
-    }
+    // let location = localStorage.getItem("location");
+    // if (location) {
+    //   dispatch(setLocation(JSON.parse(location)));
+    //   setMunicipalitieSelected(JSON.parse(location).locationId);
+    //   setProvinceSelected(JSON.parse(location).provinceId);
+    // }
 
-    if (!location) {
-      setOpen(true);
+    // if (!location) {
+    //   setOpen(true);
       getLocation();
-    }
+   // }
   };
 
   useEffect(() => {
@@ -258,26 +260,31 @@ const Location = () => {
                               );
                             })}
                           </select>
-                            { municipalities?.length > 0 && (
-                          <select
-                            value={municipalitieSelected}
-                            onChange={(event) =>
-                              setMunicipalitieSelected(event.target.value)
-                            }
-                            className="input-text mt-3"
-                          >
-                            {municipalities.map((mu) => {
-                              return (
-                                <option
-                                  key={`municipality-${mu.id}`}
-                                  value={mu.id}
-                                >
-                                  {mu.name}
-                                </option>
-                              );
-                            })}
-                          </select>
-                            )}
+
+                          {
+                            //Municipalities > 0 or provivinceSelected > 0
+                            (municipalities?.length > 0 ||
+                              provinceSelected > 0) && (
+                              <select
+                                value={municipalitieSelected}
+                                onChange={(event) =>
+                                  setMunicipalitieSelected(event.target.value)
+                                }
+                                className="input-text mt-3"
+                              >
+                                {municipalities.map((mu) => {
+                                  return (
+                                    <option
+                                      key={`municipality-${mu.id}`}
+                                      value={mu.id}
+                                    >
+                                      {mu.name}
+                                    </option>
+                                  );
+                                })}
+                              </select>
+                            )
+                          }
                         </div>
                       )}
                     </div>

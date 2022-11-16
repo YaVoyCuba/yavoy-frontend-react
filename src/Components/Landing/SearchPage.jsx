@@ -1,21 +1,41 @@
 import React, { useState, Fragment, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import apiManager from "../../api/apiManager";
 import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
 import RestaurantCard from "../Misc/RestaurantCard";
- 
 
 const SearchPage = () => {
   const [search, setSearch] = useState(null);
+  const [tabs, setTabs] = useState([
+    { name: "Productos", type: "producto", current: true },
+    { name: "Restaurantes", type: "restaurant", current: false },
+    { name: "Dulcerías", type: "dulceria", current: false },
+    { name: "Regalitos", type: "regalos", current: false },
+    { name: "Mercado", type: "market", current: false },
+    { name: "Alojamiento", type: "alojamiento", current: false },
+  ]);
+
+  const [type, setType] = useState("restaurant");
   const [open, setOpen] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
   const cancelButtonRef = useRef(null);
   const location = useSelector((state) => state.location.location);
+  const locationRouter = useLocation();
+  const path = locationRouter.pathname;
+
+
+
+ 
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
 
   async function getRestaurants() {
+    console.log("json");
     let location2 = store.getState().location.location;
 
     let locationFinal = "";
@@ -25,31 +45,32 @@ const SearchPage = () => {
       locationFinal = location.locationId;
     }
 
-    let json = await apiManager.getRestaurants(locationFinal);
+    let json = await apiManager.getRestaurants(locationFinal, type);
     if (json != 500) {
+      console.log(json);
       setRestaurants(json.restaurants);
     }
   }
 
   const searchInput = useRef(null);
 
-  useEffect(() => {
-    location.locationId != 0 && getRestaurants();
-  }, []);
-
   const onSearch = (searchInputValue) => {
+    console.log(searchInputValue);
     setOpen(true);
     if (searchInputValue) {
       let restaurantFiltereds = restaurants.filter((restaurant) =>
         restaurant.name.toLowerCase().includes(searchInputValue.toLowerCase())
       );
 
-      
       setRestaurants(restaurantFiltereds);
     } else {
-     location && getRestaurants();
+      location && getRestaurants();
     }
   };
+
+  useEffect(() => {
+    location.locationId !== 0 && getRestaurants();
+  }, []);
 
   return (
     <>
@@ -139,18 +160,52 @@ const SearchPage = () => {
                         as="h3"
                         className="text-lg font-medium leading-6 text-gray-900"
                       >
+                        <div className="flex w-fill overflow-x-auto">
+                          <div className="flex mx-auto">
+                            <nav className="flex space-x-4" aria-label="Tabs">
+                              {tabs.map((tab,index) => (
+                                <button
+                                  key={tab.type}
+                                  onClick={() => {
+
+                                    setType(tab.type);
+
+                                    let tabsCopy = tabs;
+                                    tabsCopy.map((tab2) => {
+                                      tab2.current = false;
+                                    }
+                                    );
+                                    tabsCopy[index].current = true;
+                                    setTabs(tabsCopy);
+                                    getRestaurants();
+                                  }}
+                                  className={classNames(
+                                    tab.current
+                                      ? "bg-gray-100 text-gray-700"
+                                      : "text-gray-500 hover:text-gray-700",
+                                    "px-3 py-2 font-medium text-sm rounded-md"
+                                  )}
+                                  aria-current={
+                                    tab.current ? "page" : undefined
+                                  }
+                                >
+                                  {tab.name}
+                                </button>
+                              ))}
+                            </nav>
+                          </div>
+                        </div>
+
                         <input
                           id="searchInput"
                           onChange={(event) => onSearch(event.target.value)}
-                          className="bg-gray-100  rounded-full w-[90%] pl-10 pr-4 py-2 focus:outline-none focus:shadow-outline"
+                          className="bg-gray-100    w-full px-3  py-2 focus:outline-none focus:shadow-outline"
                           type="text"
                           placeholder="Buscar algo"
                         />
                       </Dialog.Title>
                       <div className="mt-2">
-                        <span className="text-lg font-bold text-gray-700">
-                          Restaurantes
-                        </span>
+                        <span className="text-lg font-bold text-gray-700"></span>
                         <div className="grid grid-cols-3">
                           {restaurants.map((restaurant) => {
                             return (

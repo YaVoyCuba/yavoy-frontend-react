@@ -258,7 +258,7 @@ const Location = () => {
                               );
                             })}
                           </select>
-
+                            { municipalities?.length > 0 && (
                           <select
                             value={municipalitieSelected}
                             onChange={(event) =>
@@ -277,6 +277,7 @@ const Location = () => {
                               );
                             })}
                           </select>
+                            )}
                         </div>
                       )}
                     </div>

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import apiManager from "../../api/apiManager";
 
 const CardProductVertical = (props) => {
   const { cart } = useSelector((state) => state.cart);
@@ -68,7 +69,7 @@ const CardProductVertical = (props) => {
         
           <img
             className="h-auto object-cover w-32  object-center "
-            src={img ?? '/assets/img/sinfotos.jpg'}
+            src={apiManager.UrlBase + img ?? '/assets/img/sinfotos.jpg'}
             alt={name}
           />
           <div className="flex w-full flex-col">

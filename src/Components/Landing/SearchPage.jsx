@@ -35,7 +35,7 @@ const SearchPage = () => {
   }
 
   async function getRestaurants() {
-    console.log("json");
+   
     let location2 = store.getState().location.location;
 
     let locationFinal = "";
@@ -47,7 +47,7 @@ const SearchPage = () => {
 
     let json = await apiManager.getRestaurants(locationFinal, type);
     if (json != 500) {
-      console.log(json);
+      
       setRestaurants(json.restaurants);
     }
   }
@@ -55,7 +55,7 @@ const SearchPage = () => {
   const searchInput = useRef(null);
 
   const onSearch = (searchInputValue) => {
-    console.log(searchInputValue);
+    
     setOpen(true);
     if (searchInputValue) {
       let restaurantFiltereds = restaurants.filter((restaurant) =>

@@ -30,7 +30,7 @@ function RestaurantPage() {
       {loading ? (
         <Loading />
       ) : (
-        <div className="min-h-screen lg:pt-10">
+        <div className="min-h-screen mb-10 lg:pt-10">
           <div
             className="min-h-80 p-10 lg:pt-16 rounded-lg lg:px-20 lg:flex lg:flex-col   "
             style={{ backgroundImage: "url('/assets/img/fondo.webp')" }}

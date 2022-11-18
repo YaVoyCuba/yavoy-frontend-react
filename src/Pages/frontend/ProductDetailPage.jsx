@@ -105,9 +105,12 @@ const ProductDetailPage = (props) => {
           <div className="grid  grid-cols-5">
             <div className="col-span-5 p-1 lg:col-span-5">
               <div className="col-span-5  grid mt-3 grid-cols-2">
+                {photos.length > 0 && (
                 <div className="col-span-2 lg:col-span-1 mb-7 sm:mb-0  pl-3 pr-7">
+
                   <ImageGallery items={photos} />
                 </div>
+                )}
                 <div className="col-span-2 px-3 lg:px-0  lg:col-span-1">
                   <div className="flex  flex-col">
                     <h1 className="text-xl font-bold">{product.name}</h1>

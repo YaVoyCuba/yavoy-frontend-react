@@ -141,7 +141,7 @@ function RestaurantPage() {
                                       <CardProductVertical
                                         rating={4}
                                         price={product.price}
-                                        img={product.photos[0]?.path_photo}
+                                        img={product.photos[0]?.path_photo ?? '/assets/img/sinfotos.jpg'}
                                         name={product.name}
                                         slug={product.slug}
                                         id={product.id}

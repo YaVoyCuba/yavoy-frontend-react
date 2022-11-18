@@ -67,14 +67,14 @@ const LocationHouses = () => {
           })
         );
 
-        localStorage.setItem(
-          "locationHouses",
-          JSON.stringify({
-            locationName: locationName,
-            locationId: locationId,
-            provinceId: provinceId,
-          })
-        );
+        // localStorage.setItem(
+        //   "locationHouses",
+        //   JSON.stringify({
+        //     locationName: locationName,
+        //     locationId: locationId,
+        //     provinceId: provinceId,
+        //   })
+        // );
       } else {
         toast.warning(
           "No puedes cambiar a esta ubicación porque el restaurante del carrito no hace envíos a la misma!",
@@ -138,7 +138,9 @@ const LocationHouses = () => {
     //   setLoading(true);
     //   getLocation();
     // }
-    checkLocationInStorage();
+    //checkLocationInStorage();
+
+    {!location.locationId && setOpen(true)}
   }, []);
 
   const cancelButtonRef = useRef(null);

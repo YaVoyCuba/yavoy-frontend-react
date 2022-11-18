@@ -64,14 +64,14 @@ const Location = () => {
           })
         );
 
-        localStorage.setItem(
-          "location",
-          JSON.stringify({
-            locationName: locationName,
-            locationId: locationId,
-            provinceId: provinceId,
-          })
-        );
+        // localStorage.setItem(
+        //   "location",
+        //   JSON.stringify({
+        //     locationName: locationName,
+        //     locationId: locationId,
+        //     provinceId: provinceId,
+        //   })
+        // );
       } else {
         toast.warning(
           "No puedes cambiar a esta ubicación porque el restaurante del carrito no hace envíos a la misma!",
@@ -110,29 +110,30 @@ const Location = () => {
     let zones = apiManager.getZones(cart[0].restaurantId);
   };
 
-  const checkLocationInStorage = () => {
-    // let location = localStorage.getItem("location");
-    // if (location) {
-    //   dispatch(setLocation(JSON.parse(location)));
-    //   setMunicipalitieSelected(JSON.parse(location).locationId);
-    //   setProvinceSelected(JSON.parse(location).provinceId);
-    // }
+  // const checkLocationInStorage = () => {
+  //   let location = localStorage.getItem("location");
+  //   if (location) {
+  //     dispatch(setLocation(JSON.parse(location)));
+  //     setMunicipalitieSelected(JSON.parse(location).locationId);
+  //     setProvinceSelected(JSON.parse(location).provinceId);
+  //   }
 
-    // if (!location) {
-      setOpen(true);
-      getLocation();
-    // }
-  };
+  //   if (!location) {
+  //     setOpen(true);
+  //     getLocation();
+  //   }
+  // };
 
   useEffect(() => {
-    setLoadingProvinces(true);
+    // setLoadingProvinces(true);
     // if (localStorage.getItem("location")) {
     //   dispatch(setLocation(JSON.parse(localStorage.getItem("location"))));
     //   setLoadingProvinces(false);
     // } else {
     //   getLocation();
     // }
-    checkLocationInStorage();
+    // checkLocationInStorage();
+    !location.locationId ?? setOpen(true);
   }, []);
 
   const cancelButtonRef = useRef(null);

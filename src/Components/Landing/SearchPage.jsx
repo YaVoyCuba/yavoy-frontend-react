@@ -205,13 +205,13 @@ const SearchPage = () => {
                       <div className="mt-2">
                         <span className="text-lg font-bold text-gray-700"></span>
                         <div className="grid grid-cols-3">
-                          {restaurants.map((restaurant) => {
+                          {restaurants.map((restaurant,index) => {
                             return (
                               <div
-                                key={`restaurantInSearch-${restaurant.id}`}
+                                key={`restaurantInSearch-${restaurant.id+index}-${restaurant.slug  }`}
                                 className="col-span-3 my-2 lg:col-span-1"
                               >
-                                <RestaurantCard onClick={onClick} restaurant={restaurant} />
+                                <RestaurantCard  restaurant={restaurant} />
                               </div>
                             );
                           })}

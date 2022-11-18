@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
-import StarRatings from "react-star-ratings";
  
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
@@ -40,6 +39,7 @@ const ProductDetailPage = (props) => {
     if (response.code === "ok") {
       setProduct(response.product);
       response.product.photos.map((photo) => {
+        console.log(photo);
         setPhotos((photos) => [
           ...photos,
           {
@@ -117,28 +117,11 @@ const ProductDetailPage = (props) => {
                     <span className="text-color font-bold text-4xl mt-3">
                       ${product.price}
                     </span>
-                    {product.valoration && (
-                      <div className="flex mt-14">
-                        <StarRatings
-                          rating={rating}
-                          starRatedColor="#4eba6f"
-                          starEmptyColor="#6b9ac6"
-                          starHoverColor="#2abc57"
-                          starSpacing="3px"
-                          starDimension="25"
-                          changeRating={changeRating}
-                          numberOfStars={product.valoration ?? 0}
-                          name="rating"
-                        />
-                        <span className="text-xl font-medium ml-2">
-                          (1 Comentario)
-                        </span>
-                      </div>
-                    )}
+                    
                     <span
                       className="font-medium text-lg py-2"
                       dangerouslySetInnerHTML={{
-                        __html: product.description?.substring(0, 277),
+                        __html: product.description,
                       }}
                     ></span>
                     <hr className="w-100 my-4 bg-gray-500 h-0.5" />

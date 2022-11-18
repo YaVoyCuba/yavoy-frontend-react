@@ -73,6 +73,7 @@ function RestaurantPage() {
 
           <div className="overflow-y-auto ">
             <div className="grid grid-cols-1 pt-3  lg:mx-16 md:grid-cols-1">
+         
               {restaurant.experiences?.length > 0 && (
                 <div className="lg:grid lg:p-5  lg:grid-cols-3">
                   <div className="lg:col-span-1">
@@ -83,16 +84,19 @@ function RestaurantPage() {
                   <div className="lg:col-span-2">
                     <div className="lg:grid lg:grid-cols-2">
                       {restaurant.experiences.map((exp) => {
+                      
                         if (exp.status == "active") {
                           return (
                             <div key={`exp--` + exp.id}>
                               <CardProductVertical
-                                rating={4}
-                                price={exp.price}
-                                img={exp.photos[0]?.path_photo}
-                                name={exp.name}
-                                slug={exp.slug}
-                                id={exp.id}
+                                 experience={true}
+                                 rating={4}
+                                 price={exp.price}
+                                 img={exp.photos[0]?.path_photo ?? '/assets/img/sinfotos.jpg'}
+                                 name={exp.name}
+                                 slug={exp.slug}
+                                 id={exp.id}
+                                 restaurantId={exp.restaurant_id}
                               />
                             </div>
                           );
@@ -106,7 +110,7 @@ function RestaurantPage() {
               {restaurant.categories?.length > 0 &&
                 restaurant.categories.map((category) => {
                   if (
-                    category.products.filter((prod) => prod.status == "active")
+                    category.products.filter((prod) => prod.status == "active" && prod.experience == 'N')
                       .length > 0
                   ) {
                     return (
@@ -122,7 +126,7 @@ function RestaurantPage() {
                               {category.products.map((product) => {
                                 if (
                                   product.category_id == category.id &&
-                                  product.status == "active"
+                                  product.status == "active" &&  product.experience == 'N'
                                 ) {
                                   return (
                                     <div key={`product-` + product.id}>

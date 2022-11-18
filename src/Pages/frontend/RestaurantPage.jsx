@@ -122,7 +122,7 @@ function RestaurantPage() {
                                       <CardProductVertical
                                         rating={4}
                                         price={product.price}
-                                        img={apiManager.UrlBase+product.photos[0]?.path_photo ?? '/assets/img/sinfotos.jpg'}
+                                        img={product.photos[0]?.path_photo ?? '/assets/img/sinfotos.jpg'}
                                         name={product.name}
                                         slug={product.slug}
                                         id={product.id}

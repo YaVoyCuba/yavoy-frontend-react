@@ -22,13 +22,9 @@ const Location = () => {
 
   const getLocation = async () => {
     let json = await apiManager.getLocationData();
-
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
       setLoadingProvinces(false);
-      // setMunicipalities();
-
-
     }
   };
 
@@ -115,17 +111,17 @@ const Location = () => {
   };
 
   const checkLocationInStorage = () => {
-    // let location = localStorage.getItem("location");
-    // if (location) {
-    //   dispatch(setLocation(JSON.parse(location)));
-    //   setMunicipalitieSelected(JSON.parse(location).locationId);
-    //   setProvinceSelected(JSON.parse(location).provinceId);
-    // }
+    let location = localStorage.getItem("location");
+    if (location) {
+      dispatch(setLocation(JSON.parse(location)));
+      setMunicipalitieSelected(JSON.parse(location).locationId);
+      setProvinceSelected(JSON.parse(location).provinceId);
+    }
 
-    // if (!location) {
-    //   setOpen(true);
+    if (!location) {
+      setOpen(true);
       getLocation();
-   // }
+    }
   };
 
   useEffect(() => {

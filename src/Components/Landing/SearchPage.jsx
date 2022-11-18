@@ -1,5 +1,5 @@
 import React, { useState, Fragment, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import apiManager from "../../api/apiManager";
@@ -26,16 +26,18 @@ const SearchPage = () => {
   const locationRouter = useLocation();
   const path = locationRouter.pathname;
 
+  const navigate = useNavigate();
 
-
- 
+  const onClick = (restaurantSlug) => {
+    setOpen(false);
+    navigate(`/restaurante/${restaurantSlug}`);
+  };
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
 
   async function getRestaurants() {
-   
     let location2 = store.getState().location.location;
 
     let locationFinal = "";
@@ -47,7 +49,6 @@ const SearchPage = () => {
 
     let json = await apiManager.getRestaurants(locationFinal, type);
     if (json != 500) {
-      
       setRestaurants(json.restaurants);
     }
   }
@@ -55,7 +56,6 @@ const SearchPage = () => {
   const searchInput = useRef(null);
 
   const onSearch = (searchInputValue) => {
-    
     setOpen(true);
     if (searchInputValue) {
       let restaurantFiltereds = restaurants.filter((restaurant) =>
@@ -163,18 +163,16 @@ const SearchPage = () => {
                         <div className="flex w-fill overflow-x-auto">
                           <div className="flex mx-auto">
                             <nav className="flex space-x-4" aria-label="Tabs">
-                              {tabs.map((tab,index) => (
+                              {tabs.map((tab, index) => (
                                 <button
                                   key={tab.type}
                                   onClick={() => {
-
                                     setType(tab.type);
 
                                     let tabsCopy = tabs;
                                     tabsCopy.map((tab2) => {
                                       tab2.current = false;
-                                    }
-                                    );
+                                    });
                                     tabsCopy[index].current = true;
                                     setTabs(tabsCopy);
                                     getRestaurants();
@@ -213,7 +211,7 @@ const SearchPage = () => {
                                 key={`restaurantInSearch-${restaurant.id}`}
                                 className="col-span-3 my-2 lg:col-span-1"
                               >
-                                <RestaurantCard restaurant={restaurant} />
+                                <RestaurantCard onClick={onClick} restaurant={restaurant} />
                               </div>
                             );
                           })}

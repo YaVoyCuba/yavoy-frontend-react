@@ -1,34 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import apiManager from "../../api/apiManager";
-import CardProductHorizontal from "../../Components/Misc/CardProductHorizontal";
 import CardProductVertical from "../../Components/Misc/CardProductVertical";
-import ProductRestaurant from "../../Components/Misc/ProductRestaurantDELETE";
 import { Loading } from "../../common/Loading";
 
 function RestaurantPage() {
   useEffect(() => window.scrollTo(0, 0));
   const [loading, setLoading] = useState(true);
   const { restaurantSlug } = useParams();
-  const [products, setProducts] = useState([]);
   const [restaurant, setRestaurant] = useState([]);
-  const [countProductToView, setCountProductToView] = useState(5);
-  const [priceMax, setPriceMax] = useState(1000);
-  const [priceMin, setPriceMin] = useState(0);
-
-  // function setPriceFilter(value) {
-  //   let val = value.split(",");
-  //   setPriceMin(Number(val[0]));
-  //   setPriceMax(Number(val[1]));
-  // }
-
-  // function validateProducts() {
-  //   return products
-  //     .slice(0, countProductToView)
-  //     .filter(
-  //       (product) => product.price < priceMax && product.price > priceMin
-  //     );
-  // }
+ 
 
   async function getRestaurantDetails(restaurantSlug) {
     let json = await apiManager.getRestaurantDetails(restaurantSlug);
@@ -51,7 +32,7 @@ function RestaurantPage() {
       ) : (
         <div className="min-h-screen lg:pt-10">
           <div
-            className="min-h-80 p-10 lg:pt-16 lg:px-20 lg:flex lg:flex-col   "
+            className="min-h-80 p-10 lg:pt-16 rounded-lg lg:px-20 lg:flex lg:flex-col   "
             style={{ backgroundImage: "url('/assets/img/fondo.webp')" }}
           >
             <div className="flex flex-col lg:flex-row justify-between flex-wrap">

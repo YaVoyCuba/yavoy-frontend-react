@@ -21,6 +21,7 @@ const Location = () => {
   const dispatch = useDispatch();
 
   const getLocation = async () => {
+    setOpen(true)
     let json = await apiManager.getLocationData();
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
@@ -133,7 +134,7 @@ const Location = () => {
     //   getLocation();
     // }
     // checkLocationInStorage();
-    !location.locationId && setOpen(true);
+    !location.locationId && getLocation();
   }, []);
 
   const cancelButtonRef = useRef(null);

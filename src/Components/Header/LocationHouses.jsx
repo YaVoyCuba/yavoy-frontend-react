@@ -22,6 +22,7 @@ const LocationHouses = () => {
   const dispatch = useDispatch();
 
   const getLocation = async () => {
+    setOpen(true)
     let json = await apiManager.getLocationDataForHouses();
 
     if (json.code == "ok") {
@@ -140,7 +141,7 @@ const LocationHouses = () => {
     // }
     //checkLocationInStorage();
 
-    {!location.locationId && setOpen(true)}
+    {!location.locationId && getLocation() }
   }, []);
 
   const cancelButtonRef = useRef(null);

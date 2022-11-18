@@ -10,12 +10,12 @@ import RestaurantCard from "../Misc/RestaurantCard";
 const SearchPage = () => {
   const [search, setSearch] = useState(null);
   const [tabs, setTabs] = useState([
-    { name: "Productos", type: "producto", current: true },
-    { name: "Restaurantes", type: "restaurant", current: false },
+  
+    { name: "Restaurantes", type: "restaurant", current: true },
     { name: "Dulcerías", type: "dulceria", current: false },
     { name: "Regalitos", type: "regalos", current: false },
     { name: "Mercado", type: "market", current: false },
-    { name: "Alojamiento", type: "alojamiento", current: false },
+   
   ]);
 
   const [type, setType] = useState("restaurant");
@@ -28,10 +28,13 @@ const SearchPage = () => {
 
   const navigate = useNavigate();
 
-  const onClick = (restaurantSlug) => {
+ 
+  function handleAction(restaurantSlug) {
     setOpen(false);
     navigate(`/restaurante/${restaurantSlug}`);
-  };
+  }
+
+ 
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -205,13 +208,16 @@ const SearchPage = () => {
                       <div className="mt-2">
                         <span className="text-lg font-bold text-gray-700"></span>
                         <div className="grid grid-cols-3">
-                          {restaurants.map((restaurant,index) => {
+                          {restaurants.map((restaurant, index) => {
                             return (
                               <div
-                                key={`restaurantInSearch-${restaurant.id+index}-${restaurant.slug  }`}
+                                key={`${Math.random()}
+                                    restaurantInSearch-${
+                                      restaurant.id + index
+                                    }-${restaurant.slug}`}
                                 className="col-span-3 my-2 lg:col-span-1"
                               >
-                                <RestaurantCard  restaurant={restaurant} />
+                                <RestaurantCard onClickFunction={handleAction}   restaurant={restaurant} />
                               </div>
                             );
                           })}

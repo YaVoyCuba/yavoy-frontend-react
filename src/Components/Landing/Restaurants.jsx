@@ -79,8 +79,11 @@ const Restaurants = () => {
               slidesPerView={1}
             >
               {promoRestaurants?.map((photo) => (
-                <SwiperSlide>
-                  <a href={photo.link}>
+                <SwiperSlide 
+                key={photo.id}
+
+                >
+                  <a   href={photo.link}>
                     <img src={apiManager.UrlBase + photo.image ?? apiManager.UrlBase + photo.image_movil} />
                   </a>
                 </SwiperSlide>

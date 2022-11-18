@@ -1,16 +1,16 @@
 import React from "react";
-import Restaurants from "../Landing/Restaurants";
+ 
 import apiManager from "../../api/apiManager";
 import { Link } from "react-router-dom";
 
 const RestaurantCard = (props) => {
   const restaurant = props.restaurant;
-  const onClick = props.onClick;
+  const onClick = props.onClickFunction;
   return (
     <div>
       {onClick ? (
         <div
-          onClick={onClick(restaurant.slug)}
+          onClick={()=>onClick(restaurant.slug)}
           className="grid grid-cols-3 rounded-lgmy-3 lg:my-2   mx-0 lg:mx-2 bg-white shadow-lg cursor-pointer hover:opacity-80"
         >
           <div
@@ -52,14 +52,14 @@ const RestaurantCard = (props) => {
                   {restaurant.name}
                 </span>
               </div>
-              {restaurant.products.length > 1 && (
+              {restaurant.products?.length > 1 && (
                 <span className="text-md -mt-7 -pt-3 px-3 pb-5 color">
-                  {restaurant.products.length} productos
+                  {restaurant.products?.length} productos
                 </span>
               )}
-              {restaurant.products.lengt == 1 && (
+              {restaurant.products?.lengt == 1 && (
                 <span className="text-md -mt-7 -pt-3 px-3 pb-5 color">
-                  {restaurant.products.length} productos
+                  {restaurant.products?.length} productos
                 </span>
               )}
             </div>

@@ -26,6 +26,7 @@ const TemplateLanding = () => {
         "mercados",
         "dulcerias",
         "regalitos",
+        "caja"
       ],
     },
     {

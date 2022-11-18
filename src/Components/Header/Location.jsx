@@ -111,17 +111,17 @@ const Location = () => {
   };
 
   const checkLocationInStorage = () => {
-    let location = localStorage.getItem("location");
-    if (location) {
-      dispatch(setLocation(JSON.parse(location)));
-      setMunicipalitieSelected(JSON.parse(location).locationId);
-      setProvinceSelected(JSON.parse(location).provinceId);
-    }
+    // let location = localStorage.getItem("location");
+    // if (location) {
+    //   dispatch(setLocation(JSON.parse(location)));
+    //   setMunicipalitieSelected(JSON.parse(location).locationId);
+    //   setProvinceSelected(JSON.parse(location).provinceId);
+    // }
 
-    if (!location) {
+    // if (!location) {
       setOpen(true);
       getLocation();
-    }
+    // }
   };
 
   useEffect(() => {

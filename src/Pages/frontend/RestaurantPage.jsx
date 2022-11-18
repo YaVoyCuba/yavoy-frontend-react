@@ -36,14 +36,21 @@ function RestaurantPage() {
             style={{ backgroundImage: "url('/assets/img/fondo.webp')" }}
           >
             <div className="flex flex-col lg:flex-row justify-between flex-wrap">
+           
+                <div className="inline-block  lg:hidden h-14 w-14 rounded-full   overflow-hidden bg-gray-100">
+                  <img
+                    className="h-full b-3 my-1 w-full"
+                    src={apiManager.UrlBase + restaurant.avatar}
+                  />
+                </div>
               <div className="flex">
-                <span className="inlinel-block h-14 w-14 rounded-full mr-3 overflow-hidden bg-gray-100">
+                <div className="  hidden lg:block  h-14 w-14 rounded-full mr-3 overflow-hidden bg-gray-100">
                   <img
                     className="h-full w-full"
                     src={apiManager.UrlBase + restaurant.avatar}
                   />
-                </span>
-                <div className="flex flex-col">
+                </div>
+                <div className="flex mt-3 lg:mt-0 flex-col">
                   <span className="text-2xl lg:text-4xl color font-medium uppercase">
                     {restaurant.name}
                   </span>

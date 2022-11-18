@@ -18,6 +18,7 @@ const Header = (props) => {
       locationType == "restaurante" ||
       locationType == "mercados" ||
       locationType == "regalitos" ||
+      locationType == "caja" ||
       locationType == "dulcerias" ? (
         <Location />
       ) : (

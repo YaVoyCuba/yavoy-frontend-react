@@ -133,7 +133,7 @@ const Location = () => {
     //   getLocation();
     // }
     // checkLocationInStorage();
-    !location.locationId ?? setOpen(true);
+    !location.locationId && setOpen(true);
   }, []);
 
   const cancelButtonRef = useRef(null);

@@ -89,6 +89,9 @@ const CheckOut = () => {
     );
   };
 
+  console.log("getTotalPrice",getTotalQuantity() ,"getTotalPrice", getTotalPrice(), "deliveryCost", deliveryCost()).toFixed(2), "fee", fee());
+
+
   const getTotalPriceFinal = () => {
     return getTotalPrice() + fee() + deliveryCost();
   };

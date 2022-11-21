@@ -77,7 +77,7 @@ const CheckOut = () => {
       let zone = zones.find(
         (zone) => zone.municipalitie_id == location.locationId
       );
-      return zone?.price;
+      return zone?.price ?? 0;
     }
   };
 

@@ -82,14 +82,11 @@ const CheckOut = () => {
   };
 
   const fee = () => {
-    return (
-      (Number(getTotalPrice() + deliveryCost()).toFixed(2) *
-        settings.fee_restaurants) /
-      100
-    );
-  };
+    let fee =  ( Number(getTotalPrice() + deliveryCost()).toFixed(2) ) *
+        settings.fee_restaurants /  100;
 
-  console.log("getTotalPrice",getTotalQuantity() ,"getTotalPrice", getTotalPrice(), "deliveryCost", deliveryCost().toFixed(2), "fee", fee());
+    return fee ?? 0;
+  };
 
 
   const getTotalPriceFinal = () => {

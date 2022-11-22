@@ -165,13 +165,13 @@ const LoginPage = () => {
 
       {page == "login" ? (
         <>
-          <div className="flex flex-col">
+          <div className="flex mt-7 items-center flex-col">
             <span className="font-bold text-center">Acceder</span>
           </div>
           {mode === "email" ? (
             <form
               onSubmit={handleSubmitLogin}
-              className="w-full flex flex-col gap-3 mt-4"
+              className="w-full flex flex-col max-w-sm mx-auto gap-3 mt-4"
             >
               <div>
                 <input

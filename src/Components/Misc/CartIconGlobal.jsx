@@ -20,12 +20,14 @@ const CartIconGlobal = () => {
     return Number(total).toFixed();
   };
 
+  
   const getTotalPrice = () => {
     let total = 0;
     cart.forEach((item) => {
-      total += item.price;
+      total += item.price * item.quantity;
     });
-    return Number(getTotalQuantity() * total).toFixed(2);
+   
+    return Number(total).toFixed(2);
   };
 
   return (

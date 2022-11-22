@@ -13,12 +13,12 @@ const Cart = () => {
 
   
   const getTotalPrice = () => {
-    
     let total = 0;
     cart.forEach((item) => {
       total += item.price * item.quantity;
     });
-    return Number(totalProduct * total).toFixed(2);
+    console.log( Number(total).toFixed(2));
+    return Number(total).toFixed(2);
   };
 
 

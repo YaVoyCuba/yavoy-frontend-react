@@ -70,7 +70,7 @@ const CheckOut = () => {
       let zone = zones.find(
         (zone) => zone.municipalitie_id == location.locationId
       );
-      return Number(zone?.price ?? 0).toFixed(1);
+      return Number(zone?.price ?? 0).toFixed(2);
     }
   };
 
@@ -78,13 +78,13 @@ const CheckOut = () => {
     let fee =  (  Number(getTotalPrice()) + Number(deliveryCost())) *
         settings.fee_restaurants /  100;
 
-    return Number( fee ?? 0).toFixed(1);
+    return Number( fee ?? 0).toFixed(2);
   };
 
 
   const getTotalPriceFinal = () => {
      
-    return Number(getTotalPrice() + Number(deliveryCost()) + Number(fee())).toFixed(1);
+    return Number(getTotalPrice() + Number(deliveryCost()) + Number(fee())).toFixed(2);
   };
 
   const getRestaurantData = async () => {

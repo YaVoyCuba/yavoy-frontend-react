@@ -21,7 +21,7 @@ const TemplateUser = () => {
 
   useEffect(() => {
     checkAuth();
-  }, [dispatch]);
+  }, [token]);
 
   return (
     <>

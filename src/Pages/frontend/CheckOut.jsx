@@ -52,14 +52,7 @@ const CheckOut = () => {
     }
   };
 
-  const getTotalQuantity = () => {
-    let total = 0;
-    cart.forEach((item) => {
-      total += item.quantity;
-    });
-
-    return total;
-  };
+ 
 
   const getTotalPrice = () => {
     let total = 0;

@@ -64,9 +64,10 @@ const CheckOut = () => {
   const getTotalPrice = () => {
     let total = 0;
     cart.forEach((item) => {
-      total += item.price;
+      console.log(item);
+      total += item.price *  item.quantity ;
     });
-    return getTotalQuantity() * total;
+    return  total;
   };
 
   const deliveryCost = () => {
@@ -90,7 +91,6 @@ const CheckOut = () => {
 
 
   const getTotalPriceFinal = () => {
-
      
     return Number(getTotalPrice() + Number(deliveryCost()) + Number(fee())).toFixed(1);
   };

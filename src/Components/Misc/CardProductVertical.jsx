@@ -38,6 +38,7 @@ const CardProductVertical = (props) => {
   };
 
   const dispatch = useDispatch();
+  
   const { id, name, price, img, rating, slug, restaurantId } = props;
 
   const addToCartHandler = () => {
@@ -51,7 +52,7 @@ const CardProductVertical = (props) => {
           id,
           name,
           price,
-          img,
+          img : apiManager.UrlBase + img,
           rating,
           slug,
           restaurantId,

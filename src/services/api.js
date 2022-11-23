@@ -55,6 +55,8 @@ export const post = async (endpoint, token, data) => {
   } catch (error) {}
 };
 
+ 
+
 export const postFormData = async (endpoint, token, data) => {
   console.log(token);
   console.log(data.products);

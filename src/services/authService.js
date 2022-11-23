@@ -13,7 +13,7 @@ const headersToken = {
 
 export default {
     register: async (data) => await post('register', null, data),
-    login: async (data) => await post('user/login', null, data),
+    login: async (data) => await post('login', null, data),
     getUser: async (token) => await get('user/me', token, null),
     logout: async (token) => await post('logout', token, null),
     forgotPassword: async (data) => await post('user/change/password/get-pin', null, data),

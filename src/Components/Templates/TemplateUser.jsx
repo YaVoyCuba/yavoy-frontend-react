@@ -17,7 +17,9 @@ const TemplateUser = () => {
     }
   };
 
-  const dispatch = useDispatch();
+  console.log(token);
+
+  
 
   useEffect(() => {
     checkAuth();

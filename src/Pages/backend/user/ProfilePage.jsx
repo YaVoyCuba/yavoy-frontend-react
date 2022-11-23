@@ -27,7 +27,7 @@ const ProfilePage = () => {
 
   const getUserInfo = async () => {
     const json = await apiManager.userInfo(token);
-
+    
     if (json.code == "ok") {
       setOrders(json.data.orders);
       tabs[0].count = json.data.orders.length;

@@ -70,11 +70,11 @@ const Restaurants = () => {
         <Loading />
       ) : (
         <div>
-          {promoRestaurants.length > 0 && (
+          {/* {promoRestaurants.length > 0 && (
             <span className="text-lg  font-bold text-gray-700 mt-3">
               Ofertas especiales
             </span>
-          )}
+          )} */}
           <div className="my-3 hidden lg:flex">
             <Swiper
             autoplay={{

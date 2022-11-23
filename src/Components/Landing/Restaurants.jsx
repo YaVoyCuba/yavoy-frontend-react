@@ -9,7 +9,6 @@ import { store } from "../../redux/store";
 import { useLocation } from "react-router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
- 
 
 const Restaurants = () => {
   //Get path for this route
@@ -71,26 +70,42 @@ const Restaurants = () => {
         <Loading />
       ) : (
         <div>
-          {promoRestaurants.length > 0 &&  <span className="text-lg  font-bold text-gray-700 mt-3">Ofertas especiales</span>}
-          <div className="my-3">
-            <Swiper 
-            
-              spaceBetween={50}
-              slidesPerView={1}
-            >
+          {promoRestaurants.length > 0 && (
+            <span className="text-lg  font-bold text-gray-700 mt-3">
+              Ofertas especiales
+            </span>
+          )}
+          <div className="my-3 hidden lg:flex">
+            <Swiper spaceBetween={50} slidesPerView={1}>
+              {promoRestaurants?.map(
+                (photo) =>
+                  photo.image && (
+                    <SwiperSlide key={photo.id}>
+                      <a href={photo.link}>
+                        <img src={apiManager.UrlBase + photo.image} />
+                      </a>
+                    </SwiperSlide>
+                  )
+              )}
+            </Swiper>
+          </div>
+          <div className="my-3  lg:hidden">
+            <Swiper spaceBetween={50} slidesPerView={1}>
+             
               {promoRestaurants?.map((photo) => (
-                <SwiperSlide 
-                key={photo.id}
-
-                >
-                  <a   href={photo.link}>
-                    <img src={apiManager.UrlBase + photo.image ?? apiManager.UrlBase + photo.image_movil} />
+                photo.image_movil && (
+                <SwiperSlide key={photo.id}>
+                  <a href={photo.link}>
+                    <img src={apiManager.UrlBase + photo.image_movil} />
                   </a>
                 </SwiperSlide>
+                )
               ))}
             </Swiper>
           </div>
-          <span className="text-lg font-bold text-gray-700 mt-3">Restaurantes</span>
+          <span className="text-lg font-bold text-gray-700 mt-3">
+            Restaurantes
+          </span>
           <div className="grid mb-10 grid-cols-3">
             {restaurants.map((restaurant) => {
               return (
@@ -110,13 +125,11 @@ const Restaurants = () => {
                     <h3 className="text-lg leading-6 font-medium text-gray-900">
                       No hay restaurantes disponibles en esta zona
                     </h3>
-                    </div>
-                    </div>
-                    </div>
+                  </div>
+                </div>
+              </div>
             )}
-
           </div>
- 
         </div>
       )}
     </>

@@ -76,7 +76,13 @@ const Restaurants = () => {
             </span>
           )}
           <div className="my-3 hidden lg:flex">
-            <Swiper spaceBetween={50} slidesPerView={1}>
+            <Swiper
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+             spaceBetween={50}
+              slidesPerView={1}>
               {promoRestaurants?.map(
                 (photo) =>
                   photo.image && (
@@ -90,7 +96,10 @@ const Restaurants = () => {
             </Swiper>
           </div>
           <div className="my-3  lg:hidden">
-            <Swiper spaceBetween={50} slidesPerView={1}>
+            <Swiper   autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }} spaceBetween={50} slidesPerView={1}>
              
               {promoRestaurants?.map((photo) => (
                 photo.image_movil && (

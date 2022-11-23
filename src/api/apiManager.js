@@ -223,6 +223,8 @@ export default {
   userInfo: async (token) => {
     let urlApi = '/user/me';
 
+    console.log(UrlApiBase  + urlApi);
+
     const request = await fetch(UrlApiBase  + urlApi, {
         method:'POST',
         headers:{

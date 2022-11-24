@@ -68,11 +68,13 @@ const CardProductVertical = (props) => {
       <div className="flex text-left flex-col ">
         <div className="flex ">
           <div className="flex relative">
+          <Link  to={"/producto/" + slug}>
             <img
               className="h-auto object-cover w-32  object-center "
               src={apiManager.UrlBase + img}
               alt={name}
             />
+            </Link>
             {props.experience && (            <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

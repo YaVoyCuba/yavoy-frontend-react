@@ -16,8 +16,7 @@ const TemplateUser = () => {
       setLogin(false);
     }
   };
-
-  console.log(token);
+ 
 
   
 

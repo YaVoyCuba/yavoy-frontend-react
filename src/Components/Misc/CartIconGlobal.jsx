@@ -113,12 +113,12 @@ const CartIconGlobal = () => {
                                     {product.name}
                                   </span>
                                   <div className="flex space-x-2">
-                                    <span className="text-2xl text-gray-500">
+                                    <span className="text-lg text-gray-500">
                                       {product.quantity}
                                     </span>
-                                    <span className="text-2xl">X</span>
-                                    <span className=" text-2xl font-medium color-green">
-                                      {product.price}
+                                    <span className="text-lg">X</span>
+                                    <span className=" text-lg font-medium color-green">
+                                      {Number(product.price).toFixed(2)}
                                     </span>
                                   </div>
                                 </div>
@@ -169,7 +169,7 @@ const CartIconGlobal = () => {
                         <div className="flex py-2 justify-between">
                           <span className="subtitle-2 px-2">Subtotal</span>
                           <span className="subtitle-2 px-2">
-                            {getTotalPrice()}
+                            { Number(getTotalPrice()).toFixed(2) }
                           </span>
                         </div>
                         <hr className="separator  " />

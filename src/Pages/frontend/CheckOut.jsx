@@ -75,10 +75,14 @@ const CheckOut = () => {
   };
 
   const fee = () => {
-    let fee =  (  Number(getTotalPrice()) + Number(deliveryCost())) *
-        settings.fee_restaurants /  100;
-
-    return Number( fee ?? 0).toFixed(2);
+    if(settings.length > 0){
+    
+    let fee =  (  getTotalPrice() + deliveryCost()) *
+    settings.fee_restaurants ?? 20 /  100;
+   
+    return  fee ?? 0;
+    }else
+    return 0;
   };
 
 
@@ -88,8 +92,9 @@ const CheckOut = () => {
   };
 
   const getRestaurantData = async () => {
+   
     let json = await apiManager.getDataForCheckOut(cart[0].restaurantId);
-
+     
     if (json.code == "ok") {
       setSchedules(json.data.schedules);
       setDaysOpens(json.data.daysOpens);
@@ -433,16 +438,16 @@ const CheckOut = () => {
 
                       <hr className="separator  " />
                       <div className="border-2 flex lg:mx-14 flex-col border-gray-400 border-dashed h-30 my-3 p-3">
-                        Productos: ${getTotalPrice()}
+                        Productos: ${ Number(getTotalPrice()).toFixed(2) }
                         <br />
                         <span className="py-1">
                           {" "}
-                          Costo de envío: ${deliveryCost()}
+                          Costo de envío: ${ Number(deliveryCost()).toFixed(2)}
                         </span>
-                        <span className="py-1">YaVoy fee: ${fee()}</span>
+                        <span className="py-1">YaVoy fee: ${Number(fee()).toFixed(2)}</span>
                         <hr className="py-2" />
                         <span className="text-lg font-bold">
-                          Total: $ {getTotalPriceFinal()}
+                          Total: $ {Number(getTotalPriceFinal()).toFixed(2)}
                         </span>
                       </div>
 

@@ -118,7 +118,7 @@ const ProductDetailPage = (props) => {
                       <span>CATEGORÍA: {product.category?.name}</span>
                     </div>
                     <span className="text-color font-bold text-4xl mt-3">
-                      ${product.price}
+                      ${Number(product.price).toFixed(2)}
                     </span>
                     
                     <span
@@ -163,11 +163,13 @@ const ProductDetailPage = (props) => {
                             addToCart({
                               id: product.id,
                               name: product.name,
+                              price: 190.0,
                               img:
                                 apiManager.UrlBase +
                                 product.photos[0].path_photo,
-                              price: 190.0,
                               quantity: quantity,
+                              restaurantId: product.restaurant_id,
+
                             })
                           );
                           productAdd();

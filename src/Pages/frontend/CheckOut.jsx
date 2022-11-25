@@ -43,7 +43,7 @@ const CheckOut = () => {
 
   const dispatch = useDispatch();
 
- const removeItemLocal = (id) => {
+  const removeItemLocal = (id) => {
     dispatch(removeItem(id));
 
     //check if cart is empty
@@ -52,14 +52,12 @@ const CheckOut = () => {
     }
   };
 
- 
-
   const getTotalPrice = () => {
     let total = 0;
     cart.forEach((item) => {
-      total += item.price *  item.quantity ;
+      total += item.price * item.quantity;
     });
-    return  total;
+    return total;
   };
 
   const deliveryCost = () => {
@@ -70,31 +68,34 @@ const CheckOut = () => {
       let zone = zones.find(
         (zone) => zone.municipalitie_id == location.locationId
       );
-      return Number(zone?.price ?? 0).toFixed(2);
+      return zone?.price ?? 0;
     }
   };
 
   const fee = () => {
-    if(settings.length > 0){
+    let feeTotal = 0;
     
-    let fee =  (  getTotalPrice() + deliveryCost()) *
-    settings.fee_restaurants ?? 20 /  100;
-   
-    return  fee ?? 0;
-    }else
-    return 0;
+    if (settings.fee_restaurants !== undefined) {
+      console.log('settings.fee_restaurants',settings.fee_restaurants);
+      let total = getTotalPrice() + deliveryCost();
+      console.log('total',total);
+      feeTotal = total * settings.fee_restaurants / 100;
+    } 
+    console.log('feeTotal',feeTotal);
+
+    return feeTotal;
   };
 
-
   const getTotalPriceFinal = () => {
-     
-    return Number(getTotalPrice() + Number(deliveryCost()) + Number(fee())).toFixed(2);
+   
+    return Number(
+      getTotalPrice() + Number(deliveryCost()) + Number(fee())
+    ).toFixed(2);
   };
 
   const getRestaurantData = async () => {
-   
     let json = await apiManager.getDataForCheckOut(cart[0].restaurantId);
-     
+
     if (json.code == "ok") {
       setSchedules(json.data.schedules);
       setDaysOpens(json.data.daysOpens);
@@ -407,7 +408,7 @@ const CheckOut = () => {
                               }}
                             >
                               <button
-                                onClick={() => removeItemLocal(product.id) }
+                                onClick={() => removeItemLocal(product.id)}
                                 style={{
                                   borderColor: "black",
                                   borderStyle: "solid",
@@ -438,13 +439,15 @@ const CheckOut = () => {
 
                       <hr className="separator  " />
                       <div className="border-2 flex lg:mx-14 flex-col border-gray-400 border-dashed h-30 my-3 p-3">
-                        Productos: ${ Number(getTotalPrice()).toFixed(2) }
+                        Productos: ${Number(getTotalPrice()).toFixed(2)}
                         <br />
                         <span className="py-1">
                           {" "}
-                          Costo de envío: ${ Number(deliveryCost()).toFixed(2)}
+                          Costo de envío: ${Number(deliveryCost()).toFixed(2)}
                         </span>
-                        <span className="py-1">YaVoy fee: ${Number(fee()).toFixed(2)}</span>
+                        <span className="py-1">
+                          YaVoy fee: ${Number(fee()).toFixed(2)}
+                        </span>
                         <hr className="py-2" />
                         <span className="text-lg font-bold">
                           Total: $ {Number(getTotalPriceFinal()).toFixed(2)}
@@ -593,7 +596,7 @@ const CheckOut = () => {
         <div className="flex flex-col my-7 justify-center items-center">
           <img src="/assets/img/notfound.png" className="h-96 w-auto" />
           <span className="text-2xl font-bold">Tu carrito está vacío</span>
-          <Link to={'/'}>
+          <Link to={"/"}>
             <button className="btn-main mt-5">Ir al inicio</button>
           </Link>
         </div>

@@ -14,9 +14,12 @@ const CartIconGlobal = () => {
 
   const getTotalQuantity = () => {
     let total = 0;
-    cart.forEach((item) => {
-      total += item.quantity;
-    });
+   
+    if(cart){
+      cart.forEach((item) => {
+        total += item.quantity;
+      });
+    } 
     return Number(total).toFixed();
   };
 

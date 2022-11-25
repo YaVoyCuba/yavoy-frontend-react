@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { useEffect } from "react";
 import { store } from "../../redux/store";
+import WA from "../Misc/WA";
 
 const TemplateLanding = () => {
   const locationRouter = useLocation();
@@ -91,6 +92,7 @@ const TemplateLanding = () => {
         <Outlet />
       </div>
       <Footer   />
+      <WA />
     </>
   );
 };

@@ -223,7 +223,7 @@ const SearchPage = () => {
                                 {restaurant.restaurant_id ? (
                                  <CardProductVertical 
                                  onClickFunction={handleActionProduct}
-                                 experience={true}
+                                 experience={false}
                                  rating={4}
                                  price={restaurant.price}
                                  img={restaurant.photos[0]?.path_photo ?? '/assets/img/sinfotos.jpg'}

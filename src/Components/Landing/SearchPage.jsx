@@ -1,26 +1,21 @@
 import React, { useState, Fragment, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/24/outline";
+ 
 import apiManager from "../../api/apiManager";
 import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
 import RestaurantCard from "../Misc/RestaurantCard";
+import CardProductVertical from "../Misc/CardProductVertical";
 
 const SearchPage = () => {
-  const [search, setSearch] = useState(null);
-  const [tabs, setTabs] = useState([
-  
-    { name: "Restaurantes", type: "restaurant", current: true },
-    { name: "Dulcerías", type: "dulceria", current: false },
-    { name: "Regalitos", type: "regalos", current: false },
-    { name: "Mercado", type: "market", current: false },
-   
-  ]);
-
-  const [type, setType] = useState("restaurant");
+ 
+ 
+ 
   const [open, setOpen] = useState(false);
-  const [restaurants, setRestaurants] = useState([]);
+ 
+  const [results, setResults] = useState([]);
+
   const cancelButtonRef = useRef(null);
   const location = useSelector((state) => state.location.location);
   const locationRouter = useLocation();
@@ -28,13 +23,15 @@ const SearchPage = () => {
 
   const navigate = useNavigate();
 
- 
   function handleAction(restaurantSlug) {
     setOpen(false);
     navigate(`/restaurante/${restaurantSlug}`);
   }
 
- 
+  function handleActionProduct(productSlug) {
+    setOpen(false);
+    navigate(`/producto/${productSlug}`);
+  }
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -50,22 +47,27 @@ const SearchPage = () => {
       locationFinal = location.locationId;
     }
 
-    let json = await apiManager.getRestaurants(locationFinal, type);
+    let json = await apiManager.getSearchResults(locationFinal);
     if (json != 500) {
-      setRestaurants(json.restaurants);
+      setResults(json.data);
     }
   }
 
   const searchInput = useRef(null);
 
   const onSearch = (searchInputValue) => {
-    setOpen(true);
+    if (!open) {
+      setOpen(true);
+    }
+
     if (searchInputValue) {
-      let restaurantFiltereds = restaurants.filter((restaurant) =>
+    
+      let restaurantFiltereds = results.filter((restaurant) =>
         restaurant.name.toLowerCase().includes(searchInputValue.toLowerCase())
       );
 
-      setRestaurants(restaurantFiltereds);
+      setResults(restaurantFiltereds);
+
     } else {
       location && getRestaurants();
     }
@@ -163,7 +165,7 @@ const SearchPage = () => {
                         as="h3"
                         className="text-lg font-medium leading-6 text-gray-900"
                       >
-                        <div className="flex w-fill overflow-x-auto">
+                        {/* <div className="flex w-fill overflow-x-auto">
                           <div className="flex mx-auto">
                             <nav className="flex space-x-4" aria-label="Tabs">
                               {tabs.map((tab, index) => (
@@ -195,10 +197,11 @@ const SearchPage = () => {
                               ))}
                             </nav>
                           </div>
-                        </div>
+                        </div> */}
 
                         <input
                           id="searchInput"
+                          ref={searchInput}
                           onChange={(event) => onSearch(event.target.value)}
                           className="bg-gray-100    w-full px-3  py-2 focus:outline-none focus:shadow-outline"
                           type="text"
@@ -208,7 +211,7 @@ const SearchPage = () => {
                       <div className="mt-2">
                         <span className="text-lg font-bold text-gray-700"></span>
                         <div className="grid grid-cols-3">
-                          {restaurants.map((restaurant, index) => {
+                          {results.slice(0,20).map((restaurant, index) => {
                             return (
                               <div
                                 key={`${Math.random()}
@@ -217,12 +220,30 @@ const SearchPage = () => {
                                     }-${restaurant.slug}`}
                                 className="col-span-3 my-2 lg:col-span-1"
                               >
-                                <RestaurantCard onClickFunction={handleAction}   restaurant={restaurant} />
+                                {restaurant.restaurant_id ? (
+                                 <CardProductVertical 
+                                 onClickFunction={handleActionProduct}
+                                 experience={true}
+                                 rating={4}
+                                 price={restaurant.price}
+                                 img={restaurant.photos[0]?.path_photo ?? '/assets/img/sinfotos.jpg'}
+                                 name={restaurant.name}
+                                 slug={restaurant.slug}
+                                 id={restaurant.id}
+                                 restaurantId={restaurant.restaurant_id}
+                                 
+                                 />
+                                ):
+                                (<RestaurantCard
+                                  onClickFunction={handleAction}
+                                  restaurant={restaurant}
+                                /> )
+                              }
                               </div>
                             );
                           })}
 
-                          {restaurants.length == 0 && (
+                          {results.length == 0 && (
                             <div className="col-span-3 my-2 lg:col-span-1">
                               <div className="bg-white shadow-md rounded-lg overflow-hidden">
                                 <div className="p-4">

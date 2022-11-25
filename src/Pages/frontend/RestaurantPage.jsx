@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import apiManager from "../../api/apiManager";
 import CardProductVertical from "../../Components/Misc/CardProductVertical";
 import { Loading } from "../../common/Loading";
@@ -10,6 +10,13 @@ function RestaurantPage() {
   const { restaurantSlug } = useParams();
   const [restaurant, setRestaurant] = useState([]);
  
+  const navigate = useNavigate();
+
+  function handleActionProduct(productSlug) {
+   
+    navigate(`/producto/${productSlug}`);
+  }
+
 
   async function getRestaurantDetails(restaurantSlug) {
     let json = await apiManager.getRestaurantDetails(restaurantSlug);
@@ -131,6 +138,7 @@ function RestaurantPage() {
                                   return (
                                     <div key={`product-` + product.id}>
                                       <CardProductVertical
+                                        onClickFunction={handleActionProduct}
                                         rating={4}
                                         price={product.price}
                                         img={product.photos[0]?.path_photo ?? '/assets/img/sinfotos.jpg'}

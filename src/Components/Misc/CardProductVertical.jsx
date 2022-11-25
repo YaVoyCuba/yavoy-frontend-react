@@ -68,13 +68,14 @@ const CardProductVertical = (props) => {
       <div className="flex text-left flex-col ">
         <div className="flex ">
           <div className="flex relative">
-          <Link  to={"/producto/" + slug}>
-            <img
-              className="h-auto object-cover w-32  object-center "
+         
+            <img onClick={() => props.onClickFunction(slug)}
+              className="h-auto object-cover w-32 cursor-pointer  object-center "
               src={apiManager.UrlBase + img}
               alt={name}
-            />
-            </Link>
+              />
+         
+        
             {props.experience && (            <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -91,11 +92,12 @@ const CardProductVertical = (props) => {
           </div>
 
           <div className={`flex w-full  ${props.experience && 'bg-color-100' } flex-col`}>
-            <Link className="cursor-poiner pt-3 px-3" to={"/producto/" + slug}>
-              <span className="text-xl   font-medium  text-gray-800  ">
+           
+            
+              <button onClick={() => props.onClickFunction(slug)} className="text-xl cursor-poiner pt-3 px-3 text-left  font-medium  text-gray-800  ">
                 {name}
-              </span>
-            </Link>
+              </button>
+             
             <div className="flex justify-between  ">
               <span className="text-xl font-bold pt-3 px-3 text-gray-700  ">
                 ${Number(price).toFixed(2)}

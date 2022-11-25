@@ -163,7 +163,7 @@ const ProductDetailPage = (props) => {
                             addToCart({
                               id: product.id,
                               name: product.name,
-                              price: 190.0,
+                              price: product.price,
                               img:
                                 apiManager.UrlBase +
                                 product.photos[0].path_photo,

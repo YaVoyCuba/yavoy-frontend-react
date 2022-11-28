@@ -1,4 +1,3 @@
-
 import { setInfo } from "../../redux/infoSlice";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import apiManager from "../../api/apiManager";
@@ -11,8 +10,6 @@ import WA from "../Misc/WA";
 
 const TemplateLanding = () => {
   const locationRouter = useLocation();
-
- 
 
   const tabs = [
     {
@@ -27,7 +24,7 @@ const TemplateLanding = () => {
         "mercados",
         "dulcerias",
         "regalitos",
-        "caja"
+        "caja",
       ],
     },
     {
@@ -47,14 +44,11 @@ const TemplateLanding = () => {
     if (json != 500) {
       store.dispatch(setInfo(json.settings));
     }
-   }
-
-
+  };
 
   useEffect(() => {
     getInfo();
-  }, [] );
-  
+  }, []);
 
   const path = locationRouter.pathname;
 
@@ -62,7 +56,6 @@ const TemplateLanding = () => {
     <>
       <div className="px-3 lg:px-14 lg:max-w-7xl mx-auto">
         <Header
-          
           locationType={path.split("/")[1] === "" ? "/" : path.split("/")[1]}
         />
 
@@ -89,9 +82,11 @@ const TemplateLanding = () => {
             </div>
           </div>
         </div>
+
+     
         <Outlet />
       </div>
-      <Footer   />
+      <Footer />
       <WA />
     </>
   );

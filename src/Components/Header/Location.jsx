@@ -75,7 +75,8 @@ const Location = () => {
         // );
       } else {
         toast.warning(
-          "No puedes cambiar a esta ubicación porque el restaurante del carrito no hace envíos a la misma!",
+          "No puedes cambiar a esta ubicacion porque el restaurante de los productos del carrito no hace envios a la misma",
+           
           {
             position: "top-center",
             autoClose: 5000,

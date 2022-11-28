@@ -21,6 +21,7 @@ const TemplateLanding = () => {
         "restaurante",
         "producto",
         "restaurantes",
+        "servicios",
         "mercados",
         "dulcerias",
         "regalitos",

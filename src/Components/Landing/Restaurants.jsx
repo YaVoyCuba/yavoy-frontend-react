@@ -76,7 +76,7 @@ const Restaurants = () => {
         <div>
           <div className="flex flex-col mx-auto">
             <div
-              className="  grid grid-cols-3 mx-auto  p-4 md:grid-cols-2 lg:grid-cols-4  gap-4"
+              className="  grid grid-cols-3 mx-auto  p-4 md:grid-cols-2 lg:grid-cols-5  gap-4"
               aria-hidden="true"
             >
               <Link

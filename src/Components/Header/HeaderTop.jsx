@@ -3,7 +3,6 @@ import React, { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-  
 
 import CartIconGlobal from "../Misc/CartIconGlobal";
 import SearchPage from "../Landing/SearchPage";
@@ -51,8 +50,7 @@ const HeaderTop = () => {
           </div> */}
 
           <div className="items-center p-1">
-            <Link to={'/perfil'} >
-
+            <Link to={"/perfil"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -347,6 +345,28 @@ const HeaderTop = () => {
                                     strokeLinecap="round"
                                     strokeLinejoin="round"
                                     d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
+                                  />
+                                </svg>
+                              </button>
+                            </Link>
+                            <Link to={"/servicios"}>
+                              <button
+                                onClick={() => setOpen(!open)}
+                                className="w-full px-7 text-lg color-main flex self-center justify-between  "
+                              >
+                                Servicios
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  strokeWidth={1.5}
+                                  stroke="currentColor"
+                                  className="w-6 h-6"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
                                   />
                                 </svg>
                               </button>

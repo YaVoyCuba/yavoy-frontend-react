@@ -34,6 +34,11 @@ function App() {
                   element={<Restaurants />}
                 />
                 <Route
+                  key={"/servicios"}
+                  path="/servicios"
+                  element={<Restaurants />}
+                />
+                <Route
                   key={"/restaurantes"}
                   path="/restaurantes"
                   element={<Restaurants />}

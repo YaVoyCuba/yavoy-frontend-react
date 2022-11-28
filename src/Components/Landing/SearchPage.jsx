@@ -30,6 +30,8 @@ const SearchPage = () => {
     navigate(`/producto/${productSlug}`);
   }
 
+  
+
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
@@ -52,6 +54,10 @@ const SearchPage = () => {
 
   const searchInput = useRef(null);
 
+  function removeDiacritic(texto) {
+    return texto.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+  }
+
   const onSearch = (searchInputValue) => {
     if (!open) {
       setOpen(true);
@@ -60,12 +66,16 @@ const SearchPage = () => {
     if (searchInputValue) {
       let restaurantFiltereds = results.filter((restaurant) => {
         return (
-          restaurant.name
-            .toString()
-            .toLowerCase()
-            .indexOf(searchInputValue.toLowerCase()) > -1
+           removeDiacritic(restaurant.name).startsWith(removeDiacritic(searchInputValue)) 
         );
+        // return (
+        //   restaurant.name
+        //     .toString()
+        //     .toLowerCase()
+        //     .startsWith(removeDiacritic(searchInputValue.toLowerCase())) > -1
+        // );
       });
+
 
       setResults(restaurantFiltereds);
     } else {

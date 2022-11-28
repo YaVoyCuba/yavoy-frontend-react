@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 
 const methodsDeliveries = [
   { name: "Entrega a domicilio", active: true },
-  { name: "Recogida en tienda", active: true },
+  { name: "Recogida/consumo en el lugar", active: true },
 ];
 
 function classNames(...classes) {
@@ -261,7 +261,7 @@ const CheckOut = () => {
                       <>
                         <div className="flex flex-col bg-gray-200 space-y-1 border-1 p-3 border-gray-300   rounded-lg">
                           <span className="text-gray-700 font-medium">
-                            Recogida en el restaurante
+                            Recogida/consumo en el restaurante
                           </span>
                           <span className="text-gray-700">
                             Dirección: {restaurant.address}

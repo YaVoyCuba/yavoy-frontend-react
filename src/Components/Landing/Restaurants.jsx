@@ -113,7 +113,13 @@ const Restaurants = () => {
             </Swiper>
           </div>
           <span className="text-lg font-bold text-gray-700 mt-3">
-            Restaurantes
+
+            { ( path == "/restaurantes" ||  path == "/"  ) && "Restaurantes"}
+            {path == "/dulcerias" && "Dulcerías"}
+            {path == "/mercados" && "Mercados"}
+            {path == "/regalitos" && "Regalitos"}
+
+ 
           </span>
           <div className="grid mb-10 grid-cols-3">
             {restaurants.map((restaurant) => {

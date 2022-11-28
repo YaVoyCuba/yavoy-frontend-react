@@ -26,7 +26,7 @@ const CartIconGlobal = () => {
   
   const getTotalPrice = () => {
     let total = 0;
-    cart.forEach((item) => {
+    cart?.forEach((item) => {
       total += item.price * item.quantity;
     });
    
@@ -98,7 +98,7 @@ const CartIconGlobal = () => {
                       </div>
                       <hr className="separator mx-3" />
                       <div>
-                        {cart.map((product,index) => {
+                        {cart?.map((product,index) => {
                           return (
                             <div
                             key={`productcartglobal-${index}`}

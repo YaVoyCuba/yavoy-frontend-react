@@ -54,7 +54,7 @@ const Location = () => {
       provinceId = location.province_id;
     }
 
-    if (cart.length > 0) {
+    if (cart?.length > 0) {
       let can = checkIfNewLocationCanBeAddedWithRestaurantInCart();
       if (can) {
         dispatch(

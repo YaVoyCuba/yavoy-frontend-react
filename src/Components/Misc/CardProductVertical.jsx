@@ -1,8 +1,6 @@
 import React from "react";
-import StarRatings from "react-star-ratings";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
-import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
@@ -76,7 +74,7 @@ const CardProductVertical = (props) => {
               />
          
         
-            {props.experience && (            <svg
+            {props.experience && ( <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"

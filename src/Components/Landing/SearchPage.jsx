@@ -1,7 +1,7 @@
 import React, { useState, Fragment, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
- 
+
 import apiManager from "../../api/apiManager";
 import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
@@ -9,11 +9,8 @@ import RestaurantCard from "../Misc/RestaurantCard";
 import CardProductVertical from "../Misc/CardProductVertical";
 
 const SearchPage = () => {
- 
- 
- 
   const [open, setOpen] = useState(false);
- 
+
   const [results, setResults] = useState([]);
 
   const cancelButtonRef = useRef(null);
@@ -61,13 +58,16 @@ const SearchPage = () => {
     }
 
     if (searchInputValue) {
-    
-      let restaurantFiltereds = results.filter((restaurant) =>
-        restaurant.name.toLowerCase().includes(searchInputValue.toLowerCase())
-      );
+      let restaurantFiltereds = results.filter((restaurant) => {
+        return (
+          restaurant.name
+            .toString()
+            .toLowerCase()
+            .indexOf(searchInputValue.toLowerCase()) > -1
+        );
+      });
 
       setResults(restaurantFiltereds);
-
     } else {
       location && getRestaurants();
     }
@@ -210,8 +210,8 @@ const SearchPage = () => {
                       </Dialog.Title>
                       <div className="mt-2">
                         <span className="text-lg font-bold text-gray-700"></span>
-                        <div className="grid grid-cols-3">
-                          {results.slice(0,20).map((restaurant, index) => {
+                        <div className="grid grid-cols-3 h-screen overflow-y-auto">
+                          {results.slice(0, 20).map((restaurant, index) => {
                             return (
                               <div
                                 key={`${Math.random()}
@@ -221,35 +221,37 @@ const SearchPage = () => {
                                 className="col-span-3 my-2 lg:col-span-1"
                               >
                                 {restaurant.restaurant_id ? (
-                                 <CardProductVertical 
-                                 onClickFunction={handleActionProduct}
-                                 experience={false}
-                                 rating={4}
-                                 price={restaurant.price}
-                                 img={restaurant.photos[0]?.path_photo ?? '/assets/img/sinfotos.jpg'}
-                                 name={restaurant.name}
-                                 slug={restaurant.slug}
-                                 id={restaurant.id}
-                                 restaurantId={restaurant.restaurant_id}
-                                 
-                                 />
-                                ):
-                                (<RestaurantCard
-                                  onClickFunction={handleAction}
-                                  restaurant={restaurant}
-                                /> )
-                              }
+                                  <CardProductVertical
+                                    onClickFunction={handleActionProduct}
+                                    experience={false}
+                                    rating={4}
+                                    price={restaurant.price}
+                                    img={
+                                      restaurant.photos[0]?.path_photo ??
+                                      "/assets/img/sinfotos.jpg"
+                                    }
+                                    name={restaurant.name}
+                                    slug={restaurant.slug}
+                                    id={restaurant.id}
+                                    restaurantId={restaurant.restaurant_id}
+                                  />
+                                ) : (
+                                  <RestaurantCard
+                                    onClickFunction={handleAction}
+                                    restaurant={restaurant}
+                                  />
+                                )}
                               </div>
                             );
                           })}
 
                           {results.length == 0 && (
-                            <div className="col-span-3 my-2 lg:col-span-1">
+                            <div className="col-span-3 my-2 lg:col-span-3 text-center justify-center mx-auto px-20">
                               <div className="bg-white shadow-md rounded-lg overflow-hidden">
                                 <div className="p-4">
                                   <div className="flex items-center">
                                     <div className="text-gray-600">
-                                      No se encontraron restaurantes
+                                      No se encontraron resultados
                                       <div className="flex items-center mt-4 text-gray-700">
                                         <svg
                                           xmlns="http://www.w3.org/2000/svg"

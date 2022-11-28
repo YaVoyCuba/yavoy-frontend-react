@@ -76,12 +76,12 @@ const CheckOut = () => {
     let feeTotal = 0;
     
     if (settings.fee_restaurants !== undefined) {
-      console.log('settings.fee_restaurants',settings.fee_restaurants);
+    
       let total = getTotalPrice() + deliveryCost();
       console.log('total',total);
       feeTotal = total * settings.fee_restaurants / 100;
     } 
-    console.log('feeTotal',feeTotal);
+   
 
     return feeTotal;
   };

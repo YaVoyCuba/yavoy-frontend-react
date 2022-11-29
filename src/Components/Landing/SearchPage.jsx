@@ -48,7 +48,20 @@ const SearchPage = () => {
 
     let json = await apiManager.getSearchResults(locationFinal);
     if (json != 500) {
-      setResults(json.data);
+
+      //Filter data, if not hace restaurant_id, then value the status of the restaurant and not show if status == inactive
+      let filteredData = json.data.filter((restaurant) => {
+        if (restaurant.restaurant_id == null) {
+          return restaurant.status == "active";
+        } else {
+          return restaurant.restaurant?.status == 'active';
+        }
+       
+      });
+   
+
+
+      setResults(filteredData);
     }
   }
 
@@ -230,7 +243,8 @@ const SearchPage = () => {
                                     }-${restaurant.slug}`}
                                 className="col-span-3 my-2 lg:col-span-1"
                               >
-                                {restaurant.restaurant_id ? (
+                                {restaurant.restaurant_id  ? (
+                                
                                   <CardProductVertical
                                     onClickFunction={handleActionProduct}
                                     experience={false}

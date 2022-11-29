@@ -60,7 +60,13 @@ export default {
 
   getTropiapayCountries: async () => {
     let urlApi = "/payment/tropipay/countries";
-    const request = await fetch(UrlApiBase + urlApi);
+    const request = await fetch(UrlApiBase + urlApi,{
+      method:'POST',
+      headers:{
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+      }}
+      );
     if (request) {
       return await request.json();
     }

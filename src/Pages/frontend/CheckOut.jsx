@@ -117,13 +117,17 @@ const CheckOut = () => {
       method.name == "Entrega a domicilio" ? "delivery" : "pick";
 
     const payload = {
+      location: location,
       cart: cart,
       pointToDelivery: null,
       deliveryCost: deliveryCost(),
       userId: null,
-      userName: data.userName,
-      userEmail: data.userEmail,
-      userPhone: data.userPhone,
+      userName: data.receiverName,
+      userEmail: null,
+      userPhone: data.receiverPhone,
+      userNote: data.receiverNote,
+      userAddress: data.receiverAddress,
+      shopLocation: location.locationId,
       schedule: data.schedule,
       dayDelivery: data.dayDelivery,
       currency_code: "USD",
@@ -138,8 +142,10 @@ const CheckOut = () => {
         termsAndConditions: true,
       },
     };
+    
+    console.log('payload',payload);
 
-    let json = await apiManager.newOrder(payload);
+   // let json = await apiManager.newOrder(payload);
     console.log(json);
     if (json.code == "ok") {
       dispatch(clearCart());
@@ -361,7 +367,7 @@ const CheckOut = () => {
 
                     <span className="text-gray-700  ">Nota aclaratoria</span>
                     <textarea
-                      {...register("orderNote")}
+                      {...register("receiverNote")}
                       rows="3"
                       className="input-text"
                       placeholder="Ejemplo: Incluir tarjeta de felicitación a nombre de ...; Soy alérgico a.."

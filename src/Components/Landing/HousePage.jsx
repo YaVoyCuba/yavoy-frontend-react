@@ -21,6 +21,7 @@ import { CheckIcon } from "@heroicons/react/24/outline";
 import { DateRangePicker } from "react-date-range";
 import { useSelector } from "react-redux";
 import LoginPage from "../../Pages/frontend/LoginPage";
+import truncate from "truncate-html";
 
 const HousePage = (props) => {
   const [bookCompleted, setBookCompleted] = useState(false);
@@ -117,9 +118,9 @@ const HousePage = (props) => {
     window.scrollTo(0, 0);
     setLoadingBookView(true);
     if (!auth.token) {
-      setLoginView(!loginView);
+      setLoginView(true);
     } else {
-      setLoginView(!loginView);
+      setLoginView(false);
       setBookingView(!bookingView);
     }
     

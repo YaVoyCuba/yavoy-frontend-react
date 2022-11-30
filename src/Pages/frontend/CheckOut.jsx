@@ -72,31 +72,35 @@ const CheckOut = () => {
     }
   };
 
+
+  const getTotalPriceFinal = () => {
+
+  
+   
+   
+    return Number(
+      getTotalPrice() + Number(deliveryCost()) + fee()
+    ).toFixed(2);
+  };
+
+
   const fee = () => {
     let feeTotal = 0;
     
     if (settings.fee_restaurants !== undefined) {
     
       let total = getTotalPrice() + deliveryCost();
-      console.log('total',total);
+     
       feeTotal = total * settings.fee_restaurants / 100;
     } 
-   
 
-    return feeTotal;
-  };
+    let extraFee =0;
 
-  const getTotalPriceFinal = () => {
-
-    let fee = Number(fee());
-
-    if(getTotalPrice() + Number(deliveryCost()) + fee < 20  ){
-      fee = fee + 0.50;
+    if(getTotalPrice() + Number(deliveryCost()) + feeTotal < 20  ){
+      extraFee = 0.50;
     } 
-   
-    return Number(
-      getTotalPrice() + Number(deliveryCost()) + fee
-    ).toFixed(2);
+
+    return feeTotal + extraFee;
   };
 
   const getRestaurantData = async () => {

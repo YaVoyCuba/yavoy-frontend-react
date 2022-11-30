@@ -158,9 +158,9 @@ const CheckOut = () => {
     
  
 
-    //let json = await apiManager.newOrder(payload);
+   let json = await apiManager.newOrder(payload);
 
-    console.log(payload);
+  
 
     if (json.code == "ok") {
       dispatch(clearCart());

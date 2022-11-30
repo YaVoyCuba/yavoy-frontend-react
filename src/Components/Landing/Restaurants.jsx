@@ -88,7 +88,7 @@ const Restaurants = () => {
                 }`}
               >
                 <button
-                  onClick={() => setOpen(!open)}
+                
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
                   Restaurantes
@@ -115,7 +115,7 @@ const Restaurants = () => {
                 }`}
               >
                 <button
-                  onClick={() => setOpen(!open)}
+                
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
                   Mercados
@@ -142,7 +142,7 @@ const Restaurants = () => {
                 }`}
               >
                 <button
-                  onClick={() => setOpen(!open)}
+                
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
                   Dulcerías
@@ -169,7 +169,7 @@ const Restaurants = () => {
                 }`}
               >
                 <button
-                  onClick={() => setOpen(!open)}
+                
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
                   Regalitos
@@ -196,7 +196,7 @@ const Restaurants = () => {
                 }`}
               >
                 <button
-                  onClick={() => setOpen(!open)}
+                
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
                   Servicios

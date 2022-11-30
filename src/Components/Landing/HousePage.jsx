@@ -126,6 +126,11 @@ const HousePage = (props) => {
     setLoadingBookView(false);
   };
 
+  const closeModales = () => {
+    setBookingView(false);
+    setLoginView(false);
+  };
+
   const handleLogin = () => {
     if (auth.token) {
       setLoginView(false);
@@ -219,7 +224,7 @@ const HousePage = (props) => {
             <div className="">
               <div className= " text-center lg:rounded-2xl lg:m-10 lg:max-w-2xl h-[53%]  absolute z-50 overflow-y-auto py-20   shadow-2xl inset-y-0   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
                 <div className="mt-1">
-                  <button onClick={() => handleBook()} className="pl-3 flex">
+                  <button onClick={() => closeModales()} className="pl-3 flex">
                     <span className="text-gray-700 flex text-lg pt-3 pl-2">
                       {" "}
                       <svg
@@ -253,7 +258,7 @@ const HousePage = (props) => {
               <div className="">
                 <div className="mb-0  overflow-y-auto text-center lg:rounded-2xl lg:m-10 lg:max-w-4xl absolute z-50   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
                   <div className="mt-1">
-                    <button onClick={() => handleBook()} className="pl-3 flex">
+                    <button onClick={() => closeModales()} className="pl-3 flex">
                       <span className="text-gray-700 flex text-lg pt-3 pl-2">
                         {" "}
                         <svg

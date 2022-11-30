@@ -113,7 +113,7 @@ const HousePage = (props) => {
   };
 
   const handleBook = () => {
-    //Volver arriba
+   
     window.scrollTo(0, 0);
     setLoadingBookView(true);
     if (!auth.token) {
@@ -129,6 +129,7 @@ const HousePage = (props) => {
   const handleLogin = () => {
     if (auth.token) {
       setLoginView(false);
+       setBookingView(!bookingView); 
     } else {
       setLoginView(true);
     }
@@ -205,7 +206,7 @@ const HousePage = (props) => {
     document.addEventListener("keydown", hideOnEscape, true);
     document.addEventListener("click", hideOnClickOutside, true);
     getHouseDetails(houseSlug);
-  //  handleLogin();
+   handleLogin();
   }, [houseSlug, auth]);
 
   return (
@@ -216,7 +217,7 @@ const HousePage = (props) => {
         <div className="pb-32 ">
           {loginView && (
             <div className="">
-              <div className="mb-20 text-center lg:rounded-2xl lg:m-10 lg:max-w-2xl absolute z-50 max-h-screen shadow-2xl inset-y-0 lg:w-full inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
+              <div className= " text-center lg:rounded-2xl lg:m-10 lg:max-w-2xl h-[53%]  absolute z-50 overflow-y-auto py-20   shadow-2xl inset-y-0   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
                 <div className="mt-1">
                   <button onClick={() => handleBook()} className="pl-3 flex">
                     <span className="text-gray-700 flex text-lg pt-3 pl-2">
@@ -250,7 +251,7 @@ const HousePage = (props) => {
               <Loading />
             ) : (
               <div className="">
-                <div className="mb-0  overflow-y-auto text-center lg:rounded-2xl lg:m-10 lg:max-w-2xl absolute z-50  lg:w-full inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
+                <div className="mb-0  overflow-y-auto text-center lg:rounded-2xl lg:m-10 lg:max-w-4xl absolute z-50   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
                   <div className="mt-1">
                     <button onClick={() => handleBook()} className="pl-3 flex">
                       <span className="text-gray-700 flex text-lg pt-3 pl-2">
@@ -330,7 +331,7 @@ const HousePage = (props) => {
                           />
                           <div className="flex mx-auto">
                             <button
-                              className="btn-main w-full"
+                              className="btn-main w-1/2 mx-auto"
                               onClick={() => setOpen((open) => !open)}
                             >
                               Seleccionar
@@ -341,7 +342,7 @@ const HousePage = (props) => {
                     </div>
                   </div>
 
-                  <div className="flex text-center space-y-3 flex-col my-5">
+                  <div className="flex text-center lg:w-1/2 mx-auto space-y-3 flex-col my-5">
                     {/* Adults */}
                     <span>Adultos</span>
                     <div className="flex px-7">
@@ -527,7 +528,7 @@ const HousePage = (props) => {
                       >
                         {countries?.map((element) => {
                           return (
-                            <option value={element.id}>
+                            <option key={`a-${element.id}`} value={element.id}>
                               {element.PaisNombre}
                             </option>
                           );
@@ -538,7 +539,7 @@ const HousePage = (props) => {
 
                   <button
                     onClick={() => valdiateBook()}
-                    className="btn-main w-[98%] mx-auto"
+                    className="btn-main lg:w-1/2 mx-auto"
                   >
                     Hacer pre reserva por ${totalPrice()}
                   </button>

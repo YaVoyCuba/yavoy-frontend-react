@@ -158,8 +158,10 @@ const CheckOut = () => {
     
  
 
-    let json = await apiManager.newOrder(payload);
-    console.log(json);
+    //let json = await apiManager.newOrder(payload);
+
+    console.log(payload);
+
     if (json.code == "ok") {
       dispatch(clearCart());
       window.location.href = json.url;

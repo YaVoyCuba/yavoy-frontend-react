@@ -87,9 +87,15 @@ const CheckOut = () => {
   };
 
   const getTotalPriceFinal = () => {
+
+    let fee = Number(fee());
+
+    if(getTotalPrice() + Number(deliveryCost()) + fee < 20  ){
+      fee = fee + 0.50;
+    } 
    
     return Number(
-      getTotalPrice() + Number(deliveryCost()) + Number(fee())
+      getTotalPrice() + Number(deliveryCost()) + fee
     ).toFixed(2);
   };
 

@@ -122,7 +122,7 @@ const HousePage = (props) => {
       setLoginView(!loginView);
       setBookingView(!bookingView);
     }
-    getHouseDetailsForBooking(houseSlug);
+    
     setLoadingBookView(false);
   };
 
@@ -211,6 +211,7 @@ const HousePage = (props) => {
     document.addEventListener("keydown", hideOnEscape, true);
     document.addEventListener("click", hideOnClickOutside, true);
     getHouseDetails(houseSlug);
+    getHouseDetailsForBooking(houseSlug);
    handleLogin();
   }, [houseSlug, auth]);
 

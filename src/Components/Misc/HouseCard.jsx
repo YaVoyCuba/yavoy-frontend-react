@@ -36,12 +36,15 @@ const HouseCard = (props) => {
               )}
             </div>
             <div>
-              <div className="flex flex-col">
+              <div className="flex justify-between flex-col">
                 <span className="text-md pl-3 pr-1 pb-0 color uppercase font-bold ">
                   {house.title}
                 </span>
                 <span className="text-md line-clamp-3 text-gray-700  pl-3 pr-1 pb-0       ">
                   {house.resume }
+                </span>
+                <span className="text-md text-color pl-3 pr-1 pb-0 color uppercase font-bold ">
+                 $ {house.price} USD
                 </span>
               </div>
             </div>

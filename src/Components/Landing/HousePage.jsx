@@ -135,7 +135,7 @@ const HousePage = (props) => {
   const handleLogin = () => {
     if (auth.token) {
       setLoginView(false);
-       setBookingView(!bookingView); 
+       //setBookingView(!bookingView); 
     } else {
       setLoginView(true);
     }
@@ -213,7 +213,7 @@ const HousePage = (props) => {
     document.addEventListener("click", hideOnClickOutside, true);
     getHouseDetails(houseSlug);
     getHouseDetailsForBooking(houseSlug);
-   handleLogin();
+     handleLogin();
   }, [houseSlug, auth]);
 
   return (

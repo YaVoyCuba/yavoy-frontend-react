@@ -245,7 +245,7 @@ const HousePage = (props) => {
                       </svg>
                       Volver al alojamiento
                     </span>
-                  </button>
+                  </button> 
                 </div>
                 <div className="mt-7">
                   <LoginPage />
@@ -258,7 +258,8 @@ const HousePage = (props) => {
               <Loading />
             ) : (
               <div className="">
-                <div className="mb-0  overflow-y-auto text-center lg:rounded-2xl lg:m-10 lg:max-w-4xl absolute z-50   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
+                <div className="mb-0  overflow-y-auto text-center lg:rounded-2xl lg:m-10 lg:max-w-4xl absolute z-50   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    " 
+                style={{zIndex: 9999}}>
                   <div className="mt-1">
                     <button onClick={() => closeModales()} className="pl-3 flex">
                       <span className="text-gray-700 flex text-lg pt-3 pl-2">
@@ -634,7 +635,7 @@ const HousePage = (props) => {
                             <span
                               className="font-medium text-md pt-1 pb-2"
                               dangerouslySetInnerHTML={{
-                                __html: house.description?.substring(0, 277),
+                                __html: house.description
                               }}
                             ></span>
                           </div>

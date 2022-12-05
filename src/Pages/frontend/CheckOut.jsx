@@ -19,6 +19,7 @@ function classNames(...classes) {
 }
 
 const CheckOut = () => {
+  const [pickService,setPickService] = useState();
   const [empty, setEmpty] = useState(false);
   const [tropipayData, setTropipayData] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -112,6 +113,7 @@ const CheckOut = () => {
       setZones(json.data.zones);
       setRestaurant(json.data.restaurant);
       setSettings(json.data.settings);
+      setPickService(json.data.restaurant?.pick);
     }
   };
   const getTropipayCountries = async () => {
@@ -160,6 +162,7 @@ const CheckOut = () => {
 
    let json = await apiManager.newOrder(payload);
 
+   console.log(json);
   
 
     if (json.code == "ok") {
@@ -216,6 +219,7 @@ const CheckOut = () => {
                       >
                         <div className="grid grid-cols-2 gap-3 sm:grid-cols-2">
                           {methodsDeliveries.map((option) => (
+                           pickService && (
                             <RadioGroup.Option
                               key={option.name}
                               value={option}
@@ -239,9 +243,12 @@ const CheckOut = () => {
                                 {option.name}
                               </RadioGroup.Label>
                             </RadioGroup.Option>
+                            ) 
+
                           ))}
                         </div>
                       </RadioGroup>
+
                     </div>
 
                     {method == methodsDeliveries[0] && (
@@ -256,6 +263,21 @@ const CheckOut = () => {
                             {...register("receiverName", { required: true })}
                           />
                           {errors.receiverName && (
+                            <span className="text-red-500 font-medium">
+                              Este campo es requerido
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex flex-col space-y-3">
+                          <span className="text-gray-700">
+                            Teléfono del receptor
+                          </span>
+                          <input
+                            type="text"
+                            className="input-text"
+                            {...register("receiverPhone", { required: true })}
+                          />
+                          {errors.receiverPhone && (
                             <span className="text-red-500 font-medium">
                               Este campo es requerido
                             </span>

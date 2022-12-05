@@ -645,7 +645,7 @@ const HousePage = (props) => {
                             <span className="text-color font-bold text-4xl ">
                               ${house.price}
                             </span>
-                            <span className="text-md pt-4 pl-1">/noche</span>
+                            <span className="text-md pt-4 pl-1"> /noche</span>
                           </div>
                           <div>
                             <button

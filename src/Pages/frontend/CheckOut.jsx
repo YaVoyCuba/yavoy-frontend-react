@@ -19,6 +19,7 @@ function classNames(...classes) {
 }
 
 const CheckOut = () => {
+  const [deliveryService,setDeliveryService] = useState();
   const [pickService,setPickService] = useState();
   const [empty, setEmpty] = useState(false);
   const [tropipayData, setTropipayData] = useState(false);
@@ -114,6 +115,7 @@ const CheckOut = () => {
       setRestaurant(json.data.restaurant);
       setSettings(json.data.settings);
       setPickService(json.data.restaurant?.pick);
+      setDeliveryService(json.data.restaurant?.delivery);
     }
   };
   const getTropipayCountries = async () => {
@@ -218,8 +220,9 @@ const CheckOut = () => {
                         className="mt-2"
                       >
                         <div className="grid grid-cols-2 gap-3 sm:grid-cols-2">
-                          {methodsDeliveries.map((option) => (
-                           pickService && (
+                          
+                          {methodsDeliveries.map((option, index) => (
+                             
                             <RadioGroup.Option
                               key={option.name}
                               value={option}
@@ -243,7 +246,7 @@ const CheckOut = () => {
                                 {option.name}
                               </RadioGroup.Label>
                             </RadioGroup.Option>
-                            ) 
+                        
 
                           ))}
                         </div>
@@ -252,6 +255,7 @@ const CheckOut = () => {
                     </div>
 
                     {method == methodsDeliveries[0] && (
+                    deliveryService == "1" && (
                       <>
                         <div className="flex flex-col space-y-3">
                           <span className="text-gray-700  ">
@@ -299,8 +303,10 @@ const CheckOut = () => {
                           )}
                         </div>
                       </>
+                    )
                     )}
                     {method == methodsDeliveries[1] && (
+                     pickService == "1" ? (
                       <>
                         <div className="flex flex-col bg-gray-200 space-y-1 border-1 p-3 border-gray-300   rounded-lg">
                           <span className="text-gray-700 font-medium">
@@ -347,18 +353,19 @@ const CheckOut = () => {
                           )}
                         </div>
                       </>
+                    ) :
+                    (
+                      <div className="flex flex-col bg-red-200 space-y-1 border-1 p-3 border-gray-300   rounded-lg">
+                          <span className="text-red-700 text-center py-20 font-medium">
+                            Este comercio no tiene servicio de recogida
+                          </span>
+                        </div>
+                      )
+
+
                     )}
 
-                    {/* <span className="text-gray-700 py-1">Zona de entrega</span>
-            <select name="" id="" className="input-text">
-              {zones?.map((zone, index) => {
-                return (
-                  <option value={zone.id}>
-                    {zone.municipalitie.name}
-                  </option>
-                );
-              })}
-            </select> */}
+              
 
                     <span className="text-gray-700  ">Día de entrega</span>
                     <select
@@ -615,6 +622,9 @@ const CheckOut = () => {
                           </button>
                         </div>
                       ) : (
+                      ( ( pickService == "1" && method.name == "Recogida/consumo en el lugar" ) || 
+                       ( deliveryService == "1" && method.name == "Entrega a domicilio" ) ) ?  
+                        (
                         <button
                           onClick={() => setTropipayData(true)}
                           className="btn-main flex  mt-7 px-7 mx-auto"
@@ -627,7 +637,16 @@ const CheckOut = () => {
                             className="h-10 w-auto"
                           />
                         </button>
+                      ) : (
+                          <span className="text-center p-3 text-red-500">Debe escoger otro método de entrega
+                          
+                        
+                          </span>
+                        )
                       )}
+
+                
+
                     </div>
                   </div>
                 </div>

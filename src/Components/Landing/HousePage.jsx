@@ -38,6 +38,9 @@ const HousePage = (props) => {
   const [bookingView, setBookingView] = useState(false);
   const [loginView, setLoginView] = useState(false);
 
+  //Use in subtype == 'Hostal'
+  const [bedrooms, setBetrooms] = useState([]);
+
   //NewBook
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
@@ -51,55 +54,24 @@ const HousePage = (props) => {
 
   const [errorQuantity, setErrorQuantity] = useState(false);
 
-  const valdiateBook = async () => {
-    setTotalQuests(adults + children + babies);
-
-    if (adults + children + babies > house.guests) {
-      setErrorQuantity(true);
+  const handleBedromm = (bedroom) => {
+    //add bedroom to array if not exist
+    let exist = bedrooms.find((b) => b.id == bedroom.id);
+    if (!exist) {
+      setBetrooms([...bedrooms, bedroom]);
     } else {
-      setErrorQuantity(false);
-
-      let date =
-        format(range[0].startDate, "dd-MM-yyyy") +
-        "," +
-        format(range[0].endDate, "dd-MM-yyyy");
-
-      let days = 0;
-      if (range[0].startDate != null) {
-        days = Math.round(
-          (range[0].endDate.getTime() - range[0].startDate.getTime()) /
-            (1000 * 60 * 60 * 24)
-        );
-      }
-
-      let payload = {
-        house_id: house.id,
-        price: totalPrice(),
-        contactName: auth.user.name,
-        contactPhone: auth.user.phone,
-        daysBookings: days,
-        contactEmail: auth.user.email,
-        contactCountry: contactCountry,
-        dates: date,
-        quests: totalQuests,
-      };
-
-      let json = await apiManager.newBook(payload);
-
-      if (json.code == "ok") {
-        setBookCompleted(true);
-        setBookCompletedCode(json.bookingCode);
-        return handleBook();
-      }
+      //remove bedroom from array
+      let newBedrooms = bedrooms.filter((b) => b.id != bedroom.id);
+      setBetrooms(newBedrooms);
     }
   };
 
-  useEffect(() => {
-    setTotalQuests(adults + children + babies);
-  }, [adults, children, babies]);
+  const valdiateBook = async () => {
+    let date =
+      format(range[0].startDate, "dd-MM-yyyy") +
+      "," +
+      format(range[0].endDate, "dd-MM-yyyy");
 
-  const totalPrice = () => {
-    let price = 0;
     let days = 0;
     if (range[0].startDate != null) {
       days = Math.round(
@@ -108,13 +80,86 @@ const HousePage = (props) => {
       );
     }
 
-    price = house.price * days * totalQuests;
+   
+    setErrorQuantity(false);
 
-    return price;
+    if (house.subtype?.name == "Hostal") {
+      if (bedrooms.length == 0) {
+        toast.error("Debes seleccionar al menos una habitación");
+        return;
+      }
+    }else{
+      setTotalQuests(adults + children + babies);
+
+      if (adults + children + babies > house.guests) {
+        setErrorQuantity(true);
+        return;
+      }
+    
+    }
+
+    //array with only id of bedrooms
+    let bedroomsName = "";
+    bedrooms.map((bedroom) => {
+      bedroomsName += bedroom.name + ", ";
+    });
+
+
+    let payload = {
+      house_id: house.id,
+      price: totalPrice(),
+      contactName: auth.user.name,
+      contactPhone: auth.user.phone,
+      daysBookings: days,
+      contactEmail: auth.user.email,
+      contactCountry: contactCountry,
+      dates: date,
+      quests: totalQuests,
+      bedrooms: bedroomsName,
+    };
+
+    let json = await apiManager.newBook(payload);
+
+
+
+    if (json.code == "ok") {
+      setBookCompleted(true);
+      setBookCompletedCode(json.bookingCode);
+      return handleBook();
+    }else{
+      
+      toast.error('Ocurrió un error en el servidor, intentalo más tarde');
+    }
+  };
+
+  useEffect(() => {
+    setTotalQuests(adults + children + babies);
+  }, [adults, children, babies]);
+
+  const totalPrice = () => {
+    let days = 0;
+
+    if (range[0].startDate != null) {
+      days = Math.round(
+        (range[0].endDate.getTime() - range[0].startDate.getTime()) /
+          (1000 * 60 * 60 * 24)
+      );
+    }
+
+    if (house.subtype?.name == "Hostal") {
+      let price = 0;
+      bedrooms.map((bedroom) => {
+        price += bedroom.price * days;
+      });
+      return price;
+    } else {
+      let price = 0;
+      price = house.price * days * totalQuests;
+      return price;
+    }
   };
 
   const handleBook = () => {
-   
     window.scrollTo(0, 0);
     setLoadingBookView(true);
     if (!auth.token) {
@@ -123,7 +168,7 @@ const HousePage = (props) => {
       setLoginView(false);
       setBookingView(!bookingView);
     }
-    
+
     setLoadingBookView(false);
   };
 
@@ -135,7 +180,7 @@ const HousePage = (props) => {
   const handleLogin = () => {
     if (auth.token) {
       setLoginView(false);
-       //setBookingView(!bookingView); 
+      //setBookingView(!bookingView);
     } else {
       setLoginView(true);
     }
@@ -213,7 +258,7 @@ const HousePage = (props) => {
     document.addEventListener("click", hideOnClickOutside, true);
     getHouseDetails(houseSlug);
     getHouseDetailsForBooking(houseSlug);
-     handleLogin();
+    //  handleLogin();
   }, [houseSlug, auth]);
 
   return (
@@ -224,7 +269,7 @@ const HousePage = (props) => {
         <div className="pb-32 ">
           {loginView && (
             <div className="">
-              <div className= " text-center lg:rounded-2xl lg:m-10 lg:max-w-2xl h-[53%]  absolute z-50 overflow-y-auto py-20   shadow-2xl inset-y-0   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
+              <div className=" text-center lg:rounded-2xl lg:m-10 lg:max-w-2xl h-[53%]  absolute z-50 overflow-y-auto py-20   shadow-2xl inset-y-0   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    ">
                 <div className="mt-1">
                   <button onClick={() => closeModales()} className="pl-3 flex">
                     <span className="text-gray-700 flex text-lg pt-3 pl-2">
@@ -245,7 +290,7 @@ const HousePage = (props) => {
                       </svg>
                       Volver al alojamiento
                     </span>
-                  </button> 
+                  </button>
                 </div>
                 <div className="mt-7">
                   <LoginPage />
@@ -258,10 +303,15 @@ const HousePage = (props) => {
               <Loading />
             ) : (
               <div className="">
-                <div className="mb-0  overflow-y-auto text-center lg:rounded-2xl lg:m-10 lg:max-w-4xl absolute z-50   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    " 
-                style={{zIndex: 9999}}>
+                <div
+                  className="mb-0  overflow-y-auto text-center lg:rounded-2xl lg:m-10 lg:max-w-4xl absolute z-50   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    "
+                  style={{ zIndex: 9999 }}
+                >
                   <div className="mt-1">
-                    <button onClick={() => closeModales()} className="pl-3 flex">
+                    <button
+                      onClick={() => closeModales()}
+                      className="pl-3 flex"
+                    >
                       <span className="text-gray-700 flex text-lg pt-3 pl-2">
                         {" "}
                         <svg
@@ -350,207 +400,248 @@ const HousePage = (props) => {
                     </div>
                   </div>
 
-                  <div className="flex text-center lg:w-1/2 mx-auto space-y-3 flex-col my-5">
-                    {/* Adults */}
-                    <span>Adultos</span>
-                    <div className="flex px-7">
-                      <div className="    inset-y-0   flex items-center pr-3">
-                        <button
-                          onClick={() => {
-                            if (adults > 0) {
-                              setAdults(adults - 1);
-                            }
-                          }}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6"
+                  {house.subtype?.name == "Hostal" ? (
+                    <>
+                      <br />
+                      <span className="text-md pt-7 text-center">
+                        Selecciona las habitaciones
+                      </span>
+                      <div className="py-7 flex flex-row flex-wrap">
+                        {house.bedrooms?.map((bedroom) => (
+                          <button
+                            onClick={() => {
+                              handleBedromm(bedroom);
+                            }}
+                            key={`bed-${bedroom.id}`}
+                            className="flex flex-col "
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M18 12H6"
-                            />
-                          </svg>
-                        </button>
+                            <div className="flex flex-row">
+                              <div className="flex flex-col ">
+                                <div
+                                  className={`text-lg 
+                                ${
+                                  bedrooms.includes(bedroom)
+                                    ? "bg-orange-600 text-white"
+                                    : "bg-gray-100 text-black"
+                                }
+                                rounded-lg px-7 hover:bg-orange-600 py-3 m-2`}
+                                >
+                                  {bedroom.name} - ${bedroom.price}
+                                </div>
+                              </div>
+                            </div>
+                          </button>
+                        ))}
                       </div>
-                      <input
-                        value={adults}
-                        onChange={(e) => setAdults(e.target.value)}
-                        type="text"
-                        className="input-text text-center w-full"
-                      />
-                      <div className="     right-0 flex items-center pl-3">
-                        <button
-                          onClick={() => {
-                            if (house.guests > adults) {
-                              setAdults(adults + 1);
-                            }
-                          }}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6"
+                    </>
+                  ) : (
+                    <div className="flex text-center lg:w-1/2 mx-auto space-y-3 flex-col my-5">
+                      {/* Adults */}
+                      <span>Adultos</span>
+                      <div className="flex px-7">
+                        <div className="    inset-y-0   flex items-center pr-3">
+                          <button
+                            onClick={() => {
+                              if (adults > 0) {
+                                setAdults(adults - 1);
+                              }
+                            }}
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 4.5v15m7.5-7.5h-15"
-                            />
-                          </svg>
-                        </button>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M18 12H6"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                        <input
+                          value={adults}
+                          onChange={(e) => setAdults(e.target.value)}
+                          type="text"
+                          className="input-text text-center w-full"
+                        />
+                        <div className="     right-0 flex items-center pl-3">
+                          <button
+                            onClick={() => {
+                              if (house.guests > adults) {
+                                setAdults(adults + 1);
+                              }
+                            }}
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 4.5v15m7.5-7.5h-15"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      {/* Children */}
+                      <span>Niños</span>
+                      <div className="flex px-7 mt-4">
+                        <div className="    inset-y-0   flex items-center pr-3">
+                          <button
+                            onClick={() => {
+                              if (children > 0) {
+                                setChildren(children - 1);
+                              }
+                            }}
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M18 12H6"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                        <input
+                          value={children}
+                          onChange={(e) => setChildren(e.target.value)}
+                          type="text"
+                          className="input-text text-center w-full"
+                        />
+                        <div className="     right-0 flex items-center pl-3">
+                          <button
+                            onClick={() => {
+                              if (house.guests > children) {
+                                setChildren(children + 1);
+                              }
+                            }}
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 4.5v15m7.5-7.5h-15"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      {/* Bebes */}
+                      <span>Bebés</span>
+                      <div className="flex px-7 mt-4">
+                        <div className="    inset-y-0   flex items-center pr-3">
+                          <button
+                            onClick={() => {
+                              if (babies > 0) {
+                                setBabies(babies - 1);
+                              }
+                            }}
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M18 12H6"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                        <input
+                          value={babies}
+                          onChange={(e) => setBabies(e.target.value)}
+                          type="text"
+                          className="input-text text-center w-full"
+                        />
+                        <div className="     right-0 flex items-center pl-3">
+                          <button
+                            onClick={() => {
+                              if (house.guests > babies) {
+                                setBabies(babies + 1);
+                              }
+                            }}
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              strokeWidth={1.5}
+                              stroke="currentColor"
+                              className="w-6 h-6"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 4.5v15m7.5-7.5h-15"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      {/* Bebes */}
+                      <span>País</span>
+                      <div className="flex px-7 mt-4">
+                        <select
+                          onChange={(event) =>
+                            setContactCountry(event.target.value)
+                          }
+                          className="input-text w-full px-3"
+                        >
+                          {countries?.map((element) => {
+                            return (
+                              <option
+                                key={`a-${element.id}`}
+                                value={element.id}
+                              >
+                                {element.PaisNombre}
+                              </option>
+                            );
+                          })}
+                        </select>
                       </div>
                     </div>
-                    {/* Children */}
-                    <span>Niños</span>
-                    <div className="flex px-7 mt-4">
-                      <div className="    inset-y-0   flex items-center pr-3">
-                        <button
-                          onClick={() => {
-                            if (children > 0) {
-                              setChildren(children - 1);
-                            }
-                          }}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M18 12H6"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                      <input
-                        value={children}
-                        onChange={(e) => setChildren(e.target.value)}
-                        type="text"
-                        className="input-text text-center w-full"
-                      />
-                      <div className="     right-0 flex items-center pl-3">
-                        <button
-                          onClick={() => {
-                            if (house.guests > children) {
-                              setChildren(children + 1);
-                            }
-                          }}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 4.5v15m7.5-7.5h-15"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    {/* Bebes */}
-                    <span>Bebés</span>
-                    <div className="flex px-7 mt-4">
-                      <div className="    inset-y-0   flex items-center pr-3">
-                        <button
-                          onClick={() => {
-                            if (babies > 0) {
-                              setBabies(babies - 1);
-                            }
-                          }}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M18 12H6"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                      <input
-                        value={babies}
-                        onChange={(e) => setBabies(e.target.value)}
-                        type="text"
-                        className="input-text text-center w-full"
-                      />
-                      <div className="     right-0 flex items-center pl-3">
-                        <button
-                          onClick={() => {
-                            if (house.guests > babies) {
-                              setBabies(babies + 1);
-                            }
-                          }}
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-6 h-6"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M12 4.5v15m7.5-7.5h-15"
-                            />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    {/* Bebes */}
-                    <span>País</span>
-                    <div className="flex px-7 mt-4">
-                      <select
-                        onChange={(event) =>
-                          setContactCountry(event.target.value)
-                        }
-                        className="input-text w-full px-3"
-                      >
-                        {countries?.map((element) => {
-                          return (
-                            <option key={`a-${element.id}`} value={element.id}>
-                              {element.PaisNombre}
-                            </option>
-                          );
-                        })}
-                      </select>
-                    </div>
-                  </div>
+                  )}
 
-                  <button
-                    onClick={() => valdiateBook()}
-                    className="btn-main lg:w-1/2 mx-auto"
-                  >
-                    Hacer pre reserva por ${totalPrice()}
-                  </button>
+                  {totalPrice() > 0 && (
+                    <button
+                      onClick={() => valdiateBook()}
+                      className="btn-main lg:w-1/2 mx-auto"
+                    >
+                      Hacer pre reserva por ${totalPrice()}
+                    </button>
+                  )}
 
                   {errorQuantity && (
                     <div className="flex justify-center">
@@ -635,18 +726,22 @@ const HousePage = (props) => {
                             <span
                               className="font-medium text-md pt-1 pb-2"
                               dangerouslySetInnerHTML={{
-                                __html: house.description
+                                __html: house.description,
                               }}
                             ></span>
                           </div>
                         </div>
                         <div className="flex justify-between mt-3">
-                          <div className="flex">
-                            <span className="text-color font-bold text-4xl ">
-                              ${house.price}
-                            </span>
-                            <span className="text-md pt-4 pl-1"> /noche</span>
-                          </div>
+                          {house.price ? (
+                            <div className="flex">
+                              <span className="text-color font-bold text-4xl ">
+                                ${house.price}
+                              </span>
+                              <span className="text-md pt-4 pl-1"> /noche</span>
+                            </div>
+                          ) : (
+                            <div></div>
+                          )}
                           <div>
                             <button
                               onClick={() => handleBook()}

@@ -76,8 +76,8 @@ const Houses = () => {
           )}
           <div className="my-3">
             <Swiper spaceBetween={50} slidesPerView={1}>
-              {promoHouses?.map((photo) => (
-                <SwiperSlide>
+              {promoHouses?.map((photo,index) => (
+                <SwiperSlide key={`awiper-${index}`}>
                   <a href={photo.link}>
                     <img
                       src={
@@ -92,10 +92,10 @@ const Houses = () => {
           </div>
           <span className="text-lg font-bold text-gray-700"> Alojamientos</span>
           <div className="grid grid-cols-3 mb-20">
-            {houses.map((house) => {
+            {houses.map((house,index) => {
               return (
                 <div
-                  key={`house-${house.id}`}
+                  key={`house-${index}`}
                   className="col-span-3 my-2 lg:col-span-1"
                 >
                   <HouseCard house={house} />

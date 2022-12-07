@@ -120,8 +120,6 @@ const HousePage = (props) => {
 
     let json = await apiManager.newBook(payload);
 
-
-
     if (json.code == "ok") {
       setBookCompleted(true);
       setBookCompletedCode(json.bookingCode);

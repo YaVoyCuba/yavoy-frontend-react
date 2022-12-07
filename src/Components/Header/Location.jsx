@@ -97,14 +97,14 @@ const Location = () => {
         })
       );
 
-      localStorage.setItem(
-        "location",
-        JSON.stringify({
-          locationName: locationName,
-          locationId: locationId,
-          provinceId: provinceId,
-        })
-      );
+      // localStorage.setItem(
+      //   "location",
+      //   JSON.stringify({
+      //     locationName: locationName,
+      //     locationId: locationId,
+      //     provinceId: provinceId,
+      //   })
+      // );
     }
   };
 

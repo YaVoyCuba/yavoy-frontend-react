@@ -9,7 +9,7 @@ const PaymentCompleted = () => {
         <img src="/assets/img/completed.png" className="h-96 w-auto" />
         <span className="text-2xl font-bold">¡Pago completado!</span>
         <span className="text-lg my-8 font-medium">
-            Muchas gracias por su compra, su pedido ya <br/> está siendo procesado. Espere noticia pronto.
+        Su orden se procesó con éxito. Gracias por su compra! El restaurante se comunicará con su familiar para hacer la entrega.
         </span>
         <Link href="/">
           <button className="btn-main mt-5">Ir al inicio</button>

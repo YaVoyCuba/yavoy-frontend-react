@@ -127,10 +127,10 @@ const CheckOut = () => {
 
   const newOrder = async (data) => {
     setLoading(true);
-    let methodDelivery =
-      method.name == "Entrega a domicilio" ? "delivery" : "pick";
+    let methodDelivery =  method.name == "Entrega a domicilio" ? "delivery" : "pick";
 
     const payload = {
+      methodDelivery: methodDelivery,
       location: location,
       cart: cart,
       pointToDelivery: null,

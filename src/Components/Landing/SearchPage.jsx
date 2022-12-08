@@ -48,6 +48,7 @@ const SearchPage = () => {
     }
 
     let json = await apiManager.getSearchResults(locationFinal);
+
     if (json != 500) {
 
        
@@ -65,7 +66,11 @@ const SearchPage = () => {
 
       setResults(filteredData);
       setCopyResults(filteredData);
+    }else {
+     console.log('error cargando los datos del api');
+      setResults([]);
     }
+
   }
 
   const searchInput = useRef(null);
@@ -83,11 +88,8 @@ const SearchPage = () => {
       let restaurantFiltereds = results.filter((restaurant) => {
         return (
             restaurant.name.toLowerCase().includes(searchInputValue.toLowerCase())
-             
         );
-         
       });
-
 
       setResults(restaurantFiltereds);
     } else {

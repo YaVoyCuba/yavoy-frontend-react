@@ -99,7 +99,7 @@ const SearchPage = () => {
 
   useEffect(() => {
     location.locationId !== 0 && getRestaurants();
-  }, []);
+  }, [location]);
 
   return (
     <>

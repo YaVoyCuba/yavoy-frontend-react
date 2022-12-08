@@ -10,6 +10,7 @@ const Header = (props) => {
   return (
     <div>
       <HeaderTop />
+      
       {locationType == "restaurantes" ||
        locationType == "/" ||
       locationType == "restaurante" ||

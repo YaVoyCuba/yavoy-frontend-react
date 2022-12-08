@@ -12,6 +12,7 @@ const SearchPage = () => {
   const [open, setOpen] = useState(false);
 
   const [results, setResults] = useState([]);
+  const [copyResult, setCopyResults] = useState([]);
 
   const cancelButtonRef = useRef(null);
   const location = useSelector((state) => state.location.location);
@@ -49,6 +50,7 @@ const SearchPage = () => {
     let json = await apiManager.getSearchResults(locationFinal);
     if (json != 500) {
 
+       
       //Filter data, if not hace restaurant_id, then value the status of the restaurant and not show if status == inactive
       let filteredData = json.data.filter((restaurant) => {
         if (restaurant.restaurant_id == null) {
@@ -62,6 +64,7 @@ const SearchPage = () => {
 
 
       setResults(filteredData);
+      setCopyResults(filteredData);
     }
   }
 
@@ -79,20 +82,16 @@ const SearchPage = () => {
     if (searchInputValue) {
       let restaurantFiltereds = results.filter((restaurant) => {
         return (
-           removeDiacritic(restaurant.name).startsWith(removeDiacritic(searchInputValue)) 
+            restaurant.name.toLowerCase().includes(searchInputValue.toLowerCase())
+             
         );
-        // return (
-        //   restaurant.name
-        //     .toString()
-        //     .toLowerCase()
-        //     .startsWith(removeDiacritic(searchInputValue.toLowerCase())) > -1
-        // );
+         
       });
 
 
       setResults(restaurantFiltereds);
     } else {
-      location && getRestaurants();
+      setResults(copyResult);
     }
   };
 
@@ -125,8 +124,7 @@ const SearchPage = () => {
           <div>
             <div className="relative mt-1 flex items-center">
               <input
-                ref={searchInput}
-                onChange={(event) => onSearch(event.target.value)}
+                onClick={() => setOpen(true)}
                 className="bg-gray-100  rounded-full w-96 pl-10 pr-4 py-2 focus:outline-none focus:shadow-outline"
                 type="text"
                 placeholder="Buscar algo"

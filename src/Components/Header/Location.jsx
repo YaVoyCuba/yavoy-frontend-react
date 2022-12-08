@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { LoadingSmall } from "../../common/LoadingSmall";
 
 const Location = () => {
+  
   const location = useSelector((state) => state.location.location);
   const { cart } = useSelector((state) => state.cart);
   const [provinces, setProvinces] = useState([]);
@@ -21,7 +22,7 @@ const Location = () => {
   const dispatch = useDispatch();
 
   const getLocation = async () => {
-    setOpen(true)
+    setOpen(true);
     let json = await apiManager.getLocationData();
     if (json.code == "ok") {
       setProvinces(json.data.provinces);
@@ -64,19 +65,10 @@ const Location = () => {
             provinceId: provinceId,
           })
         );
-
-        // localStorage.setItem(
-        //   "location",
-        //   JSON.stringify({
-        //     locationName: locationName,
-        //     locationId: locationId,
-        //     provinceId: provinceId,
-        //   })
-        // );
       } else {
         toast.warning(
           "No puedes cambiar a esta ubicacion porque el restaurante de los productos del carrito no hace envios a la misma",
-           
+
           {
             position: "top-center",
             autoClose: 5000,
@@ -96,15 +88,6 @@ const Location = () => {
           provinceId: provinceId,
         })
       );
-
-      // localStorage.setItem(
-      //   "location",
-      //   JSON.stringify({
-      //     locationName: locationName,
-      //     locationId: locationId,
-      //     provinceId: provinceId,
-      //   })
-      // );
     }
   };
 
@@ -112,29 +95,7 @@ const Location = () => {
     let zones = apiManager.getZones(cart[0].restaurantId);
   };
 
-  // const checkLocationInStorage = () => {
-  //   let location = localStorage.getItem("location");
-  //   if (location) {
-  //     dispatch(setLocation(JSON.parse(location)));
-  //     setMunicipalitieSelected(JSON.parse(location).locationId);
-  //     setProvinceSelected(JSON.parse(location).provinceId);
-  //   }
-
-  //   if (!location) {
-  //     setOpen(true);
-  //     getLocation();
-  //   }
-  // };
-
   useEffect(() => {
-    // setLoadingProvinces(true);
-    // if (localStorage.getItem("location")) {
-    //   dispatch(setLocation(JSON.parse(localStorage.getItem("location"))));
-    //   setLoadingProvinces(false);
-    // } else {
-    //   getLocation();
-    // }
-    // checkLocationInStorage();
     !location.locationId && getLocation();
   }, []);
 

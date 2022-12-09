@@ -41,7 +41,7 @@ const CardProductVertical = (props) => {
 
   const addToCartHandler = () => {
     //check if not exist another product with same restaurantId
-    let exist = cart.find((item) => item.restaurantId != restaurantId);
+    let exist = cart?.find((item) => item.restaurantId != restaurantId);
     if (exist) {
       productExisted();
     } else {

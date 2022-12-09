@@ -67,7 +67,7 @@ const Location = () => {
         );
       } else {
         toast.warning(
-          "No puedes cambiar a esta ubicacion porque el restaurante de los productos del carrito no hace envios a la misma",
+          "No puedes cambiar a esta ubicacion porque el restaurante de los productos del carrito no hace envos a la misma",
 
           {
             position: "top-center",
@@ -92,7 +92,7 @@ const Location = () => {
   };
 
   const checkIfNewLocationCanBeAddedWithRestaurantInCart = () => {
-    let zones = apiManager.getZones(cart[0].restaurantId);
+    return false; //let zones = apiManager.getZones(cart[0].restaurantId);
   };
 
   useEffect(() => {

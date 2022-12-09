@@ -201,6 +201,7 @@ const CheckOut = () => {
           <Loading />
         ) : (
           <div>
+
             <form onSubmit={handleSubmit(newOrder)}>
               <div className="grid grid-cols-12 bg-gray-100 rounded-lg shadow-lg my-20 p-4">
                 <div className="col-span-12 lg:col-span-6">
@@ -608,6 +609,9 @@ const CheckOut = () => {
                               )}
                             </div>
                           </div>
+                          <span classNama="text-center mx-auto">
+                          * Las tarjetas deben tener habilitado 3D-Secure para ser aceptadas  
+                          </span>
                           <button
                             type="submit"
                             className="btn-main flex  mt-7 px-7 mx-auto"

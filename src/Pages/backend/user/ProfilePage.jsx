@@ -8,6 +8,7 @@ import { Loading } from "../../../common/Loading";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const ProfilePage = () => {
   const [page, setPage] = useState("orders");
@@ -27,7 +28,7 @@ const ProfilePage = () => {
 
   const getUserInfo = async () => {
     const json = await apiManager.userInfo(token);
-    
+
     if (json.code == "ok") {
       setOrders(json.data.orders);
       tabs[0].count = json.data.orders.length;
@@ -45,7 +46,6 @@ const ProfilePage = () => {
     return classes.filter(Boolean).join(" ");
   }
 
- 
   return (
     <>
       {loading ? (
@@ -99,7 +99,6 @@ const ProfilePage = () => {
                     <ul className="divide-y divide-gray-200">
                       {orders.map((order) => (
                         <li key={order.id}>
-                          {console.log("orders", order)}
                           <a href="#" className="block hover:bg-gray-50">
                             <div className="px-4 py-4 sm:px-6">
                               <div className="flex items-center justify-between">
@@ -152,7 +151,7 @@ const ProfilePage = () => {
                 <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                   <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">
-                      Reservas 
+                      Reservas
                     </h3>
                     <p className="mt-1 max-w-2xl text-sm text-gray-500">
                       Detalles de las reservas de alojamiento realizados.
@@ -169,10 +168,30 @@ const ProfilePage = () => {
                                 <p className="text-sm font-medium text-orange-600 truncate">
                                   Reserva #{book.booking_code}
                                 </p>
+                                {book.status == "approvated" && (
+                                  <div className="ml-2 flex-shrink-0 flex">
+                                    <Link to={`/booking/${book.booking_code}`}>
+                                      <button
+                                        className="bg-green-500 rounded-lg text-white px-3 py-1 hover:bg-green-600"
+                                        onClick={() => {}}
+                                      >
+                                        {" "}
+                                        Pagar ahora
+                                      </button>
+                                    </Link>
+                                  </div>
+                                )}
+
                                 <div className="ml-2 flex-shrink-0 flex">
-                                  <p className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full  first-letter:
-                                    ${book.status == 'pending' ? 'bg-orange-100 text-orange-800 ' : ' bg-green-100 text-green-800' }
-                                  `}>
+                                  <p
+                                    className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full  first-letter:
+                                    ${
+                                      book.status == "pending"
+                                        ? "bg-orange-100 text-orange-800 "
+                                        : " bg-green-100 text-green-800"
+                                    }
+                                  `}
+                                  >
                                     {book.status}
                                   </p>
                                   <button
@@ -208,15 +227,13 @@ const ProfilePage = () => {
                         </li>
                       ))}
 
-                       {bookings.length == 0 && (
+                      {bookings.length == 0 && (
                         <div className="px-4 py-5 sm:px-6">
                           <div className="text-sm text-gray-500">
                             No hay reservas realizadas.
                           </div>
                         </div>
                       )}
-
-                              
                     </ul>
                   </div>
                 </div>
@@ -279,14 +296,13 @@ const ProfilePage = () => {
                               </span>
                             ) : (
                               <span className="text-sm bg-green-100 p-3  font-medium text-gray-900">
-                             Recogida en tienda: {orderToView.restaurant?.address}
-                            </span>
+                                Recogida en tienda:{" "}
+                                {orderToView.restaurant?.address}
+                              </span>
                             )}
-
                           </div>
                           <div className="relative mt-6 flex-1 px-6 pr-14 sm:px-6">
                             {/* Replace with your content */}
-
 
                             <div className="relative  flex-1 flex flex-col">
                               <div className="flex-1">
@@ -305,7 +321,7 @@ const ProfilePage = () => {
                                 <div className="mt-2">
                                   <div className="flex items-center justify-between">
                                     <p className="text-sm font-medium text-orange-600 truncate">
-                                      Cliente:  
+                                      Cliente:
                                     </p>
                                     <div className="ml-2 flex-shrink-0 flex">
                                       <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -341,7 +357,7 @@ const ProfilePage = () => {
                                 <div className="mt-2">
                                   <div className="flex items-center justify-between">
                                     <p className="text-sm font-medium text-orange-600 truncate">
-                                      Teléfono:  
+                                      Teléfono:
                                     </p>
                                     <div className="ml-2 flex-shrink-0 flex">
                                       <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
@@ -350,7 +366,7 @@ const ProfilePage = () => {
                                     </div>
                                   </div>
                                 </div>
-                            
+
                                 <div className="mt-2">
                                   <div className="flex items-center justify-between">
                                     <p className="text-sm font-medium text-orange-600 truncate">
@@ -372,7 +388,7 @@ const ProfilePage = () => {
                                             </p>
                                             <div className="ml-2 flex-shrink-0 flex">
                                               <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                {product.amount} 
+                                                {product.amount}
                                               </p>
                                             </div>
                                           </div>
@@ -392,7 +408,7 @@ const ProfilePage = () => {
               </div>
             </Dialog>
           </Transition.Root>
-      
+
           <Transition.Root show={openBooking} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={setOpenBooking}>
               <Transition.Child
@@ -424,7 +440,8 @@ const ProfilePage = () => {
                           <div className="px-4 sm:px-6">
                             <div className="flex pr-10 items-start justify-between">
                               <Dialog.Title className="text-lg font-medium text-gray-900">
-                                Reserva {bookingToView.id} ({bookingToView.booking_code})
+                                Reserva {bookingToView.id} (
+                                {bookingToView.booking_code})
                               </Dialog.Title>
                               <div className="ml-3 flex h-7 items-center">
                                 <button
@@ -441,48 +458,55 @@ const ProfilePage = () => {
                               </div>
                             </div>
                           </div>
-                           <div className="my-3  flex flex-col  w-full">
-                          
-                              <span className="text-sm px-4 bg-green-100 p-3  font-medium text-gray-900">
-                               Alojamiento: {bookingToView.house?.title}
-                              </span>
-
-                          </div>  
+                          <div className="my-3  flex flex-col  w-full">
+                            <span className="text-sm px-4 bg-green-100 p-3  font-medium text-gray-900">
+                              Alojamiento: {bookingToView.house?.title}
+                            </span>
+                          </div>
                           <div className="relative mt-6 flex-1 px-6 pr-14 sm:px-6">
                             {/* Replace with your content */}
-                          <div className="relative  flex-1 flex flex-col">
+                            <div className="relative  flex-1 flex flex-col">
                               <div className="flex-1">
                                 <div className="mt-2">
                                   <div className="flex items-center justify-between">
                                     <p className="text-sm font-medium text-orange-600 truncate">
-                                     Estado
+                                      Estado
                                     </p>
                                     <div className="ml-2 flex-shrink-0 flex">
-                                      <p className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full first-letter:
-                                        ${bookingToView.status === "pending" ? "bg-yellow-100 text-yellow-800" : bookingToView.status === "approvated" ? "bg-green-100 text-green-800" : bookingToView.status === "completed" ? "bg-blue-100 text-blue-800" : "bg-gray-100 text-gray-800"}`}>
+                                      <p
+                                        className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full first-letter:
+                                        ${
+                                          bookingToView.status === "pending"
+                                            ? "bg-yellow-100 text-yellow-800"
+                                            : bookingToView.status ===
+                                              "approvated"
+                                            ? "bg-green-100 text-green-800"
+                                            : bookingToView.status ===
+                                              "completed"
+                                            ? "bg-blue-100 text-blue-800"
+                                            : "bg-gray-100 text-gray-800"
+                                        }`}
+                                      >
                                         {bookingToView.status}
                                       </p>
                                     </div>
                                   </div>
                                 </div>
-                               
+
                                 <div className="mt-2">
                                   <div className="flex items-center justify-between">
                                     <p className="text-sm font-medium text-orange-600 truncate">
-                                      Fecha 
+                                      Fecha
                                     </p>
                                     <div className="ml-2 flex-shrink-0 flex">
                                       <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                      {bookingToView.date}
+                                        {bookingToView.date}
                                       </p>
                                     </div>
                                   </div>
                                 </div>
-                               
-                                
-                            
                               </div>
-                            </div> 
+                            </div>
                           </div>
                         </div>
                       </Dialog.Panel>

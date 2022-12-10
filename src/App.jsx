@@ -17,6 +17,7 @@ import { persistor, store } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import TemplateUser from "./Components/Templates/TemplateUser";
 import ProfilePage from "./Pages/backend/user/ProfilePage";
+import PaymentBookings from "./Pages/backend/bookings/PaymentBookings";
  
 
 function App() {
@@ -62,6 +63,11 @@ function App() {
                   key={"/alojamiento"}
                   path="/alojamiento/:houseSlug"
                   element={<HousePage />}
+                />
+                <Route
+                  key={"/booking/:bookingCode"}
+                  path="/booking/:bookingCode"
+                  element={<PaymentBookings />}
                 />
                 <Route key={"/login"} path="/login" element={<Login />} />
              

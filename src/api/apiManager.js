@@ -3,7 +3,7 @@ let UrlBase = "https://api.yavoycuba.com";
 const shopSlug = "yavoycuba";
 
 if (window.location.href.indexOf("127.0.0.1") > -1) {
- // UrlBase = "http://127.0.0.1:8000";
+ //UrlBase = "http://127.0.0.1:8000";
    UrlBase = "https://api.yavoycuba.com";
 } else {
   UrlBase = "https://api.yavoycuba.com";
@@ -18,6 +18,14 @@ export default {
 
   getGeneralData: async () => {
     let urlApi = "/settings";
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+
+  getBooking: async (bookingCode) => {
+    let urlApi = "/houses/book/view/"+bookingCode;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();
@@ -238,7 +246,7 @@ export default {
   userInfo: async (token) => {
     let urlApi = '/user/me';
 
-    console.log(UrlApiBase  + urlApi);
+    
 
     const request = await fetch(UrlApiBase  + urlApi, {
         method:'POST',
@@ -256,6 +264,23 @@ export default {
 
   newOrder: async (data) => {
     let urlApi = '/payment/pay';
+
+    const request = await fetch(UrlApiBase  + urlApi, {
+        method:'POST',
+        headers:{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+    if(request){
+      
+        return await request.json();
+    }
+  },
+
+  newBookingPayment: async (data) => {
+    let urlApi = '/payment/booking';
 
     const request = await fetch(UrlApiBase  + urlApi, {
         method:'POST',

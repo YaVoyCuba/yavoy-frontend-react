@@ -32,7 +32,7 @@ const TemplateLanding = () => {
       name: "Alojamientos",
       href: "/alojamientos",
       current: false,
-      rutes: ["alojamiento", "alojamientos"],
+      rutes: ["alojamiento", "alojamientos","booking"],
     },
   ];
 

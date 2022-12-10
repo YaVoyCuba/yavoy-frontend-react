@@ -56,9 +56,7 @@ const PaymentBookings = () => {
 
     let json = await apiManager.newBookingPayment(payload);
 
-
     if (json.code == "ok") {
-      dispatch(clearCart());
       window.location.href = json.url;
     } else {
       toast.error("Ocurrió un error al procesar el pago!", {
@@ -86,7 +84,7 @@ const PaymentBookings = () => {
         <Loading />
       ) : (
         <div>
-          <div className="bg-color-100 h-32 mb-10">
+          <div className="bg-color-100 max-w-5xl h-32 mb-10">
             <div className="flex flex-col justify-center items-center h-full">
               <div className="flex flex-col justify-center items-center">
                 <div className="text-2xl color font-bold text-color-100">

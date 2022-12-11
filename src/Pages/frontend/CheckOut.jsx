@@ -159,8 +159,21 @@ const CheckOut = () => {
         termsAndConditions: true,
       },
     };
-    
+
  
+    if(methodDelivery == 'delivery' && !location.locationId){
+      toast.error("Debes seleccionar una dirección!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setLoading(false);
+      return;
+    }
 
    let json = await apiManager.newOrder(payload);
 
@@ -186,6 +199,9 @@ const CheckOut = () => {
   };
 
   useEffect(() => {
+
+
+
     if (cart.length > 0) {
       getRestaurantData();
       getTropipayCountries();

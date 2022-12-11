@@ -11,7 +11,7 @@ const PaymentFailed = () => {
         <span className="text-lg my-8 font-medium">
            Ocurrió un error y no fue posible completar el pedido. Contacta a nuestro servicio <br/> 
         </span>
-        <Link href="/">
+        <Link to={'/'}>
           <button className="btn-main mt-5">Ir al inicio</button>
         </Link>
       </div>

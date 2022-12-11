@@ -7,11 +7,16 @@ import { Loading } from "../../common/Loading";
 import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
 import { useLocation } from "react-router";
-import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from 'swiper';
+
+import { Swiper, SwiperSlide  } from "swiper/react";
+
 import "swiper/css";
+import "swiper/css/autoplay";
 import { Link } from "react-router-dom";
 
 const Restaurants = () => {
+  SwiperCore.use([Autoplay]);
   //Get path for this route
   const locationRouter = useLocation();
   const path = locationRouter.pathname;
@@ -235,7 +240,7 @@ const Restaurants = () => {
               {promoRestaurants?.map(
                 (photo) =>
                   photo.image && (
-                    <SwiperSlide key={photo.id}>
+                    <SwiperSlide key={ `d-${photo.id}`}>
                       <a href={photo.link}>
                         <img src={apiManager.UrlBase + photo.image} />
                       </a>
@@ -256,7 +261,7 @@ const Restaurants = () => {
               {promoRestaurants?.map(
                 (photo) =>
                   photo.image_movil && (
-                    <SwiperSlide key={photo.id}>
+                    <SwiperSlide key={ `m-${photo.id}`}>
                       <a href={photo.link}>
                         <img src={apiManager.UrlBase + photo.image_movil} />
                       </a>

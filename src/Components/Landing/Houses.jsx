@@ -94,7 +94,7 @@ const Houses = () => {
     //filter houses
     let housesFiltered;
 
-    console.log(prices);
+ 
     if(prices.min == 0 && prices.max == 0 && selectedTypes.length == 0){
       return housesCopy;
     }
@@ -117,7 +117,7 @@ const Houses = () => {
         let houseType = house.type_id;
         let price = house.price;
         if(selectedTypes.length == 0){
-          return price <= prices.max;
+          return price >= prices.min;
         }
         let typeSelected = selectedTypes.includes(houseType);
   

@@ -22,7 +22,7 @@ const Houses = () => {
   const [selectedTypes, setSelectedTypes] = useState([]);
   const [prices , setPrices] = useState({
     min: 0,
-    max: 1000000
+    max: 0
   });
 
  
@@ -94,9 +94,13 @@ const Houses = () => {
     //filter houses
     let housesFiltered;
 
+    console.log(prices.min,prices.max,selectedTypes.length)
+
  
     if(prices.min == 0 && prices.max == 0 && selectedTypes.length == 0){
-      return housesCopy;
+      
+      return setHousesFilter(housesCopy);
+       
     }
     else if(prices.min == 0 && prices.max !== 0){
 
@@ -138,7 +142,7 @@ const Houses = () => {
         let houseType = house.type_id;
         let price = house.price;
         if(selectedTypes.length == 0){
-          return price <= prices.max;
+          return price >= prices.min && price <= prices.max;
         }
         let typeSelected = selectedTypes.includes(houseType);
   
@@ -147,6 +151,10 @@ const Houses = () => {
     }
 
     setHousesFilter(housesFiltered);
+    setPrices({
+      min: 0,
+      max: 0
+    });
 
   }
 

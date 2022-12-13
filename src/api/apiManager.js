@@ -3,8 +3,8 @@ let UrlBase = "https://api.yavoycuba.com";
 const shopSlug = "yavoycuba";
 
 if (window.location.href.indexOf("127.0.0.1") > -1) {
- //UrlBase = "http://127.0.0.1:8000";
-   UrlBase = "https://api.yavoycuba.com";
+ UrlBase = "http://127.0.0.1:8000";
+ //  UrlBase = "https://api.yavoycuba.com";
 } else {
   UrlBase = "https://api.yavoycuba.com";
 }
@@ -18,6 +18,14 @@ export default {
 
   getGeneralData: async () => {
     let urlApi = "/settings";
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+
+  getHousesTypes: async () => {
+    let urlApi = "/houses/types";
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();
@@ -122,9 +130,9 @@ export default {
     }
   },
 
-  getHouses: async (locationId,type) => {
+  getHouses: async (locationId,type,filters) => {
    
-    let urlApi = "/houses/all/"+locationId+"/"+type;
+    let urlApi = "/houses/all/"+locationId+"/"+type+"/"+filters;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();

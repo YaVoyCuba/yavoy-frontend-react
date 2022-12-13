@@ -70,8 +70,6 @@ function App() {
                   element={<PaymentBookings />}
                 />
                 <Route key={"/login"} path="/login" element={<Login />} />
-             
-
                 <Route
                   key={"/restaurante"}
                   path="/restaurante/:restaurantSlug"

@@ -9,17 +9,27 @@ import { useLocation } from "react-router";
 import HouseCard from "../Misc/HouseCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import FilterInHouse from "../Houses/FilterInHouse";
 
 const Houses = () => {
   const locationRouter = useLocation();
   const path = locationRouter.pathname;
   const [promoHouses, setPromoHouses] = useState([]);
   const [houses, setHouses] = useState([]);
+  const [housesFilteres, setHousesFilter] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [housesTypes, setHousesTypes] = useState([]);
+  const [selectedTypes, setSelectedTypes] = useState([]);
+  const [prices , setPrices] = useState({
+    min: 0,
+    max: 1000000
+  });
 
+ 
   const location = useSelector((state) => state.location.locationHouse);
 
   async function getHouses() {
+    
     let location2 = store.getState().location.location;
 
     let locationFinal = "";
@@ -43,10 +53,14 @@ const Houses = () => {
       type = "regalos";
     }
 
-    let json = await apiManager.getHouses(locationFinal, type);
+    let filters = 'filter';
+
+
+    let json = await apiManager.getHouses(locationFinal, type, filters);
 
     if (json != 500) {
       setHouses(json.houses);
+      setHousesFilter(json.houses);
       setLoading(false);
     }
 
@@ -58,10 +72,85 @@ const Houses = () => {
     }
   }
 
+  async function getHousesType() {
+    let json = await apiManager.getHousesTypes();
+    if (json != 500) {
+      setHousesTypes(json.types);
+    }
+  }
+
   useEffect(() => {
     setLoading(true);
+    getHousesType();
     location.locationId != 0 && getHouses();
   }, [location, path]);
+
+  
+  const filterHouses = () => {
+
+    //copy houses
+    let housesCopy = [...houses];
+
+    //filter houses
+    let housesFiltered;
+
+    console.log(prices);
+    if(prices.min == 0 && prices.max == 0 && selectedTypes.length == 0){
+      return housesCopy;
+    }
+    else if(prices.min == 0 && prices.max !== 0){
+
+      housesFiltered = housesCopy.filter((house) => {
+        let houseType = house.type_id;
+        let price = house.price;
+        if(selectedTypes.length == 0){
+          return price <= prices.max;
+        }
+        let typeSelected = selectedTypes.includes(houseType);
+  
+        return (price <= prices.max ) && typeSelected ;
+      });
+
+    }
+    else if(prices.min !== 0 && prices.max == 0){
+      housesFiltered = housesCopy.filter((house) => {
+        let houseType = house.type_id;
+        let price = house.price;
+        if(selectedTypes.length == 0){
+          return price <= prices.max;
+        }
+        let typeSelected = selectedTypes.includes(houseType);
+  
+        return (price >= prices.min ) && typeSelected ;
+      });
+    }
+    else if(prices.min == 0 && prices.max == 0){
+      housesFiltered = housesCopy.filter((house) => {
+        let houseType = house.type_id;
+        console.log('selectedTypes.length',selectedTypes.length);
+        if(selectedTypes.length !== 0){
+          return selectedTypes.includes(houseType);
+        }
+      });
+    }
+    else if(prices.min !== 0 && prices.max !== 0){
+      housesFiltered = housesCopy.filter((house) => {
+        let houseType = house.type_id;
+        let price = house.price;
+        if(selectedTypes.length == 0){
+          return price <= prices.max;
+        }
+        let typeSelected = selectedTypes.includes(houseType);
+  
+        return (price >= prices.min && price <= prices.max ) && typeSelected ;
+      });
+    }
+
+    setHousesFilter(housesFiltered);
+
+  }
+
+
 
   return (
     <>
@@ -76,7 +165,7 @@ const Houses = () => {
           )}
           <div className="my-3">
             <Swiper spaceBetween={50} slidesPerView={1}>
-              {promoHouses?.map((photo,index) => (
+              {promoHouses?.map((photo, index) => (
                 <SwiperSlide key={`awiper-${index}`}>
                   <a href={photo.link}>
                     <img
@@ -90,9 +179,24 @@ const Houses = () => {
               ))}
             </Swiper>
           </div>
-          <span className="text-lg font-bold text-gray-700"> Alojamientos</span>
+          <div className="flex justify-between">
+            <span className="text-lg font-bold text-gray-700">
+              {" "}
+              Alojamientos
+            </span>
+
+            <FilterInHouse
+              setSelectedTypes={setSelectedTypes}
+              housesTypes={housesTypes}
+              selectedTypes={selectedTypes}
+              prices = {prices}
+              setPrices={setPrices}
+              filterHouses={filterHouses}
+
+            />
+          </div>
           <div className="grid grid-cols-3 mb-20">
-            {houses.map((house,index) => {
+            {housesFilteres.map((house, index) => {
               return (
                 <div
                   key={`house-${index}`}
@@ -103,7 +207,7 @@ const Houses = () => {
               );
             })}
 
-            {houses.length == 0 && (
+            {housesFilteres.length == 0 && (
               <div className="col-span-3 my-2 lg:col-span-1">
                 <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                   <div className="px-4 py-5 sm:px-6">

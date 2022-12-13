@@ -9,6 +9,7 @@ const Header = (props) => {
  
   return (
     <div>
+      
       <HeaderTop />
       
       {locationType == "restaurantes" ||

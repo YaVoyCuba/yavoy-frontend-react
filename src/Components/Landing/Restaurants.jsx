@@ -7,12 +7,12 @@ import { Loading } from "../../common/Loading";
 import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
 import { useLocation } from "react-router";
-import SwiperCore, { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay } from 'swiper'; 
 
 import { Swiper, SwiperSlide  } from "swiper/react";
 
 import "swiper/css";
-import "swiper/css/autoplay";
+import "swiper/css/autoplay"; 
 import { Link } from "react-router-dom";
 
 const Restaurants = () => {

@@ -55,7 +55,6 @@ const Houses = () => {
 
     let filters = 'filter';
 
-
     let json = await apiManager.getHouses(locationFinal, type, filters);
 
     if (json != 500) {

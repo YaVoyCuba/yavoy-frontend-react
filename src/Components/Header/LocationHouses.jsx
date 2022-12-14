@@ -34,11 +34,11 @@ const LocationHouses = () => {
 
   const setMunicipalitiesByProvince = async (event) => {
     setProvinceSelected(event.target.value);
-    let json = await apiManager.getZonesForHouses(event.target.value);
-    if (json.code == "ok") {
-      setMunicipalities(json.data);
-      setMunicipalitieSelected(json.data[0]?.id);
-    }
+    // let json = await apiManager.getZonesForHouses(event.target.value);
+    // if (json.code == "ok") {
+    //   setMunicipalities(json.data);
+    //   setMunicipalitieSelected(json.data[0]?.id);
+    // }
   };
 
   const storeLocation = () => {
@@ -48,49 +48,12 @@ const LocationHouses = () => {
     let locationId = "";
     let provinceId = "";
 
-    if (municipalitieSelected != "") {
-      let location = municipalities.find(
-        (muni) => muni.id == municipalitieSelected
-      );
-      locationName = location.name;
-      locationId = location.id;
-      provinceId = location.province_id;
-    }
-
-    if (cart?.length > 0) {
-      let can = checkIfNewLocationCanBeAddedWithRestaurantInCart();
-      if (can) {
-        dispatch(
-          setLocationHouse({
-            locationName: locationName,
-            locationId: locationId,
-            provinceId: provinceId,
-          })
-        );
-
-        // localStorage.setItem(
-        //   "locationHouses",
-        //   JSON.stringify({
-        //     locationName: locationName,
-        //     locationId: locationId,
-        //     provinceId: provinceId,
-        //   })
-        // );
-      } else {
-        toast.warning(
-          "No puedes cambiar a esta ubicación porque el restaurante del carrito no hace envíos a la misma!",
-          {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          }
-        );
-      }
-    } else {
+    if(provinceSelected != "") {
+      let province = provinces.find((prov) => prov.id == provinceSelected);
+      locationName = province.name;
+      locationId = province.id;
+      provinceId = province.id;
+      
       dispatch(
         setLocationHouse({
           locationName: locationName,
@@ -98,36 +61,17 @@ const LocationHouses = () => {
           provinceId: provinceId,
         })
       );
-
-      localStorage.setItem(
-        "locationHouses",
-        JSON.stringify({
-          locationName: locationName,
-          locationId: locationId,
-          provinceId: provinceId,
-        })
-      );
+    }else{
+      toast.error("Debe seleccionar una provincia");
     }
   };
 
-  const checkIfNewLocationCanBeAddedWithRestaurantInCart = () => {
-    let municipalities = apiManager.getZones(cart[0].restaurantId);
-  };
+ 
 
-  const checkLocationInStorage = () => {
-    let location = localStorage.getItem("locationHouses");
-    // if (location) {
-    //   dispatch(setLocationHouse(JSON.parse(location)));
-    //   setMunicipalitieSelected(JSON.parse(location).locationId);
-    //   setProvinceSelected(JSON.parse(location).provinceId);
-    //    setLoadingProvinces(false);
-    // }
-
-    // if (!location) {
-    //   setOpen(true);
-      getLocation();
-    //}
-  };
+  // const checkIfNewLocationCanBeAddedWithRestaurantInCart = () => {
+  //   let municipalities = apiManager.getZones(cart[0].restaurantId);
+  // };
+ 
 
   useEffect(() => {
     setLoadingProvinces(true);
@@ -265,7 +209,7 @@ const LocationHouses = () => {
                           </select>
 
                           
-                          <select
+                          {/* <select
                             value={municipalitieSelected}
                             onChange={(event) =>
                               setMunicipalitieSelected(event.target.value)
@@ -282,7 +226,7 @@ const LocationHouses = () => {
                                 </option>
                               );
                             })}
-                          </select>
+                          </select> */}
                           
                         </div>
                       )}

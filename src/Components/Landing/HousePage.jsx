@@ -47,7 +47,7 @@ const HousePage = (props) => {
   const [babies, setBabies] = useState(0);
   const [totalQuests, setTotalQuests] = useState(0);
   const [countries, setCountries] = useState([]);
- 
+
   const [contactCountry, setContactCountry] = useState(1);
 
   const [errorQuantity, setErrorQuantity] = useState(false);
@@ -78,7 +78,6 @@ const HousePage = (props) => {
       );
     }
 
-   
     setErrorQuantity(false);
 
     if (house.subtype?.name == "Hostal") {
@@ -86,14 +85,13 @@ const HousePage = (props) => {
         toast.error("Debes seleccionar al menos una habitación");
         return;
       }
-    }else{
+    } else {
       setTotalQuests(adults + children + babies);
 
       if (adults + children + babies > house.guests) {
         setErrorQuantity(true);
         return;
       }
-    
     }
 
     //array with only id of bedrooms
@@ -101,7 +99,6 @@ const HousePage = (props) => {
     bedrooms.map((bedroom) => {
       bedroomsName += bedroom.name + ", ";
     });
-
 
     let payload = {
       house_id: house.id,
@@ -122,9 +119,8 @@ const HousePage = (props) => {
       setBookCompleted(true);
       setBookCompletedCode(json.bookingCode);
       return handleBook();
-    }else{
-      
-      toast.error('Ocurrió un error en el servidor, intentalo más tarde');
+    } else {
+      toast.error("Ocurrió un error en el servidor, intentalo más tarde");
     }
   };
 
@@ -234,6 +230,7 @@ const HousePage = (props) => {
     if (json != 500) {
       if (json.code == "ok") {
         setHouse(json.data);
+        
         json.data.photos.map((photo) => {
           setPhotos((photos) => [
             ...photos,
@@ -370,14 +367,15 @@ const HousePage = (props) => {
                     <div ref={refOne}>
                       {open && (
                         <div>
+                         
                           <DateRangePicker
                             dateDisplayFormat="dd/MM/yyyy"
                             onChange={(item) => setRange([item.selection])}
                             editableDateInputs={true}
                             moveRangeOnFirstSelection={false}
                             ranges={range}
-                            minDate={new Date()}
-                            maxDate={addDays(new Date(), 60)}
+                            minDate={addDays(new Date(), house.min_days ?? 1)}
+                            maxDate={addDays(new Date(), 365)}
                             disabledDates={disabledDates}
                             months={2}
                             direction="vertical"
@@ -728,12 +726,11 @@ const HousePage = (props) => {
                           </div>
                         </div>
                         <div className="flex flex-col">
-                        <h2 className="text-2xl p-3 text-center">
-                          Servicios
-                        </h2>
+                          <h2 className="text-2xl p-3 text-center">
+                            Servicios
+                          </h2>
                           <span className="font-medium text-md pt-1 pb-2">
-                          {house.services}
-
+                            {house.services}
                           </span>
                         </div>
                         <hr className="separator" />

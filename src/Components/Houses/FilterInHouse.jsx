@@ -75,12 +75,12 @@ const FilterInHouse = (props) => {
                                 onChange={(e) => {
                                     setPrices({ ...prices, min: e.target.value });
                                 }}
-                            type="text" className="input-text w-1/2" placeholder="Min" />
+                            type="text" className="input-text w-1/2" placeholder="Precio mínimo" />
                             <input
                                 onChange={(e) => {
                                     setPrices({ ...prices, max: e.target.value });
                                 }}
-                            type="text" className="input-text w-1/2" placeholder="Max" />
+                            type="text" className="input-text w-1/2" placeholder="Precio máximo" />
                         </div>
                         <div className="grid grid-cols-2 mx-2  gap-3 space-y-2 mt-5">
                              

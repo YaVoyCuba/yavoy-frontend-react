@@ -47,9 +47,7 @@ const HousePage = (props) => {
   const [babies, setBabies] = useState(0);
   const [totalQuests, setTotalQuests] = useState(0);
   const [countries, setCountries] = useState([]);
-  const [contactName, setContactName] = useState([]);
-  const [contactPhone, setContactPhone] = useState([]);
-  const [contactEmail, setContactEmail] = useState([]);
+ 
   const [contactCountry, setContactCountry] = useState(1);
 
   const [errorQuantity, setErrorQuantity] = useState(false);
@@ -729,6 +727,16 @@ const HousePage = (props) => {
                             ></span>
                           </div>
                         </div>
+                        <div className="flex flex-col">
+                        <h2 className="text-2xl p-3 text-center">
+                          Servicios
+                        </h2>
+                          <span className="font-medium text-md pt-1 pb-2">
+                          {house.services}
+
+                          </span>
+                        </div>
+                        <hr className="separator" />
                         <div className="flex justify-between mt-3">
                           {house.price ? (
                             <div className="flex">

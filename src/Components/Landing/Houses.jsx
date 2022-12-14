@@ -94,8 +94,7 @@ const Houses = () => {
     //filter houses
     let housesFiltered;
 
-    console.log(prices.min,prices.max,selectedTypes.length)
-
+   
  
     if(prices.min == 0 && prices.max == 0 && selectedTypes.length == 0){
       
@@ -105,7 +104,7 @@ const Houses = () => {
     else if(prices.min == 0 && prices.max !== 0){
 
       housesFiltered = housesCopy.filter((house) => {
-        let houseType = house.type_id;
+        let houseType = house.sub_type_id;
         let price = house.price;
         if(selectedTypes.length == 0){
           return price <= prices.max;
@@ -118,7 +117,7 @@ const Houses = () => {
     }
     else if(prices.min !== 0 && prices.max == 0){
       housesFiltered = housesCopy.filter((house) => {
-        let houseType = house.type_id;
+        let houseType = house.sub_type_id;
         let price = house.price;
         if(selectedTypes.length == 0){
           return price >= prices.min;
@@ -130,7 +129,7 @@ const Houses = () => {
     }
     else if(prices.min == 0 && prices.max == 0){
       housesFiltered = housesCopy.filter((house) => {
-        let houseType = house.type_id;
+        let houseType = house.sub_type_id;
         console.log('selectedTypes.length',selectedTypes.length);
         if(selectedTypes.length !== 0){
           return selectedTypes.includes(houseType);
@@ -139,7 +138,7 @@ const Houses = () => {
     }
     else if(prices.min !== 0 && prices.max !== 0){
       housesFiltered = housesCopy.filter((house) => {
-        let houseType = house.type_id;
+        let houseType = house.sub_type_id;
         let price = house.price;
         if(selectedTypes.length == 0){
           return price >= prices.min && price <= prices.max;

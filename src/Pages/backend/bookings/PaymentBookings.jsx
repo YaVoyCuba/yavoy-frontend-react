@@ -53,7 +53,7 @@ const PaymentBookings = () => {
       },
       contact : {
         name: data.contactName,
-        email: data.contactEmail,
+        email: data.contactEmail ?? '',
         phone: data.contactPhone,
       },
     };

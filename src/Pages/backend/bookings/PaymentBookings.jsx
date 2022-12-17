@@ -125,9 +125,9 @@ const PaymentBookings = () => {
                   <input
                     type="text"
                     className="input-text"
-                    {...register("contacEmail", { required: true })}
+                    {...register("contactEmail", { required: true })}
                   />
-                  {errors.contacEmail && (
+                  {errors.contactEmail && (
                     <span className="text-red-500 font-medium">
                       Este campo es requerido
                     </span>

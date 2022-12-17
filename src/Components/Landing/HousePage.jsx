@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import { useState } from "react";
-import { useParams } from "react-router";
+import { useParams, useRoutes } from "react-router";
 import apiManager from "../../api/apiManager";
 import { Loading } from "../../common/Loading";
 import format from "date-fns/format";
@@ -63,6 +63,8 @@ const HousePage = (props) => {
       setBetrooms(newBedrooms);
     }
   };
+
+  const navigate = useNavigate();
 
   const valdiateBook = async () => {
     let date =
@@ -245,6 +247,10 @@ const HousePage = (props) => {
     }
     setLoading(false);
   }
+
+ 
+
+ 
 
   useEffect(() => {
     document.addEventListener("keydown", hideOnEscape, true);
@@ -650,7 +656,7 @@ const HousePage = (props) => {
           ) : (
             <div>
               <div className="mt-1">
-                <button onClick={() => goBack()} className="pl-3 flex">
+                <button onClick={() => navigate(-1,{replace: true})} className="pl-3 flex">
                   <span className="text-gray-700 flex text-lg pt-3 pl-2">
                     {" "}
                     <svg

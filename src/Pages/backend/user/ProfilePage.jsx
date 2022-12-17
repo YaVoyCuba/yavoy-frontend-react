@@ -33,6 +33,7 @@ const ProfilePage = () => {
       setOrders(json.data.orders);
       tabs[0].count = json.data.orders.length;
       tabs[1].count = json.data.bookings.length;
+      
       setBookings(json.data.bookings);
       setLoading(false);
     }
@@ -161,7 +162,7 @@ const ProfilePage = () => {
                     <ul className="divide-y divide-gray-200">
                       {bookings.map((book) => (
                         <li key={book.id}>
-                          {console.log("book", book)}
+                       
                           <a href="#" className="block hover:bg-gray-50">
                             <div className="px-4 py-4 sm:px-6">
                               <div className="flex items-center justify-between">
@@ -461,6 +462,12 @@ const ProfilePage = () => {
                           <div className="my-3  flex flex-col  w-full">
                             <span className="text-sm px-4 bg-green-100 p-3  font-medium text-gray-900">
                               Alojamiento: {bookingToView.house?.title}
+                            </span>
+                            <span className="text-sm px-4 bg-green-100 p-3  font-medium text-gray-900">
+                             Teléfono de Contacto: {bookingToView.house?.user?.phone}
+                            </span>
+                            <span className="text-sm px-4 bg-green-100 p-3  font-medium text-gray-900">
+                             Email de Contacto: {bookingToView.house?.user?.email}
                             </span>
                           </div>
                           <div className="relative mt-6 flex-1 px-6 pr-14 sm:px-6">

@@ -22,7 +22,6 @@ const PaymentBookings = () => {
 
     if (json != 500) {
       setBooking(json.booking);
-      console.log(json);
     }
   };
 
@@ -37,7 +36,7 @@ const PaymentBookings = () => {
     setLoading(true);
 
     const payload = {
-      bookingCode : bookingCode,  
+      bookingCode: bookingCode,
       currency_code: "USD",
       method_payment: "tropipay",
       clientPhone: data.clientPhone,
@@ -52,9 +51,16 @@ const PaymentBookings = () => {
         countryId: data.clientCountry,
         termsAndConditions: true,
       },
+      contact : {
+        name: data.contactName,
+        email: data.contactEmail,
+        phone: data.contactPhone,
+      },
     };
 
     let json = await apiManager.newBookingPayment(payload);
+    
+    console.log(json);
 
     if (json.code == "ok") {
       window.location.href = json.url;
@@ -98,6 +104,51 @@ const PaymentBookings = () => {
           <div className="flex flex-col mb-20 justify-center items-center">
             <form onSubmit={handleSubmit(newOrder)}>
               <div>
+                <span className="title p-3">Datos de contacto</span>
+              <div className="p-3">
+                <div className="flex flex-col space-y-3">
+                  <span className="text-gray-700">Nombre</span>
+                  <input
+                    type="text"
+                    className="input-text"
+                    {...register("contactName", { required: true })}
+                  />
+                  {errors.contactName && (
+                    <span className="text-red-500 font-medium">
+                      Este campo es requerido
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex flex-col space-y-3">
+                  <span className="text-gray-700">Email</span>
+                  <input
+                    type="text"
+                    className="input-text"
+                    {...register("contacEmail", { required: true })}
+                  />
+                  {errors.contacEmail && (
+                    <span className="text-red-500 font-medium">
+                      Este campo es requerido
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex flex-col space-y-3">
+                  <span className="text-gray-700">Teléfono</span>
+                  <input
+                    type="text"
+                    className="input-text"
+                    {...register("contactPhone", { required: true })}
+                  />
+                  {errors.contactPhone && (
+                    <span className="text-red-500 font-medium">
+                      Este campo es requerido
+                    </span>
+                  )}
+                </div>
+                </div>
+
                 <span className="title p-3">Datos de facturación</span>
                 <div className="p-3">
                   <div className="flex flex-col space-y-3">
@@ -173,7 +224,7 @@ const PaymentBookings = () => {
                     <span className="text-gray-700   mt-2">País</span>
                     <select
                       {...register("clientCountry", {
-                        required: true,
+                        required: false,
                       })}
                       className="input-text"
                     >

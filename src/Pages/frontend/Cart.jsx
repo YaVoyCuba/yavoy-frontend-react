@@ -85,7 +85,7 @@ const Cart = () => {
                       </div>
                     </td>
                     <td className="subtitle">
-                      {product.quantity * product.price}
+                      {Number(product.quantity * product.price).toFixed(2)}
                     </td>
                   </tr>
                 );

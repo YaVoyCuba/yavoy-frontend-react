@@ -77,8 +77,6 @@ const CheckOut = () => {
 
   const getTotalPriceFinal = () => {
 
-  
-   
    
     return Number(
       getTotalPrice() + Number(deliveryCost()) + fee()

@@ -17,9 +17,22 @@ const Cart = () => {
     cart.forEach((item) => {
       total += item.price * item.quantity;
     });
-    console.log( Number(total).toFixed(2));
+   
     return Number(total).toFixed(2);
   };
+
+  useEffect(() => {
+    getTotalPrice();
+    let totalProduct = 0;
+    //Update the quantity by all in cart
+    cart.forEach((item) => {
+      totalProduct += item.quantity;
+    });
+
+    //Update the quantity by all in cart
+    setQuantity(totalProduct);
+     
+  }, [cart]);
 
 
   return   <div className="mx-auto">

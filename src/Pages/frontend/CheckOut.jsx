@@ -179,6 +179,7 @@ const CheckOut = () => {
   
 
     if (json.code == "ok") {
+      setEmpty(true);
       dispatch(clearCart());
       window.location.href = json.url;
     } else {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
- 
+
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import { toast } from "react-toastify";
@@ -13,9 +13,24 @@ import { useParams } from "react-router-dom";
 import { Loading } from "../../common/Loading";
 
 const ProductDetailPage = (props) => {
+  const productExisted = (type) => {
+    toast.warning(
+      "No puedes comprar productos de diferentes restaurantes en un mismo pedido!",
+      {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
+  };
+  
   //history
   useEffect(() => window.scrollTo(0, 0), []);
- 
+
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState([]);
   const [photos, setPhotos] = useState([]);
@@ -60,7 +75,7 @@ const ProductDetailPage = (props) => {
 
   //Function navigate back
   function goBack() {
-    navigate('/restaurante/' + product.restaurant.slug);
+    navigate("/restaurante/" + product.restaurant.slug);
   }
   const [tab, setTab] = useState("description");
   const [quantity, setQuantity] = useState(1);
@@ -106,10 +121,9 @@ const ProductDetailPage = (props) => {
             <div className="col-span-5 p-1 lg:col-span-5">
               <div className="col-span-5  grid mt-3 grid-cols-2">
                 {photos.length > 0 && (
-                <div className="col-span-2 lg:col-span-1 mb-7 sm:mb-0  pl-3 pr-7">
-
-                  <ImageGallery items={photos} />
-                </div>
+                  <div className="col-span-2 lg:col-span-1 mb-7 sm:mb-0  pl-3 pr-7">
+                    <ImageGallery items={photos} />
+                  </div>
                 )}
                 <div className="col-span-2 px-3 lg:px-0  lg:col-span-1">
                   <div className="flex  flex-col">
@@ -120,7 +134,7 @@ const ProductDetailPage = (props) => {
                     <span className="text-color font-bold text-4xl mt-3">
                       ${Number(product.price).toFixed(2)}
                     </span>
-                    
+
                     <span
                       className="font-medium text-lg py-2"
                       dangerouslySetInnerHTML={{
@@ -159,20 +173,27 @@ const ProductDetailPage = (props) => {
                       </div>
                       <button
                         onClick={() => {
-                          dispatch(
-                            addToCart({
-                              id: product.id,
-                              name: product.name,
-                              price: product.price,
-                              img:
-                                apiManager.UrlBase +
-                                product.photos[0].path_photo,
-                              quantity: quantity,
-                              restaurantId: product.restaurant_id,
-
-                            })
+                          let exist = cart?.find(
+                            (item) => item.restaurantId != restaurantId
                           );
-                          productAdd();
+                          if (exist) {
+                            productExisted();
+                          } else {
+                            dispatch(
+                              addToCart({
+                                name: product.name,
+                                price: product.price,
+                                img:
+                                  apiManager.UrlBase +
+                                  product.photos[0].path_photo,
+                                quantity: quantity,
+                                restaurantId: product.restaurant_id,
+                              })
+                            );
+                            productAdd();
+                          }
+
+                          
                         }}
                         className="btn-main p-1 px-2 ml-6"
                       >

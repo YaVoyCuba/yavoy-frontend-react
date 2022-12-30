@@ -8,6 +8,22 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 const CardCategory = (props) => {
+  const productExisted = (type) => {
+    toast.warning(
+      "No puedes comprar productos de diferentes restaurantes en un mismo pedido!",
+      {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
+  };
+ 
+  
   const dispatch = useDispatch();
   const { img, title, price, id } = props;
   const productAdd = (type) => {
@@ -28,15 +44,25 @@ const CardCategory = (props) => {
           <div className="flex flex-col">
             <button
               onClick={() => {
-                dispatch(
-                  addToCart({
-                    id,
-                    title,
-                    img,
-                    price,
-                    quantity: 1,
-                  })
-                ) ;   productAdd(); }
+                let exist = cart?.find((item) => item.restaurantId != restaurantId);
+                if (exist) {
+                  productExisted();
+                } else {
+                  dispatch(
+                    addToCart({
+                      id,
+                      name,
+                      price,
+                      img : apiManager.UrlBase + img,
+                      rating,
+                      slug,
+                      restaurantId,
+                      quantity: 1,
+                    })
+                  );
+                  productAdd();
+                }
+              }
               }
               className="bg-main p-1
           

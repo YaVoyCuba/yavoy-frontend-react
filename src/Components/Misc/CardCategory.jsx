@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart } from "../../redux/cartSlice";
 import {toast} from 'react-toastify';
@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 const CardCategory = (props) => {
+  const { cart } = useSelector((state) => state.cart);
   const productExisted = (type) => {
     toast.warning(
       "No puedes comprar productos de diferentes restaurantes en un mismo pedido!",

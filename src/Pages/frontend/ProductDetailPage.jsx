@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,8 @@ import { useParams } from "react-router-dom";
 import { Loading } from "../../common/Loading";
 
 const ProductDetailPage = (props) => {
+  const { cart } = useSelector((state) => state.cart);
+
   const productExisted = (type) => {
     toast.warning(
       "No puedes comprar productos de diferentes restaurantes en un mismo pedido!",
@@ -27,7 +29,7 @@ const ProductDetailPage = (props) => {
       }
     );
   };
-  
+
   //history
   useEffect(() => window.scrollTo(0, 0), []);
 

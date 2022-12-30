@@ -253,7 +253,12 @@ const Location = () => {
                     <button
                       type="button"
                       className="inline-flex w-full justify-center rounded-md border border-transparent bg-main px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-2 sm:text-sm"
-                      onClick={() => storeLocation()}
+                      onClick={() => 
+                        {
+                          municipalitieSelected > 0 ?
+                          storeLocation() : alert('Selecciona una provincia y un municipio')
+                        }
+                      }
                     >
                       Aceptar
                     </button>

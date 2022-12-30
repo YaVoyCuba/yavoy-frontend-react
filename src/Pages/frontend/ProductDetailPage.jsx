@@ -176,7 +176,7 @@ const ProductDetailPage = (props) => {
                       <button
                         onClick={() => {
                           let exist = cart?.find(
-                            (item) => item.restaurantId != restaurantId
+                            (item) => item.restaurantId !=  product.restaurant_id
                           );
                           if (exist) {
                             productExisted();

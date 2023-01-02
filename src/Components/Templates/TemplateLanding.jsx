@@ -55,6 +55,7 @@ const TemplateLanding = () => {
 
   return (
     <>
+    
     <CookieConsent  buttonText="De acuerdo"> Utilizamos cookies propias y de terceros para optimizar tu experiencia en la plataforma. Si sigues
                 navegando estarás aceptando su uso.</CookieConsent>
       <div className="px-3 lg:px-14 lg:max-w-7xl mx-auto">

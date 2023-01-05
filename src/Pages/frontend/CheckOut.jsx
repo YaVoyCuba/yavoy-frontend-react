@@ -174,8 +174,6 @@ const CheckOut = () => {
     }
 
    let json = await apiManager.newOrder(payload);
-
-   console.log(json);
   
 
     if (json.code == "ok") {

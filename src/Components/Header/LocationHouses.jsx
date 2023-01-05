@@ -176,12 +176,12 @@ const LocationHouses = () => {
                         as="h3"
                         className="text-lg font-medium leading-6 text-gray-900"
                       >
-                        Escoge tu ubicación
+                       ¿A dónde vas?
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
                           Te mostraremos los resultados en correspondencia a
-                          esta ubicación
+                          esta dirección
                         </p>
                       </div>
                       {loadingProvinces ? (

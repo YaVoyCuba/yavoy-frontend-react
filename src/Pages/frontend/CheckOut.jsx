@@ -584,7 +584,7 @@ const CheckOut = () => {
                               <span className="text-gray-700   mt-2">País</span>
                               <select
                                 {...register("clientCountry", {
-                                  required: true,
+                                  required: false,
                                 })}
                                 className="input-text"
                               >

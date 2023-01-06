@@ -166,7 +166,11 @@ const CheckOut = () => {
       return;
     }
 
+
+    console.log('payload',payload);
     let json = await apiManager.newOrder(payload);
+
+    
 
     if (json.code == "ok") {
       setEmpty(true);

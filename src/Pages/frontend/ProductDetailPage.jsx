@@ -187,7 +187,7 @@ const ProductDetailPage = (props) => {
                                 price: product.price,
                                 img:
                                   apiManager.UrlBase +
-                                  product.photos[0].path_photo,
+                                  product.photos[0]?.path_photo,
                                 quantity: quantity,
                                 restaurantId: product.restaurant_id,
                               })

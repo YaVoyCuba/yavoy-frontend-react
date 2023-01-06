@@ -22,6 +22,7 @@ const CheckOut = () => {
   const [deliveryService, setDeliveryService] = useState(0);
   const [pickService, setPickService] = useState(0);
   const [empty, setEmpty] = useState(false);
+  const [redirectToPayment, setRedirectToPayment] = useState(false);
   const [tropipayData, setTropipayData] = useState(false);
   const [loading, setLoading] = useState(false);
   const { cart } = useSelector((state) => state.cart);
@@ -167,13 +168,14 @@ const CheckOut = () => {
     }
 
 
-    console.log('payload',payload);
+ 
     let json = await apiManager.newOrder(payload);
 
     
 
     if (json.code == "ok") {
       setEmpty(true);
+      setRedirectToPayment(true);
       dispatch(clearCart());
       window.location.href = json.url;
     } else {
@@ -658,6 +660,16 @@ const CheckOut = () => {
           </div>
         )
       ) : (
+
+        redirectToPayment ? 
+        
+        <div className="flex flex-col my-7 justify-center items-center">
+         
+          <span className="text-2xl font-bold">Redireccionando al procesador de pago</span>
+          
+        </div>
+        
+        :
         <div className="flex flex-col my-7 justify-center items-center">
           <img src="/assets/img/notfound.png" className="h-96 w-auto" />
           <span className="text-2xl font-bold">Tu carrito está vacío</span>
@@ -665,6 +677,7 @@ const CheckOut = () => {
             <button className="btn-main mt-5">Ir al inicio</button>
           </Link>
         </div>
+
       )}
     </>
   );

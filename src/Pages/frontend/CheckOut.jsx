@@ -620,7 +620,7 @@ const CheckOut = () => {
                             className="btn-main flex  mt-7 px-7 mx-auto"
                           >
                             <span className="px-7 text-lg font-medium">
-                              Pagar con tarjeta
+                            Continuar
                             </span>
                             <img
                               src="/assets/img/tropipay.png"
@@ -637,7 +637,7 @@ const CheckOut = () => {
                           className="btn-main flex  mt-7 px-7 mx-auto"
                         >
                           <span className="px-7 text-lg font-medium">
-                           Continuar
+                          Pagar con tarjeta
                           </span>
                           <img
                             src="/assets/img/tropipay.png"

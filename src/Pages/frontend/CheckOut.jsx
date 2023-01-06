@@ -19,8 +19,8 @@ function classNames(...classes) {
 }
 
 const CheckOut = () => {
-  const [deliveryService,setDeliveryService] = useState();
-  const [pickService,setPickService] = useState();
+  const [deliveryService, setDeliveryService] = useState(0);
+  const [pickService, setPickService] = useState(0);
   const [empty, setEmpty] = useState(false);
   const [tropipayData, setTropipayData] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -74,31 +74,24 @@ const CheckOut = () => {
     }
   };
 
-
   const getTotalPriceFinal = () => {
-
-   
-    return Number(
-      getTotalPrice() + Number(deliveryCost()) + fee()
-    ).toFixed(2);
+    return Number(getTotalPrice() + Number(deliveryCost()) + fee()).toFixed(2);
   };
-
 
   const fee = () => {
     let feeTotal = 0;
-    
+
     if (settings.fee_restaurants !== undefined) {
-    
       let total = getTotalPrice() + deliveryCost();
-     
-      feeTotal = total * settings.fee_restaurants / 100;
-    } 
 
-    let extraFee =0;
+      feeTotal = (total * settings.fee_restaurants) / 100;
+    }
 
-    if(getTotalPrice() + Number(deliveryCost()) + feeTotal < 20  ){
-      extraFee = 0.50;
-    } 
+    let extraFee = 0;
+
+    if (getTotalPrice() + Number(deliveryCost()) + feeTotal < 20) {
+      extraFee = 0.5;
+    }
 
     return feeTotal + extraFee;
   };
@@ -125,7 +118,8 @@ const CheckOut = () => {
 
   const newOrder = async (data) => {
     setLoading(true);
-    let methodDelivery =  method.name == "Entrega a domicilio" ? "delivery" : "pick";
+    let methodDelivery =
+      method.name == "Entrega a domicilio" ? "delivery" : "pick";
 
     const payload = {
       methodDelivery: methodDelivery,
@@ -158,8 +152,7 @@ const CheckOut = () => {
       },
     };
 
- 
-    if(methodDelivery == 'delivery' && !location.locationId){
+    if (methodDelivery == "delivery" && !location.locationId) {
       toast.error("Debes seleccionar una dirección!", {
         position: "top-center",
         autoClose: 5000,
@@ -173,8 +166,7 @@ const CheckOut = () => {
       return;
     }
 
-   let json = await apiManager.newOrder(payload);
-  
+    let json = await apiManager.newOrder(payload);
 
     if (json.code == "ok") {
       setEmpty(true);
@@ -196,9 +188,6 @@ const CheckOut = () => {
   };
 
   useEffect(() => {
-
-
-
     if (cart.length > 0) {
       getRestaurantData();
       getTropipayCountries();
@@ -214,7 +203,6 @@ const CheckOut = () => {
           <Loading />
         ) : (
           <div>
-
             <form onSubmit={handleSubmit(newOrder)}>
               <div className="grid grid-cols-12 bg-gray-100 rounded-lg shadow-lg my-20 p-4">
                 <div className="col-span-12 lg:col-span-6">
@@ -234,9 +222,7 @@ const CheckOut = () => {
                         className="mt-2"
                       >
                         <div className="grid grid-cols-2 gap-3 sm:grid-cols-2">
-                          
                           {methodsDeliveries.map((option, index) => (
-                             
                             <RadioGroup.Option
                               key={option.name}
                               value={option}
@@ -260,126 +246,125 @@ const CheckOut = () => {
                                 {option.name}
                               </RadioGroup.Label>
                             </RadioGroup.Option>
-                        
-
                           ))}
                         </div>
                       </RadioGroup>
-
                     </div>
 
-                    {method == methodsDeliveries[0] && (
-                    deliveryService == "1" && (
-                      <>
-                        <div className="flex flex-col space-y-3">
-                          <span className="text-gray-700  ">
-                            Nombre del receptor
-                          </span>
-                          <input
-                            type="text"
-                            className="input-text"
-                            {...register("receiverName", { required: true })}
-                          />
-                          {errors.receiverName && (
-                            <span className="text-red-500 font-medium">
-                              Este campo es requerido
+                    {method == methodsDeliveries[0] &&
+                      (deliveryService == "1" ? (
+                        <>
+                          <div className="flex flex-col space-y-3">
+                            <span className="text-gray-700  ">
+                              Nombre del receptor
                             </span>
-                          )}
-                        </div>
-                        <div className="flex flex-col space-y-3">
-                          <span className="text-gray-700">
-                            Teléfono del receptor
-                          </span>
-                          <input
-                            type="text"
-                            className="input-text"
-                            {...register("receiverPhone", { required: true })}
-                          />
-                          {errors.receiverPhone && (
-                            <span className="text-red-500 font-medium">
-                              Este campo es requerido
+                            <input
+                              type="text"
+                              className="input-text"
+                              {...register("receiverName", { required: true })}
+                            />
+                            {errors.receiverName && (
+                              <span className="text-red-500 font-medium">
+                                Este campo es requerido
+                              </span>
+                            )}
+                          </div>
+                          <div className="flex flex-col space-y-3">
+                            <span className="text-gray-700">
+                              Teléfono del receptor
                             </span>
-                          )}
-                        </div>
-                        <div className="flex flex-col space-y-3">
-                          <span className="text-gray-700  ">
-                            Direcion del receptor en {location.locationName}
-                          </span>
-                          <input
-                            type="text"
-                            className="input-text"
-                            {...register("receiverAddress", { required: true })}
-                          />
-                          {errors.receiverAddress && (
-                            <span className="text-red-500 font-medium">
-                              Este campo es requerido
+                            <input
+                              type="text"
+                              className="input-text"
+                              {...register("receiverPhone", { required: true })}
+                            />
+                            {errors.receiverPhone && (
+                              <span className="text-red-500 font-medium">
+                                Este campo es requerido
+                              </span>
+                            )}
+                          </div>
+                          <div className="flex flex-col space-y-3">
+                            <span className="text-gray-700  ">
+                              Direcion del receptor en {location.locationName}
                             </span>
-                          )}
+                            <input
+                              type="text"
+                              className="input-text"
+                              {...register("receiverAddress", {
+                                required: true,
+                              })}
+                            />
+                            {errors.receiverAddress && (
+                              <span className="text-red-500 font-medium">
+                                Este campo es requerido
+                              </span>
+                            )}
+                          </div>
+                        </>
+                      ) : (
+                        <div className="flex flex-col bg-red-200 space-y-1 border-1 p-3 border-gray-300   rounded-lg">
+                          <span className="text-red-700 text-center py-20 font-medium">
+                            Este comercio no tiene servicio de entrega a
+                            domicilio
+                          </span>
                         </div>
-                      </>
-                    )
-                    )}
-                    {method == methodsDeliveries[1] && (
-                     pickService == "1" ? (
-                      <>
-                        <div className="flex flex-col bg-gray-200 space-y-1 border-1 p-3 border-gray-300   rounded-lg">
-                          <span className="text-gray-700 font-medium">
-                            Recogida/consumo en el restaurante
-                          </span>
-                          <span className="text-gray-700">
-                            Dirección: {restaurant.address}
-                          </span>
-                          <span className="text-gray-700">
-                            Teléfono: {restaurant.phone}
-                          </span>
-                          <span className="text-gray-700">
-                            Email: {restaurant.phone}
-                          </span>
-                        </div>
-                        <div className="flex flex-col space-y-3">
-                          <span className="text-gray-700">
-                            Nombre del receptor
-                          </span>
-                          <input
-                            type="text"
-                            className="input-text"
-                            {...register("receiverName", { required: true })}
-                          />
-                          {errors.receiverName && (
-                            <span className="text-red-500 font-medium">
-                              Este campo es requerido
+                      ))}
+                    {method == methodsDeliveries[1] &&
+                      (pickService == "1" ? (
+                        <>
+                          <div className="flex flex-col bg-gray-200 space-y-1 border-1 p-3 border-gray-300   rounded-lg">
+                            <span className="text-gray-700 font-medium">
+                              Recogida/consumo en el restaurante
                             </span>
-                          )}
-                        </div>
-                        <div className="flex flex-col space-y-3">
-                          <span className="text-gray-700">
-                            Teléfono del receptor
-                          </span>
-                          <input
-                            type="text"
-                            className="input-text"
-                            {...register("receiverPhone", { required: true })}
-                          />
-                          {errors.receiverPhone && (
-                            <span className="text-red-500 font-medium">
-                              Este campo es requerido
+                            <span className="text-gray-700">
+                              Dirección: {restaurant.address}
                             </span>
-                          )}
-                        </div>
-                      </>
-                    ) :
-                    (
-                      <div className="flex flex-col bg-red-200 space-y-1 border-1 p-3 border-gray-300   rounded-lg">
+                            <span className="text-gray-700">
+                              Teléfono: {restaurant.phone}
+                            </span>
+                            <span className="text-gray-700">
+                              Email: {restaurant.phone}
+                            </span>
+                          </div>
+                          <div className="flex flex-col space-y-3">
+                            <span className="text-gray-700">
+                              Nombre del receptor
+                            </span>
+                            <input
+                              type="text"
+                              className="input-text"
+                              {...register("receiverName", { required: true })}
+                            />
+                            {errors.receiverName && (
+                              <span className="text-red-500 font-medium">
+                                Este campo es requerido
+                              </span>
+                            )}
+                          </div>
+                          <div className="flex flex-col space-y-3">
+                            <span className="text-gray-700">
+                              Teléfono del receptor
+                            </span>
+                            <input
+                              type="text"
+                              className="input-text"
+                              {...register("receiverPhone", { required: true })}
+                            />
+                            {errors.receiverPhone && (
+                              <span className="text-red-500 font-medium">
+                                Este campo es requerido
+                              </span>
+                            )}
+                          </div>
+                        </>
+                      ) : (
+                        <div className="flex flex-col bg-red-200 space-y-1 border-1 p-3 border-gray-300   rounded-lg">
                           <span className="text-red-700 text-center py-20 font-medium">
                             Este comercio no tiene servicio de recogida
                           </span>
                         </div>
-                      )
-
-
-                    )}
-
-              
+                      ))}
 
                     <span className="text-gray-700  ">Día de entrega</span>
                     <select
@@ -623,7 +608,8 @@ const CheckOut = () => {
                             </div>
                           </div>
                           <span classNama="text-center mx-auto">
-                          * Las tarjetas deben tener habilitado 3D-Secure para ser aceptadas  
+                            * Las tarjetas deben tener habilitado 3D-Secure para
+                            ser aceptadas
                           </span>
                           <button
                             type="submit"
@@ -638,10 +624,10 @@ const CheckOut = () => {
                             />
                           </button>
                         </div>
-                      ) : (
-                      ( ( pickService == "1" && method.name == "Recogida/consumo en el lugar" ) || 
-                       ( deliveryService == "1" && method.name == "Entrega a domicilio" ) ) ?  
-                        (
+                      ) : (pickService == 1 &&
+                          method.name == "Recogida/consumo en el lugar") ||
+                        (deliveryService == 1 &&
+                          method.name == "Entrega a domicilio") ? (
                         <button
                           onClick={() => setTropipayData(true)}
                           className="btn-main flex  mt-7 px-7 mx-auto"
@@ -655,15 +641,11 @@ const CheckOut = () => {
                           />
                         </button>
                       ) : (
-                          <span className="text-center p-3 text-red-500">Debe escoger otro método de entrega
-                          
-                        
-                          </span>
-                        )
+                        <span className="text-center p-3 text-red-500">
+                          Debe escoger otro método de entrega, el comercio no
+                          tiene disponible el método que tiene seleccionado
+                        </span>
                       )}
-
-                
-
                     </div>
                   </div>
                 </div>

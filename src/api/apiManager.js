@@ -3,7 +3,7 @@ let UrlBase = "https://api.yavoycuba.com";
 const shopSlug = "yavoycuba";
 
 if (window.location.href.indexOf("127.0.0.1") > -1) {
- UrlBase = "http://127.0.0.1:8000";
+   UrlBase = "http://127.0.0.1:8000";
  //  UrlBase = "https://api.yavoycuba.com";
 } else {
   UrlBase = "https://api.yavoycuba.com";

@@ -183,6 +183,8 @@ const ProductDetailPage = (props) => {
                           } else {
                             dispatch(
                               addToCart({
+                                id: product.id,
+                                slug: product.slug,
                                 name: product.name,
                                 price: product.price,
                                 img:

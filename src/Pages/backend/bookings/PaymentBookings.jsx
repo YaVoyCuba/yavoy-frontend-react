@@ -94,8 +94,8 @@ const PaymentBookings = () => {
             <div className="flex flex-col justify-center items-center h-full">
               <div className="flex flex-col justify-center items-center">
                 <div className="text-2xl color font-bold text-color-100">
-                  {booking?.status == "approvated"
-                    ? "Reservacion aprovada, Pendiente de pago"
+                  {booking?.status == "pending"
+                    ? `Reservación (${bookingCode}) pendiente de pago`
                     : "Pago realizado"}
                 </div>
               </div>

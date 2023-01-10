@@ -25,6 +25,7 @@ import truncate from "truncate-html";
 
 const HousePage = (props) => {
   const [bookCompleted, setBookCompleted] = useState(false);
+  const [paymentForm, setPaymentForm] = useState(false);
   const [bookCompletedCode, setBookCompletedCode] = useState(0);
   const auth = useSelector((state) => state.auth);
   const { houseSlug } = useParams();
@@ -118,6 +119,8 @@ const HousePage = (props) => {
     let json = await apiManager.newBook(payload);
 
     if (json.code == "ok") {
+
+      navigate("/booking/" + json.bookingCode);
       setBookCompleted(true);
       setBookCompletedCode(json.bookingCode);
       return handleBook();
@@ -301,6 +304,8 @@ const HousePage = (props) => {
             loadingBookView ? (
               <Loading />
             ) : (
+              !paymentForm ?
+              
               <div className="">
                 <div
                   className="mb-0  overflow-y-auto text-center lg:rounded-2xl lg:m-10 lg:max-w-4xl absolute z-50   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    "
@@ -635,12 +640,19 @@ const HousePage = (props) => {
                   )}
 
                   {totalPrice() > 0 && (
+                  <div className="flex flex-col ">
+                    <div className="bg-green-50 rounded-xl my-5 text-green-500 font-bold p-4">
+                      Debe contactar a nuestra asistente para verificar la disponibilidad antes de hacer el pago
+                    </div>
+                    
+
                     <button
                       onClick={() => valdiateBook()}
                       className="btn-main lg:w-1/2 mx-auto"
                     >
-                      Hacer pre reserva por ${totalPrice()}
+                      Hacer reserva por ${totalPrice()}
                     </button>
+                  </div>
                   )}
 
                   {errorQuantity && (
@@ -651,6 +663,14 @@ const HousePage = (props) => {
                     </div>
                   )}
                 </div>
+              </div>
+
+              : 
+
+              <div>
+
+                Datos
+              
               </div>
             )
           ) : (

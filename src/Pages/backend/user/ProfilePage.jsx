@@ -1,10 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { useState } from "react";
 import { useEffect } from "react";
 import apiManager from "../../../api/apiManager";
 import { Loading } from "../../../common/Loading";
+import { logout } from "../../../redux/authSlice";
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -26,6 +27,7 @@ const ProfilePage = () => {
     { name: "Reservas", href: "#", count: "0", current: false },
   ];
 
+  const dispatch = useDispatch();
   const getUserInfo = async () => {
     const json = await apiManager.userInfo(token);
 
@@ -37,6 +39,11 @@ const ProfilePage = () => {
       setBookings(json.data.bookings);
       setLoading(false);
     }
+  };
+
+  const logoutHandle = () => {
+    dispatch(logout());
+    window.location.href = "/";
   };
 
   useEffect(() => {
@@ -60,6 +67,11 @@ const ProfilePage = () => {
           </div>
 
           <div className="mt-7 ">
+            <div className="bg-red-50 text-center rounded-2xl p-4">
+              <button
+               onClick={() => logoutHandle()}
+              >Salir de la cuenta</button>
+            </div>
             <div className="  ">
               <nav
                 className=" flex divide-x divide-gray-200 rounded-lg shadow"

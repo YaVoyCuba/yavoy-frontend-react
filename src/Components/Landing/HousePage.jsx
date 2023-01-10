@@ -24,6 +24,7 @@ import LoginPage from "../../Pages/frontend/LoginPage";
 import truncate from "truncate-html";
 
 const HousePage = (props) => {
+  const info = useSelector((state) => state.info.info);
   const [bookCompleted, setBookCompleted] = useState(false);
   const [paymentForm, setPaymentForm] = useState(false);
   const [bookCompletedCode, setBookCompletedCode] = useState(0);
@@ -119,7 +120,6 @@ const HousePage = (props) => {
     let json = await apiManager.newBook(payload);
 
     if (json.code == "ok") {
-
       navigate("/booking/" + json.bookingCode);
       setBookCompleted(true);
       setBookCompletedCode(json.bookingCode);
@@ -159,12 +159,9 @@ const HousePage = (props) => {
   const handleBook = () => {
     window.scrollTo(0, 0);
     setLoadingBookView(true);
-    if (!auth.token) {
-      setLoginView(true);
-    } else {
-      setLoginView(false);
-      setBookingView(!bookingView);
-    }
+
+    setLoginView(false);
+    setBookingView(!bookingView);
 
     setLoadingBookView(false);
   };
@@ -235,7 +232,7 @@ const HousePage = (props) => {
     if (json != 500) {
       if (json.code == "ok") {
         setHouse(json.data);
-        
+
         json.data.photos.map((photo) => {
           setPhotos((photos) => [
             ...photos,
@@ -250,10 +247,6 @@ const HousePage = (props) => {
     }
     setLoading(false);
   }
-
- 
-
- 
 
   useEffect(() => {
     document.addEventListener("keydown", hideOnEscape, true);
@@ -303,9 +296,7 @@ const HousePage = (props) => {
           {bookingView ? (
             loadingBookView ? (
               <Loading />
-            ) : (
-              !paymentForm ?
-              
+            ) : !paymentForm ? (
               <div className="">
                 <div
                   className="mb-0  overflow-y-auto text-center lg:rounded-2xl lg:m-10 lg:max-w-4xl absolute z-50   inset-0 lg:mx-auto lg:shadow-2xl bg-white p-5    "
@@ -378,7 +369,6 @@ const HousePage = (props) => {
                     <div ref={refOne}>
                       {open && (
                         <div>
-                         
                           <DateRangePicker
                             dateDisplayFormat="dd/MM/yyyy"
                             onChange={(item) => setRange([item.selection])}
@@ -640,19 +630,44 @@ const HousePage = (props) => {
                   )}
 
                   {totalPrice() > 0 && (
-                  <div className="flex flex-col ">
-                    <div className="bg-green-50 rounded-xl my-5 text-green-500 font-bold p-4">
-                      Debe contactar a nuestra asistente para verificar la disponibilidad antes de hacer el pago
-                    </div>
-                    
+                    <div className="flex flex-col ">
+                     <a
+                            target="_blank"
+                            href={info.wa}
+                            className="text-white hover:text-gray-500"
+                          > 
+                          <div className="bg-green-50 rounded-xl my-5 text-green-500 font-bold p-4">
+                        Debe contactar a nuestra asistente para verificar la
+                        disponibilidad antes de hacer el pago
+                        {info.wa && (
+                           <>
+                            <span className="sr-only">WA</span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-6 text-center mx-auto w-6"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M16 3h5m0 0v5m0-5l-6 6M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"
+                              />
+                            </svg>
+                            </>
+                        )}
+                      </div> 
+                      </a>
 
-                    <button
-                      onClick={() => valdiateBook()}
-                      className="btn-main lg:w-1/2 mx-auto"
-                    >
-                      Hacer reserva por ${totalPrice()}
-                    </button>
-                  </div>
+                      <button
+                        onClick={() => valdiateBook()}
+                        className="btn-main lg:w-1/2 mx-auto"
+                      >
+                        Hacer reserva por ${totalPrice()}
+                      </button>
+                    </div>
                   )}
 
                   {errorQuantity && (
@@ -664,19 +679,16 @@ const HousePage = (props) => {
                   )}
                 </div>
               </div>
-
-              : 
-
-              <div>
-
-                Datos
-              
-              </div>
+            ) : (
+              <div>Datos</div>
             )
           ) : (
             <div>
               <div className="mt-1">
-                <button onClick={() => navigate(-1,{replace: true})} className="pl-3 flex">
+                <button
+                  onClick={() => navigate(-1, { replace: true })}
+                  className="pl-3 flex"
+                >
                   <span className="text-gray-700 flex text-lg pt-3 pl-2">
                     {" "}
                     <svg

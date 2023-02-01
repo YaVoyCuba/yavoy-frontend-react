@@ -70,7 +70,8 @@ const HeaderTop = () => {
           <CartIconGlobal key={"34"} />
 
           <div className="flex  -mt-2 cursor-pointer">
-            <button onClick={() => setOpen(!open)}>
+            <button
+             onClick={() => setOpen(!open)}>
               {open ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

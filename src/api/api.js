@@ -1,8 +1,8 @@
 // export const BASE_URL =
   // window.location.href.indexOf("127.0.0.1") > -1
   //   ? "http://127.0.0.1:8000"
-  //   : "https://api.yavoycuba.com";
-export const BASE_URL = "https://api.yavoycuba.com";
+  //   : " https://admin.yavoycuba.com";
+export const BASE_URL = " https://admin.yavoycuba.com";
 
 export const API_URL = "/api/v1/";
 

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "hestiacp": "vite build --config vite.hestiacp.config.js"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.3",

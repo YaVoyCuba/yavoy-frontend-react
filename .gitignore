@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+# hestia public folder
+public_html
 
 # Editor directories and files
 .vscode/*

@@ -1,7 +1,11 @@
 {
   "name": "yavoynew",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "engines": {
+    "node": "=14",
+    "npm": "=6"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

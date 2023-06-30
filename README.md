@@ -46,6 +46,7 @@ ncu --upgrade package-name-to-upgrade
 
 ## 📄 Docs
 * [react-developer-tools](https://react.dev/learn/react-developer-tools)
-
+* [vite - env-and-mode](https://vitejs.dev/guide/env-and-mode.html)
+* [adding-custom-environment-variables](https://create-react-app.dev/docs/adding-custom-environment-variables/#what-other-env-files-can-be-used)
 
 ### Social Media

@@ -1,4 +1,4 @@
-import { BASE_URL, headers, headersToken, post } from "./api";
+import { post } from "./api";
 
 export default {
     getShopTropipayStatus: async(token, data) => await post('shops/payments/validate', token, data),

@@ -1,7 +1,7 @@
 export const BASE_URL =
   window.location.href.indexOf("127.0.0.1") > -1
     ? "http://127.0.0.1:8000"
-    : " https://admin.yavoycuba.com";
+    : "https://admin.yavoycuba.com";
 
 export const API_URL = "/api/v1/shops/front/";
 
@@ -35,7 +35,10 @@ export const apiCall = async (endpoint, token, data, method) => {
     if (request) {
       return await request.json();
     }
-  } catch (error) {}
+  } catch (error) {
+    // TODO: done
+    console.log(error)
+  }
 };
 
 export const post = async (endpoint, token, data) => {
@@ -52,7 +55,10 @@ export const post = async (endpoint, token, data) => {
     if (request) {
       return await request.json();
     }
-  } catch (error) {}
+  } catch (error) {
+    // TODO: done
+    console.log(error)
+  }
 };
 
  
@@ -117,7 +123,10 @@ export const get = async (endpoint, token, data) => {
     if (request) {
       return await request.json();
     }
-  } catch (error) {}
+  } catch (error) {
+    // TODO: done
+    console.log(error)
+  }
 };
 
 export const del = async (endpoint, token, data) => {
@@ -134,7 +143,10 @@ export const del = async (endpoint, token, data) => {
     if (request) {
       return await request.json();
     }
-  } catch (error) {}
+  } catch (error) {
+    // TODO: done
+    console.log(error)
+  }
 };
 
 export const put = async (endpoint, token, data) => {
@@ -168,5 +180,8 @@ export const patch = async (endpoint, token, data) => {
     if (request) {
       return await request.json();
     }
-  } catch (error) {}
+  } catch (error) {
+    // TODO: done
+    console.log(error)
+  }
 };

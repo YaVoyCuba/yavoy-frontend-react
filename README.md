@@ -30,7 +30,14 @@ npm run hestiacp
 > The above command places the compiled files in the `public_html` folder instead of `dist`
 
 #### Other commands
+##### Detecting Updates with ncu
+Using the ncu tool we can also detect which packages have newer versions:
 ```bash
+ncu
+```
+To upgrade the “request” package to its newest major version, we could do the following:
+```bash
+ncu --upgrade package-name-to-upgrade
 ```
 
 ## 📄 Conditions
@@ -38,5 +45,7 @@ npm run hestiacp
 ## Utils
 
 ## 📄 Docs
+* [react-developer-tools](https://react.dev/learn/react-developer-tools)
+
 
 ### Social Media

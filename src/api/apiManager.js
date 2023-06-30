@@ -1,18 +1,7 @@
 
-let UrlBase = " https://admin.yavoycuba.com";
+let UrlBase = import.meta.env.VITE_APP_BASE_URL;
 const shopSlug = "yavoycuba";
-
-if (window.location.href.indexOf("127.0.0.1") > -1) {
- UrlBase = "http://127.0.0.1:8000";
- //  UrlBase = " https://admin.yavoycuba.com";
-} else {
-  UrlBase = " https://admin.yavoycuba.com";
-}
-
-
 const UrlApiBase = UrlBase + "/api/v1";
- 
-
 
 export default {
 

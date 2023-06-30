@@ -1,13 +1,8 @@
-export const BASE_URL =
-  window.location.href.indexOf("127.0.0.1") > -1
-    ? "http://127.0.0.1:8000"
-    : "https://admin.yavoycuba.com";
+export const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 
 export const API_URL = "/api/v1/shops/front/";
 
 export const creceShop_URL = `${BASE_URL}${API_URL}`;
-
-export const shop_Slug = "creceplus-1";
 
 //Include de refer origin in headers
 export const headers = {

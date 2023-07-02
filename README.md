@@ -95,4 +95,7 @@ ncu --upgrade package-name-to-upgrade
 * [vite - env-and-mode](https://vitejs.dev/guide/env-and-mode.html)
 * [adding-custom-environment-variables](https://create-react-app.dev/docs/adding-custom-environment-variables/#what-other-env-files-can-be-used)
 
+## URLS
+* [front dev](http://frontdev.yavoycuba.com/)
+* [front prod](http://yavoycuba.com/)
 ### Social Media

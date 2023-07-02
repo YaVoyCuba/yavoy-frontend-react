@@ -29,6 +29,32 @@ npm run hestiacp
 ```
 > The above command places the compiled files in the `public_web` folder instead of `dist`
 
+### 🚀 Deployment in hestiacp -- mode dev --
+After adding a web domain from the hestiacp panel, we move to the root directory of the created domain:
+```bash
+ cd ~/web/webdomainfolder/
+```
+remove public_html folder:
+```bash
+ rm -R ./public_html
+```
+Clone the repository:
+```bash
+git clone https://github.com/YaVoyCuba/yavoy-frontend-react.git public_html
+```
+
+```bash
+ cd ./public_html
+```
+
+```bash
+ cp .env.development .env.production.local
+```
+To build run:
+```bash
+npm run hestiacp 
+```
+
 #### Other commands
 ##### Detecting Updates with ncu
 Using the ncu tool we can also detect which packages have newer versions:

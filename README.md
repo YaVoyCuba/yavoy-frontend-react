@@ -50,6 +50,8 @@ git clone https://github.com/YaVoyCuba/yavoy-frontend-react.git public_html
 ```bash
  cp .env.development .env.production.local
 ```
+> With this we ensure that when building the app (`npm run hestiacp`) it connects to the __development__ endpoint (https://dev.yavoycuba.com/api).
+
 To build run:
 ```bash
 npm run hestiacp 

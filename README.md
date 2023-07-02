@@ -57,6 +57,24 @@ To build run:
 npm run hestiacp 
 ```
 
+#### Avoid 404 error after page refresh in __Apache__
+
+To create .htaccess file run:
+```bash
+touch public_web/.htaccess
+```
+
+```bash
+nano public_web/.htaccess
+```
+Update the .htaccess file to be like this:
+```
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]
+```
+
 #### Other commands
 ##### Detecting Updates with ncu
 Using the ncu tool we can also detect which packages have newer versions:

@@ -74,7 +74,7 @@ const ProductRestaurant = (props) => {
                 {product.name}
               </span>
               <span className="text-md -mt-3 px-3 pb-5 color">
-                {product.price.toFixed(2)} USD
+                {product.price.toFixed(2)} usd
               </span>
               <br />
               <button className="flex space-x-1">

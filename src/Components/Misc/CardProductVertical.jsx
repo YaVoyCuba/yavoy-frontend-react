@@ -98,7 +98,7 @@ const CardProductVertical = (props) => {
              
             <div className="flex justify-between  ">
               <span className="text-xl font-bold pt-3 px-3 text-gray-700  ">
-                ${Number(price).toFixed(2)}
+                ${Number(price).toFixed(2)} usd
               </span>{" "}
               <div className="flex p-1  ">
                 <button

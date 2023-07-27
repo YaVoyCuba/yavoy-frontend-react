@@ -1,4 +1,4 @@
-import { BASE_URL, API_URL, creceShop_URL, post,get } from "./api";
+import { post,get } from "./api";
 
 const headers = {
     'Accept': 'application/json',

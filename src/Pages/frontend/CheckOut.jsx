@@ -450,7 +450,7 @@ const CheckOut = () => {
                                   </span>
                                   <span className="text-2xl">X</span>
                                   <span className=" text-2xl font-medium color-green">
-                                    {product.price}
+                                  ${Number(product.price).toFixed(2)}
                                   </span>
                                 </div>
                               </div>

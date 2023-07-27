@@ -134,7 +134,7 @@ const ProductDetailPage = (props) => {
                       <span>CATEGORÍA: {product.category?.name}</span>
                     </div>
                     <span className="text-color font-bold text-4xl mt-3">
-                      ${Number(product.price).toFixed(2)}
+                      ${Number(product.price).toFixed(2)} usd
                     </span>
 
                     <span

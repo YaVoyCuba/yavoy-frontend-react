@@ -450,7 +450,7 @@ const CheckOut = () => {
                                   </span>
                                   <span className="text-2xl">X</span>
                                   <span className=" text-2xl font-medium color-green">
-                                  ${Number(product.price).toFixed(2)}
+                                  ${Number(product.price).toFixed(2)} usd
                                   </span>
                                 </div>
                               </div>
@@ -494,18 +494,18 @@ const CheckOut = () => {
 
                       <hr className="separator  " />
                       <div className="border-2 flex lg:mx-14 flex-col border-gray-400 border-dashed h-30 my-3 p-3">
-                        Productos: ${Number(getTotalPrice()).toFixed(2)}
+                        Productos: ${Number(getTotalPrice()).toFixed(2)} usd
                         <br />
                         <span className="py-1">
                           {" "}
-                          Costo de envío: ${Number(deliveryCost()).toFixed(2)}
+                          Costo de envío: ${Number(deliveryCost()).toFixed(2)} usd
                         </span>
                         <span className="py-1">
-                          YaVoy fee: ${Number(fee()).toFixed(2)}
+                          YaVoy fee: ${Number(fee()).toFixed(2)} usd
                         </span>
                         <hr className="py-2" />
                         <span className="text-lg font-bold">
-                          Total: $ {Number(getTotalPriceFinal()).toFixed(2)}
+                          Total: $ {Number(getTotalPriceFinal()).toFixed(2)} usd
                         </span>
                       </div>
 

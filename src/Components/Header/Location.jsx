@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 import { LoadingSmall } from "../../common/LoadingSmall";
 
 const Location = () => {
-  
+
   const location = useSelector((state) => state.location.location);
   const { cart } = useSelector((state) => state.cart);
   const [provinces, setProvinces] = useState([]);
@@ -67,7 +67,7 @@ const Location = () => {
         );
       } else {
         toast.warning(
-          "No puedes cambiar a esta ubicacion porque el restaurante de los productos del carrito no hace envos a la misma",
+          "No puedes cambiar a esta ubicacion porque el restaurante de los productos del carrito no hace envíos a la misma",
 
           {
             position: "top-center",
@@ -253,7 +253,7 @@ const Location = () => {
                     <button
                       type="button"
                       className="inline-flex w-full justify-center rounded-md border border-transparent bg-main px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-2 sm:text-sm"
-                      onClick={() => 
+                      onClick={() =>
                         {
                           municipalitieSelected > 0 ?
                           storeLocation() : alert('Selecciona una provincia y un municipio')

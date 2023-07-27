@@ -121,7 +121,7 @@ const CartIconGlobal = () => {
                                     </span>
                                     <span className="text-lg">X</span>
                                     <span className=" text-lg font-medium color-green">
-                                      ${Number(product.price).toFixed(2)}
+                                      ${Number(product.price).toFixed(2)} usd
                                     </span>
                                   </div>
                                 </div>
@@ -172,7 +172,7 @@ const CartIconGlobal = () => {
                         <div className="flex py-2 justify-between">
                           <span className="subtitle-2 px-2">Subtotal</span>
                           <span className="subtitle-2 px-2">
-                            ${Number(getTotalPrice()).toFixed(2)}
+                            ${Number(getTotalPrice()).toFixed(2)} usd
                           </span>
                         </div>
                         <hr className="separator  " />

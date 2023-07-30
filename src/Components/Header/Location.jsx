@@ -1,12 +1,12 @@
 import React, { useState, Fragment, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { Dialog, Transition } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import apiManager from "../../api/apiManager";
 import { setLocation } from "../../redux/locationSlice";
 import { toast } from "react-toastify";
 import { LoadingSmall } from "../../common/LoadingSmall";
+import CookieConsent from 'react-cookie-consent';
 
 const Location = () => {
 
@@ -175,6 +175,8 @@ const Location = () => {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                  <CookieConsent  buttonText="De acuerdo" overlay> Utilizamos cookies propias y de terceros para optimizar tu experiencia en la plataforma. Si sigue
+                    navegando estarás aceptando su uso.</CookieConsent>
                   <div>
                     <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                       <CheckIcon

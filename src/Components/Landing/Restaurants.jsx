@@ -7,12 +7,12 @@ import { Loading } from "../../common/Loading";
 import { useSelector } from "react-redux";
 import { store } from "../../redux/store";
 import { useLocation } from "react-router";
-import SwiperCore, { Autoplay } from 'swiper'; 
+import SwiperCore, { Autoplay } from 'swiper';
 
 import { Swiper, SwiperSlide  } from "swiper/react";
 
 import "swiper/css";
-import "swiper/css/autoplay"; 
+import "swiper/css/autoplay";
 import { Link } from "react-router-dom";
 
 const Restaurants = () => {
@@ -31,7 +31,7 @@ const Restaurants = () => {
     let location2 = store.getState().location.location;
 
     let locationFinal = "";
-    if (location.locationName == "") {
+    if (location.locationName === "") {
       locationFinal = location2.locationId;
     } else {
       locationFinal = location.locationId;
@@ -93,7 +93,7 @@ const Restaurants = () => {
                 }`}
               >
                 <button
-                
+
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
                   Restaurantes
@@ -120,7 +120,7 @@ const Restaurants = () => {
                 }`}
               >
                 <button
-                
+
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
                   Mercados
@@ -147,7 +147,7 @@ const Restaurants = () => {
                 }`}
               >
                 <button
-                
+
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
                   Dulcerías
@@ -174,7 +174,7 @@ const Restaurants = () => {
                 }`}
               >
                 <button
-                
+
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
                   Regalitos
@@ -201,7 +201,7 @@ const Restaurants = () => {
                 }`}
               >
                 <button
-                
+
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
                   Servicios

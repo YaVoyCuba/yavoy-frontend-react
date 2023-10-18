@@ -1,4 +1,4 @@
- 
+
 import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductDetailPage from "./Pages/frontend/ProductDetailPage";
@@ -18,7 +18,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import TemplateUser from "./Components/Templates/TemplateUser";
 import ProfilePage from "./Pages/backend/user/ProfilePage";
 import PaymentBookings from "./Pages/backend/bookings/PaymentBookings";
- 
+
 
 function App() {
   return (
@@ -54,16 +54,16 @@ function App() {
                   path="/dulcerias"
                   element={<Restaurants />}
                 />
-                <Route
-                  key={"/alojamientos"}
-                  path="/alojamientos"
-                  element={<Houses />}
-                />
-                <Route
-                  key={"/alojamiento"}
-                  path="/alojamiento/:houseSlug"
-                  element={<HousePage />}
-                />
+                {/*<Route*/}
+                {/*  key={"/alojamientos"}*/}
+                {/*  path="/alojamientos"*/}
+                {/*  element={<Houses />}*/}
+                {/*/>*/}
+                {/*<Route*/}
+                {/*  key={"/alojamiento"}*/}
+                {/*  path="/alojamiento/:houseSlug"*/}
+                {/*  element={<HousePage />}*/}
+                {/*/>*/}
                 <Route
                   key={"/booking/:bookingCode"}
                   path="/booking/:bookingCode"

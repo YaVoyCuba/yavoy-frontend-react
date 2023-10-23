@@ -61,11 +61,11 @@ npm run hestiacp
 
 To create .htaccess file run:
 ```bash
-touch public_web/.htaccess
+touch public_web/public/.htaccess
 ```
 
 ```bash
-nano public_web/.htaccess
+nano public_web/public/.htaccess
 ```
 Update the .htaccess file to be like this:
 ```
@@ -74,6 +74,9 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.html [QSA,L]
 ```
+It will get copied to the build folder when you run `npm run hestiacp` or `npm run build`.
+
+[Read more](https://create-react-app.dev/docs/deployment/#serving-apps-with-client-side-routing)
 
 #### Other commands
 ##### Detecting Updates with ncu

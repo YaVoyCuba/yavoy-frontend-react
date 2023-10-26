@@ -31,7 +31,7 @@ const SearchPage = () => {
     navigate(`/producto/${productSlug}`);
   }
 
-  
+
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -51,7 +51,7 @@ const SearchPage = () => {
 
     if (json != 500) {
 
-       
+
       //Filter data, if not hace restaurant_id, then value the status of the restaurant and not show if status == inactive
       let filteredData = json.data.filter((restaurant) => {
         if (restaurant.restaurant_id == null) {
@@ -59,9 +59,9 @@ const SearchPage = () => {
         } else {
           return restaurant.restaurant?.status == 'active';
         }
-       
+
       });
-   
+
 
 
       setResults(filteredData);
@@ -244,7 +244,7 @@ const SearchPage = () => {
                                 className="col-span-3 my-2 lg:col-span-1"
                               >
                                 {restaurant.restaurant_id  ? (
-                                
+
                                   <CardProductVertical
                                     onClickFunction={handleActionProduct}
                                     experience={false}
@@ -258,6 +258,7 @@ const SearchPage = () => {
                                     slug={restaurant.slug}
                                     id={restaurant.id}
                                     restaurantId={restaurant.restaurant_id}
+                                    restaurantName={restaurant.name}
                                   />
                                 ) : (
                                   <RestaurantCard

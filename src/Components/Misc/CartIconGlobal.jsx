@@ -99,12 +99,13 @@ const CartIconGlobal = () => {
                       <hr className="separator mx-3" />
                       <div className="px-4 flex justify-between pb-3 sm:px-6">
                         <span className="subtitle uppercase">
+                          {/*TODO: add get restaurantName and validate*/}
                           Comercio: {cart[0]?.restaurantName}
                         </span>
                       </div>
                       <hr className="separator mx-3" />
                       <div>
-                        {cart?.map((product,index) => {console.log("--> ", cart.slice(0, 1))
+                        {cart?.map((product,index) => {
                           return (
                             <div
                             key={`productcartglobal-${index}`}

@@ -5,7 +5,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {  removeItem } from "../../redux/cartSlice";
- 
+
 
 const CartIconGlobal = () => {
   const {cart} = useSelector((state) =>state.cart);
@@ -14,22 +14,22 @@ const CartIconGlobal = () => {
 
   const getTotalQuantity = () => {
     let total = 0;
-   
+
     if(cart){
       cart.forEach((item) => {
         total += item.quantity;
       });
-    } 
+    }
     return Number(total).toFixed();
   };
 
-  
+
   const getTotalPrice = () => {
     let total = 0;
     cart?.forEach((item) => {
       total += item.price * item.quantity;
     });
-   
+
     return Number(total).toFixed(2);
   };
 
@@ -56,8 +56,8 @@ const CartIconGlobal = () => {
 
         {getTotalQuantity()}
       </button>
- 
- 
+
+
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <div className="fixed inset-0" />
@@ -97,8 +97,14 @@ const CartIconGlobal = () => {
                         </div>
                       </div>
                       <hr className="separator mx-3" />
+                      <div className="px-4 flex justify-between pb-3 sm:px-6">
+                        <span className="subtitle uppercase">
+                          Comercio: {cart[0]?.restaurantName}
+                        </span>
+                      </div>
+                      <hr className="separator mx-3" />
                       <div>
-                        {cart?.map((product,index) => {
+                        {cart?.map((product,index) => {console.log("--> ", cart.slice(0, 1))
                           return (
                             <div
                             key={`productcartglobal-${index}`}
@@ -160,7 +166,7 @@ const CartIconGlobal = () => {
                                     />
                                   </svg>
 
-                                 
+
                                 </button>
                               </div>
                             </div>
@@ -191,7 +197,7 @@ const CartIconGlobal = () => {
                             to={"caja"}
                           >
                             <button
-                             
+
                               className="uppercase"
                             >
                               Completar pago

@@ -20,7 +20,6 @@ const Location = () => {
     const [ municipalitieSelected, setMunicipalitieSelected ] = useState( { label: '', value: null } );
     const [ isLocationFormOpen, setIsLocationFormOpen ] = useState( false );
 
-    // const [isMenuOpen, setIsMenuOpen] = useState(false);
     // const onMenuOpen = () => setIsMenuOpen(true);
     // const onMenuClose = () => setIsMenuOpen(false);
 

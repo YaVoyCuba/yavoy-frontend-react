@@ -97,6 +97,8 @@ ncu --upgrade package-name-to-upgrade
 * [react-developer-tools](https://react.dev/learn/react-developer-tools)
 * [vite - env-and-mode](https://vitejs.dev/guide/env-and-mode.html)
 * [adding-custom-environment-variables](https://create-react-app.dev/docs/adding-custom-environment-variables/#what-other-env-files-can-be-used)
+### Best practices 
+* [best-practices-for-using-react-redux](https://reintech.io/blog/best-practices-for-using-react-redux)
 
 ## URLS
 * [front dev](http://frontdev.yavoycuba.com/)

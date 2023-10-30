@@ -5,31 +5,32 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {  removeItem } from "../../redux/cartSlice";
- 
+
 
 const CartIconGlobal = () => {
   const {cart} = useSelector((state) =>state.cart);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  const getMunicipality = useSelector( ( state ) => state.location.municipality );
 
   const getTotalQuantity = () => {
     let total = 0;
-   
+
     if(cart){
       cart.forEach((item) => {
         total += item.quantity;
       });
-    } 
+    }
     return Number(total).toFixed();
   };
 
-  
+
   const getTotalPrice = () => {
     let total = 0;
     cart?.forEach((item) => {
       total += item.price * item.quantity;
     });
-   
+
     return Number(total).toFixed(2);
   };
 
@@ -56,8 +57,8 @@ const CartIconGlobal = () => {
 
         {getTotalQuantity()}
       </button>
- 
- 
+
+
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={setOpen}>
           <div className="fixed inset-0" />
@@ -95,6 +96,18 @@ const CartIconGlobal = () => {
                             </button>
                           </div>
                         </div>
+                      </div>
+                      <hr className="separator mx-3" />
+                      <div className="px-4 flex justify-between pb-3 sm:px-6">
+                        <span className="">
+                          {/*TODO: add get restaurantName and validate*/}
+                          Comercio: {cart[0]?.restaurantName}
+                        </span>
+                      </div>
+                      <div className="px-4 flex justify-between pb-3 sm:px-6">
+                        <span className="">
+                          Municipio: {getMunicipality.label}
+                        </span>
                       </div>
                       <hr className="separator mx-3" />
                       <div>
@@ -160,7 +173,7 @@ const CartIconGlobal = () => {
                                     />
                                   </svg>
 
-                                 
+
                                 </button>
                               </div>
                             </div>
@@ -191,7 +204,7 @@ const CartIconGlobal = () => {
                             to={"caja"}
                           >
                             <button
-                             
+
                               className="uppercase"
                             >
                               Completar pago

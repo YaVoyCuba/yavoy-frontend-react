@@ -115,7 +115,7 @@ const ProductDetailPage = (props) => {
                     d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
                   />
                 </svg>
-                Volver al restaurante
+                Anterior
               </span>
             </button>
           </div>
@@ -129,9 +129,14 @@ const ProductDetailPage = (props) => {
                 )}
                 <div className="col-span-2 px-3 lg:px-0  lg:col-span-1">
                   <div className="flex  flex-col">
-                    <h1 className="text-xl font-bold">{product.name}</h1>
+                    <div className="flex mt-3 text-xl">
+                      <h1 className="font-bold"> {product.name}</h1>
+                    </div>
                     <div className="flex mt-3  font-medium justify-between">
                       <span>CATEGORÍA: {product.category?.name}</span>
+                    </div>
+                    <div className="flex mt-3  font-medium justify-between">
+                      <span>COMERCIO: {product.restaurant?.name}</span>
                     </div>
                     <span className="text-color font-bold text-4xl mt-3">
                       ${Number(product.price).toFixed(2)} usd
@@ -192,12 +197,13 @@ const ProductDetailPage = (props) => {
                                   product.photos[0]?.path_photo,
                                 quantity: quantity,
                                 restaurantId: product.restaurant_id,
+                                restaurantName: product.restaurant.name,
                               })
                             );
                             productAdd();
                           }
 
-                          
+
                         }}
                         className="btn-main p-1 px-2 ml-6"
                       >
@@ -258,7 +264,7 @@ const ProductDetailPage = (props) => {
                   >
                     Información adicional
                   </button> */}
-                      {/* 
+                      {/*
                   <button
                     key={"send"}
                     onClick={() => setTab("send")}

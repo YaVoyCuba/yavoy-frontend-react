@@ -30,6 +30,7 @@ const MostSelledProductsWidget = () => {
                   img={product.image}
                   price={product.price}
                   rating={product.rating.rate}
+                  restaurantName={product.restaurant.name}
                 />
               </div>
             );

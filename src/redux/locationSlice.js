@@ -1,34 +1,23 @@
 // src/redux/cartSlice.js
-import { createSlice } from "@reduxjs/toolkit";
-import apiManager from "../api/apiManager";
+import { createSlice } from '@reduxjs/toolkit';
 
-const locationSlice = createSlice({
-  name: "location",
-  initialState: {
-    location: {'locationName':"",'locationId':0,'provinceId':0},
-    locationHouse: {'locationName':"",'locationId':0,'provinceId':0},
-  },
-  reducers: {
-    setLocation: (state, action) => {
-       let location = {};
-       location.locationName = action.payload.locationName;
-       location.locationId = action.payload.locationId;
-       location.provinceId = action.payload.provinceId
-       state.location = location;
-       
+const locationSlice = createSlice( {
+    name:         'location',
+    initialState: {
+        province:      { label: '', value: { id: 0 } },
+        municipality:  { label: '', value: { id: 0 } },
     },
-    setLocationHouse: (state, action) => {
-       let location = {};
-       location.locationName = action.payload.locationName;
-       location.locationId = action.payload.locationId;
-       location.provinceId = action.payload.provinceId
-       state.locationHouse = location;
-       
+    reducers:     {
+        setProvince:         ( state, action ) => {
+            state.province = action.payload;
+        },
+        setMunicipality:     ( state, action ) => {
+            state.municipality = action.payload;
+        },
     },
-  },
-});
+} );
 
 export const locationReducer = locationSlice.reducer;
 export const {
-  setLocation,setLocationHouse
+    setProvince, setMunicipality,
 } = locationSlice.actions;

@@ -11,14 +11,13 @@ const reducers = combineReducers({
   cart: cartReducer,
   location: locationReducer,
   info: infoReducer,
-  auth: authReducer
-
+  auth: authReducer,
 })
 
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['location'], 
+  // blacklist: ['location'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -31,4 +30,3 @@ export const store = configureStore({
 })
 
 export const persistor = persistStore(store)
- 

@@ -28,12 +28,6 @@ const TemplateLanding = () => {
         "caja",
       ],
     },
-    // {
-    //   name: "Alojamientos",
-    //   href: "/alojamientos",
-    //   current: false,
-    //   rutes: ["alojamiento", "alojamientos","booking"],
-    // },
   ];
 
   function classNames(...classes) {

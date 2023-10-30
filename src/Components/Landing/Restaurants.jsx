@@ -5,7 +5,6 @@ import apiManager from "../../api/apiManager";
 import RestaurantCard from "../Misc/RestaurantCard";
 import { Loading } from "../../common/Loading";
 import { useSelector } from "react-redux";
-import { store } from "../../redux/store";
 import { useLocation } from "react-router";
 import SwiperCore, { Autoplay } from 'swiper';
 
@@ -24,44 +23,41 @@ const Restaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [promoRestaurants, setPromoRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const location = useSelector((state) => state.location.location);
+  const getMunicipality = useSelector( ( state ) => state.location.municipality );
 
   async function getRestaurants() {
-    let location2 = store.getState().location.location;
-
     let locationFinal = "";
-    if (location.locationName === "") {
-      locationFinal = location2.locationId;
+    if (getMunicipality.value === null) {
+      locationFinal = 0;
     } else {
-      locationFinal = location.locationId;
+      locationFinal = getMunicipality.value.id;
     }
 
     let type = "restaurant";
 
-    if (path == "/dulcerias") {
+    if (path === "/dulcerias") {
       type = "dulceria";
     }
 
-    if (path == "/mercados") {
+    if (path === "/mercados") {
       type = "market";
     }
-    if (path == "/servicios") {
+    if (path === "/servicios") {
       type = "servicios";
     }
 
-    if (path == "/regalitos") {
+    if (path === "/regalitos") {
       type = "regalos";
     }
 
     let json = await apiManager.getRestaurants(locationFinal, type);
-    if (json != 500) {
+    if (json !== 500) {
       setRestaurants(json.restaurants);
       setLoading(false);
     }
 
     let json2 = await apiManager.getPromosRestaurants();
-    if (json2 != 500) {
+    if (json2 !== 500) {
       {
         setPromoRestaurants(json2.promos);
       }
@@ -70,8 +66,8 @@ const Restaurants = () => {
 
   useEffect(() => {
     setLoading(true);
-    location.locationId != 0 && getRestaurants();
-  }, [location, path]);
+    getMunicipality.value && getMunicipality.value.id !== 0 && getRestaurants();
+  }, [getMunicipality, path]);
 
   return (
     <>
@@ -87,7 +83,7 @@ const Restaurants = () => {
               <Link
                 to={"/"}
                 className={`col-span-1 ${
-                  path == "/" || path == "/restaurantes"
+                  path === "/" || path === "/restaurantes"
                     ? "text-color"
                     : "text-gray-500"
                 }`}
@@ -116,7 +112,7 @@ const Restaurants = () => {
               <Link
                 to={"/mercados"}
                 className={`col-span-1 ${
-                  path == "/mercados" ? "text-color" : "text-gray-500"
+                  path === "/mercados" ? "text-color" : "text-gray-500"
                 }`}
               >
                 <button
@@ -143,7 +139,7 @@ const Restaurants = () => {
               <Link
                 to={"/dulcerias"}
                 className={`col-span-1 ${
-                  path == "/dulcerias" ? "text-color" : "text-gray-500"
+                  path === "/dulcerias" ? "text-color" : "text-gray-500"
                 }`}
               >
                 <button
@@ -170,7 +166,7 @@ const Restaurants = () => {
               <Link
                 to={"/regalitos"}
                 className={`col-span-1 ${
-                  path == "/regalitos" ? "text-color" : "text-gray-500"
+                  path === "/regalitos" ? "text-color" : "text-gray-500"
                 }`}
               >
                 <button
@@ -197,7 +193,7 @@ const Restaurants = () => {
               <Link
                 to={"/servicios"}
                 className={`col-span-1 ${
-                  path == "/servicios" ? "text-color" : "text-gray-500"
+                  path === "/servicios" ? "text-color" : "text-gray-500"
                 }`}
               >
                 <button
@@ -223,11 +219,6 @@ const Restaurants = () => {
               </Link>
             </div>
           </div>
-          {/* {promoRestaurants.length > 0 && (
-            <span className="text-lg  font-bold text-gray-700 mt-3">
-              Ofertas especiales
-            </span>
-          )} */}
           <div className="my-3 hidden lg:flex">
             <Swiper
               autoplay={{
@@ -288,7 +279,7 @@ const Restaurants = () => {
               );
             })}
 
-            {restaurants.length == 0 && (
+            {restaurants.length === 0 && (
               <div className="col-span-3 my-2 lg:col-span-1">
                 <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                   <div className="px-4 py-5 sm:px-6">

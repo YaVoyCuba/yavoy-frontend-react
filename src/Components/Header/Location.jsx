@@ -14,11 +14,11 @@ const Location = () => {
     const location = useSelector( ( state ) => state.location.location );
     const { cart } = useSelector( ( state ) => state.cart );
     const [ provinces, setProvinces ] = useState( [] );
+    const [ municipalities, setMunicipalities ] = useState( [] );
     const [ loadingProvinces, setLoadingProvinces ] = useState( false );
     const [ provinceSelected, setProvinceSelected ] = useState( { label: '', value: null } );
     const [ municipalitieSelected, setMunicipalitieSelected ] = useState( { label: '', value: null } );
-    const [ municipalities, setMunicipalities ] = useState( [] );
-    const [ open, setOpen ] = useState( false );
+    const [ isLocationFormOpen, setIsLocationFormOpen ] = useState( false );
 
     // const [isMenuOpen, setIsMenuOpen] = useState(false);
     // const onMenuOpen = () => setIsMenuOpen(true);
@@ -27,7 +27,7 @@ const Location = () => {
     const dispatch = useDispatch();
 
     const getLocation = async () => {
-        setOpen( true );
+        setIsLocationFormOpen( true );
         let json = await apiManager.getLocationData();
         if (json.code === 'ok') {
             const provincesOptions = json.data.provinces.map( ( province ) => {
@@ -63,7 +63,7 @@ const Location = () => {
     };
 
     const storeLocation = async () => {
-        setOpen( false );
+        setIsLocationFormOpen( false );
 
         let payload = { locationName: '', locationId: 0, provinceName: '', provinceId: 0 };
 
@@ -132,7 +132,7 @@ const Location = () => {
                 <button
                     className="btn flex mx-auto "
                     onClick={ ( event ) => {
-                        setOpen( !open );
+                        setIsLocationFormOpen( !isLocationFormOpen );
                         getLocation();
                     } }
                 >
@@ -170,12 +170,12 @@ const Location = () => {
                 </button>
             </div>
 
-            <Transition.Root show={ open } as={ Fragment }>
+            <Transition.Root show={ isLocationFormOpen } as={ Fragment }>
                 <Dialog
                     as="div"
                     className="relative z-10"
                     initialFocus={ cancelButtonRef }
-                    onClose={ () => location.locationName && setOpen( false ) }
+                    onClose={ () => location.locationName && setIsLocationFormOpen( false ) }
                 >
                     <Transition.Child
                         as={ Fragment }
@@ -286,7 +286,7 @@ const Location = () => {
                                             className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm"
                                             onClick={ () => {
                                                 console.log( '-->>> ', location.locationName );
-                                                location.locationName && setOpen( false );
+                                                location.locationName && setIsLocationFormOpen( false );
                                             } }
                                             ref={ cancelButtonRef }
                                         >

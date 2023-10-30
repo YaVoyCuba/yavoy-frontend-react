@@ -11,6 +11,7 @@ const CartIconGlobal = () => {
   const {cart} = useSelector((state) =>state.cart);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
+  const getMunicipality = useSelector( ( state ) => state.location.municipality );
 
   const getTotalQuantity = () => {
     let total = 0;
@@ -98,9 +99,14 @@ const CartIconGlobal = () => {
                       </div>
                       <hr className="separator mx-3" />
                       <div className="px-4 flex justify-between pb-3 sm:px-6">
-                        <span className="subtitle uppercase">
+                        <span className="">
                           {/*TODO: add get restaurantName and validate*/}
                           Comercio: {cart[0]?.restaurantName}
+                        </span>
+                      </div>
+                      <div className="px-4 flex justify-between pb-3 sm:px-6">
+                        <span className="">
+                          Municipio: {getMunicipality.label}
                         </span>
                       </div>
                       <hr className="separator mx-3" />

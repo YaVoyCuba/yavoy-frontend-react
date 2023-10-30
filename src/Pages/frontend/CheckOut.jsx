@@ -26,7 +26,7 @@ const CheckOut = () => {
   const [tropipayData, setTropipayData] = useState(false);
   const [loading, setLoading] = useState(false);
   const { cart } = useSelector((state) => state.cart);
-  const location = useSelector((state) => state.location.location);
+  const getMunicipality = useSelector( ( state ) => state.location.municipality );
   const [countries, setCountries] = useState([]);
   const {
     register,
@@ -64,12 +64,12 @@ const CheckOut = () => {
   };
 
   const deliveryCost = () => {
-    if (method == methodsDeliveries[1]) {
+    if (method === methodsDeliveries[1]) {
       return 0;
     } else {
       //Find in zones the zone where the location is municipalitie_id and get price
       let zone = zones.find(
-        (zone) => zone.municipalitie_id == location.locationId
+        (zone) => zone.municipalitie_id === getMunicipality.value?.id
       );
       return zone?.price ?? 0;
     }
@@ -100,7 +100,7 @@ const CheckOut = () => {
   const getRestaurantData = async () => {
     let json = await apiManager.getDataForCheckOut(cart[0].restaurantId);
 
-    if (json.code == "ok") {
+    if (json.code === "ok") {
       setSchedules(json.data.schedules);
       setDaysOpens(json.data.daysOpens);
       setZones(json.data.zones);
@@ -112,7 +112,7 @@ const CheckOut = () => {
   };
   const getTropipayCountries = async () => {
     let json = await apiManager.getTropiapayCountries();
-    if (json.code == "ok") {
+    if (json.code === "ok") {
       setCountries(json.data);
     }
   };
@@ -120,11 +120,11 @@ const CheckOut = () => {
   const newOrder = async (data) => {
     setLoading(true);
     let methodDelivery =
-      method.name == "Entrega a domicilio" ? "delivery" : "pick";
+      method.name === "Entrega a domicilio" ? "delivery" : "pick";
 
     const payload = {
       methodDelivery: methodDelivery,
-      location: location,
+      location: {locationName: getMunicipality.value.name, locationId: getMunicipality.value.id, provinceId: getMunicipality.value.province_id},
       cart: cart,
       pointToDelivery: null,
       deliveryCost: deliveryCost(),
@@ -134,7 +134,7 @@ const CheckOut = () => {
       userPhone: data.receiverPhone,
       userNote: data.receiverNote,
       userAddress: data.receiverAddress,
-      shopLocation: location.locationId,
+      shopLocation: getMunicipality.value.id,
       schedule: data.schedule,
       dayDelivery: data.dayDelivery,
       currency_code: "USD",
@@ -153,7 +153,7 @@ const CheckOut = () => {
       },
     };
 
-    if (methodDelivery == "delivery" && !location.locationId) {
+    if (methodDelivery == "delivery" && !getMunicipality.value.id) {
       toast.error("Debes seleccionar una dirección!", {
         position: "top-center",
         autoClose: 5000,
@@ -168,10 +168,10 @@ const CheckOut = () => {
     }
 
 
- 
+
     let json = await apiManager.newOrder(payload);
 
-    
+
 
     if (json.code == "ok") {
       setEmpty(true);
@@ -292,7 +292,7 @@ const CheckOut = () => {
                           </div>
                           <div className="flex flex-col space-y-3">
                             <span className="text-gray-700  ">
-                              Direcion del receptor en {location.locationName}
+                              Dirección del receptor en {getMunicipality.value.name}
                             </span>
                             <input
                               type="text"
@@ -661,14 +661,14 @@ const CheckOut = () => {
         )
       ) : (
 
-        redirectToPayment ? 
-        
+        redirectToPayment ?
+
         <div className="flex flex-col my-7 justify-center items-center">
-         
+
           <span className="text-2xl font-bold">Redireccionando al procesador de pago</span>
-          
+
         </div>
-        
+
         :
         <div className="flex flex-col my-7 justify-center items-center">
           <img src="/assets/img/notfound.png" className="h-96 w-auto" />

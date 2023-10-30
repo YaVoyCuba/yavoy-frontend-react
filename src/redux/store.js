@@ -11,8 +11,7 @@ const reducers = combineReducers({
   cart: cartReducer,
   location: locationReducer,
   info: infoReducer,
-  auth: authReducer
-
+  auth: authReducer,
 })
 
 const persistConfig = {
@@ -31,4 +30,3 @@ export const store = configureStore({
 })
 
 export const persistor = persistStore(store)
- 

@@ -5,8 +5,8 @@ const locationSlice = createSlice( {
     name:         'location',
     initialState: {
         location:      { locationName: '', locationId: 0, provinceName: '', provinceId: 0 },
-        province:      { label: '', value: null },
-        municipality:  { label: '', value: null },
+        province:      { label: '', value: { id: 0 } },
+        municipality:  { label: '', value: { id: 0 } },
         locationHouse: { 'locationName': '', 'locationId': 0, 'provinceId': 0 },
     },
     reducers:     {

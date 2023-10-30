@@ -1,9 +1,9 @@
-import React, { CSSProperties, useState, Fragment, useRef, useEffect } from 'react';
+import React, { useState, Fragment, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/24/outline';
 import apiManager from '../../api/apiManager';
-import { setLocationCommerce } from '../../redux/locationSlice';
+import { setProvince, setMunicipality } from '../../redux/locationSlice';
 import { toast } from 'react-toastify';
 import { LoadingSmall } from '../../common/LoadingSmall';
 import CookieConsent from 'react-cookie-consent';
@@ -11,23 +11,54 @@ import Select from 'react-select';
 
 const Location = () => {
 
-    const location = useSelector( ( state ) => state.location.location );
+    const getProvince = useSelector( ( state ) => state.location.province );
+    const getMunicipality = useSelector( ( state ) => state.location.municipality );
     const { cart } = useSelector( ( state ) => state.cart );
     const [ provinces, setProvinces ] = useState( [] );
     const [ municipalities, setMunicipalities ] = useState( [] );
     const [ loadingProvinces, setLoadingProvinces ] = useState( false );
     const [ provinceSelected, setProvinceSelected ] = useState( getProvince );
-    const [ municipalitieSelected, setMunicipalitieSelected ] = useState( getMunicipality );
+    const [ municipalitySelected, setMunicipalitySelected ] = useState( getMunicipality );
     const [ isLocationFormOpen, setIsLocationFormOpen ] = useState( false );
 
-
-    // const onMenuOpen = () => setIsMenuOpen(true);
-    // const onMenuClose = () => setIsMenuOpen(false);
+    const onLocationFormOpen = () => setIsLocationFormOpen( true );
+    const onLocationFormClose = () => setIsLocationFormOpen( false );
 
     const dispatch = useDispatch();
+    console.log(municipalitySelected)
 
-    const getLocation = async () => {
-        setIsLocationFormOpen( true );
+    useEffect( () => {
+        console.log( 'useEffect provinceSelected' );
+        // get all municipalities by a province selected only if Location Form is open
+        if (isLocationFormOpen) {
+            setMunicipalitiesByProvince( provinceSelected ).then( r => {
+            } );
+        }
+    }, [ provinceSelected ] );
+
+    useEffect( () => {
+        console.log( 'useEffect location 1' );
+        if (getMunicipality.value?.id === 0) {
+            console.log( 'useEffect location 1 - inside' );
+            // open Location Form and throw useEffect "isLocationFormOpen"
+            onLocationFormOpen();
+        }
+    }, [] );
+
+    useEffect( () => {
+        console.log( 'useEffect location 2' );
+        if (isLocationFormOpen) {
+            console.log( 'useEffect location 2 - inside' );
+            getProvinces().then( r => {
+                setMunicipalitiesByProvince( provinceSelected ).catch( err => {
+                } );
+            } ).catch( err => {
+            } );
+        }
+    }, [ isLocationFormOpen ] );
+
+    const getProvinces = async () => {
+        console.log( 'getProvinces' );
         let json = await apiManager.getLocationData();
         if (json.code === 'ok') {
             const provincesOptions = json.data.provinces.map( ( province ) => {
@@ -44,7 +75,6 @@ const Location = () => {
     };
 
     const setMunicipalitiesByProvince = async ( event ) => {
-        setProvinceSelected( event );
         let jsonM = await apiManager.getMunicipalities( event.value.id );
         if (jsonM.code === 'ok') {
             const municipalitiesOptions = jsonM.data.map( ( item ) => {
@@ -56,35 +86,24 @@ const Location = () => {
                 },
             );
             setMunicipalities( municipalitiesOptions );
-            console.log( 'municipalities: ', municipalities );
-            setMunicipalitieSelected( municipalitiesOptions[0] );
-            console.log( 'setMunicipalitieSelected: ', municipalitieSelected );
+            // setMunicipalitySelected( municipalitiesOptions[0] );
         }
     };
 
     const storeLocation = async () => {
-        setIsLocationFormOpen( false );
-
-        let payload = { locationName: '', locationId: 0, provinceName: '', provinceId: 0 };
-
-        if (municipalitieSelected.value && provinceSelected.value) {
-            payload.locationName = municipalitieSelected.value.name;
-            payload.provinceName = provinceSelected.value.name;
-            payload.locationId = municipalitieSelected.value.id;
-            payload.provinceId = municipalitieSelected.value.province_id;
-        }
+        // close Location Form
+        onLocationFormClose();
 
         if (cart?.length > 0) {
-            console.log("--> check cart: ", cart)
+            console.log( '--> check cart: ', cart );
             let can = await checkIfNewLocationCanBeAddedWithRestaurantInCart();
-            console.log("--> can: ", can)
+            console.log( '--> can: ', can );
             if (can) {
                 // save location to localstorage
-                dispatch(
-                    setLocationCommerce( payload ),
-                );
+                dispatch( setProvince( provinceSelected ) );
+                dispatch( setMunicipality( municipalitySelected ) );
             } else {
-                console.log("--> can else: ", can)
+                console.log( '--> can else: ', can );
                 toast.warning(
                     'No puedes cambiar a esta ubicacion porque el restaurante de los productos del carrito no hace envíos a la misma',
 
@@ -101,29 +120,24 @@ const Location = () => {
             }
         } else {
             // save location to localstorage
-            dispatch(
-                setLocationCommerce( payload),
-            );
+            dispatch( setProvince( provinceSelected ) );
+            dispatch( setMunicipality( municipalitySelected ) );
         }
     };
 
     const checkIfNewLocationCanBeAddedWithRestaurantInCart = async () => {
         let isFound = false;
-        let response = await apiManager.getZones(cart[0].restaurantId);
+        let response = await apiManager.getZones( cart[0].restaurantId );
 
         if (response.code === 'ok') {
-            isFound = response.zones.some(zone => {
-                return zone.municipalitie_id === municipalitieSelected.value.id;
-            });
+            isFound = response.zones.some( zone => {
+                return zone.municipalitie_id === municipalitySelected.value.id;
+            } );
         }
 
-        console.log("--> ", isFound, "muniSelct: ", municipalitieSelected)
+        console.log( '--> ', isFound, 'muniSelct: ', municipalitySelected );
         return isFound; //let zones = apiManager.getZones(cart[0].restaurantId);
     };
-
-    useEffect( () => {
-        !location.locationId && getLocation();
-    }, [] );
 
     const cancelButtonRef = useRef( null );
     return (
@@ -133,7 +147,6 @@ const Location = () => {
                     className="btn flex mx-auto "
                     onClick={ ( event ) => {
                         setIsLocationFormOpen( !isLocationFormOpen );
-                        getLocation();
                     } }
                 >
                     <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -145,7 +158,7 @@ const Location = () => {
                         </g>
                     </svg>
                     <span className="text-gray-700 text-sm font-medium pl-3">
-            Delivery fijado en { location.locationName }
+            Delivery fijado en { getMunicipality.label }
           </span>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +182,7 @@ const Location = () => {
                     as="div"
                     className="relative z-10"
                     initialFocus={ cancelButtonRef }
-                    onClose={ () => location.locationName && setIsLocationFormOpen( false ) }
+                    onClose={ () => getMunicipality.label && onLocationFormClose() }
                 >
                     <Transition.Child
                         as={ Fragment }
@@ -230,20 +243,20 @@ const Location = () => {
                                                         inputId="aria-example-input"
                                                         name="aria-live-province"
                                                         // onMenuOpen={onMenuOpen}
-                                                        // onMenuClose={onMenuClose}
+                                                        // ={onMenuClose}
                                                         options={ provinces }
                                                         // menuIsOpen={false}
                                                         className="react-select-container my-5"
                                                         classNamePrefix="react-select"
                                                         placeholder="Select a province"
-                                                        value={ provinceSelected }
-                                                        onChange={ ( event ) =>
-                                                            setMunicipalitiesByProvince( event )
-                                                        }
+                                                        value={ "" || provinceSelected }
+                                                        onChange={ ( event ) => {
+                                                            setProvinceSelected( event );
+                                                        } }
                                                     />
                                                     {
                                                         (municipalities?.length > 0 ||
-                                                            provinceSelected?.value) && (
+                                                            provinceSelected.value?.id > 0) && (
                                                             <Select
                                                                 aria-labelledby="aria-label"
                                                                 inputId="aria-example-input"
@@ -252,9 +265,9 @@ const Location = () => {
                                                                 className="react-select-container"
                                                                 classNamePrefix="react-select"
                                                                 placeholder="Select a municipality"
-                                                                value={ municipalitieSelected }
+                                                                value={ municipalitySelected }
                                                                 onChange={ ( event ) => {
-                                                                    setMunicipalitieSelected( event );
+                                                                    setMunicipalitySelected( event );
                                                                 } }
                                                             />
                                                         )
@@ -268,7 +281,7 @@ const Location = () => {
                                             type="button"
                                             className="inline-flex w-full justify-center rounded-md border border-transparent bg-main px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-2 sm:text-sm"
                                             onClick={ () => {
-                                                municipalitieSelected?.value ?
+                                                municipalitySelected?.value?.id > 0 ?
                                                     storeLocation() : alert( 'Selecciona una provincia y un municipio' );
                                             }
                                             }
@@ -279,8 +292,7 @@ const Location = () => {
                                             type="button"
                                             className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm"
                                             onClick={ () => {
-                                                console.log( '-->>> ', location.locationName );
-                                                location.locationName && setIsLocationFormOpen( false );
+                                                getMunicipality.value.id > 0 && onLocationFormClose();
                                             } }
                                             ref={ cancelButtonRef }
                                         >

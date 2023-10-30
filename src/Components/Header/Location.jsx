@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/24/outline';
 import apiManager from '../../api/apiManager';
-import { setLocation } from '../../redux/locationSlice';
+import { setLocationCommerce } from '../../redux/locationSlice';
 import { toast } from 'react-toastify';
 import { LoadingSmall } from '../../common/LoadingSmall';
 import CookieConsent from 'react-cookie-consent';
@@ -62,35 +62,29 @@ const Location = () => {
         }
     };
 
-    const storeLocation = () => {
+    const storeLocation = async () => {
         setOpen( false );
 
-        let locationName = '';
-        let locationId = '';
-        let provinceName = '';
-        let provinceId = '';
+        let payload = { locationName: '', locationId: 0, provinceName: '', provinceId: 0 };
 
-        if (municipalitieSelected !== '') {
-            let location = municipalities.find(
-                ( muni ) => muni.id === municipalitieSelected,
-            );
-            locationName = location.name;
-            locationId = location.id;
-            provinceId = location.province_id;
-            console.log( 'Municipal: ', provinces );
+        if (municipalitieSelected.value && provinceSelected.value) {
+            payload.locationName = municipalitieSelected.value.name;
+            payload.provinceName = provinceSelected.value.name;
+            payload.locationId = municipalitieSelected.value.id;
+            payload.provinceId = municipalitieSelected.value.province_id;
         }
 
         if (cart?.length > 0) {
-            let can = checkIfNewLocationCanBeAddedWithRestaurantInCart();
+            console.log("--> check cart: ", cart)
+            let can = await checkIfNewLocationCanBeAddedWithRestaurantInCart();
+            console.log("--> can: ", can)
             if (can) {
+                // save location to localstorage
                 dispatch(
-                    setLocation( {
-                        locationName: locationName,
-                        locationId:   locationId,
-                        provinceId:   provinceId,
-                    } ),
+                    setLocationCommerce( payload ),
                 );
             } else {
+                console.log("--> can else: ", can)
                 toast.warning(
                     'No puedes cambiar a esta ubicacion porque el restaurante de los productos del carrito no hace envíos a la misma',
 
@@ -106,18 +100,25 @@ const Location = () => {
                 );
             }
         } else {
+            // save location to localstorage
             dispatch(
-                setLocation( {
-                    locationName: locationName,
-                    locationId:   locationId,
-                    provinceId:   provinceId,
-                } ),
+                setLocationCommerce( payload),
             );
         }
     };
 
-    const checkIfNewLocationCanBeAddedWithRestaurantInCart = () => {
-        return false; //let zones = apiManager.getZones(cart[0].restaurantId);
+    const checkIfNewLocationCanBeAddedWithRestaurantInCart = async () => {
+        let isFound = false;
+        let response = await apiManager.getZones(cart[0].restaurantId);
+
+        if (response.code === 'ok') {
+            isFound = response.zones.some(zone => {
+                return zone.municipalitie_id === municipalitieSelected.value.id;
+            });
+        }
+
+        console.log("--> ", isFound, "muniSelct: ", municipalitieSelected)
+        return isFound; //let zones = apiManager.getZones(cart[0].restaurantId);
     };
 
     useEffect( () => {
@@ -273,7 +274,7 @@ const Location = () => {
                                             type="button"
                                             className="inline-flex w-full justify-center rounded-md border border-transparent bg-main px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-2 sm:text-sm"
                                             onClick={ () => {
-                                                !municipalitieSelected.value ?
+                                                municipalitieSelected?.value ?
                                                     storeLocation() : alert( 'Selecciona una provincia y un municipio' );
                                             }
                                             }

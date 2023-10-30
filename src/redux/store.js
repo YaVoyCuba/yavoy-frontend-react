@@ -18,7 +18,7 @@ const reducers = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['location'], 
+  // blacklist: ['location'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

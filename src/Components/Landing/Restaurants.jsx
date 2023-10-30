@@ -27,7 +27,7 @@ const Restaurants = () => {
 
   async function getRestaurants() {
     let locationFinal = "";
-    if (getMunicipality.value === null) {
+    if (getMunicipality.value?.id === 0) {
       locationFinal = 0;
     } else {
       locationFinal = getMunicipality.value.id;

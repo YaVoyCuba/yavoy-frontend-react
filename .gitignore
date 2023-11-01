@@ -25,3 +25,5 @@ public_web
 *.njsproj
 *.sln
 *.sw?
+
+.env.development

@@ -13,6 +13,12 @@
 * [Git](https://git-scm.com/downloads)
 
 ### 🔧 Development
+
+Configure VITE_APP_BASE_URL in `.env.development` file pointing to the URL API backend `https://dev.yavoycuba.com` or `http://127.0.0.1:8000` if backend run in localhost: 
+```text
+VITE_APP_BASE_URL=https://dev.yavoycuba.com
+```
+
 ```bash
 npm run dev
 ```

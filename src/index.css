@@ -165,5 +165,9 @@
     position: inherit !important;
 }
 
+.header-fixed-top {
+  position: sticky;
+  top: 0;
+}
 
 @tailwind utilities;

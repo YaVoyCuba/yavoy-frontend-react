@@ -5,7 +5,6 @@ import Location from './Location';
 
 const Header = ( props ) => {
     const locationType = props.locationType;
-    // locationType == 'restaurantes'
 
     return (
         <div>

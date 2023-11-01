@@ -31,6 +31,7 @@ const Location = () => {
         console.log( 'useEffect provinceSelected' );
         // get all municipalities by a province selected only if Location Form is open
         if (isLocationFormOpen) {
+            console.log( 'useEffect provinceSelected - inside' );
             setMunicipalitiesByProvince( provinceSelected ).then( r => {
             } );
         }
@@ -249,7 +250,7 @@ const Location = () => {
                                                         className="react-select-container my-5"
                                                         classNamePrefix="react-select"
                                                         placeholder="Select a province"
-                                                        value={ "" || provinceSelected }
+                                                        value={ provinceSelected?.value?.id ? provinceSelected : null }
                                                         onChange={ ( event ) => {
                                                             setProvinceSelected( event );
                                                         } }
@@ -265,7 +266,7 @@ const Location = () => {
                                                                 className="react-select-container"
                                                                 classNamePrefix="react-select"
                                                                 placeholder="Select a municipality"
-                                                                value={ municipalitySelected }
+                                                                value={ municipalitySelected?.value?.id ? municipalitySelected : null }
                                                                 onChange={ ( event ) => {
                                                                     setMunicipalitySelected( event );
                                                                 } }

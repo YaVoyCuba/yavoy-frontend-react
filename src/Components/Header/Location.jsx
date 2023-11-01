@@ -140,6 +140,12 @@ const Location = () => {
         return isFound; //let zones = apiManager.getZones(cart[0].restaurantId);
     };
 
+    const setValuesByDefault = async () => {
+        console.log('setValuesByDefault: ', getProvince, getMunicipality)
+        setProvinceSelected(getProvince)
+        setMunicipalitySelected(getMunicipality)
+    }
+
     const cancelButtonRef = useRef( null );
     return (
         <>
@@ -252,6 +258,7 @@ const Location = () => {
                                                         placeholder="Select a province"
                                                         value={ provinceSelected?.value?.id ? provinceSelected : null }
                                                         onChange={ ( event ) => {
+                                                            setMunicipalitySelected( { label: '', value: { id: 0 } } );
                                                             setProvinceSelected( event );
                                                         } }
                                                     />
@@ -293,7 +300,10 @@ const Location = () => {
                                             type="button"
                                             className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm"
                                             onClick={ () => {
-                                                getMunicipality.value.id > 0 && onLocationFormClose();
+                                                if( getMunicipality.value.id > 0 ) {
+                                                    onLocationFormClose();
+                                                    setValuesByDefault()
+                                                }
                                             } }
                                             ref={ cancelButtonRef }
                                         >

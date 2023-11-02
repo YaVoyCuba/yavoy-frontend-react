@@ -32,7 +32,7 @@ function AddressWatched({ control }) {
 
   let result = <span><p className="font-bold">Dir. completa: </p><p>{address} {apartment}</p></span>
 
-  return (address.length ? result : <p/>)
+  return (address?.length ? result : <p/>)
 }
 
 const CheckOut = () => {
@@ -150,7 +150,7 @@ const CheckOut = () => {
       userEmail: null,
       userPhone: data.receiverPhone,
       userNote: data.receiverNote,
-      userAddress: data.receiverAddress,
+      userAddress: data.receiverAddress + " " +data.receiverApartment,
       shopLocation: getMunicipality.value.id,
       schedule: data.schedule,
       dayDelivery: data.dayDelivery,
@@ -293,13 +293,12 @@ const CheckOut = () => {
                             )}
                           </div>
                           <div className="flex flex-col space-y-3">
-                            <span className="text-gray-700">
-                              Teléfono del receptor
-                            </span>
+                            <label className="text-gray-700" htmlFor="phone">Teléfono del receptor:</label>
                             <input
-                              type="text"
-                              className="input-text"
-                              {...register("receiverPhone", { required: true })}
+                                type="tel"
+                                className="input-text"
+                                id="phone" name="phone"
+                                { ...register( 'receiverPhone', { required: true } ) }
                             />
                             {errors.receiverPhone && (
                               <span className="text-red-500 font-medium">
@@ -321,7 +320,7 @@ const CheckOut = () => {
                             />
                             <input
                                 type="text"
-                                placeholder="Apartamento"
+                                placeholder="Apartamento (ej: apart. #15)"
                                 className="input-text"
                                 {...register("receiverApartment", {
                                   required: true,
@@ -590,11 +589,15 @@ const CheckOut = () => {
                               )}
                             </div>
                             <div className="flex flex-col space-y-3">
-                              <span className="text-gray-700">Email</span>
+                              <label className="text-gray-700" htmlFor="email">Correo</label>
                               <input
-                                type="text"
-                                className="input-text"
-                                {...register("clientEmail", { required: true })}
+                                  type="email"
+                                  className="input-text"
+                                  id="email" name="email"
+                                  placeholder="username@mycompany.com"
+                                  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                                  required
+                                  { ...register( 'clientEmail', { required: true } ) }
                               />
                               {errors.clientEmail && (
                                 <span className="text-red-500 font-medium">

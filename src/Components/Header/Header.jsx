@@ -7,7 +7,7 @@ const Header = ( props ) => {
     const locationType = props.locationType;
 
     return (
-        <div class="header-fixed-top">
+        <div className="header-fixed-top">
             <HeaderTop />
             <Location />
         </div>

@@ -5,10 +5,9 @@ import Location from './Location';
 
 const Header = ( props ) => {
     const locationType = props.locationType;
-    // locationType == 'restaurantes'
 
     return (
-        <div>
+        <div className="header-fixed-top">
             <HeaderTop />
             <Location />
         </div>

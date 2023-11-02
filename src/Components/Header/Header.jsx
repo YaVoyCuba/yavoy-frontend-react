@@ -7,7 +7,7 @@ const Header = ( props ) => {
     const locationType = props.locationType;
 
     return (
-        <div className="header-fixed-top">
+        <div className="header-fixed-top bg-white py-3">
             <HeaderTop />
             <Location />
         </div>

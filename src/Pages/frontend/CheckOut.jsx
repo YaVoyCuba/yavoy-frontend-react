@@ -8,6 +8,7 @@ import { Loading } from "../../common/Loading";
 import { clearCart } from "../../redux/cartSlice";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useWatch } from 'react-hook-form';
 
 const methodsDeliveries = [
   { name: "Entrega a domicilio", active: true },
@@ -16,6 +17,22 @@ const methodsDeliveries = [
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
+}
+
+function AddressWatched({ control }) {
+  const address = useWatch({
+    control,
+    name: "receiverAddress",
+  })
+
+  const apartment = useWatch({
+    control,
+    name: "receiverApartment",
+  })
+
+  let result = <span><p className="font-bold">Dir. completa: </p><p>{address} {apartment}</p></span>
+
+  return (address.length ? result : <p/>)
 }
 
 const CheckOut = () => {
@@ -31,7 +48,7 @@ const CheckOut = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     formState: { errors },
   } = useForm();
 
@@ -153,7 +170,7 @@ const CheckOut = () => {
       },
     };
 
-    if (methodDelivery == "delivery" && !getMunicipality.value.id) {
+    if (methodDelivery === "delivery" && !getMunicipality.value.id) {
       toast.error("Debes seleccionar una dirección!", {
         position: "top-center",
         autoClose: 5000,
@@ -173,7 +190,7 @@ const CheckOut = () => {
 
 
 
-    if (json.code == "ok") {
+    if (json.code === "ok") {
       setEmpty(true);
       setRedirectToPayment(true);
       dispatch(clearCart());
@@ -296,12 +313,24 @@ const CheckOut = () => {
                             </span>
                             <input
                               type="text"
+                              placeholder="Dirección"
                               className="input-text"
                               {...register("receiverAddress", {
                                 required: true,
                               })}
                             />
-                            {errors.receiverAddress && (
+                            <input
+                                type="text"
+                                placeholder="Apartamento"
+                                className="input-text"
+                                {...register("receiverApartment", {
+                                  required: true,
+                                })}
+                            />
+                            {true && (
+                              <AddressWatched control={control} />
+                            )}
+                            {(errors.receiverAddress || errors.receiverApartment) && (
                               <span className="text-red-500 font-medium">
                                 Este campo es requerido
                               </span>
@@ -613,7 +642,7 @@ const CheckOut = () => {
                               )}
                             </div>
                           </div>
-                          <span classNama="text-center mx-auto">
+                          <span className="text-center mx-auto">
                             * Las tarjetas deben tener habilitado 3D-Secure para
                             ser aceptadas
                           </span>

@@ -314,6 +314,7 @@ const CheckOut = () => {
                               type="text"
                               placeholder="Nombre de la calle"
                               className="input-text"
+                              required
                               {...register("receiverAddress", {
                                 required: true,
                               })}
@@ -322,7 +323,6 @@ const CheckOut = () => {
                                 type="text"
                                 placeholder="Apartamento, piso, edificio (opcional)"
                                 className="input-text"
-                                required
                                 {...register("receiverApartment", {
                                   required: false,
                                 })}

@@ -312,7 +312,7 @@ const CheckOut = () => {
                             </span>
                             <input
                               type="text"
-                              placeholder="Dirección"
+                              placeholder="Nombre de la calle"
                               className="input-text"
                               {...register("receiverAddress", {
                                 required: true,
@@ -320,10 +320,11 @@ const CheckOut = () => {
                             />
                             <input
                                 type="text"
-                                placeholder="Apartamento (ej: apart. #15)"
+                                placeholder="Apartamento, piso, edificio (opcional)"
                                 className="input-text"
+                                required
                                 {...register("receiverApartment", {
-                                  required: true,
+                                  required: false,
                                 })}
                             />
                             {true && (

@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {  removeItem } from "../../redux/cartSlice";
+import { decrementQuantity, incrementQuantity, removeItem } from '../../redux/cartSlice';
 
 
 const CartIconGlobal = () => {
@@ -137,6 +137,29 @@ const CartIconGlobal = () => {
                                       ${Number(product.price).toFixed(2)} usd
                                     </span>
                                   </div>
+                                </div>
+                                <div className="flex border-2 py-3  px-5 border-gray-500 rounded-md">
+                                  <button
+                                      className="mr-4 text-2xl"
+                                  >
+                                    -
+                                  </button>
+                                  <div
+                                      className="h-6 my-1  bg-black"
+                                      style={{ width: 1 }}
+                                  ></div>
+                                  <span className="text-2xl font-bold px-2 mx-3">
+                          {product.quantity}
+                        </span>
+                                  <div
+                                      className="h-6 my-1  bg-black"
+                                      style={{ width: 1 }}
+                                  ></div>
+                                  <button
+                                      className="ml-2 text-2xl"
+                                  >
+                                    +
+                                  </button>
                                 </div>
                               </div>
                               <div

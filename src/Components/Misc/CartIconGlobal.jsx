@@ -193,7 +193,7 @@ const CartIconGlobal = () => {
                           <Link className=" mt-3 text-center" to={"carrito"}>
                             <span
                               onClick={() => setOpen(false)}
-                              className="text-center text-lg  color-main  font-medium mt-3"
+                              className="text-center text-lg  color-main  font-medium mt-3 hidden"
                             >
                               Ver Carrito
                             </span>

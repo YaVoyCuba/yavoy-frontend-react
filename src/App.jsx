@@ -6,7 +6,6 @@ import Restaurants from "./Components/Landing/Restaurants";
 import TemplateLanding from "./Components/Templates/TemplateLanding";
 import RestaurantPage from "./Pages/frontend/RestaurantPage";
 import { ToastContainer } from "react-toastify";
-import Cart from "./Pages/frontend/Cart";
 import CheckOut from "./Pages/frontend/CheckOut";
 import PaymentCompleted from "./Pages/frontend/PaymentCompleted";
 import PaymentFailed from "./Pages/frontend/PaymentFailed";
@@ -78,7 +77,8 @@ function App() {
                 />
 
                 <Route key={"/caja"} path="caja" element={<CheckOut />} />
-                <Route key={"/carrito"} path="/carrito" element={<Cart />} />
+                {/*disabled temporarily*/}
+                {/*<Route key={"/carrito"} path="/carrito" element={<Cart />} />*/}
               </Route>
               {/*disabled temporarily*/}
               {/*<Route element={<TemplateUser />}>*/}

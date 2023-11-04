@@ -42,19 +42,18 @@ const SearchPage = () => {
 
         let json = await apiManager.getSearchResults( locationFinal );
 
-        if (json != 500) {
+        if (json !== 500) {
 
 
             //Filter data, if not hace restaurant_id, then value the status of the restaurant and not show if status == inactive
             let filteredData = json.data.filter( ( restaurant ) => {
                 if (restaurant.restaurant_id == null) {
-                    return restaurant.status == 'active';
+                    return restaurant.status === 'active';
                 } else {
-                    return restaurant.restaurant?.status == 'active';
+                    return restaurant.restaurant?.status === 'active';
                 }
 
             } );
-
 
             setResults( filteredData );
             setCopyResults( filteredData );
@@ -181,40 +180,6 @@ const SearchPage = () => {
                                                 as="h3"
                                                 className="text-lg font-medium leading-6 text-gray-900"
                                             >
-                                                {/* <div className="flex w-fill overflow-x-auto">
-                          <div className="flex mx-auto">
-                            <nav className="flex space-x-4" aria-label="Tabs">
-                              {tabs.map((tab, index) => (
-                                <button
-                                  key={tab.type}
-                                  onClick={() => {
-                                    setType(tab.type);
-
-                                    let tabsCopy = tabs;
-                                    tabsCopy.map((tab2) => {
-                                      tab2.current = false;
-                                    });
-                                    tabsCopy[index].current = true;
-                                    setTabs(tabsCopy);
-                                    getRestaurants();
-                                  }}
-                                  className={classNames(
-                                    tab.current
-                                      ? "bg-gray-100 text-gray-700"
-                                      : "text-gray-500 hover:text-gray-700",
-                                    "px-3 py-2 font-medium text-sm rounded-md"
-                                  )}
-                                  aria-current={
-                                    tab.current ? "page" : undefined
-                                  }
-                                >
-                                  {tab.name}
-                                </button>
-                              ))}
-                            </nav>
-                          </div>
-                        </div> */ }
-
                                                 <input
                                                     id="searchInput"
                                                     ref={ searchInput }
@@ -225,7 +190,7 @@ const SearchPage = () => {
                                                 />
                                             </Dialog.Title>
                                             <div className="mt-2">
-                                                <span className="text-lg font-bold text-gray-700"></span>
+                                                <span className="text-lg font-bold text-gray-700" />
                                                 <div className="grid grid-cols-3 h-screen overflow-y-auto">
                                                     { results.slice( 0, 20 ).map( ( restaurant, index ) => {
                                                         return (
@@ -251,7 +216,7 @@ const SearchPage = () => {
                                                                         slug={ restaurant.slug }
                                                                         id={ restaurant.id }
                                                                         restaurantId={ restaurant.restaurant_id }
-                                                                        restaurantName={ restaurant.name }
+                                                                        restaurantName={ restaurant?.restaurant?.name }
                                                                     />
                                                                 ) : (
                                                                     <RestaurantCard
@@ -263,7 +228,7 @@ const SearchPage = () => {
                                                         );
                                                     } ) }
 
-                                                    { results.length == 0 && (
+                                                    { results.length === 0 && (
                                                         <div
                                                             className="col-span-3 my-2 lg:col-span-3 text-center justify-center mx-auto px-20">
                                                             <div className="bg-white shadow-md rounded-lg overflow-hidden">

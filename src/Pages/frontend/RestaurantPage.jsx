@@ -105,7 +105,7 @@ function RestaurantPage() {
                                         <div className="lg:grid lg:grid-cols-2">
                                             { restaurant.experiences.map( ( exp ) => {
 
-                                                if (exp.status == 'active') {
+                                                if (exp.status === 'active') {
                                                     return (
                                                         <div key={ `exp--` + exp.id }>
                                                             <CardProductVertical
@@ -118,6 +118,7 @@ function RestaurantPage() {
                                                                 id={ exp.id }
                                                                 restaurantId={ exp.restaurant_id }
                                                                 restaurantName={ restaurant.name }
+                                                                restaurantSlug={ restaurant.slug }
                                                             />
                                                         </div>
                                                     );
@@ -146,8 +147,8 @@ function RestaurantPage() {
                                                         <div className="lg:grid lg:grid-cols-2">
                                                             { category.products.map( ( product ) => {
                                                                 if (
-                                                                    product.category_id == category.id &&
-                                                                    product.status == 'active' && product.experience == 'N'
+                                                                    product.category_id === category.id &&
+                                                                    product.status === 'active' && product.experience === 'N'
                                                                 ) {
                                                                     return (
                                                                         <div key={ `product-` + product.id }>
@@ -161,6 +162,7 @@ function RestaurantPage() {
                                                                                 id={ product.id }
                                                                                 restaurantId={ product.restaurant_id }
                                                                                 restaurantName={ restaurant.name }
+                                                                                restaurantSlug={ restaurant.slug }
                                                                             />
 
                                                                             {/* <ProductRestaurant product={product} /> */ }

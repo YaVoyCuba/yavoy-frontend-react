@@ -217,6 +217,7 @@ const SearchPage = () => {
                                                                         id={ restaurant.id }
                                                                         restaurantId={ restaurant.restaurant_id }
                                                                         restaurantName={ restaurant?.restaurant?.name }
+                                                                        restaurantSlug={ restaurant?.restaurant?.slug }
                                                                     />
                                                                 ) : (
                                                                     <RestaurantCard

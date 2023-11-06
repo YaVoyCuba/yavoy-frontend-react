@@ -37,7 +37,7 @@ const CardProductVertical = ( props ) => {
 
     const dispatch = useDispatch();
 
-    const { id, name, price, img, rating, slug, restaurantId, restaurantName } = props;
+    const { id, name, price, img, rating, slug, restaurantId, restaurantName, restaurantSlug } = props;
 
     const addToCartHandler = () => {
         //check if not exist another product with same restaurantId
@@ -56,6 +56,7 @@ const CardProductVertical = ( props ) => {
                     restaurantId,
                     quantity: 1,
                     restaurantName,
+                    restaurantSlug,
                 } ),
             );
             productAdd();

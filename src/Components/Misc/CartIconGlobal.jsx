@@ -38,6 +38,12 @@ const CartIconGlobal = () => {
         return Number( total ).toFixed();
     };
 
+    const getStoreLink = () => {
+        if (cart && cart.length)
+            return 'restaurante/' + cart[0]?.restaurantSlug
+        return ''
+    }
+
 
     const getTotalPrice = () => {
         let total = 0;
@@ -114,6 +120,7 @@ const CartIconGlobal = () => {
                                             <hr className="separator mx-3" />
                                             <div className="px-4 flex justify-between pb-3 sm:px-6">
                         <span className="">
+                            {console.log("--> ", cart[0])}
                           {/*TODO: add get restaurantName and validate*/ }
                             Comercio: { cart[0]?.restaurantName }
                         </span>
@@ -227,6 +234,14 @@ const CartIconGlobal = () => {
                                 className="text-center text-lg  color-main  font-medium mt-3 hidden"
                             >
                               Ver Carrito
+                            </span>
+                                                    </Link>
+                                                    <Link className=" mt-3 text-center" to={ getStoreLink() }>
+                            <span
+                                onClick={ () => setOpen( false ) }
+                                className="text-center text-lg  color-main  font-medium mt-3"
+                            >
+                              Ver comercio
                             </span>
                                                     </Link>
                                                     <Link

@@ -136,7 +136,7 @@ const CartIconGlobal = () => {
                                                         <div className="flex justify-between mb-4" key={ `productcartglobal-${ index }` } style={{ paddingLeft: `1rem`, paddingRight: `1rem` }}>
                                                             <div className="flex items-center">
                                                                 <img
-                                                                    className="h-32 w-32 object-contain p-2 mr-4"
+                                                                    className="w-24 object-contain p-2 mr-2 mt-2"
                                                                     src={ product.img }
                                                                     alt={ product.name } />
                                                                     <div className="mt-2">

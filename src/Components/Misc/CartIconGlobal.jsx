@@ -120,7 +120,6 @@ const CartIconGlobal = () => {
                                             <hr className="separator mx-3" />
                                             <div className="px-4 flex justify-between pb-3 sm:px-6">
                         <span className="">
-                            {console.log("--> ", cart[0])}
                           {/*TODO: add get restaurantName and validate*/ }
                             Comercio: { cart[0]?.restaurantName }
                         </span>

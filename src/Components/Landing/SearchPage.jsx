@@ -205,7 +205,9 @@ const SearchPage = () => {
 
                                                                     <CardProductVertical
                                                                         onClickFunction={ handleActionProduct }
+                                                                        onClickVisitStore={ handleAction }
                                                                         experience={ false }
+                                                                        search={ true }
                                                                         rating={ 4 }
                                                                         price={ restaurant.price }
                                                                         img={

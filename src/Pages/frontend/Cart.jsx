@@ -69,7 +69,7 @@ const Cart = () => {
                       <div className="flex border-2 py-3  px-5 border-gray-500 rounded-md pl-4">
                         <button
                           onClick={() => {
-                            setQuantity(quantity === 1 ? 1 : quantity - 1);
+                            setQuantity(quantity > 0 ? quantity - 1 : 0 );
                             dispatch(decrementQuantity(product.id));
                           }}
                           className="mr-4 text-2xl"

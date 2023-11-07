@@ -136,7 +136,7 @@ const CartIconGlobal = () => {
                                                         <div className="flex justify-between mb-4" key={ `productcartglobal-${ index }` } style={{ paddingLeft: `1rem`, paddingRight: `1rem` }}>
                                                             <div className="flex items-center">
                                                                 <img
-                                                                    className="h-32 w-32 object-contain p-2 mr-4"
+                                                                    className="w-24 object-contain p-2 mr-2 mt-2"
                                                                     src={ product.img }
                                                                     alt={ product.name } />
                                                                     <div className="mt-2">
@@ -153,7 +153,7 @@ const CartIconGlobal = () => {
                                                                         <div className="flex border-2 py-2  px-5 border-gray-500 rounded-md" style={{width: `10rem`}}>
                                                                             <button
                                                                                 onClick={() => {
-                                                                                    setQuantity(quantity === 1 ? 1 : quantity - 1);
+                                                                                    setQuantity(quantity > 0 ? quantity - 1 : 0 );
                                                                                     dispatch(decrementQuantity(product.id));
                                                                                 }}
                                                                                 className="mr-4 text-2xl"

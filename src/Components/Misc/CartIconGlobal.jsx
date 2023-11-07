@@ -150,13 +150,14 @@ const CartIconGlobal = () => {
                                                                               ${ Number( product.price ).toFixed( 2 ) } usd
                                                                             </span>
                                                                         </div>
-                                                                        <div className="flex border-2 py-2  px-5 border-gray-500 rounded-md" style={{width: `10rem`}}>
+                                                                        <div className="flex border-2 py-2  px-2 border-gray-500 rounded-md" style={{width: `9rem`}}>
                                                                             <button
                                                                                 onClick={() => {
                                                                                     setQuantity(quantity > 0 ? quantity - 1 : 0 );
                                                                                     dispatch(decrementQuantity(product.id));
                                                                                 }}
-                                                                                className="mr-4 text-2xl"
+                                                                                className="mr-1 text-2xl"
+                                                                                style={{width: `40px`}}
                                                                             >
                                                                                 -
                                                                             </button>
@@ -165,13 +166,14 @@ const CartIconGlobal = () => {
                                                                                 style={ { width: 1 } }
                                                                             />
                                                                             <span
-                                                                                className="text-2xl font-bold px-2 mx-3">{ product.quantity }</span>
+                                                                                className="text-2xl font-bold px-2 mx-1">{ product.quantity }</span>
                                                                             <div
                                                                                 className="h-6 my-1  bg-black"
                                                                                 style={ { width: 1 } }
                                                                             />
                                                                             <button
-                                                                                className="ml-2 text-2xl"
+                                                                                className="ml-1 text-2xl"
+                                                                                style={{width: `40px`}}
                                                                                 onClick={() => {
                                                                                     setQuantity(quantity + 1);
                                                                                     dispatch(incrementQuantity(product.id));

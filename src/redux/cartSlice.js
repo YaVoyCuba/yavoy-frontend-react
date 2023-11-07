@@ -14,7 +14,7 @@ const cartSlice = createSlice({
         itemInCart.quantity =   itemInCart.quantity + action.payload.quantity;
       } else {
         state.cart.push({ ...action.payload, quantity: action.payload.quantity });
-        
+
       }
     },
     incrementQuantity: (state, action) => {
@@ -23,15 +23,15 @@ const cartSlice = createSlice({
     },
     decrementQuantity: (state, action) => {
       const item = state.cart?.find((item) => item.id === action.payload);
-      if (item.quantity === 1) {
-        item.quantity = 1
-      } else {
+      if (item.quantity > 1) {
         item.quantity--;
+      } else {
+        // TODO: buscar como llamar removeItem
+        state.cart = state.cart?.filter( ( item ) => item.id !== action.payload );
       }
     },
     removeItem: (state, action) => {
-      const removeItem = state.cart?.filter((item) => item.id !== action.payload);
-      state.cart = removeItem;
+      state.cart = state.cart?.filter( ( item ) => item.id !== action.payload );
     },
     clearCart: (state) => {
       state.cart = [];

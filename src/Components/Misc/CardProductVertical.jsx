@@ -37,11 +37,11 @@ const CardProductVertical = ( props ) => {
 
     const dispatch = useDispatch();
 
-    const { id, name, price, img, rating, slug, restaurantId, restaurantName } = props;
+    const { id, name, price, img, rating, slug, restaurantId, restaurantName, restaurantSlug } = props;
 
     const addToCartHandler = () => {
         //check if not exist another product with same restaurantId
-        let exist = cart?.find( ( item ) => item.restaurantId != restaurantId );
+        let exist = cart?.find( ( item ) => item.restaurantId !== restaurantId );
         if (exist) {
             productExisted();
         } else {
@@ -56,6 +56,7 @@ const CardProductVertical = ( props ) => {
                     restaurantId,
                     quantity: 1,
                     restaurantName,
+                    restaurantSlug,
                 } ),
             );
             productAdd();
@@ -91,8 +92,6 @@ const CardProductVertical = ( props ) => {
                     </div>
 
                     <div className={ `flex w-full  ${ props.experience && 'bg-color-100' } flex-col` }>
-
-
                         <button onClick={ () => props.onClickFunction( slug ) }
                                 className="text-xl cursor-poiner pt-3 px-3 text-left  font-medium  text-gray-800  ">
                             { name }
@@ -105,27 +104,23 @@ const CardProductVertical = ( props ) => {
                             <div className="flex p-1  ">
                                 <button
                                     onClick={ () => addToCartHandler() }
-                                    className="bg-main  p-2 m-2
-
-                    rounded-full    "
+                                    className="bg-main p-2 m-2 rounded-full"
                                 >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        strokeWidth={ 1.5 }
-                                        stroke="currentColor"
-                                        className="w-5 h-5 text-white"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                                        />
+                                    <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 5h4m-2 2V3M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.938-11H17l-2 7H5m0 0L3 4m0 0h2M3 4l-.792-3H1"/>
                                     </svg>
                                 </button>
                             </div>
                         </div>
+                        { props.search && (
+                            <div className="flex justify-between  ">
+                                <div className="flex flex-row items-center pb-3 ">
+                                    <button className="btn-main mt-5" onClick={ () => props.onClickVisitStore( restaurantSlug ) }>
+                                        Visitar comercio
+                                    </button>
+                                </div>
+                            </div>)
+                        }
                     </div>
                 </div>
             </div>

@@ -198,6 +198,7 @@ const ProductDetailPage = (props) => {
                                 quantity: quantity,
                                 restaurantId: product.restaurant_id,
                                 restaurantName: product.restaurant.name,
+                                restaurantSlug: product.restaurant.slug,
                               })
                             );
                             productAdd();

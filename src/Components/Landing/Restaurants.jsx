@@ -219,7 +219,7 @@ const Restaurants = () => {
               </Link>
             </div>
           </div>
-          <div className="my-3 hidden lg:flex">
+          <div className="my-3 hidden lg:block">
             <Swiper
               autoplay={{
                 delay: 3000,
@@ -233,7 +233,7 @@ const Restaurants = () => {
                   photo.image && (
                     <SwiperSlide key={ `d-${photo.id}`}>
                       <a href={photo.link}>
-                        <img src={apiManager.UrlBase + photo.image} />
+                        <img src={apiManager.UrlBase + photo.image}  alt={photo.id}/>
                       </a>
                     </SwiperSlide>
                   )
@@ -254,7 +254,7 @@ const Restaurants = () => {
                   photo.image_movil && (
                     <SwiperSlide key={ `m-${photo.id}`}>
                       <a href={photo.link}>
-                        <img src={apiManager.UrlBase + photo.image_movil} />
+                        <img src={apiManager.UrlBase + photo.image_movil}  alt={photo.id}/>
                       </a>
                     </SwiperSlide>
                   )
@@ -262,10 +262,10 @@ const Restaurants = () => {
             </Swiper>
           </div>
           <span className="text-lg font-bold text-gray-700 mt-3">
-            {(path == "/restaurantes" || path == "/") && "Restaurantes"}
-            {path == "/dulcerias" && "Dulcerías"}
-            {path == "/mercados" && "Mercados"}
-            {path == "/regalitos" && "Regalitos"}
+            {(path === "/restaurantes" || path === "/") && "Restaurantes"}
+            {path === "/dulcerias" && "Dulcerías"}
+            {path === "/mercados" && "Mercados"}
+            {path === "/regalitos" && "Regalitos"}
           </span>
           <div className="grid mb-10 grid-cols-3">
             {restaurants.map((restaurant) => {

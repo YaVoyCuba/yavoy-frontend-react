@@ -36,7 +36,7 @@ const TemplateLanding = () => {
 
   const getInfo = async () => {
     let json = await apiManager.getGeneralData();
-    if (json != 500) {
+    if (json !== 500) {
       store.dispatch(setInfo(json.settings));
     }
   };

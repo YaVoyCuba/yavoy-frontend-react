@@ -25,17 +25,7 @@ function AddressWatched({ control }) {
     name: "receiverAddress",
   })
 
-  const number = useWatch({
-    control,
-    name: "receiverNumber",
-  })
-
-  const apartment = useWatch({
-    control,
-    name: "receiverApartment",
-  })
-
-  let result = <span><p className="font-bold">Dir. completa: </p><p>{address} {number}, {apartment}</p></span>
+  let result = <span><p className="font-bold">Dir. completa: </p><p>{address}</p></span>
 
   return (address?.length ? result : <p/>)
 }
@@ -155,7 +145,7 @@ const CheckOut = () => {
       userEmail: null,
       userPhone: data.receiverPhone,
       userNote: data.receiverNote,
-      userAddress: data.receiverAddress + " " + data.receiverNumber + ", " +data.receiverApartment,
+      userAddress: data.receiverAddress,
       shopLocation: getMunicipality.value.id,
       schedule: data.schedule,
       dayDelivery: data.dayDelivery,
@@ -317,37 +307,17 @@ const CheckOut = () => {
                             </span>
                             <input
                               type="text"
-                              placeholder="Nombre de la calle"
+                              placeholder="Dirección"
                               className="input-text"
                               required
                               {...register("receiverAddress", {
                                 required: true,
                               })}
                             />
-                            <div className="flex flex-row">
-                            <input
-                                type="text"
-                                placeholder="Número"
-                                className="input-text"
-                                {...register("receiverNumber", {
-                                  required: true,
-                                })}
-                                style={{ width: '50%' }}
-                            />
-                            <input
-                                type="text"
-                                placeholder="Apartamento, piso, edificio (opcional)"
-                                className="input-text"
-                                {...register("receiverApartment", {
-                                  required: false,
-                                })}
-                                style={{ width: '50%' }}
-                            />
-                            </div>
                             {(
                                 <AddressWatched control={ control } />
                             )}
-                            {(errors.receiverAddress || errors.receiverNumber) && (
+                            {(errors.receiverAddress) && (
                               <span className="text-red-500 font-medium">
                                 Este campo es requerido
                               </span>

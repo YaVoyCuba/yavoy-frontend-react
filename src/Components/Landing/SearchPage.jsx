@@ -18,6 +18,12 @@ const SearchPage = () => {
 
     const navigate = useNavigate();
 
+    useEffect( () => {
+        if (open) {
+            setResults( copyResult );
+        }
+    }, [ open ] );
+
     function handleAction( restaurantSlug ) {
         setOpen( false );
         navigate( `/restaurante/${ restaurantSlug }` );

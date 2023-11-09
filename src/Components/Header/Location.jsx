@@ -25,31 +25,24 @@ const Location = () => {
     const onLocationFormClose = () => setIsLocationFormOpen( false );
 
     const dispatch = useDispatch();
-    console.log(municipalitySelected)
 
     useEffect( () => {
-        console.log( 'useEffect provinceSelected' );
         // get all municipalities by a province selected only if Location Form is open
         if (isLocationFormOpen) {
-            console.log( 'useEffect provinceSelected - inside' );
             setMunicipalitiesByProvince( provinceSelected ).then( r => {
             } );
         }
     }, [ provinceSelected ] );
 
     useEffect( () => {
-        console.log( 'useEffect location 1' );
         if (getMunicipality.value?.id === 0) {
-            console.log( 'useEffect location 1 - inside' );
             // open Location Form and throw useEffect "isLocationFormOpen"
             onLocationFormOpen();
         }
     }, [] );
 
     useEffect( () => {
-        console.log( 'useEffect location 2' );
         if (isLocationFormOpen) {
-            console.log( 'useEffect location 2 - inside' );
             getProvinces().then( r => {
                 setMunicipalitiesByProvince( provinceSelected ).catch( err => {
                 } );

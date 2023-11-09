@@ -70,7 +70,7 @@ const CardProductVertical = ( props ) => {
                     <div className="flex relative">
 
                         <img onClick={ () => props.onClickFunction( slug ) }
-                             className="h-auto object-cover w-32 cursor-pointer  object-center "
+                             className="object-cover h-32 w-32 cursor-pointer  object-center rounded-md"
                              src={ apiManager.UrlBase + img }
                              alt={ name }
                         />
@@ -113,7 +113,7 @@ const CardProductVertical = ( props ) => {
                             </div>
                         </div>
                         { props.search && (
-                            <div className="flex justify-between  ">
+                            <div className="flex justify-center">
                                 <div className="flex flex-row items-center pb-3 ">
                                     <button className="btn-main mt-5" onClick={ () => props.onClickVisitStore( restaurantSlug ) }>
                                         Visitar comercio

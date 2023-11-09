@@ -43,20 +43,8 @@ const SearchPage = () => {
         let json = await apiManager.getSearchResults( locationFinal );
 
         if (json !== 500) {
-
-
-            //Filter data, if not hace restaurant_id, then value the status of the restaurant and not show if status == inactive
-            let filteredData = json.data.filter( ( restaurant ) => {
-                if (restaurant.restaurant_id == null) {
-                    return restaurant.status === 'active';
-                } else {
-                    return restaurant.restaurant?.status === 'active';
-                }
-
-            } );
-
-            setResults( filteredData );
-            setCopyResults( filteredData );
+            setResults( json.data );
+            setCopyResults( json.data );
         } else {
             console.log( 'error cargando los datos del api' );
             setResults( [] );
@@ -197,11 +185,16 @@ const SearchPage = () => {
                                                             <div
                                                                 key={ `${ Math.random() }
                                     restaurantInSearch-${
-                                                                    restaurant.id + index
+                                                                    restaurant.restaurant_id + index
                                                                 }-${ restaurant.slug }` }
                                                                 className="col-span-3 my-2 lg:col-span-1"
                                                             >
-                                                                { restaurant.restaurant_id ? (
+                                                                { restaurant.type ? (
+                                                                    <RestaurantCard
+                                                                        onClickFunction={ handleAction }
+                                                                        restaurant={ restaurant }
+                                                                    />
+                                                                ) : (
 
                                                                     <CardProductVertical
                                                                         onClickFunction={ handleActionProduct }
@@ -220,11 +213,6 @@ const SearchPage = () => {
                                                                         restaurantId={ restaurant.restaurant_id }
                                                                         restaurantName={ restaurant?.restaurant?.name }
                                                                         restaurantSlug={ restaurant?.restaurant?.slug }
-                                                                    />
-                                                                ) : (
-                                                                    <RestaurantCard
-                                                                        onClickFunction={ handleAction }
-                                                                        restaurant={ restaurant }
                                                                     />
                                                                 ) }
                                                             </div>

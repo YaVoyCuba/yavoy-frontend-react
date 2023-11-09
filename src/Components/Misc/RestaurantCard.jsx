@@ -53,14 +53,14 @@ const RestaurantCard = ( props ) => {
                   { restaurant.name }
                 </span>
                             </div>
-                            { restaurant.products?.length > 1 && (
+                            { restaurant.products_count > 1 && (
                                 <span className="text-md -mt-7 -pt-3 px-3 pb-5 color">
-                  { restaurant.products?.length } productos
+                  { restaurant.products_count } productos
                 </span>
                             ) }
-                            { restaurant.products?.lengt === 1 && (
+                            { restaurant.products_count === 1 && (
                                 <span className="text-md -mt-7 -pt-3 px-3 pb-5 color">
-                  { restaurant.products?.length } productos
+                  { restaurant.products_count } productos
                 </span>
                             ) }
                         </div>
@@ -112,14 +112,14 @@ const RestaurantCard = ( props ) => {
                     { restaurant.name }
                   </span>
                                 </div>
-                                { restaurant.products.length > 1 && (
+                                { restaurant.products_count > 1 && (
                                     <span className="text-md -mt-7 -pt-3 px-3 pb-5 color">
-                    { restaurant.products.length } productos
+                    { restaurant.products_count } productos
                   </span>
                                 ) }
-                                { restaurant.products.length === 1 && (
+                                { restaurant.products_count === 1 && (
                                     <span className="text-md -mt-7 -pt-3 px-3 pb-5 color">
-                    { restaurant.products.length } producto
+                    { restaurant.products_count } producto
                   </span>
                                 ) }
                             </div>

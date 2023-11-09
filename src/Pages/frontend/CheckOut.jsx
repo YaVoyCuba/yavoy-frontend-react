@@ -25,12 +25,17 @@ function AddressWatched({ control }) {
     name: "receiverAddress",
   })
 
+  const number = useWatch({
+    control,
+    name: "receiverNumber",
+  })
+
   const apartment = useWatch({
     control,
     name: "receiverApartment",
   })
 
-  let result = <span><p className="font-bold">Dir. completa: </p><p>{address} {apartment}</p></span>
+  let result = <span><p className="font-bold">Dir. completa: </p><p>{address} {number} {apartment}</p></span>
 
   return (address?.length ? result : <p/>)
 }
@@ -150,7 +155,7 @@ const CheckOut = () => {
       userEmail: null,
       userPhone: data.receiverPhone,
       userNote: data.receiverNote,
-      userAddress: data.receiverAddress + " " +data.receiverApartment,
+      userAddress: data.receiverAddress + " " + data.receiverNumber + " " +data.receiverApartment,
       shopLocation: getMunicipality.value.id,
       schedule: data.schedule,
       dayDelivery: data.dayDelivery,
@@ -321,16 +326,24 @@ const CheckOut = () => {
                             />
                             <input
                                 type="text"
+                                placeholder="Número"
+                                className="input-text"
+                                {...register("receiverNumber", {
+                                  required: true,
+                                })}
+                            />
+                            <input
+                                type="text"
                                 placeholder="Apartamento, piso, edificio (opcional)"
                                 className="input-text"
                                 {...register("receiverApartment", {
                                   required: false,
                                 })}
                             />
-                            {true && (
-                              <AddressWatched control={control} />
+                            {(
+                                <AddressWatched control={ control } />
                             )}
-                            {(errors.receiverAddress || errors.receiverApartment) && (
+                            {(errors.receiverAddress || errors.receiverNumber) && (
                               <span className="text-red-500 font-medium">
                                 Este campo es requerido
                               </span>
@@ -345,8 +358,8 @@ const CheckOut = () => {
                           </span>
                         </div>
                       ))}
-                    {method == methodsDeliveries[1] &&
-                      (pickService == "1" ? (
+                    {method === methodsDeliveries[1] &&
+                      (pickService === "1" ? (
                         <>
                           <div className="flex flex-col bg-gray-200 space-y-1 border-1 p-3 border-gray-300   rounded-lg">
                             <span className="text-gray-700 font-medium">

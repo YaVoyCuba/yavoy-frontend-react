@@ -35,7 +35,7 @@ function AddressWatched({ control }) {
     name: "receiverApartment",
   })
 
-  let result = <span><p className="font-bold">Dir. completa: </p><p>{address} {number} {apartment}</p></span>
+  let result = <span><p className="font-bold">Dir. completa: </p><p>{address} {number}, {apartment}</p></span>
 
   return (address?.length ? result : <p/>)
 }
@@ -155,7 +155,7 @@ const CheckOut = () => {
       userEmail: null,
       userPhone: data.receiverPhone,
       userNote: data.receiverNote,
-      userAddress: data.receiverAddress + " " + data.receiverNumber + " " +data.receiverApartment,
+      userAddress: data.receiverAddress + " " + data.receiverNumber + ", " +data.receiverApartment,
       shopLocation: getMunicipality.value.id,
       schedule: data.schedule,
       dayDelivery: data.dayDelivery,
@@ -279,8 +279,8 @@ const CheckOut = () => {
                       </RadioGroup>
                     </div>
 
-                    {method == methodsDeliveries[0] &&
-                      (deliveryService == "1" ? (
+                    {method === methodsDeliveries[0] &&
+                      (deliveryService === "1" ? (
                         <>
                           <div className="flex flex-col space-y-3">
                             <span className="text-gray-700  ">
@@ -324,6 +324,7 @@ const CheckOut = () => {
                                 required: true,
                               })}
                             />
+                            <div className="flex flex-row">
                             <input
                                 type="text"
                                 placeholder="Número"
@@ -331,6 +332,7 @@ const CheckOut = () => {
                                 {...register("receiverNumber", {
                                   required: true,
                                 })}
+                                style={{ width: '50%' }}
                             />
                             <input
                                 type="text"
@@ -339,7 +341,9 @@ const CheckOut = () => {
                                 {...register("receiverApartment", {
                                   required: false,
                                 })}
+                                style={{ width: '50%' }}
                             />
+                            </div>
                             {(
                                 <AddressWatched control={ control } />
                             )}

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { decrementQuantity } from "../../redux/cartSlice";
 import { incrementQuantity } from "../../redux/cartSlice";
 
+// unused temporarily
 const Cart = () => {
   useEffect(() => window.scrollTo(0, 0));
   const [quantity, setQuantity] = useState(1);
@@ -11,13 +12,13 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
-  
+
   const getTotalPrice = () => {
     let total = 0;
     cart.forEach((item) => {
       total += item.price * item.quantity;
     });
-   
+
     return Number(total).toFixed(2);
   };
 
@@ -31,7 +32,7 @@ const Cart = () => {
 
     //Update the quantity by all in cart
     setQuantity(totalProduct);
-     
+
   }, [cart]);
 
 
@@ -68,7 +69,7 @@ const Cart = () => {
                       <div className="flex border-2 py-3  px-5 border-gray-500 rounded-md pl-4">
                         <button
                           onClick={() => {
-                            setQuantity(quantity === 1 ? 1 : quantity - 1);
+                            setQuantity(quantity > 0 ? quantity - 1 : 0 );
                             dispatch(decrementQuantity(product.id));
                           }}
                           className="mr-4 text-2xl"

@@ -11,7 +11,7 @@ const PaymentCompleted = () => {
         <span className="text-lg my-8 font-medium">
         Su orden se procesó con éxito. Gracias por su compra! El restaurante se comunicará con su familiar para hacer la entrega.
         </span>
-        <Link href="/">
+        <Link to="/">
           <button className="btn-main mt-5">Ir al inicio</button>
         </Link>
       </div>

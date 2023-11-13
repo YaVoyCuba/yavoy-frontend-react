@@ -8,6 +8,7 @@ import { Loading } from "../../common/Loading";
 import { clearCart } from "../../redux/cartSlice";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useWatch } from 'react-hook-form';
 
 const methodsDeliveries = [
   { name: "Entrega a domicilio", active: true },
@@ -18,6 +19,17 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+function AddressWatched({ control }) {
+  const address = useWatch({
+    control,
+    name: "receiverAddress",
+  })
+
+  let result = <span><p className="font-bold">Dir. completa: </p><p>{address}</p></span>
+
+  return (address?.length ? result : <p/>)
+}
+
 const CheckOut = () => {
   const [deliveryService, setDeliveryService] = useState(0);
   const [pickService, setPickService] = useState(0);
@@ -26,12 +38,12 @@ const CheckOut = () => {
   const [tropipayData, setTropipayData] = useState(false);
   const [loading, setLoading] = useState(false);
   const { cart } = useSelector((state) => state.cart);
-  const location = useSelector((state) => state.location.location);
+  const getMunicipality = useSelector( ( state ) => state.location.municipality );
   const [countries, setCountries] = useState([]);
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     formState: { errors },
   } = useForm();
 
@@ -64,12 +76,12 @@ const CheckOut = () => {
   };
 
   const deliveryCost = () => {
-    if (method == methodsDeliveries[1]) {
+    if (method === methodsDeliveries[1]) {
       return 0;
     } else {
       //Find in zones the zone where the location is municipalitie_id and get price
       let zone = zones.find(
-        (zone) => zone.municipalitie_id == location.locationId
+        (zone) => zone.municipalitie_id === getMunicipality.value?.id
       );
       return zone?.price ?? 0;
     }
@@ -100,7 +112,7 @@ const CheckOut = () => {
   const getRestaurantData = async () => {
     let json = await apiManager.getDataForCheckOut(cart[0].restaurantId);
 
-    if (json.code == "ok") {
+    if (json.code === "ok") {
       setSchedules(json.data.schedules);
       setDaysOpens(json.data.daysOpens);
       setZones(json.data.zones);
@@ -112,7 +124,7 @@ const CheckOut = () => {
   };
   const getTropipayCountries = async () => {
     let json = await apiManager.getTropiapayCountries();
-    if (json.code == "ok") {
+    if (json.code === "ok") {
       setCountries(json.data);
     }
   };
@@ -120,11 +132,11 @@ const CheckOut = () => {
   const newOrder = async (data) => {
     setLoading(true);
     let methodDelivery =
-      method.name == "Entrega a domicilio" ? "delivery" : "pick";
+      method.name === "Entrega a domicilio" ? "delivery" : "pick";
 
     const payload = {
       methodDelivery: methodDelivery,
-      location: location,
+      location: {locationName: getMunicipality.value.name, locationId: getMunicipality.value.id, provinceId: getMunicipality.value.province_id},
       cart: cart,
       pointToDelivery: null,
       deliveryCost: deliveryCost(),
@@ -134,7 +146,7 @@ const CheckOut = () => {
       userPhone: data.receiverPhone,
       userNote: data.receiverNote,
       userAddress: data.receiverAddress,
-      shopLocation: location.locationId,
+      shopLocation: getMunicipality.value.id,
       schedule: data.schedule,
       dayDelivery: data.dayDelivery,
       currency_code: "USD",
@@ -153,7 +165,7 @@ const CheckOut = () => {
       },
     };
 
-    if (methodDelivery == "delivery" && !location.locationId) {
+    if (methodDelivery === "delivery" && !getMunicipality.value.id) {
       toast.error("Debes seleccionar una dirección!", {
         position: "top-center",
         autoClose: 5000,
@@ -168,12 +180,12 @@ const CheckOut = () => {
     }
 
 
- 
+
     let json = await apiManager.newOrder(payload);
 
-    
 
-    if (json.code == "ok") {
+
+    if (json.code === "ok") {
       setEmpty(true);
       setRedirectToPayment(true);
       dispatch(clearCart());
@@ -257,8 +269,8 @@ const CheckOut = () => {
                       </RadioGroup>
                     </div>
 
-                    {method == methodsDeliveries[0] &&
-                      (deliveryService == "1" ? (
+                    {method === methodsDeliveries[0] &&
+                      (deliveryService === "1" ? (
                         <>
                           <div className="flex flex-col space-y-3">
                             <span className="text-gray-700  ">
@@ -276,13 +288,12 @@ const CheckOut = () => {
                             )}
                           </div>
                           <div className="flex flex-col space-y-3">
-                            <span className="text-gray-700">
-                              Teléfono del receptor
-                            </span>
+                            <label className="text-gray-700" htmlFor="phone">Teléfono del receptor:</label>
                             <input
-                              type="text"
-                              className="input-text"
-                              {...register("receiverPhone", { required: true })}
+                                type="tel"
+                                className="input-text"
+                                id="phone" name="phone"
+                                { ...register( 'receiverPhone', { required: true } ) }
                             />
                             {errors.receiverPhone && (
                               <span className="text-red-500 font-medium">
@@ -292,16 +303,21 @@ const CheckOut = () => {
                           </div>
                           <div className="flex flex-col space-y-3">
                             <span className="text-gray-700  ">
-                              Direcion del receptor en {location.locationName}
+                              Dirección del receptor en {getMunicipality.value.name}
                             </span>
                             <input
                               type="text"
+                              placeholder="Dirección"
                               className="input-text"
+                              required
                               {...register("receiverAddress", {
                                 required: true,
                               })}
                             />
-                            {errors.receiverAddress && (
+                            {(
+                                <AddressWatched control={ control } />
+                            )}
+                            {(errors.receiverAddress) && (
                               <span className="text-red-500 font-medium">
                                 Este campo es requerido
                               </span>
@@ -316,8 +332,8 @@ const CheckOut = () => {
                           </span>
                         </div>
                       ))}
-                    {method == methodsDeliveries[1] &&
-                      (pickService == "1" ? (
+                    {method === methodsDeliveries[1] &&
+                      (pickService === "1" ? (
                         <>
                           <div className="flex flex-col bg-gray-200 space-y-1 border-1 p-3 border-gray-300   rounded-lg">
                             <span className="text-gray-700 font-medium">
@@ -561,11 +577,15 @@ const CheckOut = () => {
                               )}
                             </div>
                             <div className="flex flex-col space-y-3">
-                              <span className="text-gray-700">Email</span>
+                              <label className="text-gray-700" htmlFor="email">Correo</label>
                               <input
-                                type="text"
-                                className="input-text"
-                                {...register("clientEmail", { required: true })}
+                                  type="email"
+                                  className="input-text"
+                                  id="email" name="email"
+                                  placeholder="username@mycompany.com"
+                                  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                                  required
+                                  { ...register( 'clientEmail', { required: true } ) }
                               />
                               {errors.clientEmail && (
                                 <span className="text-red-500 font-medium">
@@ -613,7 +633,7 @@ const CheckOut = () => {
                               )}
                             </div>
                           </div>
-                          <span classNama="text-center mx-auto">
+                          <span className="text-center mx-auto">
                             * Las tarjetas deben tener habilitado 3D-Secure para
                             ser aceptadas
                           </span>
@@ -661,14 +681,14 @@ const CheckOut = () => {
         )
       ) : (
 
-        redirectToPayment ? 
-        
+        redirectToPayment ?
+
         <div className="flex flex-col my-7 justify-center items-center">
-         
+
           <span className="text-2xl font-bold">Redireccionando al procesador de pago</span>
-          
+
         </div>
-        
+
         :
         <div className="flex flex-col my-7 justify-center items-center">
           <img src="/assets/img/notfound.png" className="h-96 w-auto" />

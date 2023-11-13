@@ -3,20 +3,14 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductDetailPage from "./Pages/frontend/ProductDetailPage";
 import Restaurants from "./Components/Landing/Restaurants";
-import Houses from "./Components/Landing/Houses";
 import TemplateLanding from "./Components/Templates/TemplateLanding";
 import RestaurantPage from "./Pages/frontend/RestaurantPage";
 import { ToastContainer } from "react-toastify";
-import Cart from "./Pages/frontend/Cart";
 import CheckOut from "./Pages/frontend/CheckOut";
 import PaymentCompleted from "./Pages/frontend/PaymentCompleted";
 import PaymentFailed from "./Pages/frontend/PaymentFailed";
-import HousePage from "./Components/Landing/HousePage";
-import Login from "./Pages/frontend/LoginPage";
 import { persistor, store } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
-import TemplateUser from "./Components/Templates/TemplateUser";
-import ProfilePage from "./Pages/backend/user/ProfilePage";
 import PaymentBookings from "./Pages/backend/bookings/PaymentBookings";
 
 
@@ -54,22 +48,13 @@ function App() {
                   path="/dulcerias"
                   element={<Restaurants />}
                 />
-                {/*<Route*/}
-                {/*  key={"/alojamientos"}*/}
-                {/*  path="/alojamientos"*/}
-                {/*  element={<Houses />}*/}
-                {/*/>*/}
-                {/*<Route*/}
-                {/*  key={"/alojamiento"}*/}
-                {/*  path="/alojamiento/:houseSlug"*/}
-                {/*  element={<HousePage />}*/}
-                {/*/>*/}
                 <Route
                   key={"/booking/:bookingCode"}
                   path="/booking/:bookingCode"
                   element={<PaymentBookings />}
                 />
-                <Route key={"/login"} path="/login" element={<Login />} />
+                {/*disabled temporarily*/}
+                {/*<Route key={"/login"} path="/login" element={<Login />} />*/}
                 <Route
                   key={"/restaurante"}
                   path="/restaurante/:restaurantSlug"
@@ -90,18 +75,15 @@ function App() {
                   path="/producto/:productSlug"
                   element={<ProductDetailPage />}
                 />
-                <Route
-                  key={"/alojamiento"}
-                  path="/alojamiento"
-                  element={<Houses />}
-                />
 
                 <Route key={"/caja"} path="caja" element={<CheckOut />} />
-                <Route key={"/carrito"} path="/carrito" element={<Cart />} />
+                {/*disabled temporarily*/}
+                {/*<Route key={"/carrito"} path="/carrito" element={<Cart />} />*/}
               </Route>
-              <Route element={<TemplateUser />}>
-                <Route key={"/perfil"} path="/perfil" element={<ProfilePage />} />
-              </Route>
+              {/*disabled temporarily*/}
+              {/*<Route element={<TemplateUser />}>*/}
+              {/*  <Route key={"/perfil"} path="/perfil" element={<ProfilePage />} />*/}
+              {/*</Route>*/}
             </Routes>
           </div>
           <ToastContainer />

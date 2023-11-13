@@ -28,12 +28,6 @@ const TemplateLanding = () => {
         "caja",
       ],
     },
-    // {
-    //   name: "Alojamientos",
-    //   href: "/alojamientos",
-    //   current: false,
-    //   rutes: ["alojamiento", "alojamientos","booking"],
-    // },
   ];
 
   function classNames(...classes) {
@@ -42,7 +36,7 @@ const TemplateLanding = () => {
 
   const getInfo = async () => {
     let json = await apiManager.getGeneralData();
-    if (json != 500) {
+    if (json !== 500) {
       store.dispatch(setInfo(json.settings));
     }
   };

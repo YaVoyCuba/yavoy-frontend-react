@@ -13,6 +13,12 @@
 * [Git](https://git-scm.com/downloads)
 
 ### 🔧 Development
+
+Configure VITE_APP_BASE_URL in `.env.development` file pointing to the URL API backend `https://dev.yavoycuba.com` or `http://127.0.0.1:8000` if backend run in localhost: 
+```text
+VITE_APP_BASE_URL=https://dev.yavoycuba.com
+```
+
 ```bash
 npm run dev
 ```
@@ -61,11 +67,11 @@ npm run hestiacp
 
 To create .htaccess file run:
 ```bash
-touch public_web/.htaccess
+touch public_web/public/.htaccess
 ```
 
 ```bash
-nano public_web/.htaccess
+nano public_web/public/.htaccess
 ```
 Update the .htaccess file to be like this:
 ```
@@ -74,6 +80,9 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.html [QSA,L]
 ```
+It will get copied to the build folder when you run `npm run hestiacp` or `npm run build`.
+
+[Read more](https://create-react-app.dev/docs/deployment/#serving-apps-with-client-side-routing)
 
 #### Other commands
 ##### Detecting Updates with ncu
@@ -94,6 +103,8 @@ ncu --upgrade package-name-to-upgrade
 * [react-developer-tools](https://react.dev/learn/react-developer-tools)
 * [vite - env-and-mode](https://vitejs.dev/guide/env-and-mode.html)
 * [adding-custom-environment-variables](https://create-react-app.dev/docs/adding-custom-environment-variables/#what-other-env-files-can-be-used)
+### Best practices 
+* [best-practices-for-using-react-redux](https://reintech.io/blog/best-practices-for-using-react-redux)
 
 ## URLS
 * [front dev](http://frontdev.yavoycuba.com/)

@@ -44,7 +44,7 @@ export default {
       return await request.json();
     }
   },
-  
+
 
   getLocationDataForHouses: async () => {
     let urlApi = "/location/houses/provinces";
@@ -101,9 +101,9 @@ export default {
       return await request.json();
     }
   },
-  
+
   getRestaurants: async (locationId,type) => {
-     
+
     let urlApi = "/restaurants/all/"+locationId+"/"+type;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
@@ -111,7 +111,7 @@ export default {
     }
   },
   getSearchResults: async (locationId) => {
-     
+
     let urlApi = "/search/all/"+locationId;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
@@ -120,7 +120,7 @@ export default {
   },
 
   getHouses: async (locationId,type,filters) => {
-   
+
     let urlApi = "/houses/all/"+locationId+"/"+type+"/"+filters;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
@@ -129,51 +129,51 @@ export default {
   },
 
   getRestaurantDetails: async (restaurantSlug) => {
-   
+
     let urlApi = "/restaurants/view/"+restaurantSlug;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();
     }
   },
-  
+
   getPromosRestaurants: async () => {
-   
+
     let urlApi = "/promos/restaurants";
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();
     }
   },
-  
+
   getPromosHouses: async () => {
-   
+
     let urlApi = "/promos/houses";
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();
     }
   },
-  
+
 
   getHouseDetails: async (houseSlug) => {
-   
+
     let urlApi = "/houses/view/"+houseSlug;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();
     }
   },
-  
+
   getDataForCheckOut: async (restaurantId) => {
- 
+
     let urlApi = "/payment/checkout/"+restaurantId;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();
     }
   },
-  
+
   getCategories: async () => {
     let urlApi = "/products/categoriesres";
     const request = await fetch(UrlApiBase + urlApi);
@@ -183,7 +183,7 @@ export default {
   },
 
   getProductDetails: async (productSlug) => {
-    
+
     let urlApi = "/products/view/"+productSlug;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
@@ -192,7 +192,7 @@ export default {
   },
 
   // getCategory: async (categorySlug) => {
-  
+
   //   let urlApi = "/shops/front/" + shopSlug + "/" + categorySlug;
 
   //   const request = await fetch(UrlApiBase + urlApi);
@@ -217,7 +217,7 @@ export default {
         body: JSON.stringify(data)
     });
     if(request){
-      
+
         return await request.json();
     }
   },
@@ -235,7 +235,7 @@ export default {
         body: JSON.stringify(data)
     });
     if(request){
-      
+
         return await request.json();
     }
   },
@@ -243,7 +243,7 @@ export default {
   userInfo: async (token) => {
     let urlApi = '/user/me';
 
-    
+
 
     const request = await fetch(UrlApiBase  + urlApi, {
         method:'POST',
@@ -251,10 +251,10 @@ export default {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
             'Authorization': 'Bearer ' + token
-        } 
+        }
     });
     if(request){
-      
+
         return await request.json();
     }
   },
@@ -271,7 +271,7 @@ export default {
         body: JSON.stringify(data)
     });
     if(request){
-      
+
         return await request.json();
     }
   },
@@ -288,7 +288,7 @@ export default {
         body: JSON.stringify(data)
     });
     if(request){
-      
+
         return await request.json();
     }
   },

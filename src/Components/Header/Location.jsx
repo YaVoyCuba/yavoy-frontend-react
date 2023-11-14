@@ -248,7 +248,7 @@ const Location = () => {
                                                         // menuIsOpen={false}
                                                         className="react-select-container my-5"
                                                         classNamePrefix="react-select"
-                                                        placeholder="Select a province"
+                                                        placeholder="Seleccione la provincia"
                                                         value={ provinceSelected?.value?.id ? provinceSelected : null }
                                                         onChange={ ( event ) => {
                                                             setMunicipalitySelected( { label: '', value: { id: 0 } } );
@@ -265,7 +265,7 @@ const Location = () => {
                                                                 options={ municipalities }
                                                                 className="react-select-container"
                                                                 classNamePrefix="react-select"
-                                                                placeholder="Select a municipality"
+                                                                placeholder="Seleccione un municipio"
                                                                 value={ municipalitySelected?.value?.id ? municipalitySelected : null }
                                                                 onChange={ ( event ) => {
                                                                     setMunicipalitySelected( event );

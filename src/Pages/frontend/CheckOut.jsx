@@ -56,6 +56,8 @@ const CheckOut = () => {
 
   const [method, setMethod] = useState(methodsDeliveries[0]);
 
+  const [marketingChecked, setMarketingChecked] = React.useState({email_marketing:false});
+
   const dispatch = useDispatch();
 
   const removeItemLocal = (id) => {
@@ -204,6 +206,10 @@ const CheckOut = () => {
 
     setLoading(false);
   };
+
+  function handleMarketingChange(e) {
+    setMarketingChecked({email_marketing:e.target.checked});
+  }
 
   useEffect(() => {
     if (cart.length > 0) {
@@ -592,6 +598,11 @@ const CheckOut = () => {
                                   Este campo es requerido
                                 </span>
                               )}
+                            </div>
+                            <input id="scales" value={true} name="scales" type="checkbox" onChange={handleMarketingChange} />
+                            <label htmlFor="scales"> Acepto recibir correos electrónicos generales y ofertas de productos de yavoy</label>
+                            <div className="flex flex-col space-y-3">
+
                             </div>
                             <div className="flex flex-col space-y-3">
                               <span className="text-gray-700">Teléfono</span>

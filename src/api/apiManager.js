@@ -182,9 +182,9 @@ export default {
     }
   },
 
-  getProductDetails: async (productSlug) => {
+  getProductDetails: async (itemSlug) => {
 
-    let urlApi = "/products/view/"+productSlug;
+    let urlApi = "/products/view/"+itemSlug;
     const request = await fetch(UrlApiBase + urlApi);
     if (request) {
       return await request.json();

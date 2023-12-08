@@ -81,7 +81,7 @@ const Restaurants = () => {
                             aria-hidden="true"
                         >
                             <Link
-                                to={ '/' }
+                                to={ '/restaurants' }
                                 className={ `col-span-1 ${
                                     path === '/' || path === '/restaurants'
                                         ? 'text-color'

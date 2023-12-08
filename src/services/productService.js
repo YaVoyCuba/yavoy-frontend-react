@@ -34,8 +34,8 @@ export default {
             throw new Error(error)
         }
     },
-    getProductBySlug: async(productSlug) => {
-        let urlRequest = `product/${productSlug}`
+    getProductBySlug: async(itemSlug) => {
+        let urlRequest = `product/${itemSlug}`
         try {
             const request = await fetch(`${creceShop_URL}${urlRequest}`, {
                 headers:{

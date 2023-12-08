@@ -29,9 +29,9 @@ const SearchPage = () => {
         navigate( `/restaurants/${ restaurantSlug }` );
     }
 
-    function handleActionProduct( productSlug ) {
+    function handleActionProduct( itemSlug ) {
         setOpen( false );
-        navigate( `/producto/${ productSlug }` );
+        navigate( `/item/${ itemSlug }` );
     }
 
     function classNames( ...classes ) {

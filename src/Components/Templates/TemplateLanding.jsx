@@ -1,5 +1,5 @@
 import { setInfo } from "../../redux/infoSlice";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import apiManager from "../../api/apiManager";
 
 import Footer from "../Footer/Footer";
@@ -10,6 +10,11 @@ import WA from "../Misc/WA";
 
 const TemplateLanding = () => {
   const locationRouter = useLocation();
+  const navigate = useNavigate();
+
+  if (locationRouter.pathname === '/') {
+    navigate('restaurants')
+  }
 
   const tabs = [
     {
@@ -18,7 +23,7 @@ const TemplateLanding = () => {
       current: true,
       rutes: [
         "",
-        "producto",
+        "item",
         "restaurants",
         "services",
         "markets",

@@ -36,7 +36,7 @@ const ProductDetailPage = (props) => {
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState([]);
   const [photos, setPhotos] = useState([]);
-  const { productSlug } = useParams();
+  const { itemSlug } = useParams();
 
   const productAdd = (type) => {
     toast.success(" Producto agregado!", {
@@ -52,7 +52,7 @@ const ProductDetailPage = (props) => {
   const dispatch = useDispatch();
 
   async function getProduct() {
-    const response = await apiManager.getProductDetails(productSlug);
+    const response = await apiManager.getProductDetails(itemSlug);
     if (response.code === "ok") {
       setProduct(response.product);
       response.product.photos.map((photo) => {

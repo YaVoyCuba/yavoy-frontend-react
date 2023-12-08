@@ -21,7 +21,7 @@ function App() {
             // loader: rootLoader,
             children: [
                 {
-                    path:    '/',
+                    path:    '/restaurants',
                     element: <Restaurants />,
                 },
                 {
@@ -57,7 +57,7 @@ function App() {
                     element: <PaymentFailed />,
                 },
                 {
-                    path:    '/producto/:productSlug',
+                    path:    '/item/:itemSlug',
                     element: <ProductDetailPage />,
                 },
                 {

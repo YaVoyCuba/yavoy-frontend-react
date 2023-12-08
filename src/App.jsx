@@ -49,11 +49,6 @@ function App() {
                   element={<Restaurants />}
                 />
                 <Route
-                  key={"/booking/:bookingCode"}
-                  path="/booking/:bookingCode"
-                  element={<PaymentBookings />}
-                />
-                <Route
                   key={"/restaurante"}
                   path="/restaurante/:restaurantSlug"
                   element={<RestaurantPage />}

@@ -25,11 +25,11 @@ function App() {
                     element: <Restaurants />,
                 },
                 {
-                    path:    '/mercados',
+                    path:    '/markets',
                     element: <Restaurants />,
                 },
                 {
-                    path:    '/servicios',
+                    path:    '/services',
                     element: <Restaurants />,
                 },
                 {
@@ -37,15 +37,15 @@ function App() {
                     element: <Restaurants />,
                 },
                 {
-                    path:    '/regalitos',
+                    path:    '/gifts',
                     element: <Restaurants />,
                 },
                 {
-                    path:    '/dulcerias',
+                    path:    '/candy_shop',
                     element: <Restaurants />,
                 },
                 {
-                    path:    '/restaurante/:restaurantSlug',
+                    path:    '/restaurants/:restaurantSlug',
                     element: <RestaurantPage />,
                 },
                 {
@@ -61,7 +61,7 @@ function App() {
                     element: <ProductDetailPage />,
                 },
                 {
-                    path:    '/caja',
+                    path:    '/checkout',
                     element: <CheckOut />,
                 },
             ],

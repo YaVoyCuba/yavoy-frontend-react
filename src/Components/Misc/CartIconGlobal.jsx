@@ -40,7 +40,7 @@ const CartIconGlobal = () => {
 
     const getStoreLink = () => {
         if (cart && cart.length)
-            return 'restaurante/' + cart[0]?.restaurantSlug
+            return 'restaurants/' + cart[0]?.restaurantSlug
         return ''
     }
 
@@ -248,7 +248,7 @@ const CartIconGlobal = () => {
                                                     <Link
                                                         onClick={ () => setOpen( false ) }
                                                         className="btn-main  mt-5 text-center"
-                                                        to={ 'caja' }
+                                                        to={ 'checkout' }
                                                     >
                                                         <button
 

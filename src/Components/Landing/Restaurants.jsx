@@ -35,18 +35,18 @@ const Restaurants = () => {
 
     let type = "restaurant";
 
-    if (path === "/dulcerias") {
+    if (path === "/candy_shop") {
       type = "dulceria";
     }
 
-    if (path === "/mercados") {
+    if (path === "/markets") {
       type = "market";
     }
-    if (path === "/servicios") {
+    if (path === "/services") {
       type = "servicios";
     }
 
-    if (path === "/regalitos") {
+    if (path === "/gifts") {
       type = "regalos";
     }
 
@@ -110,9 +110,9 @@ const Restaurants = () => {
                 </button>
               </Link>
               <Link
-                to={"/mercados"}
+                to={"/markets"}
                 className={`col-span-1 ${
-                  path === "/mercados" ? "text-color" : "text-gray-500"
+                  path === "/markets" ? "text-color" : "text-gray-500"
                 }`}
               >
                 <button
@@ -137,9 +137,9 @@ const Restaurants = () => {
                 </button>
               </Link>
               <Link
-                to={"/dulcerias"}
+                to={"/candy_shop"}
                 className={`col-span-1 ${
-                  path === "/dulcerias" ? "text-color" : "text-gray-500"
+                  path === "/candy_shop" ? "text-color" : "text-gray-500"
                 }`}
               >
                 <button
@@ -164,9 +164,9 @@ const Restaurants = () => {
                 </button>
               </Link>
               <Link
-                to={"/regalitos"}
+                to={"/gifts"}
                 className={`col-span-1 ${
-                  path === "/regalitos" ? "text-color" : "text-gray-500"
+                  path === "/gifts" ? "text-color" : "text-gray-500"
                 }`}
               >
                 <button
@@ -191,9 +191,9 @@ const Restaurants = () => {
                 </button>
               </Link>
               <Link
-                to={"/servicios"}
+                to={"/services"}
                 className={`col-span-1 ${
-                  path === "/servicios" ? "text-color" : "text-gray-500"
+                  path === "/services" ? "text-color" : "text-gray-500"
                 }`}
               >
                 <button
@@ -263,9 +263,9 @@ const Restaurants = () => {
           </div>
           <span className="text-lg font-bold text-gray-700 mt-3">
             {(path === "/restaurants" || path === "/") && "Restaurantes"}
-            {path === "/dulcerias" && "Dulcerías"}
-            {path === "/mercados" && "Mercados"}
-            {path === "/regalitos" && "Regalitos"}
+            {path === "/candy_shop" && "Dulcerías"}
+            {path === "/markets" && "Mercados"}
+            {path === "/gifts" && "Regalitos"}
           </span>
           <div className="grid mb-10 grid-cols-3">
             {restaurants.map((restaurant) => {

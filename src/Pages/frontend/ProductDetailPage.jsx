@@ -77,7 +77,7 @@ const ProductDetailPage = (props) => {
 
   //Function navigate back
   function goBack() {
-    navigate("/restaurante/" + product.restaurant.slug);
+    navigate("/restaurants/" + product.restaurant.slug);
   }
   const [tab, setTab] = useState("description");
   const [quantity, setQuantity] = useState(1);

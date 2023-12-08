@@ -99,7 +99,7 @@ const Location = () => {
             } else {
                 console.log( '--> can else: ', can );
                 toast.warning(
-                    'No puedes cambiar a esta ubicacion porque el restaurante de los productos del carrito no hace envíos a la misma',
+                    'No puedes cambiar a esta ubicacion porque el comercio de los productos del carrito no hace envíos a la misma',
 
                     {
                         position:        'top-center',

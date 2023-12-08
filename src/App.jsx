@@ -1,6 +1,6 @@
 
 import { Provider } from "react-redux";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ProductDetailPage from "./Pages/frontend/ProductDetailPage";
 import Restaurants from "./Components/Landing/Restaurants";
 import TemplateLanding from "./Components/Templates/TemplateLanding";
@@ -14,66 +14,69 @@ import { PersistGate } from "redux-persist/integration/react";
 
 
 function App() {
+  // initialize a browser router
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <TemplateLanding />,
+      // loader: rootLoader,
+      children: [
+        {
+          path: "/",
+          element: <Restaurants />,
+        },
+        {
+          path: "/mercados",
+          element: <Restaurants />,
+        },
+        {
+          path: "/servicios",
+          element: <Restaurants />,
+        },
+        {
+          path: "/restaurantes",
+          element: <Restaurants />,
+        },
+        {
+          path: "/regalitos",
+          element: <Restaurants />,
+        },
+        {
+          path: "/dulcerias",
+          element: <Restaurants />,
+        },
+        {
+          path: "/restaurante/:restaurantSlug",
+          element: <RestaurantPage />,
+        },
+        {
+          path: "/pagocompletado",
+          element: <PaymentCompleted />,
+        },
+        {
+          path: "/errorenpago",
+          element: <PaymentFailed />,
+        },
+        {
+          path: "/producto/:productSlug",
+          element: <ProductDetailPage />,
+        },
+        {
+          path: "/caja",
+          element: <CheckOut />,
+        },
+      ],
+    },
+  ])
+
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter>
           <div className="relative">
-            <Routes>
-              <Route element={<TemplateLanding />}>
-                <Route key={"/"} path="/" element={<Restaurants />} />
-                <Route
-                  key={"/mercados"}
-                  path="/mercados"
-                  element={<Restaurants />}
-                />
-                <Route
-                  key={"/servicios"}
-                  path="/servicios"
-                  element={<Restaurants />}
-                />
-                <Route
-                  key={"/restaurantes"}
-                  path="/restaurantes"
-                  element={<Restaurants />}
-                />
-                <Route
-                  key={"/regalitos"}
-                  path="/regalitos"
-                  element={<Restaurants />}
-                />
-                <Route
-                  key={"/dulcerias"}
-                  path="/dulcerias"
-                  element={<Restaurants />}
-                />
-                <Route
-                  key={"/restaurante"}
-                  path="/restaurante/:restaurantSlug"
-                  element={<RestaurantPage />}
-                />
-                <Route
-                  key={"/pagocompletado"}
-                  path="/pagocompletado"
-                  element={<PaymentCompleted />}
-                />
-                <Route
-                  key={"/errorenpago"}
-                  path="/errorenpago"
-                  element={<PaymentFailed />}
-                />
-                <Route
-                  key={"/producto"}
-                  path="/producto/:productSlug"
-                  element={<ProductDetailPage />}
-                />
-
-                <Route key={"/caja"} path="caja" element={<CheckOut />} />
-              </Route>
-            </Routes>
+            <RouterProvider router={router} />
           </div>
           <ToastContainer />
-        </BrowserRouter>
       </PersistGate>
     </Provider>
   );

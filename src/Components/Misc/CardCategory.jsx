@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 const CardCategory = (props) => {
   const productExisted = (type) => {
     toast.warning(
-      "No puedes comprar productos de diferentes restaurantes en un mismo pedido!",
+      "No puedes comprar productos de diferentes comercios en un mismo pedido!",
       {
         position: "top-center",
         autoClose: 5000,
@@ -22,8 +22,8 @@ const CardCategory = (props) => {
       }
     );
   };
- 
-  
+
+
   const dispatch = useDispatch();
   const { img, title, price, id } = props;
   const productAdd = (type) => {
@@ -65,7 +65,7 @@ const CardCategory = (props) => {
               }
               }
               className="bg-main p-1
-          
+
           rounded-full absolute top-2 right-1 "
             >
               <svg
@@ -85,7 +85,7 @@ const CardCategory = (props) => {
             </button>
             <button
               className="bg-main p-1
-          
+
           rounded-full absolute top-10 right-1 "
             >
               <svg

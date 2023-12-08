@@ -34,7 +34,7 @@ function App() {
           element: <Restaurants />,
         },
         {
-          path: "/restaurantes",
+          path: "/restaurants",
           element: <Restaurants />,
         },
         {

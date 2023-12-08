@@ -22,7 +22,7 @@ const CardProductVertical = ( props ) => {
     };
     const productExisted = ( type ) => {
         toast.warning(
-            'No puedes comprar productos de diferentes restaurantes en un mismo pedido!',
+            'No puedes comprar productos de diferentes comercios en un mismo pedido!',
             {
                 position:        'top-center',
                 autoClose:       5000,

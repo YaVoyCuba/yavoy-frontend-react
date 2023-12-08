@@ -83,7 +83,7 @@ const Restaurants = () => {
               <Link
                 to={"/"}
                 className={`col-span-1 ${
-                  path === "/" || path === "/restaurantes"
+                  path === "/" || path === "/restaurants"
                     ? "text-color"
                     : "text-gray-500"
                 }`}
@@ -262,7 +262,7 @@ const Restaurants = () => {
             </Swiper>
           </div>
           <span className="text-lg font-bold text-gray-700 mt-3">
-            {(path === "/restaurantes" || path === "/") && "Restaurantes"}
+            {(path === "/restaurants" || path === "/") && "Restaurantes"}
             {path === "/dulcerias" && "Dulcerías"}
             {path === "/mercados" && "Mercados"}
             {path === "/regalitos" && "Regalitos"}

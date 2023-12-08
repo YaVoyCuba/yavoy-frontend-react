@@ -11,7 +11,6 @@ import PaymentCompleted from "./Pages/frontend/PaymentCompleted";
 import PaymentFailed from "./Pages/frontend/PaymentFailed";
 import { persistor, store } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
-import PaymentBookings from "./Pages/backend/bookings/PaymentBookings";
 
 
 function App() {

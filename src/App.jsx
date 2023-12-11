@@ -21,7 +21,7 @@ function App() {
             // loader: rootLoader,
             children: [
                 {
-                    path:    '/restaurants',
+                    path:    '/',
                     element: <Restaurants />,
                 },
                 {

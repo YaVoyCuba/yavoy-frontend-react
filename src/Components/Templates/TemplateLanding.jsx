@@ -10,11 +10,6 @@ import WA from "../Misc/WA";
 
 const TemplateLanding = () => {
   const locationRouter = useLocation();
-  const navigate = useNavigate();
-
-  if (locationRouter.pathname === '/') {
-    navigate('restaurants')
-  }
 
   const tabs = [
     {

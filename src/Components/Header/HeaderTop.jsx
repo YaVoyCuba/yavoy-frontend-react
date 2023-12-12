@@ -244,7 +244,7 @@ const HeaderTop = () => {
                                                         className="  mx-auto justify-center space-y-3 flex flex-col "
                                                         aria-hidden="true"
                                                     >
-                                                        <Link to={{ pathname: '/', search: 'location='+locationParamsSearch }}>>
+                                                        <Link to={{ pathname: '/', search: 'location='+locationParamsSearch }}>
                                                             <button
                                                                 onClick={ () => setOpen( !open ) }
                                                                 className="w-full px-7 text-lg color-main flex self-center justify-between  "

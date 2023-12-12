@@ -70,7 +70,7 @@ const RestaurantCard = ( props ) => {
                 </div>
             ) : (
                 <Link className="cursor-pointer"
-                      to={{ pathname: '/restaurants/' + restaurant.slug, search: 'location='+locationParamsSearch }}
+                      to={{ pathname: '/restaurants/' + restaurant.slug, search: 'location=' + locationParamsSearch }}
                 >
                     <div
                         className="grid grid-cols-3 rounded-lgmy-3 lg:my-2   mx-0 lg:mx-2 bg-white shadow-lg cursor-pointer hover:opacity-80">

@@ -128,9 +128,10 @@ const Location = () => {
         }
 
         if (canSetLocation || !cartNotEmpty) {
-            console.log("set Location: ", canSetLocation, cartNotEmpty)
+            let data = {province:removeKeys(provinceSelected), municipality:removeKeys(municipalitySelected)}
+            console.log("set Location: ", data, canSetLocation, cartNotEmpty)
             // save location to localstorage
-            setLocation( {province:provinceSelected,municipality:municipalitySelected} );
+            setLocation( data );
         }
     };
 
@@ -153,8 +154,8 @@ const Location = () => {
         setMunicipalitySelected(getLocation.municipality)
     }
 
-    const removeKeysInProvince = () => {
-        let province = { ...getLocation.province, value: pick( getLocation.province.value, [ 'id', 'name', 'label', 'province_id' ] ) };
+    const removeKeys = (obj) => {
+        return { ...obj, value: pick( obj.value, [ 'id', 'name', 'label', 'province_id' ] ) };
     };
 
     const cancelButtonRef = useRef( null );

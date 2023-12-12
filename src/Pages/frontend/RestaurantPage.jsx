@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import apiManager from '../../api/apiManager';
 import CardProductVertical from '../../Components/Misc/CardProductVertical';
 import { Loading } from '../../common/Loading';
@@ -14,10 +14,11 @@ function RestaurantPage() {
     const info = useSelector( ( state ) => state.info.info );
 
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const locationParamsSearch = searchParams.get('location');
 
     function handleActionProduct( itemSlug ) {
-
-        navigate( `/item/${ itemSlug }` );
+        navigate( `/product/${ itemSlug }?location=${locationParamsSearch}` );
     }
 
 
@@ -132,7 +133,7 @@ function RestaurantPage() {
                             { restaurant.categories?.length > 0 &&
                                 restaurant.categories.map( ( category ) => {
                                     if (
-                                        category.products.filter( ( prod ) => prod.status == 'active' && prod.experience == 'N' )
+                                        category.products.filter( ( prod ) => prod.status === 'active' && prod.experience === 'N' )
                                             .length > 0
                                     ) {
                                         return (

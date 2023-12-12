@@ -1,5 +1,5 @@
 import React, { useState, Fragment, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react';
 
 import apiManager from '../../api/apiManager';
@@ -16,6 +16,8 @@ const SearchPage = () => {
     const cancelButtonRef = useRef( null );
     const getMunicipality = useSelector( ( state ) => state.location.municipality );
 
+    const [searchParams] = useSearchParams();
+    const locationParamsSearch = searchParams.get('location');
     const navigate = useNavigate();
 
     useEffect( () => {
@@ -26,12 +28,12 @@ const SearchPage = () => {
 
     function handleAction( restaurantSlug ) {
         setOpen( false );
-        navigate( `/restaurants/${ restaurantSlug }` );
+        navigate( `/restaurants/${ restaurantSlug }?location=${locationParamsSearch}` );
     }
 
     function handleActionProduct( itemSlug ) {
         setOpen( false );
-        navigate( `/item/${ itemSlug }` );
+        navigate( `/product/${ itemSlug }?location=${locationParamsSearch}` );
     }
 
     function classNames( ...classes ) {

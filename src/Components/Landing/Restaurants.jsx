@@ -12,13 +12,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/autoplay';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const Restaurants = () => {
     SwiperCore.use( [ Autoplay ] );
     //Get path for this route
     const locationRouter = useLocation();
+    const [searchParams] = useSearchParams();
+    const locationParamsSearch = searchParams.get('location');
     const path = locationRouter.pathname;
+
+    console.log("searchParams111  11: ", searchParams)
 
     const [ restaurants, setRestaurants ] = useState( [] );
     const [ promoRestaurants, setPromoRestaurants ] = useState( [] );
@@ -81,7 +85,7 @@ const Restaurants = () => {
                             aria-hidden="true"
                         >
                             <Link
-                                to={ '/restaurants' }
+                                to={{ pathname: '/restaurants', search: 'location='+locationParamsSearch }}
                                 className={ `col-span-1 ${
                                     path === '/' || path === '/restaurants'
                                         ? 'text-color'
@@ -110,7 +114,7 @@ const Restaurants = () => {
                                 </button>
                             </Link>
                             <Link
-                                to={ '/markets' }
+                                to={{ pathname: '/markets', search: 'location='+locationParamsSearch }}
                                 className={ `col-span-1 ${
                                     path === '/markets' ? 'text-color' : 'text-gray-500'
                                 }` }
@@ -137,7 +141,7 @@ const Restaurants = () => {
                                 </button>
                             </Link>
                             <Link
-                                to={ '/candy_shop' }
+                                to={{ pathname: '/candy_shop', search: 'location='+locationParamsSearch }}
                                 className={ `col-span-1 ${
                                     path === '/candy_shop' ? 'text-color' : 'text-gray-500'
                                 }` }
@@ -164,7 +168,7 @@ const Restaurants = () => {
                                 </button>
                             </Link>
                             <Link
-                                to={ '/gifts' }
+                                to={{ pathname: '/gifts', search: 'location='+locationParamsSearch }}
                                 className={ `col-span-1 ${
                                     path === '/gifts' ? 'text-color' : 'text-gray-500'
                                 }` }
@@ -191,7 +195,7 @@ const Restaurants = () => {
                                 </button>
                             </Link>
                             <Link
-                                to={ '/services' }
+                                to={{ pathname: '/services', search: 'location='+locationParamsSearch }}
                                 className={ `col-span-1 ${
                                     path === '/services' ? 'text-color' : 'text-gray-500'
                                 }` }

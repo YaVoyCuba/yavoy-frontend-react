@@ -1,5 +1,5 @@
 import { setInfo } from "../../redux/infoSlice";
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import apiManager from "../../api/apiManager";
 
 import Footer from "../Footer/Footer";
@@ -10,15 +10,17 @@ import WA from "../Misc/WA";
 
 const TemplateLanding = () => {
   const locationRouter = useLocation();
+  const [searchParams] = useSearchParams();
+  const locationParamsSearch = searchParams.get('location');
 
   const tabs = [
     {
       name: "Comercios",
-      href: "/restaurants",
+      href: "/restaurants?" + 'location='+locationParamsSearch,
       current: true,
-      rutes: [
+      routes: [
         "",
-        "item",
+        "product",
         "restaurants",
         "services",
         "markets",
@@ -40,18 +42,16 @@ const TemplateLanding = () => {
     }
   };
 
+  const path = locationRouter.pathname;
+
   useEffect(() => {
     getInfo();
   }, []);
 
-  const path = locationRouter.pathname;
-
   return (
     <>
       <div className="px-3 lg:px-14 lg:max-w-7xl mx-auto">
-        <Header
-          locationType={path.split("/")[1] === "" ? "/" : path.split("/")[1]}
-        />
+        <Header />
 
         <div className="flex ">
           <div className=" mx-auto">
@@ -62,7 +62,7 @@ const TemplateLanding = () => {
                     to={tab.href}
                     key={tab.name}
                     className={classNames(
-                      tab.rutes.includes(path.split("/")[1])
+                      tab.routes.includes(path.split("/")[1])
                         ? "border-b-2  border-orange-500 text-color "
                         : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300",
                       "whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm"

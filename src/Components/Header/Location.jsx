@@ -3,22 +3,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/24/outline';
 import apiManager from '../../api/apiManager';
-import { setProvince, setMunicipality } from '../../redux/locationSlice';
+import { setProvinceStorage, setMunicipalityStorage } from '../../redux/locationSlice';
 import { toast } from 'react-toastify';
 import { LoadingSmall } from '../../common/LoadingSmall';
 import CookieConsent from 'react-cookie-consent';
 import Select from 'react-select';
+import useQueryParam from '../../utils/queryParamHook.js';
 
 const Location = () => {
 
-    const getProvince = useSelector( ( state ) => state.location.province );
-    const getMunicipality = useSelector( ( state ) => state.location.municipality );
+    // const getProvince = useSelector( ( state ) => state.location.province );
+    // const getMunicipality = useSelector( ( state ) => state.location.municipality );
+    let [getLocation, setLocation] = useQueryParam("location");
     const { cart } = useSelector( ( state ) => state.cart );
     const [ provinces, setProvinces ] = useState( [] );
     const [ municipalities, setMunicipalities ] = useState( [] );
     const [ loadingProvinces, setLoadingProvinces ] = useState( false );
-    const [ provinceSelected, setProvinceSelected ] = useState( getProvince );
-    const [ municipalitySelected, setMunicipalitySelected ] = useState( getMunicipality );
+    const [ provinceSelected, setProvinceSelected ] = useState( getLocation.province );
+    const [ municipalitySelected, setMunicipalitySelected ] = useState( getLocation.municipality );
     const [ isLocationFormOpen, setIsLocationFormOpen ] = useState( false );
 
     const onLocationFormOpen = () => setIsLocationFormOpen( true );
@@ -26,30 +28,47 @@ const Location = () => {
 
     const dispatch = useDispatch();
 
-    useEffect( () => {
-        // get all municipalities by a province selected only if Location Form is open
-        if (isLocationFormOpen) {
-            setMunicipalitiesByProvince( provinceSelected ).then( r => {
-            } );
-        }
-    }, [ provinceSelected ] );
-
-    useEffect( () => {
-        if (getMunicipality.value?.id === 0) {
-            // open Location Form and throw useEffect "isLocationFormOpen"
-            onLocationFormOpen();
-        }
-    }, [] );
+    // useEffect( () => {
+    //     // get all municipalities by a province selected only if Location Form is open
+    //     if (isLocationFormOpen) {
+    //         setMunicipalitiesByProvince( provinceSelected ).then( r => {
+    //         } );
+    //     }
+    // }, [ provinceSelected ] );
 
     useEffect( () => {
         if (isLocationFormOpen) {
             getProvinces().then( r => {
-                setMunicipalitiesByProvince( provinceSelected ).catch( err => {
-                } );
+                // setMunicipalitiesByProvince( provinceSelected ).catch( err => {
+                // } );
             } ).catch( err => {
             } );
         }
     }, [ isLocationFormOpen ] );
+
+    useEffect( () => {
+        if (getLocation.municipality) {
+            dispatch( setProvinceStorage( getLocation.province ) );
+            dispatch( setMunicipalityStorage( getLocation.municipality ) );
+        }
+    }, [ getLocation ] );
+
+    useEffect( () => {
+        console.log("--> useEffect: ", getLocation)
+        if (getLocation.municipality?.value?.id === 0) {
+            let defaultLocation = {
+                province:     { 'value': { 'id': 12, 'name': 'La Habana', 'slug': 'la-habana' }, 'label': 'La Habana' },
+                municipality: {
+                    'value': { 'id': 99, 'province_id': 12, 'name': 'Playa', 'slug': 'playa' },
+                    'label': 'Playa',
+                },
+            }
+            setLocation( defaultLocation );
+            // open Location Form and throw useEffect "isLocationFormOpen"
+            // onLocationFormOpen();
+
+        }
+    }, [] );
 
     const getProvinces = async () => {
         console.log( 'getProvinces' );
@@ -69,6 +88,9 @@ const Location = () => {
     };
 
     const setMunicipalitiesByProvince = async ( event ) => {
+        setMunicipalitySelected( { label: '', value: { id: 0 } } );
+        await setProvinceSelected( event );
+
         let jsonM = await apiManager.getMunicipalities( event.value.id );
         if (jsonM.code === 'ok') {
             const municipalitiesOptions = jsonM.data.map( ( item ) => {
@@ -93,9 +115,10 @@ const Location = () => {
             let can = await checkIfNewLocationCanBeAddedWithRestaurantInCart();
             console.log( '--> can: ', can );
             if (can) {
+                setLocation( {province:provinceSelected,municipality:municipalitySelected} );
                 // save location to localstorage
-                dispatch( setProvince( provinceSelected ) );
-                dispatch( setMunicipality( municipalitySelected ) );
+                // dispatch( setProvinceStorage( provinceSelected ) );
+                // dispatch( setMunicipalityStorage( municipalitySelected ) );
             } else {
                 console.log( '--> can else: ', can );
                 toast.warning(
@@ -114,8 +137,10 @@ const Location = () => {
             }
         } else {
             // save location to localstorage
-            dispatch( setProvince( provinceSelected ) );
-            dispatch( setMunicipality( municipalitySelected ) );
+            setLocation( {province:provinceSelected,municipality:municipalitySelected} );
+            // save location to localstorage
+            // dispatch( setProvinceStorage( provinceSelected ) );
+            // dispatch( setMunicipalityStorage( municipalitySelected ) );
         }
     };
 
@@ -134,9 +159,9 @@ const Location = () => {
     };
 
     const setValuesByDefault = async () => {
-        console.log('setValuesByDefault: ', getProvince, getMunicipality)
-        setProvinceSelected(getProvince)
-        setMunicipalitySelected(getMunicipality)
+        console.log('setValuesByDefault: ', getLocation.province, getLocation.municipality)
+        setProvinceSelected(getLocation.province)
+        setMunicipalitySelected(getLocation.municipality)
     }
 
     const cancelButtonRef = useRef( null );
@@ -158,7 +183,7 @@ const Location = () => {
                         </g>
                     </svg>
                     <span className="text-gray-700 text-sm font-medium pl-3">
-            Delivery fijado en { getMunicipality.label }
+            Delivery fijado en { getLocation?.municipality?.label }
           </span>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -182,7 +207,7 @@ const Location = () => {
                     as="div"
                     className="relative z-10"
                     initialFocus={ cancelButtonRef }
-                    onClose={ () => getMunicipality.label && onLocationFormClose() }
+                    onClose={ () =>  getLocation?.municipality?.label && onLocationFormClose() }
                 >
                     <Transition.Child
                         as={ Fragment }
@@ -251,8 +276,9 @@ const Location = () => {
                                                         placeholder="Seleccione la provincia"
                                                         value={ provinceSelected?.value?.id ? provinceSelected : null }
                                                         onChange={ ( event ) => {
-                                                            setMunicipalitySelected( { label: '', value: { id: 0 } } );
-                                                            setProvinceSelected( event );
+                                                            // setMunicipalitySelected( { label: '', value: { id: 0 } } );
+                                                            // setProvinceSelected( event );
+                                                            setMunicipalitiesByProvince(event)
                                                         } }
                                                     />
                                                     {
@@ -293,7 +319,7 @@ const Location = () => {
                                             type="button"
                                             className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm"
                                             onClick={ () => {
-                                                if( getMunicipality.value.id > 0 ) {
+                                                if(  getLocation?.municipality?.value.id > 0 ) {
                                                     onLocationFormClose();
                                                     setValuesByDefault()
                                                 }

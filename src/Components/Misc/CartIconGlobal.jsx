@@ -2,7 +2,7 @@ import React, { useState, Fragment, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { decrementQuantity, incrementQuantity, removeItem } from '../../redux/cartSlice';
 
@@ -13,6 +13,8 @@ const CartIconGlobal = () => {
     const [ open, setOpen ] = useState( false );
     const getMunicipality = useSelector( ( state ) => state.location.municipality );
     const [quantity, setQuantity] = useState(1);
+    const [searchParams] = useSearchParams();
+    const locationParamsSearch = searchParams.get('location');
 
     useEffect(() => {
         getTotalPrice();
@@ -40,7 +42,7 @@ const CartIconGlobal = () => {
 
     const getStoreLink = () => {
         if (cart && cart.length)
-            return 'restaurants/' + cart[0]?.restaurantSlug
+            return `restaurants/${cart[0]?.restaurantSlug}?location=${locationParamsSearch}`
         return ''
     }
 

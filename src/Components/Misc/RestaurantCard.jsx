@@ -1,9 +1,11 @@
 import React from 'react';
 
 import apiManager from '../../api/apiManager';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const RestaurantCard = ( props ) => {
+    const [searchParams] = useSearchParams();
+    const locationParamsSearch = searchParams.get('location');
     const restaurant = props.restaurant;
     const onClick = props.onClickFunction;
     return (
@@ -67,7 +69,9 @@ const RestaurantCard = ( props ) => {
                     </div>
                 </div>
             ) : (
-                <Link className="cursor-pointer" to={ '/restaurants/' + restaurant.slug }>
+                <Link className="cursor-pointer"
+                      to={{ pathname: '/restaurants/' + restaurant.slug, search: 'location='+locationParamsSearch }}
+                >
                     <div
                         className="grid grid-cols-3 rounded-lgmy-3 lg:my-2   mx-0 lg:mx-2 bg-white shadow-lg cursor-pointer hover:opacity-80">
                         <div

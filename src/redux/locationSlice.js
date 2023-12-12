@@ -5,14 +5,14 @@ import { DEFAULT_LOCATION_DATA } from '../utils/constants.js';
 const locationSlice = createSlice( {
     name:         'location',
     initialState: {
-        province:      DEFAULT_LOCATION_DATA,
-        municipality:  DEFAULT_LOCATION_DATA,
+        province:     DEFAULT_LOCATION_DATA,
+        municipality: DEFAULT_LOCATION_DATA,
     },
     reducers:     {
-        setProvince:         ( state, action ) => {
+        setProvinceStorage:     ( state, action ) => {
             state.province = action.payload;
         },
-        setMunicipality:     ( state, action ) => {
+        setMunicipalityStorage: ( state, action ) => {
             state.municipality = action.payload;
         },
     },
@@ -20,5 +20,5 @@ const locationSlice = createSlice( {
 
 export const locationReducer = locationSlice.reducer;
 export const {
-    setProvince, setMunicipality,
+    setProvinceStorage, setMunicipalityStorage,
 } = locationSlice.actions;

@@ -57,7 +57,7 @@ function App() {
                     element: <PaymentFailed />,
                 },
                 {
-                    path:    '/item/:itemSlug',
+                    path:    '/product/:itemSlug',
                     element: <ProductDetailPage />,
                 },
                 {

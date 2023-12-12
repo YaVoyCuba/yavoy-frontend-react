@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import apiManager from '../../api/apiManager';
+import { DEFAULT_MSG_WARNING_CART } from '../../utils/constants.js';
 
 const CardProductVertical = ( props ) => {
     const { cart } = useSelector( ( state ) => state.cart );
@@ -22,7 +23,7 @@ const CardProductVertical = ( props ) => {
     };
     const productExisted = ( type ) => {
         toast.warning(
-            'No puedes comprar productos de diferentes comercios en un mismo pedido!',
+            DEFAULT_MSG_WARNING_CART,
             {
                 position:        'top-center',
                 autoClose:       5000,

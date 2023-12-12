@@ -11,13 +11,14 @@ import "react-toastify/dist/ReactToastify.css";
 import apiManager from "../../api/apiManager";
 import { useParams } from "react-router-dom";
 import { Loading } from "../../common/Loading";
+import { DEFAULT_MSG_WARNING_CART } from '../../utils/constants.js';
 
 const ProductDetailPage = (props) => {
   const { cart } = useSelector((state) => state.cart);
 
   const productExisted = (type) => {
     toast.warning(
-      "No puedes comprar productos de diferentes comercios en un mismo pedido!",
+        DEFAULT_MSG_WARNING_CART,
       {
         position: "top-center",
         autoClose: 5000,

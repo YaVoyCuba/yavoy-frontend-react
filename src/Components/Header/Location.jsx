@@ -9,11 +9,10 @@ import { LoadingSmall } from '../../common/LoadingSmall';
 import CookieConsent from 'react-cookie-consent';
 import Select from 'react-select';
 import useQueryParam from '../../utils/queryParamHook.js';
+import { pick } from '../../utils/tools.js';
 
 const Location = () => {
 
-    // const getProvince = useSelector( ( state ) => state.location.province );
-    // const getMunicipality = useSelector( ( state ) => state.location.municipality );
     let [getLocation, setLocation] = useQueryParam("location");
     const { cart } = useSelector( ( state ) => state.cart );
     const [ provinces, setProvinces ] = useState( [] );
@@ -28,19 +27,20 @@ const Location = () => {
 
     const dispatch = useDispatch();
 
-    // useEffect( () => {
-    //     // get all municipalities by a province selected only if Location Form is open
-    //     if (isLocationFormOpen) {
-    //         setMunicipalitiesByProvince( provinceSelected ).then( r => {
-    //         } );
-    //     }
-    // }, [ provinceSelected ] );
+    useEffect( () => {
+        // get all municipalities by a province selected only if Location Form is open
+        if (isLocationFormOpen) {
+            setMunicipalitiesByProvince( provinceSelected ).then( r => {
+            } );
+        }
+    //    TODO: rexsolver esto luego usando los eventos que brinda el componente react-select, para cargar municipios cuando se carga una provincia
+    }, [ provinceSelected ] );
 
     useEffect( () => {
         if (isLocationFormOpen) {
             getProvinces().then( r => {
-                // setMunicipalitiesByProvince( provinceSelected ).catch( err => {
-                // } );
+                setMunicipalitiesByProvince( provinceSelected ).catch( err => {
+                } );
             } ).catch( err => {
             } );
         }
@@ -48,25 +48,22 @@ const Location = () => {
 
     useEffect( () => {
         if (getLocation.municipality) {
+            // save location to localstorage
             dispatch( setProvinceStorage( getLocation.province ) );
             dispatch( setMunicipalityStorage( getLocation.municipality ) );
         }
     }, [ getLocation ] );
 
     useEffect( () => {
-        console.log("--> useEffect: ", getLocation)
         if (getLocation.municipality?.value?.id === 0) {
             let defaultLocation = {
-                province:     { 'value': { 'id': 12, 'name': 'La Habana', 'slug': 'la-habana' }, 'label': 'La Habana' },
+                province:     { 'value': { 'id': 12, 'name': 'La Habana' }, 'label': 'La Habana' },
                 municipality: {
-                    'value': { 'id': 99, 'province_id': 12, 'name': 'Playa', 'slug': 'playa' },
+                    'value': { 'id': 99, 'province_id': 12, 'name': 'Playa' },
                     'label': 'Playa',
                 },
-            }
+            };
             setLocation( defaultLocation );
-            // open Location Form and throw useEffect "isLocationFormOpen"
-            // onLocationFormOpen();
-
         }
     }, [] );
 
@@ -88,9 +85,6 @@ const Location = () => {
     };
 
     const setMunicipalitiesByProvince = async ( event ) => {
-        setMunicipalitySelected( { label: '', value: { id: 0 } } );
-        await setProvinceSelected( event );
-
         let jsonM = await apiManager.getMunicipalities( event.value.id );
         if (jsonM.code === 'ok') {
             const municipalitiesOptions = jsonM.data.map( ( item ) => {
@@ -102,25 +96,20 @@ const Location = () => {
                 },
             );
             setMunicipalities( municipalitiesOptions );
-            // setMunicipalitySelected( municipalitiesOptions[0] );
         }
     };
 
     const storeLocation = async () => {
         // close Location Form
         onLocationFormClose();
+        let canSetLocation = false;
+        let cartNotEmpty = cart?.length > 0;
 
-        if (cart?.length > 0) {
+        if (cartNotEmpty) {
             console.log( '--> check cart: ', cart );
-            let can = await checkIfNewLocationCanBeAddedWithRestaurantInCart();
-            console.log( '--> can: ', can );
-            if (can) {
-                setLocation( {province:provinceSelected,municipality:municipalitySelected} );
-                // save location to localstorage
-                // dispatch( setProvinceStorage( provinceSelected ) );
-                // dispatch( setMunicipalityStorage( municipalitySelected ) );
-            } else {
-                console.log( '--> can else: ', can );
+            canSetLocation = await checkIfNewLocationCanBeAddedWithRestaurantInCart();
+            if (!canSetLocation) {
+                console.log( '--> can else: ', canSetLocation );
                 toast.warning(
                     'No puedes cambiar a esta ubicacion porque el comercio de los productos del carrito no hace envíos a la misma',
 
@@ -134,13 +123,14 @@ const Location = () => {
                         progress:        undefined,
                     },
                 );
+                setValuesByDefault();
             }
-        } else {
+        }
+
+        if (canSetLocation || !cartNotEmpty) {
+            console.log("set Location: ", canSetLocation, cartNotEmpty)
             // save location to localstorage
             setLocation( {province:provinceSelected,municipality:municipalitySelected} );
-            // save location to localstorage
-            // dispatch( setProvinceStorage( provinceSelected ) );
-            // dispatch( setMunicipalityStorage( municipalitySelected ) );
         }
     };
 
@@ -154,15 +144,18 @@ const Location = () => {
             } );
         }
 
-        console.log( '--> ', isFound, 'muniSelct: ', municipalitySelected );
         return isFound; //let zones = apiManager.getZones(cart[0].restaurantId);
     };
 
-    const setValuesByDefault = async () => {
+    const setValuesByDefault = () => {
         console.log('setValuesByDefault: ', getLocation.province, getLocation.municipality)
         setProvinceSelected(getLocation.province)
         setMunicipalitySelected(getLocation.municipality)
     }
+
+    const removeKeysInProvince = () => {
+        let province = { ...getLocation.province, value: pick( getLocation.province.value, [ 'id', 'name', 'label', 'province_id' ] ) };
+    };
 
     const cancelButtonRef = useRef( null );
     return (
@@ -276,9 +269,9 @@ const Location = () => {
                                                         placeholder="Seleccione la provincia"
                                                         value={ provinceSelected?.value?.id ? provinceSelected : null }
                                                         onChange={ ( event ) => {
-                                                            // setMunicipalitySelected( { label: '', value: { id: 0 } } );
-                                                            // setProvinceSelected( event );
-                                                            setMunicipalitiesByProvince(event)
+                                                            setMunicipalitySelected( { label: '', value: { id: 0 } } );
+                                                            setProvinceSelected( event );
+                                                            // setMunicipalitiesByProvince(event)
                                                         } }
                                                     />
                                                     {
@@ -320,8 +313,8 @@ const Location = () => {
                                             className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm"
                                             onClick={ () => {
                                                 if(  getLocation?.municipality?.value.id > 0 ) {
-                                                    onLocationFormClose();
                                                     setValuesByDefault()
+                                                    onLocationFormClose();
                                                 }
                                             } }
                                             ref={ cancelButtonRef }

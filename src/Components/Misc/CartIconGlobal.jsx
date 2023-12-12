@@ -4,7 +4,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { decrementQuantity, incrementQuantity, removeItem } from '../../redux/cartSlice';
+import { clearCart, decrementQuantity, incrementQuantity, removeItem } from '../../redux/cartSlice';
 
 
 const CartIconGlobal = () => {
@@ -231,14 +231,18 @@ const CartIconGlobal = () => {
                                                 </div>
                                                 <hr className="separator  " />
                                                 <div className="flex flex-col">
-                                                    <Link className=" mt-3 text-center" to={ 'carrito' }>
+                                                    {quantity >= 1 &&
                             <span
-                                onClick={ () => setOpen( false ) }
-                                className="text-center text-lg  color-main  font-medium mt-3 hidden"
+                                className="text-center text-lg  color-main  font-medium mt-3" style={{ 'cursor': 'pointer'}}
+                                onClick={() => {
+                                    setQuantity( 0 );
+                                    dispatch( clearCart() );
+                                }}
                             >
-                              Ver Carrito
+                              Vaciar carrito
                             </span>
-                                                    </Link>
+                                                    }
+                                                    {quantity >= 1 &&
                                                     <Link className=" mt-3 text-center" to={ getStoreLink() }>
                             <span
                                 onClick={ () => setOpen( false ) }
@@ -246,7 +250,7 @@ const CartIconGlobal = () => {
                             >
                               Ver comercio
                             </span>
-                                                    </Link>
+                                                    </Link>}
                                                     <Link
                                                         onClick={ () => setOpen( false ) }
                                                         className="btn-main  mt-5 text-center"

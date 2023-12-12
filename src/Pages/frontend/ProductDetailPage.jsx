@@ -5,7 +5,7 @@ import ImageGallery from "react-image-gallery";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import "react-toastify/dist/ReactToastify.css";
 import apiManager from "../../api/apiManager";
@@ -15,6 +15,8 @@ import { DEFAULT_MSG_WARNING_CART } from '../../utils/constants.js';
 
 const ProductDetailPage = (props) => {
   const { cart } = useSelector((state) => state.cart);
+  const [searchParams] = useSearchParams();
+  const locationParamsSearch = searchParams.get('location');
 
   const productExisted = (type) => {
     toast.warning(
@@ -78,7 +80,7 @@ const ProductDetailPage = (props) => {
 
   //Function navigate back
   function goBack() {
-    navigate("/restaurants/" + product.restaurant.slug);
+    navigate(`/restaurants/${ product.restaurant.slug }?location=${locationParamsSearch}` );
   }
   const [tab, setTab] = useState("description");
   const [quantity, setQuantity] = useState(1);

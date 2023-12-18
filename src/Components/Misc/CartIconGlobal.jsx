@@ -254,7 +254,7 @@ const CartIconGlobal = () => {
                                                     <Link
                                                         onClick={ () => setOpen( false ) }
                                                         className="btn-main  mt-5 text-center"
-                                                        to={ 'checkout' }
+                                                        to={{ pathname: '/checkout', search: 'location='+locationParamsSearch }}
                                                     >
                                                         <button
 

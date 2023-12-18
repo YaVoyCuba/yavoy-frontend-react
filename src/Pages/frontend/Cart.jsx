@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from 'react-router-dom';
 import { decrementQuantity } from "../../redux/cartSlice";
 import { incrementQuantity } from "../../redux/cartSlice";
 
@@ -8,7 +8,8 @@ import { incrementQuantity } from "../../redux/cartSlice";
 const Cart = () => {
   useEffect(() => window.scrollTo(0, 0));
   const [quantity, setQuantity] = useState(1);
-
+  const [ searchParams ] = useSearchParams();
+  const locationParamsSearch = searchParams.get( 'location' );
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
@@ -121,7 +122,7 @@ const Cart = () => {
             <span className="text-lg">Total</span>
             <span className="text-lg">${getTotalPrice()}</span>
           </div>
-          <Link  className="mt-4" to={"/checkout"}>
+          <Link  className="mt-4" to={{ pathname: '/checkout', search: 'location='+locationParamsSearch }}>
             <button className="btn-main">Proceder a completar pago</button>
           </Link>
         </div>

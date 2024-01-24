@@ -222,7 +222,7 @@ const Restaurants = () => {
           <div className="my-3 hidden lg:block">
             <Swiper
               autoplay={{
-                delay: 3000,
+                delay: 4000,
                 disableOnInteraction: false,
               }}
               spaceBetween={50}
@@ -243,7 +243,7 @@ const Restaurants = () => {
           <div className="my-3  lg:hidden">
             <Swiper
               autoplay={{
-                delay: 3000,
+                delay: 4000,
                 disableOnInteraction: false,
               }}
               spaceBetween={50}

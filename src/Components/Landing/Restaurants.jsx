@@ -261,35 +261,97 @@ const Restaurants = () => {
               )}
             </Swiper>
           </div>
-          <span className="text-lg font-bold text-gray-700 mt-3">
-            {(path === "/restaurantes" || path === "/") && "Restaurantes"}
-            {path === "/dulcerias" && "Dulcerías"}
-            {path === "/mercados" && "Mercados"}
-            {path === "/regalitos" && "Regalitos"}
-          </span>
-          <div className="grid mb-10 grid-cols-3">
-            {restaurants.map((restaurant) => {
-              return (
-                <div
-                  key={`restaurant-${restaurant.id}`}
-                  className="col-span-3 my-2 lg:col-span-1"
-                >
-                  <RestaurantCard restaurant={restaurant} />
+          <div className="grid mb-10 grid-cols-1">
+            <div className="bg-white">
+              <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div className="bg-color rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-1 lg:gap-4">
+                  <div className="bg-color rounded-lg lg:grid lg:grid-cols-2 lg:gap-4">
+                    <div className="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
+                      <img
+                          className="transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
+                          src="/assets/img/product_by_libras.jpg"></img>
                 </div>
-              );
-            })}
+                    <div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
+                      <div className="lg:self-center">
+                        <h2 className="text-3xl font-extrabold sm:text-4xl">
+                          <span className="block">Ya Voy Envíos</span>
+                          <span className="text-lg font-bold text-gray-700 mt-3">Peso mínimo del paquete 7lb</span>
+                        </h2>
+                        <br />
 
-            {restaurants.length === 0 && (
-              <div className="col-span-3 my-2 lg:col-span-1">
+                        <div className="mt-7">
                 <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-                  <div className="px-4 py-5 sm:px-6">
+                            <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
                     <h3 className="text-lg leading-6 font-medium text-gray-900">
-                      No hay servicios disponibles en esta zona
+                                Precios por libras
                     </h3>
+                              <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                                Detalles de los precios.
+                              </p>
+                            </div>
+                            <div>
+                              <ul className="divide-y divide-gray-200">
+                                <li>
+                                  <div className="px-4 py-4 sm:px-6">
+                                    <div className="flex items-center">
+                                      <p className="text-sm font-medium truncate">
+                                        De 7 a 22lb
+                                      </p>
+                                      <div className="ml-2 flex-shrink-0 flex">
+                                        <p className="px-2 inline-flex leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                          4.99
+                                        </p>
+                                        dólares por libra
+                                      </div>
+                                    </div>
+                                    <div className="flex items-center">
+                                      <p className="text-sm font-medium truncate">
+                                        De 22 a 44lb
+                                      </p>
+                                      <div className="ml-2 flex-shrink-0 flex">
+                                        <p className="px-2 inline-flex leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                          4.50
+                                        </p>
+                                        dólares por libra
+                                      </div>
+                                    </div>
+                                    <div className="flex items-center">
+                                      <p className="text-sm font-medium truncate">
+                                        + de 44lb
+                                      </p>
+                                      <div className="ml-2 flex-shrink-0 flex">
+                                        <p className="px-2 inline-flex leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                          3.99
+                                        </p>
+                                        dólares por libra
+                                      </div>
+                                    </div>
+                                  </div>
+                                </li>
+
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="sm:px-6 lg:px-8 pb-12">
+                    <p className="mt-4 text-lg leading-6">
+                      De momento se vuela una vez por semana, los jueves y las entregas demoran de 48 horas a 7 días hábiles.
+                    </p>
+                    <p className="mt-4 text-lg leading-6">
+                      Nuestra agencia es de carga aérea no acompañada, a diferencia de las agencias con mulas con nosotros se pueden mandar
+                      telf, Electrodomésticos, Auto-Partes, Muebles, Ferretería, etc.
+                    </p>
+                    <p className="mt-4 text-lg leading-6">
+                      Nuestra oficina esta muy cerca del aeropuerto, pero según donde viva hacemos la recogida en su casa. Para traerlo a la
+                      oficina debe de ser por cita previa.
+                    </p>
+                  </div>
                   </div>
                 </div>
               </div>
-            )}
           </div>
         </div>
       )}

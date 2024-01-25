@@ -321,7 +321,7 @@ const Restaurants = () => {
                                        dólares por libra</article>
                                     <article>De 22 a 44lb <p className="px-1 inline-flex  rounded bg-green-100 text-green-800 font-semibold">
                                       4.50 </p> dólares por libra</article>
-                                    <article>+ de 44lb <p className="px-1 inline-flex  rounded bg-green-100 text-green-800 font-semibold">
+                                    <article>+ de 44lb <p className="px-1 inline-flex rounded bg-orange-100 font-semibold">
                                       3.99 </p> dólares por libra</article>
                                   </section>
                                 </div>

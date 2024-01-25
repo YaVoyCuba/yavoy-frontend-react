@@ -343,7 +343,7 @@ const Restaurants = () => {
                           oficina debe de ser por cita previa.
                         </p>
                         <p className="mt-4 text-lg leading-6">
-                          <a className="mt-4 text-lg leading-6" href="tel:+17868491159">Para mas información contacte a nuestro Asistente Personal Frank al Telf.+1 (786) 849-1159</a>
+                          <a className="mt-4 text-lg leading-6" href="tel:+17868491159">Para más información contacte a nuestro Asistente Personal Frank al Telf.+1 (786) 849-1159</a>
                         </p>
                       </div>
                     </div>

@@ -315,36 +315,15 @@ const Restaurants = () => {
                                   </p>
                                 </div>
                                 <div>
-                                  <ul className="divide-y divide-gray-200">
-                                    <li>
-                                      <div className="px-4 py-4 sm:px-6">
-                                        <div className="flex items-center">
-                                          <div className="ml-2 flex-shrink-0 flex">
-                                            De 7 a 22lb 4.99 dólares por libra
-                                          </div>
-                                        </div>
-                                        <div className="flex items-center">
-                                          De 22 a 44lb
-                                          <div className="flex-shrink-0 flex">
-                                            <p className="px-2 inline-flex  rounded-full bg-green-100 text-green-800 font-semibold">
-                                              4.50
-                                            </p>
-                                            dólares por libra
-                                          </div>
-                                        </div>
-                                        <div className="flex items-center">
-                                          + de 44lb
-                                          <div className="flex-shrink-0 flex">
-                                            <p className="px-2 inline-flex  rounded-full bg-green-100 text-green-800 font-semibold">
-                                              3.99
-                                            </p>
-                                            dólares por libra
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </li>
-
-                                  </ul>
+                                  <section className="px-2 py-2 sm:pt-2 sm:px-6 lg:py-6 lg:pr-6 xl:py-6 xl:px-6">
+                                    <article>De 7 a 22lb <p className="px-1 inline-flex  rounded bg-green-100 text-green-800 font-semibold">
+                                      4.99 </p>
+                                       dólares por libra</article>
+                                    <article>De 22 a 44lb <p className="px-1 inline-flex  rounded bg-green-100 text-green-800 font-semibold">
+                                      4.50 </p> dólares por libra</article>
+                                    <article>+ de 44lb <p className="px-1 inline-flex  rounded bg-green-100 text-green-800 font-semibold">
+                                      3.99 </p> dólares por libra</article>
+                                  </section>
                                 </div>
                               </div>
                             </div>
@@ -362,6 +341,9 @@ const Restaurants = () => {
                         <p className="mt-4 text-lg leading-6">
                           Nuestra oficina esta muy cerca del aeropuerto, pero según donde viva hacemos la recogida en su casa. Para traerlo a la
                           oficina debe de ser por cita previa.
+                        </p>
+                        <p className="mt-4 text-lg leading-6">
+                          <a className="mt-4 text-lg leading-6" href="tel:+17868491159">Para mas información contacte a nuestro Asistente Personal Frank al Telf.+1 (786) 849-1159</a>
                         </p>
                       </div>
                     </div>

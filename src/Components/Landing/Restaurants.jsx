@@ -336,7 +336,7 @@ const Restaurants = () => {
                         </p>
                         <p className="mt-4 text-lg leading-6">
                           Nuestra agencia es de carga aérea no acompañada, a diferencia de las agencias con mulas con nosotros se pueden mandar
-                          telf, Electrodomésticos, Auto-Partes, Muebles, Ferretería, etc.
+                          Telf, Electrodomésticos, Auto-Partes, Muebles, Ferretería, etc.
                         </p>
                         <p className="mt-4 text-lg leading-6">
                           Nuestra oficina esta muy cerca del aeropuerto, pero según donde viva hacemos la recogida en su casa. Para traerlo a la

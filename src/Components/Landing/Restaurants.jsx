@@ -323,18 +323,21 @@ const Restaurants = () => {
                       </div>
                       <div className="pt-2 pb-12 px-4 sm:pt-2 sm:px-2 lg:py-2 lg:pr-0 xl:py-2 xl:px-2">
                         <p className="mt-4 text-lg leading-6">
-                          De momento se vuela una vez por semana, los jueves y las entregas demoran de 48 horas a 7 días hábiles.
+                          De momento se vuela una vez por semana, los jueves y las entregas demoran de 48 horas a 10 días máximo.
+                          Entregamos en toda Cuba, excepto en Isla de Pinos
                         </p>
                         <p className="mt-4 text-lg leading-6">
                           Nuestra agencia es de carga aérea no acompañada, a diferencia de las agencias con mulas con nosotros se pueden mandar
-                          Telf, Electrodomésticos, Auto-Partes, Muebles, Ferretería, etc.
+                          Teléfonos Celulares, Electrodomésticos, Auto-Partes, Muebles, Ferretería, etc.
                         </p>
                         <p className="mt-4 text-lg leading-6">
-                          Nuestra oficina esta muy cerca del aeropuerto, pero según donde viva hacemos la recogida en su casa. Para traerlo a la
-                          oficina debe de ser por cita previa.
+                          Estamos en 9500 NW 77th Ave, Suite 23, Hialeah Gardens, FL 33016
                         </p>
                         <p className="mt-4 text-lg leading-6">
-                          <a className="mt-4 text-lg leading-6" href="tel:+17868491159">Para más información contacte a nuestro Asistente Personal Frank al Telf.+1 (786) 849-1159</a>
+                          Abrimos de lunes a viernes de 10am a 6pm y los sábados hacemos recogidas de paquetes en las casas sin costo alguno, con cita previa .
+                        </p>
+                        <p className="mt-4 text-lg leading-6">
+                          <a className="mt-4 text-lg leading-6" href="tel:+17868491159">Si lo desea puede llamarnos al +1 (786) 849-1159 y le atenderemos con gusto</a>
                         </p>
                       </div>
                     </div>

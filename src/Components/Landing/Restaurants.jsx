@@ -334,10 +334,10 @@ const Restaurants = () => {
                           Estamos en 9500 NW 77th Ave, Suite 23, Hialeah Gardens, FL 33016
                         </p>
                         <p className="mt-4 text-lg leading-6">
-                          Abrimos de lunes a viernes de 10am a 6pm y los sábados hacemos recogidas de paquetes en las casas sin costo alguno, con cita previa .
+                          Abrimos de lunes a viernes de 10am a 6pm y los sábados hacemos recogidas de paquetes en las casas sin costo alguno, con cita previa.
                         </p>
                         <p className="mt-4 text-lg leading-6">
-                          <a className="mt-4 text-lg leading-6" href="tel:+17868491159">Si lo desea puede llamarnos al +1 (786) 849-1159 y le atenderemos con gusto</a>
+                          <a className="mt-4 text-lg leading-6" href="tel:+17868491159">Si lo desea puede llamarnos al +1 (786) 849-1159 y le atenderemos con gusto.</a>
                         </p>
                       </div>
                     </div>

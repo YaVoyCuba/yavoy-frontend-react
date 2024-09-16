@@ -291,7 +291,7 @@ const Restaurants = () => {
                           <div className="lg:self-center">
                             <h2 className="text-3xl font-extrabold sm:text-4xl">
                               <span className="block">Ya Voy Envíos</span>
-                              <span className="text-lg font-bold text-gray-700 mt-3">Peso mínimo del paquete 7lb</span>
+                              <span className="text-lg font-bold text-gray-700 mt-3">Tenemos envíos Aéreos y Marítimos</span>
                             </h2>
                             <br />
 
@@ -307,13 +307,32 @@ const Restaurants = () => {
                                 </div>
                                 <div>
                                   <section className="px-2 py-2 sm:pt-2 sm:px-6 lg:py-6 lg:pr-6 xl:py-6 xl:px-6">
-                                    <article>De 7 a 22lb <p className="px-1 inline-flex  rounded bg-green-100 text-green-800 font-semibold">
-                                      4.99 </p>
-                                       dólares por libra</article>
-                                    <article>De 22 a 44lb <p className="px-1 inline-flex  rounded bg-green-100 text-green-800 font-semibold">
-                                      4.50 </p> dólares por libra</article>
-                                    <article>+ de 44lb <p className="px-1 inline-flex rounded bg-orange-100 font-semibold">
-                                      3.99 </p> dólares por libra</article>
+                                    <h3 style={{fontSize: 'larger', fontWeight: '300'}}>Envíos Aéreos</h3>
+                                    <h6 style={{fontSize: 'small', fontWeight: '300'}}>Mínimo 15lb</h6>
+                                    <article>De 15 a 44lb <p
+                                        className="px-1 inline-flex  rounded bg-green-100 text-green-800 font-semibold">
+                                      3.99 </p>
+                                      dólares por libra
+                                    </article>
+                                    <article>De 44 a 100lb <p
+                                        className="px-1 inline-flex rounded bg-green-100 text-green-800 font-semibold">
+                                      3.75 </p> dólares por libra
+                                    </article>
+                                    <article>Más de 100lb <p className="px-1 inline-flex rounded bg-orange-100 font-semibold">
+                                      3.65 </p> dólares por libra
+                                    </article>
+                                  </section>
+                                  <section className="px-2 py-2 sm:pt-2 sm:px-6 lg:py-6 lg:pr-6 xl:py-6 xl:px-6">
+                                    <h3 style={{fontSize: 'larger', fontWeight: '300'}}>Envíos Marítimos</h3>
+                                    <h6 style={{fontSize: 'small', fontWeight: '300'}}>Mínimo 22lb</h6>
+                                    <article>De 22 a 100lb <p
+                                        className="px-1 inline-flex  rounded bg-green-100 text-green-800 font-semibold">
+                                      2.60 </p>
+                                      dólares por libra
+                                    </article>
+                                    <article>Más de 100lb <p className="px-1 inline-flex rounded bg-orange-100 font-semibold">
+                                      2.50 </p> dólares por libra
+                                    </article>
                                   </section>
                                 </div>
                               </div>
@@ -323,20 +342,42 @@ const Restaurants = () => {
                       </div>
                       <div className="pt-2 pb-12 px-4 sm:pt-2 sm:px-2 lg:py-2 lg:pr-0 xl:py-2 xl:px-2">
                         <p className="mt-4 text-lg leading-6">
-                          De momento se vuela una vez por semana, los jueves y las entregas demoran de 48 horas a 10 días máximo.
-                          Entregamos en toda Cuba, excepto en Isla de Pinos
+                            Tenemos envios Aéreos y Marítimos
                         </p>
                         <p className="mt-4 text-lg leading-6">
-                          Nuestra agencia es de carga aérea no acompañada, a diferencia de las agencias con mulas con nosotros se pueden mandar
-                          Teléfonos Celulares, Electrodomésticos, Auto-Partes, Muebles, Ferretería, etc.
+                            El Envío Aéreo vuela 2 veces por semana y a partir del día de vuelo la entrega demora 10 días hábiles a "Toda Cuba"
                         </p>
                         <p className="mt-4 text-lg leading-6">
-                          Estamos en 9500 NW 77th Ave, Suite 23, Hialeah Gardens, FL 33016
+                            El mínimo a mandar son 15 libras y el costo es 3.99 x lb, si se pasa de 44lb es a 3.75 y si pasa de 100lb es a 3.65. Estos precios son para toda Cuba y en el está incluido el delivery hasta la puerta de la casa y su familiar no paga nada.
                         </p>
                         <p className="mt-4 text-lg leading-6">
-                          Abrimos de lunes a viernes de 10am a 6pm y los sábados hacemos recogidas de paquetes en las casas sin costo alguno, con cita previa.
+                            En el Envío Marítimo el mínimo son 22 lb y la libra es a 2.60, si pasa de 100lb es a 2.50. El Barco sale los sábados y demora la entrega de 25 a 30 días.
                         </p>
-                        <p className="mt-4 text-lg leading-6">
+                          <p className="mt-4 text-lg leading-6">
+                              Nuestra agencia es de carga aérea no acompañada, a diferencia de las agencias con mulas con nosotros se pueden mandar Teléfonos Celulares, Electrodomésticos, Auto-Partes, Muebles, Ferretería, etc.
+                          </p>
+                          <p className="mt-4 text-lg leading-6">
+                              Estamos en 9500 NW 77th Ave, Suite 23, Hialeah Gardens, Miami FL 33016
+                          </p>
+                          <p className="mt-4 text-lg leading-6">
+                              Abrimos de lunes a viernes de 10am a 6pm y los viernes y sábados hacemos recogidas de paquetes en las casas sin costo alguno, con cita previa y dentro de Miami
+                          </p>
+                          <p className="mt-4 text-lg leading-6">
+                              Clientes que viven en otros estados, nos hacen llegar sus paquetes por correo regular y tambien cuando hacen compras online (Amazon, Ebay, Shein, etc) ponen nuestra dirección de entrega y su nombre y nosotros se lo enviamos a Cuba
+                          </p>
+                          <p className="mt-4 text-lg leading-6">
+                              Si decide enviar algún paquete, esta es la dirección 👇
+                          </p>
+                          <p className="mt-4 text-lg leading-6">
+                              Dirección de entrega y recepción de paquetes
+                          </p>
+                          <p className="mt-4 text-lg leading-6">
+                              223 Antilla Ave. Apto 11. Coral Gables. Miami FL 33134
+                          </p>
+                          <p className="mt-4 text-lg leading-6">
+                              Debe de poner su nombre en el paquete para saber que es suyo
+                          </p>
+                          <p className="mt-4 text-lg leading-6">
                           <a className="mt-4 text-lg leading-6" href="tel:+17868491159">Si lo desea puede llamarnos al +1 (305) 645 7572 y le atenderemos con gusto.</a>
                         </p>
                       </div>

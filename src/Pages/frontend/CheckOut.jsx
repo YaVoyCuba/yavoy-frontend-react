@@ -156,15 +156,16 @@ const CheckOut = () => {
       clientPhone: data.clientPhone,
       clientEmail: data.clientEmail,
       clientName: data.clientName + " " + data.clientLastName,
-      client: {
-        name: data.clientName,
-        lastName: data.clientLastName,
-        address: data.clientAddress,
-        phone: data.clientPhone,
-        email: data.clientEmail,
-        countryId: data.clientCountry,
-        termsAndConditions: true,
-      },
+      client: null,
+      // client: {
+      //   name: data.clientName,
+      //   lastName: data.clientLastName,
+      //   address: data.clientAddress,
+      //   phone: data.clientPhone,
+      //   email: data.clientEmail,
+      //   countryId: data.clientCountry,
+      //   termsAndConditions: true,
+      // },
     };
 
     if (methodDelivery === "delivery" && !getMunicipality.value.id) {
@@ -666,7 +667,7 @@ const CheckOut = () => {
                         (deliveryService == 1 &&
                           method.name == "Entrega a domicilio") ? (
                         <button
-                          onClick={() => setTropipayData(true)}
+                          onClick={() => setTropipayData(false)}
                           className="btn-main flex  mt-7 px-7 mx-auto"
                         >
                           <span className="px-7 text-lg font-medium">

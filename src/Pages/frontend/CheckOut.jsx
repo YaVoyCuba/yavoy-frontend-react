@@ -153,9 +153,9 @@ const CheckOut = () => {
       dayDelivery: data.dayDelivery,
       currency_code: "USD",
       method_payment: "tropipay",
-      clientPhone: data.clientPhone,
-      clientEmail: data.clientEmail,
-      clientName: data.clientName + " " + data.clientLastName,
+      clientPhone: null, // data.clientPhone,
+      clientEmail: null, // data.clientEmail,
+      clientName: null, // data.clientName + " " + data.clientLastName,
       client: null,
       // client: {
       //   name: data.clientName,

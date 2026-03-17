@@ -7,34 +7,36 @@ const categories = [
     name: "Dulcerias",
     description: "Postres y combos dulces para sorprender en casa.",
     href: "/dulcerias",
-    icon: "DL",
-    gradient: "from-amber-300 to-orange-500",
+    image: "/assets/img/stitch-main/cat-dulcerias.webp",
   },
   {
     id: "mercados",
     name: "Mercados",
     description: "Productos frescos y de primera necesidad.",
     href: "/mercados",
-    icon: "MK",
-    gradient: "from-emerald-300 to-emerald-600",
+    image: "/assets/img/stitch-main/cat-mercados.webp",
   },
   {
     id: "regalitos",
     name: "Regalitos",
     description: "Detalles y paquetes para fechas especiales.",
     href: "/regalitos",
-    icon: "RG",
-    gradient: "from-orange-300 to-rose-500",
+    image: "/assets/img/stitch-main/cat-regalitos.webp",
   },
   {
     id: "restaurantes",
-    name: "Restaurantes",
-    description: "Comidas listas para enviar con entrega local.",
+    name: "Aseo",
+    description: "Productos de limpieza e higiene.",
     href: "/restaurantes",
-    icon: "RT",
-    gradient: "from-cyan-300 to-blue-600",
+    image: "/assets/img/stitch-main/cat-aseo.webp",
   },
 ];
+
+const heroImage = "/assets/img/stitch-main/hero-family.webp";
+
+const avatarOne = "/assets/img/stitch-main/avatar-1.webp";
+
+const avatarTwo = "/assets/img/stitch-main/avatar-2.webp";
 
 const MainLandingRedesign = () => {
   return (
@@ -68,20 +70,40 @@ const MainLandingRedesign = () => {
               </a>
             </div>
             <div className="mt-8 border-t border-slate-200 pt-5 text-sm text-slate-500">
-              Mas de 1,000 familias felices en Cuba
+              <div className="flex items-center gap-4">
+                <div className="flex -space-x-3">
+                  <div className="h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-slate-200">
+                    <img src={avatarOne} alt="Cliente satisfecho" className="h-full w-full object-cover" />
+                  </div>
+                  <div className="h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-slate-200">
+                    <img src={avatarTwo} alt="Cliente satisfecho" className="h-full w-full object-cover" />
+                  </div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-[#f06233] text-xs font-bold text-white">
+                    +1k
+                  </div>
+                </div>
+                <p>Mas de 1,000 familias felices en Cuba</p>
+              </div>
             </div>
           </div>
           <div className="relative">
             <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-orange-200/60 blur-2xl" />
             <div className="overflow-hidden rounded-2xl border border-white/80 bg-white shadow-2xl">
               <img
-                src="/assets/img/fondo.webp"
+                src={heroImage}
                 alt="Familia recibiendo una entrega"
                 className="h-full max-h-[420px] w-full object-cover"
               />
               <div className="m-4 rounded-xl border border-emerald-200 bg-white p-3 text-sm shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-wide text-emerald-600">Ultima entrega</p>
-                <p className="font-semibold text-slate-800">Entregado en La Habana hace 15 min</p>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500 text-white">
+                    <span className="material-symbols-outlined !text-xl">package_2</span>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wide text-emerald-600">Ultima entrega</p>
+                    <p className="font-semibold text-slate-800">Entregado en La Habana hace 15 min</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -90,10 +112,10 @@ const MainLandingRedesign = () => {
 
       <section className="border-b border-[#efd7cf] bg-[#f7efeb] py-4">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 text-xs font-semibold uppercase tracking-wide text-slate-600 md:grid-cols-4 md:px-8">
-          <p>Tienda real</p>
-          <p>Socios distribuidos</p>
-          <p>Pago encriptado</p>
-          <p>Soporte 24/7</p>
+          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">verified_user</span>Tienda real</p>
+          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">partner_exchange</span>Socios distribuidos</p>
+          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">security</span>Pago encriptado</p>
+          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">support_agent</span>Soporte 24/7</p>
         </div>
       </section>
 
@@ -106,19 +128,25 @@ const MainLandingRedesign = () => {
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           <article className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-xl">1</div>
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-[#f06233]">
+              <span className="material-symbols-outlined !text-2xl">ads_click</span>
+            </div>
             <h3 className="text-lg font-bold">Elige productos o paquetes</h3>
             <p className="mt-2 text-sm text-slate-600">
               Explora la seleccion disponible y agrega lo necesario al carrito.
             </p>
           </article>
           <article className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-xl">2</div>
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-[#f06233]">
+              <span className="material-symbols-outlined !text-2xl">credit_card</span>
+            </div>
             <h3 className="text-lg font-bold">Realiza tu pedido online</h3>
             <p className="mt-2 text-sm text-slate-600">Paga de forma segura desde cualquier lugar del mundo.</p>
           </article>
           <article className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-xl">3</div>
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-[#f06233]">
+              <span className="material-symbols-outlined !text-2xl">handshake</span>
+            </div>
             <h3 className="text-lg font-bold">Coordinamos la entrega</h3>
             <p className="mt-2 text-sm text-slate-600">
               Nuestros socios locales entregan en puerta a la familia beneficiaria.
@@ -144,17 +172,16 @@ const MainLandingRedesign = () => {
               <Link
                 key={category.id}
                 to={category.href}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+                className="group relative h-64 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className={`absolute inset-0 opacity-90 bg-gradient-to-br ${category.gradient}`} />
-                <div className="relative flex h-full min-h-[170px] flex-col justify-between text-white">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/40 bg-black/15 text-sm font-black tracking-wider">
-                    {category.icon}
-                  </span>
-                  <div>
-                    <h3 className="text-xl font-black">{category.name}</h3>
-                    <p className="mt-1 text-sm text-white/90">{category.description}</p>
-                  </div>
+                <img
+                  src={category.image}
+                  alt={category.description}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                  <h3 className="text-2xl font-black">{category.name}</h3>
                 </div>
               </Link>
             ))}

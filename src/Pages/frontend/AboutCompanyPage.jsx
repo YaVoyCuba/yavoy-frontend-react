@@ -38,7 +38,10 @@ const AboutCompanyPage = () => {
             comestibles, medicinas y articulos de cuidado personal.
           </p>
           <div className="mt-7 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-            <p className="text-sm font-bold text-slate-900">Manejo seguro</p>
+            <p className="flex items-center gap-2 text-sm font-bold text-slate-900">
+              <span className="material-symbols-outlined !text-base text-[#f06233]">security</span>
+              Manejo seguro
+            </p>
             <p className="mt-1 text-sm text-slate-600">
               Cada articulo es rastreado y manejado con el maximo cuidado desde el envio hasta la puerta final.
             </p>
@@ -57,7 +60,10 @@ const AboutCompanyPage = () => {
       <section className="bg-[#f4ebea] py-16">
         <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <h2 className="text-4xl font-black">Nuestra Historia</h2>
+            <h2 className="flex items-center justify-center gap-2 text-4xl font-black">
+              <span className="material-symbols-outlined text-[#f06233]">history</span>
+              Nuestra Historia
+            </h2>
             <p className="mt-3 text-slate-600">
               Lo que comenzo como un pequeno proyecto de logistica en Miami se convirtio en un puente comunitario de
               confianza para la diaspora cubana.
@@ -86,13 +92,19 @@ const AboutCompanyPage = () => {
       <section className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:px-8">
         <div className="overflow-hidden rounded-2xl bg-white shadow-xl">
           <div className="flex items-center justify-between bg-[#f06233] px-5 py-3 text-sm font-bold text-white">
-            <span>Estado de minorista verificado</span>
+            <span className="flex items-center gap-2">
+              <span className="material-symbols-outlined !text-base">verified</span>
+              Estado de minorista verificado
+            </span>
             <span>OK</span>
           </div>
           <div className="p-5">
             <img src="/assets/img/fondo.webp" alt="Inventario fisico" className="h-64 w-full rounded-lg object-cover" />
             <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
-              <p className="text-sm font-bold text-slate-900">Operaciones de tienda fisica</p>
+              <p className="flex items-center gap-2 text-sm font-bold text-slate-900">
+                <span className="material-symbols-outlined !text-base text-green-600">storefront</span>
+                Operaciones de tienda fisica
+              </p>
               <p className="mt-1 text-xs text-slate-600">No somos solo una app; gestionamos inventario real.</p>
             </div>
           </div>
@@ -102,15 +114,24 @@ const AboutCompanyPage = () => {
           <h2 className="mt-2 text-4xl font-black">Por que confiar en YaVoy Cuba?</h2>
           <div className="mt-6 space-y-6">
             <article>
-              <p className="text-xl font-bold">Socios Locales</p>
+              <p className="flex items-center gap-2 text-xl font-bold">
+                <span className="material-symbols-outlined text-[#f06233]">handshake</span>
+                Socios Locales
+              </p>
               <p className="mt-1 text-slate-600">Trabajamos con agentes de entrega verificados para cada vecindario.</p>
             </article>
             <article>
-              <p className="text-xl font-bold">Inventario en Tiempo Real</p>
+              <p className="flex items-center gap-2 text-xl font-bold">
+                <span className="material-symbols-outlined text-[#f06233]">inventory_2</span>
+                Inventario en Tiempo Real
+              </p>
               <p className="mt-1 text-slate-600">La disponibilidad mostrada responde a existencias fisicas reales.</p>
             </article>
             <article>
-              <p className="text-xl font-bold">Presencia en Toda la Isla</p>
+              <p className="flex items-center gap-2 text-xl font-bold">
+                <span className="material-symbols-outlined text-[#f06233]">map</span>
+                Presencia en Toda la Isla
+              </p>
               <p className="mt-1 text-slate-600">Cobertura desde Pinar del Rio hasta Guantanamo con plazos confiables.</p>
             </article>
           </div>

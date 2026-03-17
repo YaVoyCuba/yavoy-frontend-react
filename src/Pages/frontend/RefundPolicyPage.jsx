@@ -25,7 +25,10 @@ const RefundPolicyPage = () => {
       </p>
 
       <section className="mt-12">
-        <h2 className="text-3xl font-black md:text-4xl">Elegibilidad de reembolso</h2>
+        <h2 className="flex items-center gap-2 text-3xl font-black md:text-4xl">
+          <span className="material-symbols-outlined text-[#f06233]">verified_user</span>
+          Elegibilidad de reembolso
+        </h2>
         <div className="mt-5 space-y-3">
           <details className="rounded-xl border border-[#f1d8cf] bg-white p-4" open>
             <summary className="cursor-pointer list-none text-lg font-bold">Cancelaciones estandar</summary>
@@ -52,7 +55,10 @@ const RefundPolicyPage = () => {
       </section>
 
       <section className="mt-10 rounded-2xl border border-[#f1d8cf] bg-[#fff2ed] p-6 md:p-8">
-        <h2 className="text-3xl font-black md:text-4xl">Proceso de devolucion</h2>
+        <h2 className="flex items-center gap-2 text-3xl font-black md:text-4xl">
+          <span className="material-symbols-outlined text-[#f06233]">account_tree</span>
+          Proceso de devolucion
+        </h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <article>
             <p className="text-2xl font-black text-[#f06233]">01.</p>
@@ -73,7 +79,10 @@ const RefundPolicyPage = () => {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-3xl font-black md:text-4xl">Cronograma de reembolsos</h2>
+        <h2 className="flex items-center gap-2 text-3xl font-black md:text-4xl">
+          <span className="material-symbols-outlined text-[#f06233]">schedule</span>
+          Cronograma de reembolsos
+        </h2>
         <div className="mt-5 overflow-hidden rounded-xl border border-[#f1d8cf]">
           <table className="w-full text-left text-sm">
             <thead className="bg-[#fff2ed]">
@@ -101,15 +110,20 @@ const RefundPolicyPage = () => {
       </section>
 
       <section className="mt-12 rounded-2xl bg-[#0b1a3f] p-8 text-center text-white md:p-12">
+        <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#f06233]">
+          <span className="material-symbols-outlined">support_agent</span>
+        </div>
         <h2 className="text-4xl font-black md:text-5xl">Necesita mas ayuda?</h2>
         <p className="mx-auto mt-3 max-w-2xl text-slate-200">
           Nuestro equipo de soporte esta disponible para responder consultas sobre la politica y casos especificos.
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
-          <a href="/contacto" className="rounded-lg bg-[#f06233] px-6 py-3 text-sm font-bold text-white">
+          <a href="/contacto" className="inline-flex items-center gap-2 rounded-lg bg-[#f06233] px-6 py-3 text-sm font-bold text-white">
+            <span className="material-symbols-outlined !text-base">mail</span>
             Contactar a soporte
           </a>
-          <a href="/" className="rounded-lg border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white">
+          <a href="/" className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white">
+            <span className="material-symbols-outlined !text-base">help</span>
             Centro de ayuda
           </a>
         </div>

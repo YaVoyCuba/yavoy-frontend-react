@@ -6,27 +6,133 @@ const AboutCompanyPage = () => {
   }, []);
 
   return (
-    <main className="mx-auto w-full max-w-4xl px-4 py-14 md:px-8">
-      <h1 className="text-3xl font-black text-slate-900 md:text-4xl">Sobre nosotros</h1>
-      <p className="mt-4 text-slate-700">
-        YaVoy Cuba es una plataforma de comercio y logistica enfocada en conectar a cubanos en el exterior con sus
-        familias en Cuba mediante compras y entregas coordinadas con socios locales.
-      </p>
+    <main className="-mx-3 bg-[#f7f5f6] text-slate-900 lg:-mx-14">
+      <section className="mx-auto w-full max-w-7xl px-4 py-10 md:px-8">
+        <div className="relative min-h-[360px] overflow-hidden rounded-2xl bg-slate-900 shadow-2xl md:min-h-[430px]">
+          <img src="/assets/img/fondo.webp" alt="YaVoy Cuba" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/55 to-transparent" />
+          <div className="relative flex h-full max-w-3xl flex-col justify-end p-7 md:p-14">
+            <span className="mb-4 inline-block rounded bg-[#f06233] px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-white">
+              Nuestro compromiso
+            </span>
+            <h1 className="text-4xl font-black leading-[1.02] text-white md:text-6xl">
+              Conectando Familias a Traves de las Fronteras
+            </h1>
+            <p className="mt-4 text-base font-medium leading-relaxed text-slate-200 md:text-xl">
+              Acortamos la distancia entre usted y sus seres queridos en Cuba a traves del envio seguro, confiable y
+              rapido de productos esenciales.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <div className="mt-8 grid gap-4 md:grid-cols-3">
-        <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Mision</h2>
-          <p className="mt-2 text-sm text-slate-700">Hacer que enviar apoyo a la familia sea rapido, seguro y transparente.</p>
-        </article>
-        <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Modelo</h2>
-          <p className="mt-2 text-sm text-slate-700">Marketplace con pagos online y coordinacion de entrega a domicilio.</p>
-        </article>
-        <article className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 className="text-sm font-bold uppercase tracking-wide text-slate-500">Cobertura</h2>
-          <p className="mt-2 text-sm text-slate-700">Operaciones de compra internacional con distribucion local en Cuba.</p>
-        </article>
-      </div>
+      <section className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:px-8">
+        <div>
+          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f06233]">Nuestra mision</p>
+          <h2 className="mt-2 text-3xl font-black leading-tight md:text-5xl">
+            La entrega va mas alla de los paquetes; se trata de cuidar.
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-slate-600">
+            YaVoy Cuba nacio de una profunda comprension de los desafios que enfrentan las familias cuando intentan
+            apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y seguro para
+            comestibles, medicinas y articulos de cuidado personal.
+          </p>
+          <div className="mt-7 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <p className="text-sm font-bold text-slate-900">Manejo seguro</p>
+            <p className="mt-1 text-sm text-slate-600">
+              Cada articulo es rastreado y manejado con el maximo cuidado desde el envio hasta la puerta final.
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="h-64 overflow-hidden rounded-xl shadow-lg">
+            <img src="/assets/img/fondo.webp" alt="Centro logistico" className="h-full w-full object-cover" />
+          </div>
+          <div className="h-64 translate-y-8 overflow-hidden rounded-xl shadow-lg">
+            <img src="/assets/img/product_by_libras.jpg" alt="Preparacion de paquetes" className="h-full w-full object-cover" />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f4ebea] py-16">
+        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <h2 className="text-4xl font-black">Nuestra Historia</h2>
+            <p className="mt-3 text-slate-600">
+              Lo que comenzo como un pequeno proyecto de logistica en Miami se convirtio en un puente comunitario de
+              confianza para la diaspora cubana.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            <article className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm">
+              <p className="text-4xl font-black text-[#f06233]">2018</p>
+              <p className="mt-3 text-lg font-bold">El Comienzo</p>
+              <p className="mt-2 text-sm text-slate-600">Fundamos la operacion para simplificar envios a La Habana.</p>
+            </article>
+            <article className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm">
+              <p className="text-4xl font-black text-[#f06233]">2021</p>
+              <p className="mt-3 text-lg font-bold">Expandiendo el Alcance</p>
+              <p className="mt-2 text-sm text-slate-600">Llevamos cobertura estable a todas las provincias de Cuba.</p>
+            </article>
+            <article className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm">
+              <p className="text-4xl font-black text-[#f06233]">Today</p>
+              <p className="mt-3 text-lg font-bold">El Puente Digital</p>
+              <p className="mt-2 text-sm text-slate-600">Inventario real integrado con equipos locales de entrega.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:px-8">
+        <div className="overflow-hidden rounded-2xl bg-white shadow-xl">
+          <div className="flex items-center justify-between bg-[#f06233] px-5 py-3 text-sm font-bold text-white">
+            <span>Estado de minorista verificado</span>
+            <span>OK</span>
+          </div>
+          <div className="p-5">
+            <img src="/assets/img/fondo.webp" alt="Inventario fisico" className="h-64 w-full rounded-lg object-cover" />
+            <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-sm font-bold text-slate-900">Operaciones de tienda fisica</p>
+              <p className="mt-1 text-xs text-slate-600">No somos solo una app; gestionamos inventario real.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f06233]">Transparencia y seguridad</p>
+          <h2 className="mt-2 text-4xl font-black">Por que confiar en YaVoy Cuba?</h2>
+          <div className="mt-6 space-y-6">
+            <article>
+              <p className="text-xl font-bold">Socios Locales</p>
+              <p className="mt-1 text-slate-600">Trabajamos con agentes de entrega verificados para cada vecindario.</p>
+            </article>
+            <article>
+              <p className="text-xl font-bold">Inventario en Tiempo Real</p>
+              <p className="mt-1 text-slate-600">La disponibilidad mostrada responde a existencias fisicas reales.</p>
+            </article>
+            <article>
+              <p className="text-xl font-bold">Presencia en Toda la Isla</p>
+              <p className="mt-1 text-slate-600">Cobertura desde Pinar del Rio hasta Guantanamo con plazos confiables.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-7xl px-4 pb-20 md:px-8">
+        <div className="rounded-2xl bg-[#f06233] px-6 py-12 text-center text-white shadow-xl md:px-14 md:py-14">
+          <h2 className="text-4xl font-black leading-tight md:text-5xl">Listo para enviar un poco de amor a casa?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-white/90">
+            Unase a miles de familias que confian en YaVoy Cuba para sus entregas mensuales esenciales.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <a href="/" className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-[#f06233]">
+              Iniciar pedido ahora
+            </a>
+            <a href="/restaurantes" className="rounded-xl border border-white px-6 py-3 text-sm font-bold text-white">
+              Ver productos
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };

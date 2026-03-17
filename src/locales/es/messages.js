@@ -1,0 +1,3 @@
+/*eslint-disable*/
+const messages = JSON.parse("{\"43r9wx\":[\"Desarrollado por\"],\"6f8S68\":[\"Mercados\"],\"8Zdbyh\":[\"Envío de paquetes\"],\"AvdxKC\":[\"Tiendas\"],\"B757Pe\":[\"Acceder / Registrar\"],\"EXoFZp\":[\"Dulcerías\"],\"HBI6nY\":[\"¿Necesitas ayuda?\"],\"Ig3u9M\":[\"Restaurantes\"],\"VOuw2v\":[\"Regalitos\"],\"f8pLH7\":[\"Añade tu alojamiento\"],\"i0qMbr\":[\"Inicio\"],\"iBhcmy\":[\"Estamos en las redes\"],\"lgRLIn\":[\"¡Bienvenido a YaVoy MarketPlace!\"]}");
+export { messages };

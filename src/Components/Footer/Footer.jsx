@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Trans } from '@lingui/macro'
 
 const Footer = (props) => {
   const info = useSelector((state) => state.info.info);
@@ -10,8 +11,7 @@ const Footer = (props) => {
         <div className="bg-main">
           <div className="max-w-7xl mx-auto pt-12 px-4 overflow-hidden sm:px-6 lg:px-8">
             <p className="text-center font-medium text-white ">
-              {" "}
-              Estamos en las redes
+              <Trans>Connect with us</Trans>
             </p>
 
             <div className="mt-1 flex justify-center space-x-6 ">
@@ -105,7 +105,7 @@ const Footer = (props) => {
             </div>
             <div className="max-w-7xl mt-7 mx-auto pb-12 t-7 px-4 overflow-hidden sm:px-6 lg:px-8">
               <p className="text-center font-medium text-white">
-                ¿Necesitas ayuda?
+                <Trans>Need help?</Trans>
               </p>
 
               <div className="mt-1 flex justify-center space-x-6 ">
@@ -166,7 +166,7 @@ const Footer = (props) => {
                     className=" text-center text-base text-white"
                     href="https://app.yavoycuba.com/nuevacasa"
                   >
-                    Añade tu alojamiento
+                    <Trans>Add your accommodation</Trans>
                   </a>
                   {/* <span>|</span>
                   <a
@@ -196,7 +196,7 @@ const Footer = (props) => {
                 ©Ya Voy Cuba MarketPlace LLC 2021
               </p>
               <p className=" text-center text-base text-white">
-                Desarrollado por{" "}
+                <Trans>Developed by</Trans>{" "}
                 <a href="https://crecexdiez.com/e/yavoy">CluzStudio</a>
               </p>
             </div>

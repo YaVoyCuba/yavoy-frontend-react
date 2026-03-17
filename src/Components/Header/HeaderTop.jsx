@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import { Trans } from '@lingui/macro'
+import { Trans } from '@lingui/react/macro'
 
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";

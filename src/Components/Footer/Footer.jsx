@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Trans } from '@lingui/macro'
+import { Trans } from '@lingui/react/macro'
 
 const Footer = (props) => {
   const info = useSelector((state) => state.info.info);

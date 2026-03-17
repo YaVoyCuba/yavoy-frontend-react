@@ -1,0 +1,99 @@
+# README — Development (dev)
+
+This document summarizes the steps required to work on the project and how to manage translations using LinguiJS (English as `sourceLocale`, Spanish as secondary).
+
+Prerequisites
+- Node >= 14, npm >= 6
+- `type: "module"` in `package.json` (already configured)
+
+Quick install
+```bash
+npm install
+```
+
+Important scripts (`package.json`)
+- `npm run dev` — start development server (vite)
+- `npm run build` — production build
+- `npm run preview` — preview the build
+- `npm run lingui:extract` — extract new i18n keys into `.po` files
+- `npm run lingui:compile` — compile `.po` into JS catalogs (runs `postlingui:compile` to convert to ESM)
+- `npm run lingui:add:es` — add `es` locale (example)
+
+Lingui i18n workflow
+1. Add strings in components using the recommended macros:
+   - For JSX fragments, use `Trans`:
+     ```jsx
+     import { Trans } from '@lingui/react/macro'
+     <h1><Trans>Welcome to YaVoy Marketplace!</Trans></h1>
+     ```
+   - For attributes or runtime strings use `useLingui` + `msg`:
+     ```jsx
+     import { useLingui } from '@lingui/react'
+     import { msg } from '@lingui/macro'
+
+     function MyComponent(){
+       const { _ } = useLingui()
+       return <input placeholder={_(msg`Search`)} />
+     }
+     ```
+   - Use `t` (tagged template) from `@lingui/macro` for compile-time constants (outside render).
+
+2. Extract new keys:
+```bash
+npm run lingui:extract
+```
+This updates `src/locales/*/messages.po` adding new `msgid` entries.
+
+3. Translate: open `src/locales/es/messages.po` and fill each `msgstr "..."` for new `msgid` entries.
+
+4. Compile catalogs:
+```bash
+npm run lingui:compile
+```
+This project includes `scripts/fix-catalogs.cjs` registered in `postlingui:compile` to convert the compiled files to ESM (`export { messages }`) because `lingui compile` emits CommonJS by default.
+
+5. Rebuild and verify:
+```bash
+npm run build
+```
+Ensure the build completes without errors and test the app in the browser.
+
+Adding a new language
+1. `npm run lingui:add-locale <locale>` or use `npm run lingui:add:es`.
+2. Edit `src/locales/<locale>/messages.po` and add translations.
+3. `npm run lingui:compile` and verify.
+
+Troubleshooting and tips
+- `ReferenceError: t is not defined` means `t` was used without importing it; instead use `_(msg`...`)` with `useLingui` for runtime translations inside components.
+- If you see `module is not defined` or `module.exports` issues after compiling catalogs, run `npm run lingui:compile` (which triggers `postlingui:compile`) or manually run:
+  ```bash
+  node scripts/fix-catalogs.cjs
+  ```
+- For complex strings that include React elements (links, tags) prefer `Trans`.
+- Avoid using `t` directly inside renders without the correct macro transform; use `msg` + `useLingui` or `Trans` instead.
+
+Optional: Language switcher example
+```jsx
+import { i18n } from './i18n'
+
+function LangSwitcher(){
+  return (
+    <select onChange={e => { i18n.activate(e.target.value); localStorage.setItem('lang', e.target.value); }}>
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  )
+}
+```
+Recommendation: restore `localStorage` value on startup and activate the locale in `src/i18n.js`.
+
+Best practices
+- Extract and compile frequently when adding strings.
+- Keep `src/locales/en/messages.po` as the source reference (`sourceLocale`).
+- Use placeholders in `msgid` where variables are needed; avoid very large single `msgid` blobs.
+
+Relevant files
+- `package.json`
+- `src/i18n.js`
+- `scripts/fix-catalogs.cjs`
+- `src/locales/es/messages.po`

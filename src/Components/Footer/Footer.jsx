@@ -196,8 +196,8 @@ const Footer = (props) => {
                 ©Ya Voy Cuba MarketPlace LLC 2021
               </p>
               <p className=" text-center text-base text-white">
-                <Trans>Developed by</Trans>{" "}
-                <a href="https://crecexdiez.com/e/yavoy">CluzStudio</a>
+                <Trans>Maintained by</Trans>{" "}
+                <a href="https://github.com/kmilodenisglez">KDG</a>
               </p>
             </div>
           </div>

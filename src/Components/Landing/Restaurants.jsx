@@ -14,12 +14,14 @@ import { Swiper, SwiperSlide  } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Link } from "react-router-dom";
+import MainLandingRedesign from "./MainLandingRedesign";
 
 const Restaurants = () => {
   SwiperCore.use([Autoplay]);
   //Get path for this route
   const locationRouter = useLocation();
   const path = locationRouter.pathname;
+  const isMainPage = path === "/";
 
   const [restaurants, setRestaurants] = useState([]);
   const [promoRestaurants, setPromoRestaurants] = useState([]);
@@ -66,9 +68,18 @@ const Restaurants = () => {
   }
 
   useEffect(() => {
+    if (isMainPage) {
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     getMunicipality.value && getMunicipality.value.id !== 0 && getRestaurants();
-  }, [getMunicipality, path]);
+  }, [getMunicipality, path, isMainPage]);
+
+  if (isMainPage) {
+    return <MainLandingRedesign />;
+  }
 
   return (
     <>

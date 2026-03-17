@@ -9,6 +9,11 @@ import { ToastContainer } from "react-toastify";
 import CheckOut from "./Pages/frontend/CheckOut";
 import PaymentCompleted from "./Pages/frontend/PaymentCompleted";
 import PaymentFailed from "./Pages/frontend/PaymentFailed";
+import AboutCompanyPage from "./Pages/frontend/AboutCompanyPage";
+import ContactPage from "./Pages/frontend/ContactPage";
+import TermsPage from "./Pages/frontend/TermsPage";
+import PrivacyPolicyPage from "./Pages/frontend/PrivacyPolicyPage";
+import RefundPolicyPage from "./Pages/frontend/RefundPolicyPage";
 import { persistor, store } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import PaymentBookings from "./Pages/backend/bookings/PaymentBookings";
@@ -75,6 +80,11 @@ function App() {
                   path="/producto/:productSlug"
                   element={<ProductDetailPage />}
                 />
+                <Route key={"/contacto"} path="/contacto" element={<ContactPage />} />
+                <Route key={"/sobre-nosotros"} path="/sobre-nosotros" element={<AboutCompanyPage />} />
+                <Route key={"/terminos-y-condiciones"} path="/terminos-y-condiciones" element={<TermsPage />} />
+                <Route key={"/politica-de-privacidad"} path="/politica-de-privacidad" element={<PrivacyPolicyPage />} />
+                <Route key={"/politica-de-reembolso"} path="/politica-de-reembolso" element={<RefundPolicyPage />} />
 
                 <Route key={"/caja"} path="caja" element={<CheckOut />} />
                 {/*disabled temporarily*/}

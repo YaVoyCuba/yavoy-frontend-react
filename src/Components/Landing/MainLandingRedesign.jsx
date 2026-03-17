@@ -7,7 +7,7 @@ const categories = [
     name: "Dulcerias",
     description: "Postres y combos dulces para sorprender en casa.",
     href: "/dulcerias",
-    icon: "🍰",
+    icon: "DL",
     gradient: "from-amber-300 to-orange-500",
   },
   {
@@ -15,7 +15,7 @@ const categories = [
     name: "Mercados",
     description: "Productos frescos y de primera necesidad.",
     href: "/mercados",
-    icon: "🥬",
+    icon: "MK",
     gradient: "from-emerald-300 to-emerald-600",
   },
   {
@@ -23,7 +23,7 @@ const categories = [
     name: "Regalitos",
     description: "Detalles y paquetes para fechas especiales.",
     href: "/regalitos",
-    icon: "🎁",
+    icon: "RG",
     gradient: "from-orange-300 to-rose-500",
   },
   {
@@ -31,7 +31,7 @@ const categories = [
     name: "Restaurantes",
     description: "Comidas listas para enviar con entrega local.",
     href: "/restaurantes",
-    icon: "🍽️",
+    icon: "RT",
     gradient: "from-cyan-300 to-blue-600",
   },
 ];
@@ -148,7 +148,9 @@ const MainLandingRedesign = () => {
               >
                 <div className={`absolute inset-0 opacity-90 bg-gradient-to-br ${category.gradient}`} />
                 <div className="relative flex h-full min-h-[170px] flex-col justify-between text-white">
-                  <span className="text-3xl">{category.icon}</span>
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/40 bg-black/15 text-sm font-black tracking-wider">
+                    {category.icon}
+                  </span>
                   <div>
                     <h3 className="text-xl font-black">{category.name}</h3>
                     <p className="mt-1 text-sm text-white/90">{category.description}</p>
@@ -177,8 +179,10 @@ const MainLandingRedesign = () => {
                 </Link>
               </div>
             </div>
-            <div className="hidden h-24 w-24 items-center justify-center rounded-full border border-white/40 bg-white/15 text-3xl md:flex">
-              ❤
+            <div className="hidden h-24 w-24 items-center justify-center rounded-full border border-white/40 bg-white/15 md:flex">
+              <svg viewBox="0 0 24 24" fill="none" className="h-10 w-10" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 20.25l-1.45-1.32C5.4 14.28 2 11.2 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C13.09 2.81 14.76 2 16.5 2 19.58 2 22 4.42 22 7.5c0 3.7-3.4 6.78-8.55 11.43L12 20.25z" stroke="white" strokeWidth="1.5"/>
+              </svg>
             </div>
           </div>
         </div>

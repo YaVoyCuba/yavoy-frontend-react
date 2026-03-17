@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useLingui } from "@lingui/react";
+import { msg } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 
 const categories = [
@@ -40,6 +42,35 @@ const avatarOne = "/assets/img/stitch-main/avatar-1.webp";
 const avatarTwo = "/assets/img/stitch-main/avatar-2.webp";
 
 const MainLandingRedesign = () => {
+  const { _ } = useLingui();
+
+  const categoriesI18n = categories.map((category) => {
+    const labels = {
+      dulcerias: {
+        name: _(msg`Sweets`),
+        description: _(msg`Sweet desserts and combos to surprise your family.`),
+      },
+      mercados: {
+        name: _(msg`Markets`),
+        description: _(msg`Fresh products and essentials.`),
+      },
+      regalitos: {
+        name: _(msg`Gifts`),
+        description: _(msg`Details and bundles for special occasions.`),
+      },
+      restaurantes: {
+        name: _(msg`Cleaning`),
+        description: _(msg`Cleaning and hygiene products.`),
+      },
+    };
+
+    return {
+      ...category,
+      name: labels[category.id].name,
+      description: labels[category.id].description,
+    };
+  });
+
   return (
     <div className="-mx-3 lg:-mx-14 bg-[#f6f6f7] text-slate-900">
       <section className="stitch-reveal relative overflow-hidden border-b border-[#f0d7cf] bg-[#f7f3f1]">
@@ -47,43 +78,43 @@ const MainLandingRedesign = () => {
         <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 py-10 md:px-8 lg:grid-cols-2 lg:items-center lg:py-16">
           <div>
             <div className="mb-5 inline-flex items-center rounded-full bg-[#f8ded5] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#f06233]">
-              <Trans>Entrega 100% garantizada</Trans>
+              <Trans>100% guaranteed delivery</Trans>
             </div>
             <h1 className="max-w-xl text-4xl font-black leading-tight text-slate-900 md:text-6xl">
-              <Trans>Envia productos y paquetes a tu</Trans>
-              <span className="text-[#f06233]"> <Trans>familia</Trans></span>
+              <Trans>Send products and packages to your</Trans>
+              <span className="text-[#f06233]"> <Trans>family</Trans></span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              <Trans>Compra online de forma segura y coordinamos la entrega directamente a su puerta con nuestros socios locales certificados.</Trans>
+              <Trans>Shop online safely and we coordinate delivery directly to their door with certified local partners.</Trans>
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/restaurantes"
                 className="rounded-xl bg-[#f06233] px-7 py-3 text-sm font-bold text-white shadow-lg shadow-orange-300 transition hover:-translate-y-0.5 hover:bg-[#df592d]"
               >
-                <Trans>Ver productos</Trans>
+                <Trans>View products</Trans>
               </Link>
               <a
                 href="#how-it-works"
                 className="rounded-xl border border-[#f5b39b] bg-white px-7 py-3 text-sm font-bold text-[#f06233] transition hover:bg-[#fff6f2]"
               >
-                <Trans>Como funciona</Trans>
+                <Trans>How it works</Trans>
               </a>
             </div>
             <div className="mt-8 border-t border-slate-200 pt-5 text-sm text-slate-500">
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-3">
                   <div className="h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-slate-200">
-                    <img src={avatarOne} alt="Cliente satisfecho" className="h-full w-full object-cover" />
+                    <img src={avatarOne} alt={_(msg`Happy customer`)} className="h-full w-full object-cover" />
                   </div>
                   <div className="h-10 w-10 overflow-hidden rounded-full border-2 border-white bg-slate-200">
-                    <img src={avatarTwo} alt="Cliente satisfecho" className="h-full w-full object-cover" />
+                    <img src={avatarTwo} alt={_(msg`Happy customer`)} className="h-full w-full object-cover" />
                   </div>
                   <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-[#f06233] text-xs font-bold text-white">
                     +1k
                   </div>
                 </div>
-                <p><Trans>Mas de 1,000 familias felices en Cuba</Trans></p>
+                <p><Trans>More than 1,000 happy families in Cuba</Trans></p>
               </div>
             </div>
           </div>
@@ -92,7 +123,7 @@ const MainLandingRedesign = () => {
             <div className="overflow-hidden rounded-2xl border border-white/80 bg-white shadow-2xl">
               <img
                 src={heroImage}
-                alt="Familia recibiendo una entrega"
+                alt={_(msg`Family receiving a delivery`)}
                 className="h-full max-h-[420px] w-full object-cover"
               />
               <div className="m-4 rounded-xl border border-emerald-200 bg-white p-3 text-sm shadow-sm">
@@ -101,8 +132,8 @@ const MainLandingRedesign = () => {
                     <span className="material-symbols-outlined !text-xl">package_2</span>
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wide text-emerald-600"><Trans>Ultima entrega</Trans></p>
-                    <p className="font-semibold text-slate-800"><Trans>Entregado en La Habana hace 15 min</Trans></p>
+                    <p className="text-xs font-bold uppercase tracking-wide text-emerald-600"><Trans>Latest delivery</Trans></p>
+                    <p className="font-semibold text-slate-800"><Trans>Delivered in Havana 15 min ago</Trans></p>
                   </div>
                 </div>
               </div>
@@ -113,18 +144,18 @@ const MainLandingRedesign = () => {
 
       <section className="stitch-reveal border-b border-[#efd7cf] bg-[#f7efeb] py-4" style={{ animationDelay: "90ms" }}>
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 text-xs font-semibold uppercase tracking-wide text-slate-600 md:grid-cols-4 md:px-8">
-          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">verified_user</span><Trans>Tienda real</Trans></p>
-          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">partner_exchange</span><Trans>Socios distribuidos</Trans></p>
-          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">security</span><Trans>Pago encriptado</Trans></p>
-          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">support_agent</span><Trans>Soporte 24/7</Trans></p>
+          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">verified_user</span><Trans>Real store</Trans></p>
+          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">partner_exchange</span><Trans>Distributed partners</Trans></p>
+          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">security</span><Trans>Encrypted payment</Trans></p>
+          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">support_agent</span><Trans>24/7 support</Trans></p>
         </div>
       </section>
 
       <section id="how-it-works" className="stitch-reveal mx-auto w-full max-w-7xl px-4 py-16 md:px-8" style={{ animationDelay: "160ms" }}>
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-black md:text-4xl"><Trans>Como funciona YaVoy</Trans></h2>
+          <h2 className="text-3xl font-black md:text-4xl"><Trans>How YaVoy works</Trans></h2>
           <p className="mt-3 text-slate-600">
-            <Trans>Enviamos tus compras de forma eficiente siguiendo un proceso simple y transparente.</Trans>
+            <Trans>We deliver your purchases efficiently through a simple and transparent process.</Trans>
           </p>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -132,25 +163,25 @@ const MainLandingRedesign = () => {
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-[#f06233]">
               <span className="material-symbols-outlined !text-2xl">ads_click</span>
             </div>
-            <h3 className="text-lg font-bold"><Trans>Elige productos o paquetes</Trans></h3>
+            <h3 className="text-lg font-bold"><Trans>Choose products or bundles</Trans></h3>
             <p className="mt-2 text-sm text-slate-600">
-              <Trans>Explora la seleccion disponible y agrega lo necesario al carrito.</Trans>
+              <Trans>Browse the available selection and add what you need to cart.</Trans>
             </p>
           </article>
           <article className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-[#f06233]">
               <span className="material-symbols-outlined !text-2xl">credit_card</span>
             </div>
-            <h3 className="text-lg font-bold"><Trans>Realiza tu pedido online</Trans></h3>
-            <p className="mt-2 text-sm text-slate-600"><Trans>Paga de forma segura desde cualquier lugar del mundo.</Trans></p>
+            <h3 className="text-lg font-bold"><Trans>Place your order online</Trans></h3>
+            <p className="mt-2 text-sm text-slate-600"><Trans>Pay securely from anywhere in the world.</Trans></p>
           </article>
           <article className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-[#f06233]">
               <span className="material-symbols-outlined !text-2xl">handshake</span>
             </div>
-            <h3 className="text-lg font-bold"><Trans>Coordinamos la entrega</Trans></h3>
+            <h3 className="text-lg font-bold"><Trans>We coordinate delivery</Trans></h3>
             <p className="mt-2 text-sm text-slate-600">
-              <Trans>Nuestros socios locales entregan en puerta a la familia beneficiaria.</Trans>
+              <Trans>Our local partners deliver to your family at their doorstep.</Trans>
             </p>
           </article>
         </div>
@@ -160,16 +191,16 @@ const MainLandingRedesign = () => {
         <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
           <div className="mb-8 flex items-end justify-between gap-3">
             <div>
-              <h2 className="text-3xl font-black"><Trans>Categorias destacadas</Trans></h2>
-              <p className="mt-2 text-slate-600"><Trans>Los productos mas solicitados para envio inmediato.</Trans></p>
+              <h2 className="text-3xl font-black"><Trans>Featured categories</Trans></h2>
+              <p className="mt-2 text-slate-600"><Trans>Most requested products for immediate delivery.</Trans></p>
             </div>
             <Link className="text-sm font-bold text-[#f06233] hover:underline" to="/restaurantes">
-              <Trans>Ver todo</Trans>
+              <Trans>View all</Trans>
             </Link>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {categories.map((category) => (
+            {categoriesI18n.map((category) => (
               <Link
                 key={category.id}
                 to={category.href}
@@ -194,16 +225,16 @@ const MainLandingRedesign = () => {
         <div className="rounded-3xl bg-[#f06233] p-8 text-white md:p-12">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <h2 className="text-4xl font-black leading-tight"><Trans>Listo para hacer sonreir a tu familia?</Trans></h2>
+              <h2 className="text-4xl font-black leading-tight"><Trans>Ready to make your family smile?</Trans></h2>
               <p className="mt-3 max-w-2xl text-white/90">
-                <Trans>Unete a los miles de cubanos en el exterior que confian en nosotros para sus envios mensuales.</Trans>
+                <Trans>Join thousands of Cubans abroad who trust us for their monthly deliveries.</Trans>
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link to="/restaurantes" className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-[#f06233]">
-                  <Trans>Empezar a comprar</Trans>
+                  <Trans>Start shopping</Trans>
                 </Link>
                 <Link to="/servicios" className="rounded-xl border border-white/40 px-6 py-3 text-sm font-bold text-white">
-                  <Trans>Ver envios</Trans>
+                  <Trans>View shipments</Trans>
                 </Link>
               </div>
             </div>

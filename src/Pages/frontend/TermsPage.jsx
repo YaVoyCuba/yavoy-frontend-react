@@ -8,16 +8,16 @@ const TermsPage = () => {
 
   return (
     <main className="mx-auto w-full max-w-4xl px-4 py-14 md:px-8">
-      <h1 className="text-3xl font-black text-slate-900 md:text-4xl"><Trans>Terminos y condiciones</Trans></h1>
+      <h1 className="text-3xl font-black text-slate-900 md:text-4xl"><Trans>Terms and conditions</Trans></h1>
       <div className="mt-6 space-y-4 text-slate-700">
         <p>
-          <Trans>YaVoy opera como plataforma de comercio y coordinacion de entregas con socios locales. Al usar el sitio, aceptas cumplir las politicas de compra, pago y entrega publicadas.</Trans>
+          <Trans>YaVoy operates as an e-commerce platform that coordinates deliveries with local partners. By using this site, you agree to comply with our published purchase, payment, and delivery policies.</Trans>
         </p>
         <p>
-          <Trans>Los tiempos de entrega son estimados y pueden variar por disponibilidad, clima o factores logisticos de terceros. El cliente debe facilitar informacion correcta para procesar su orden.</Trans>
+          <Trans>Delivery times are estimated and may vary due to availability, weather, or third-party logistics factors. The customer must provide accurate information to process the order.</Trans>
         </p>
         <p>
-          <Trans>Nos reservamos el derecho de cancelar pedidos con indicios de fraude, incumplimiento o uso indebido de la plataforma.</Trans>
+          <Trans>We reserve the right to cancel orders that show signs of fraud, non-compliance, or misuse of the platform.</Trans>
         </p>
       </div>
     </main>

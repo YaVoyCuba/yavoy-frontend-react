@@ -26,7 +26,7 @@ export default function Footer() {
             <img src="/assets/img/logoyavoy.png" alt={t`YaVoy Cuba`} className="h-8 w-auto" />
           </div>
           <p className="mt-4 text-sm leading-relaxed text-slate-300">
-            <Trans>Conectando familias con un servicio de e-commerce y entregas confiable.</Trans>
+            <Trans>Connecting families with reliable e-commerce and delivery services.</Trans>
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {socialLinks.map((social) => (
@@ -44,21 +44,21 @@ export default function Footer() {
         </section>
 
         <section>
-          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400"><Trans>Empresa</Trans></h3>
+          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400"><Trans>Company</Trans></h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
               <Link className="transition hover:text-[#f06233]" to="/sobre-nosotros">
-                <Trans>Sobre nosotros</Trans>
+                <Trans>About us</Trans>
               </Link>
             </li>
             <li>
               <a className="transition hover:text-[#f06233]" href="/#how-it-works">
-                <Trans>Como funciona</Trans>
+                <Trans>How it works</Trans>
               </a>
             </li>
             <li>
               <Link className="transition hover:text-[#f06233]" to="/contacto">
-                <Trans>Contacto</Trans>
+                <Trans>Contact</Trans>
               </Link>
             </li>
           </ul>
@@ -69,24 +69,24 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm">
             <li>
               <Link className="transition hover:text-[#f06233]" to="/terminos-y-condiciones">
-                <Trans>Terminos y condiciones</Trans>
+                <Trans>Terms and conditions</Trans>
               </Link>
             </li>
             <li>
               <Link className="transition hover:text-[#f06233]" to="/politica-de-privacidad">
-                <Trans>Politica de privacidad</Trans>
+                <Trans>Privacy policy</Trans>
               </Link>
             </li>
             <li>
               <Link className="transition hover:text-[#f06233]" to="/politica-de-reembolso">
-                <Trans>Politica de reembolso</Trans>
+                <Trans>Refund policy</Trans>
               </Link>
             </li>
           </ul>
         </section>
 
         <section>
-          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400"><Trans>Contacto</Trans></h3>
+          <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400"><Trans>Contact</Trans></h3>
           <ul className="mt-4 space-y-2 text-sm text-slate-300">
             <li>{info.mail || t`soporte@yavoycuba.com`}</li>
             <li>{info.phone || t`+1 (800) 123-4567`}</li>
@@ -97,7 +97,7 @@ export default function Footer() {
 
       <div className="border-t border-slate-800">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-5 text-xs text-slate-500 md:flex-row md:items-center md:justify-between md:px-8">
-          <p><Trans>© 2026 YaVoy Cuba. Todos los derechos reservados.</Trans></p>
+          <p><Trans>© 2026 YaVoy Cuba. All rights reserved.</Trans></p>
           <p>
             <Trans>Maintained by</Trans>{" "}<a className="hover:text-[#f06233]" href="https://github.com/kmilodenisglez">KDG</a>
           </p>

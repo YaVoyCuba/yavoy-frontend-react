@@ -15,13 +15,13 @@ const AboutCompanyPage = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/55 to-transparent" />
           <div className="relative flex h-full max-w-3xl flex-col justify-end p-7 md:p-14">
             <span className="mb-4 inline-block rounded bg-[#f06233] px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-white">
-              <Trans>Nuestro compromiso</Trans>
+              <Trans>Our commitment</Trans>
             </span>
             <h1 className="text-4xl font-black leading-[1.02] text-white md:text-6xl">
-              <Trans>Conectando Familias a Traves de las Fronteras</Trans>
+              <Trans>Connecting families across borders</Trans>
             </h1>
             <p className="mt-4 text-base font-medium leading-relaxed text-slate-200 md:text-xl">
-              <Trans>Acortamos la distancia entre usted y sus seres queridos en Cuba a traves del envio seguro, confiable y rapido de productos esenciales.</Trans>
+              <Trans>We shorten the distance between you and your loved ones in Cuba through secure, reliable, and fast delivery of essential products.</Trans>
             </p>
           </div>
         </div>
@@ -29,29 +29,29 @@ const AboutCompanyPage = () => {
 
       <section className="stitch-reveal mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:px-8" style={{ animationDelay: "90ms" }}>
         <div>
-          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f06233]"><Trans>Nuestra mision</Trans></p>
+          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f06233]"><Trans>Our mission</Trans></p>
           <h2 className="mt-2 text-3xl font-black leading-tight md:text-5xl">
-            <Trans>La entrega va mas alla de los paquetes; se trata de cuidar.</Trans>
+            <Trans>Delivery goes beyond packages; it is about caring.</Trans>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-slate-600">
-            <Trans>YaVoy Cuba nacio de una profunda comprension de los desafios que enfrentan las familias cuando intentan apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y absolutamente seguro para comestibles, medicinas y articulos de cuidado personal.</Trans>
+            <Trans>YaVoy Cuba was born from a deep understanding of the challenges families face when supporting relatives on the island. Our mission is to provide a transparent and fully secure bridge for groceries, medicines, and personal care items.</Trans>
           </p>
           <div className="mt-7 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
             <p className="flex items-center gap-2 text-sm font-bold text-slate-900">
               <span className="material-symbols-outlined !text-base text-[#f06233]">security</span>
-              <Trans>Manejo seguro</Trans>
+              <Trans>Safe handling</Trans>
             </p>
             <p className="mt-1 text-sm text-slate-600">
-              <Trans>Cada articulo es rastreado y manejado con el maximo cuidado desde el envio hasta la puerta final.</Trans>
+              <Trans>Every item is tracked and handled with maximum care from dispatch to final delivery.</Trans>
             </p>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div className="h-64 overflow-hidden rounded-xl shadow-lg">
-            <img src="/assets/img/fondo.webp" alt={t`Centro logistico`} className="h-full w-full object-cover" />
+            <img src="/assets/img/fondo.webp" alt={t`Logistics center`} className="h-full w-full object-cover" />
           </div>
           <div className="h-64 translate-y-8 overflow-hidden rounded-xl shadow-lg">
-            <img src="/assets/img/product_by_libras.jpg" alt={t`Preparacion de paquetes`} className="h-full w-full object-cover" />
+            <img src="/assets/img/product_by_libras.jpg" alt={t`Package preparation`} className="h-full w-full object-cover" />
           </div>
         </div>
       </section>
@@ -61,27 +61,27 @@ const AboutCompanyPage = () => {
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <h2 className="flex items-center justify-center gap-2 text-4xl font-black">
               <span className="material-symbols-outlined text-[#f06233]">history</span>
-              <Trans>Nuestra Historia</Trans>
+              <Trans>Our story</Trans>
             </h2>
             <p className="mt-3 text-slate-600">
-              <Trans>Lo que comenzo como un pequeno proyecto de logistica en Miami se ha convertido en un pilar comunitario de confianza para la diaspora cubana.</Trans>
+              <Trans>What started as a small logistics project in Miami has become a trusted community pillar for the Cuban diaspora.</Trans>
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             <article className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm">
               <p className="text-4xl font-black text-[#f06233]">2018</p>
-              <p className="mt-3 text-lg font-bold"><Trans>El Comienzo</Trans></p>
-              <p className="mt-2 text-sm text-slate-600"><Trans>Fundada por un grupo de ingenieros y expertos en logistica para simplificar envios a La Habana.</Trans></p>
+              <p className="mt-3 text-lg font-bold"><Trans>The beginning</Trans></p>
+              <p className="mt-2 text-sm text-slate-600"><Trans>Founded by a group of engineers and logistics experts to simplify deliveries to Havana.</Trans></p>
             </article>
             <article className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm">
               <p className="text-4xl font-black text-[#f06233]">2021</p>
-              <p className="mt-3 text-lg font-bold"><Trans>Expandiendo el Alcance</Trans></p>
-              <p className="mt-2 text-sm text-slate-600"><Trans>Expandimos operaciones para cubrir cada provincia en Cuba, sin dejar familias fuera del alcance.</Trans></p>
+              <p className="mt-3 text-lg font-bold"><Trans>Expanding our reach</Trans></p>
+              <p className="mt-2 text-sm text-slate-600"><Trans>We expanded operations to cover every province in Cuba, leaving no family behind.</Trans></p>
             </article>
             <article className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm">
-              <p className="text-4xl font-black text-[#f06233]">Today</p>
-              <p className="mt-3 text-lg font-bold"><Trans>El Puente Digital</Trans></p>
-              <p className="mt-2 text-sm text-slate-600"><Trans>Plataforma integrada que conecta inventario real con equipos locales de entrega confiables.</Trans></p>
+              <p className="text-4xl font-black text-[#f06233]"><Trans>Today</Trans></p>
+              <p className="mt-3 text-lg font-bold"><Trans>The digital bridge</Trans></p>
+              <p className="mt-2 text-sm text-slate-600"><Trans>An integrated platform that connects real inventory with reliable local delivery teams.</Trans></p>
             </article>
           </div>
         </div>
@@ -92,45 +92,45 @@ const AboutCompanyPage = () => {
           <div className="flex items-center justify-between bg-[#f06233] px-5 py-3 text-sm font-bold text-white">
             <span className="flex items-center gap-2">
               <span className="material-symbols-outlined !text-base">verified</span>
-              <Trans>Estado de minorista verificado</Trans>
+              <Trans>Verified retailer status</Trans>
             </span>
             <span>OK</span>
           </div>
           <div className="p-5">
-            <img src="/assets/img/fondo.webp" alt={t`Inventario fisico`} className="h-64 w-full rounded-lg object-cover" />
+            <img src="/assets/img/fondo.webp" alt={t`Physical inventory`} className="h-64 w-full rounded-lg object-cover" />
             <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
               <p className="flex items-center gap-2 text-sm font-bold text-slate-900">
                 <span className="material-symbols-outlined !text-base text-green-600">storefront</span>
-                <Trans>Operaciones de tienda fisica</Trans>
+                <Trans>Physical store operations</Trans>
               </p>
-              <p className="mt-1 text-xs text-slate-600"><Trans>No somos solo una app; gestionamos inventario real.</Trans></p>
+              <p className="mt-1 text-xs text-slate-600"><Trans>We are not just an app; we manage real inventory.</Trans></p>
             </div>
           </div>
         </div>
         <div>
-          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f06233]"><Trans>Transparencia y seguridad</Trans></p>
-          <h2 className="mt-2 text-4xl font-black"><Trans>Por que confiar en YaVoy Cuba?</Trans></h2>
+          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f06233]"><Trans>Transparency and security</Trans></p>
+          <h2 className="mt-2 text-4xl font-black"><Trans>Why trust YaVoy Cuba?</Trans></h2>
           <div className="mt-6 space-y-6">
             <article>
               <p className="flex items-center gap-2 text-xl font-bold">
                 <span className="material-symbols-outlined text-[#f06233]">handshake</span>
-                <Trans>Socios Locales</Trans>
+                <Trans>Local partners</Trans>
               </p>
-              <p className="mt-1 text-slate-600"><Trans>Trabajamos directamente con agentes de entrega locales verificados que entienden cada vecindario.</Trans></p>
+              <p className="mt-1 text-slate-600"><Trans>We work directly with verified local delivery agents who understand every neighborhood.</Trans></p>
             </article>
             <article>
               <p className="flex items-center gap-2 text-xl font-bold">
                 <span className="material-symbols-outlined text-[#f06233]">inventory_2</span>
-                <Trans>Inventario en Tiempo Real</Trans>
+                <Trans>Real-time inventory</Trans>
               </p>
-              <p className="mt-1 text-slate-600"><Trans>A diferencia de revendedores externos, mantenemos existencias fisicas para entrega real.</Trans></p>
+              <p className="mt-1 text-slate-600"><Trans>Unlike third-party resellers, we keep physical stock for real delivery.</Trans></p>
             </article>
             <article>
               <p className="flex items-center gap-2 text-xl font-bold">
                 <span className="material-symbols-outlined text-[#f06233]">map</span>
-                <Trans>Presencia en Toda la Isla</Trans>
+                <Trans>Presence across the island</Trans>
               </p>
-              <p className="mt-1 text-slate-600"><Trans>Desde Pinar del Rio hasta Guantanamo, nuestra red cubre todo el pais con plazos confiables.</Trans></p>
+              <p className="mt-1 text-slate-600"><Trans>From Pinar del Rio to Guantanamo, our network covers the whole country with reliable timelines.</Trans></p>
             </article>
           </div>
         </div>
@@ -138,16 +138,16 @@ const AboutCompanyPage = () => {
 
       <section className="stitch-reveal mx-auto w-full max-w-7xl px-4 pb-20 md:px-8" style={{ animationDelay: "280ms" }}>
         <div className="rounded-2xl bg-[#f06233] px-6 py-12 text-center text-white shadow-xl md:px-14 md:py-14">
-          <h2 className="text-4xl font-black leading-tight md:text-5xl"><Trans>Listo para enviar un poco de amor a casa?</Trans></h2>
+          <h2 className="text-4xl font-black leading-tight md:text-5xl"><Trans>Ready to send a little love home?</Trans></h2>
           <p className="mx-auto mt-4 max-w-2xl text-white/90">
-            <Trans>Unase a miles de familias que confian en YaVoy Cuba para sus entregas mensuales esenciales.</Trans>
+            <Trans>Join thousands of families who trust YaVoy Cuba for their essential monthly deliveries.</Trans>
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a href="/" className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-[#f06233]">
-              <Trans>Iniciar pedido ahora</Trans>
+              <Trans>Start order now</Trans>
             </a>
             <a href="/restaurantes" className="rounded-xl border border-white px-6 py-3 text-sm font-bold text-white">
-              <Trans>Ver productos</Trans>
+              <Trans>View products</Trans>
             </a>
           </div>
         </div>

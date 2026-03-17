@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 import CartIconGlobal from "../Misc/CartIconGlobal";
 import SearchPage from "../Landing/SearchPage";
+import LanguageSwitcher from './LanguageSwitcher'
 
 const HeaderTop = () => {
   const [open, setOpen] = useState(false);
@@ -14,7 +15,7 @@ const HeaderTop = () => {
   return (
     <div className="bg-white z-10  lg:relative top-0 py-3">
       <div className="flex text-sm text-gray-800   justify-between  ">
-        <div className="flex cursor-pointer">
+          <div className="flex cursor-pointer">
           <Link to={"/"}>
             {" "}
             <img
@@ -23,12 +24,12 @@ const HeaderTop = () => {
               alt="YaVoy"
             />
           </Link>
-          <div className="hidden lg:flex">
+          <div className="hidden lg:flex items-center space-x-3">
             <SearchPage />
           </div>
         </div>
         <div className="flex space-x-2 ">
-          <div className="pt-1 lg:hidden">
+          <div className="pt-1 lg:hidden flex items-center space-x-2">
             <SearchPage />
           </div>
           {/* <div>
@@ -68,6 +69,9 @@ const HeaderTop = () => {
           {/*    </svg>*/}
           {/*  </Link>*/}
           {/*</div>*/}
+          <div className="flex items-center pr-2">
+            <LanguageSwitcher />
+          </div>
           <CartIconGlobal key={"34"} />
 
           <div className="flex  -mt-2 cursor-pointer">
@@ -115,7 +119,7 @@ const HeaderTop = () => {
             <Trans>Welcome to YaVoy Marketplace!</Trans>
           </span>
         </div>
-        <div className="px-3 lg:space-x-5   flex">
+          <div className="px-3 lg:space-x-5   flex">
           <div className="  sm:flex   cursor-pointer">
             <span className="text-sm">USD</span>
             <button>

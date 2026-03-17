@@ -15,11 +15,11 @@ const ContactPage = () => {
   return (
     <main className="-mx-3 bg-[#f6f4f5] text-slate-900 lg:-mx-14">
       <section className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 lg:grid-cols-2 lg:px-8">
-        <div>
+        <div className="stitch-reveal">
           <h1 className="text-5xl font-black leading-tight md:text-6xl">Como podemos ayudarte?</h1>
           <p className="mt-4 max-w-lg text-lg leading-relaxed text-slate-600">
-            Estamos aqui para asistirte con tus viajes y envios a Cuba. Escribenos y nos pondremos en contacto lo
-            antes posible.
+            Estamos aqui para asistirte con tus viajes y envios a Cuba. Escribenos y nos pondremos en contacto
+            contigo lo antes posible.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-7 rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
@@ -53,7 +53,7 @@ const ContactPage = () => {
           </form>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 stitch-reveal" style={{ animationDelay: "120ms" }}>
           <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
             <p className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#fff1ec] text-[#f06233]">
               <span className="material-symbols-outlined">mail</span>
@@ -65,14 +65,14 @@ const ContactPage = () => {
             <p className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#fff1ec] text-[#f06233]">
               <span className="material-symbols-outlined">call</span>
             </p>
-            <p className="text-sm text-slate-500">Llamanos</p>
+            <p className="text-sm text-slate-500">Visitanos</p>
             <p className="mt-1 text-2xl font-bold">{info?.phone || "+1 (800) 123-4567"}</p>
           </article>
           <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
             <p className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#fff1ec] text-[#f06233]">
               <span className="material-symbols-outlined">location_on</span>
             </p>
-            <p className="text-sm text-slate-500">Direccion</p>
+            <p className="text-sm text-slate-500">Visitanos</p>
             <p className="mt-1 text-2xl font-bold">8300 NW 33rd St, Miami, FL 33122</p>
           </article>
 

@@ -7,7 +7,7 @@ const RefundPolicyPage = () => {
 
   return (
     <main className="mx-auto w-full max-w-5xl px-4 py-12 md:px-8 md:py-16">
-      <div className="mb-12 border-b border-[#f1d8cf] pb-10">
+      <div className="stitch-reveal mb-12 border-b border-[#f1d8cf] pb-10">
         <p className="inline-flex rounded-full bg-[#ffe7df] px-3 py-1 text-xs font-black uppercase tracking-wider text-[#f06233]">
           Documento de politica
         </p>
@@ -19,12 +19,12 @@ const RefundPolicyPage = () => {
       </div>
 
       <p className="text-base leading-relaxed text-slate-700">
-        En YaVoy Cuba, entendemos que los planes pueden cambiar inesperadamente. Esta politica describe nuestro
-        procedimiento para cancelaciones y reembolsos, equilibrando flexibilidad para clientes y compromisos logísticos
-        con socios locales.
+        En YaVoy Cuba, entendemos que los planes de viaje pueden cambiar inesperadamente. Esta politica describe
+        nuestro procedimiento operativo estandar para cancelaciones y reembolsos. Nuestro objetivo es equilibrar la
+        flexibilidad de nuestros clientes con los compromisos logisticos asumidos con socios locales en toda Cuba.
       </p>
 
-      <section className="mt-12">
+      <section className="stitch-reveal mt-12" style={{ animationDelay: "90ms" }}>
         <h2 className="flex items-center gap-2 text-3xl font-black md:text-4xl">
           <span className="material-symbols-outlined text-[#f06233]">verified_user</span>
           Elegibilidad de reembolso
@@ -47,14 +47,14 @@ const RefundPolicyPage = () => {
           <details className="rounded-xl border border-[#f1d8cf] bg-white p-4">
             <summary className="cursor-pointer list-none text-lg font-bold">Eventos de fuerza mayor</summary>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">
-              Casos fuera de control operativo se revisan individualmente y pueden resolverse mediante creditos vigentes
-              por 12 meses.
+              Eventos fuera de control operativo se revisan caso por caso. Generalmente ofrecemos creditos validos por
+              12 meses.
             </p>
           </details>
         </div>
       </section>
 
-      <section className="mt-10 rounded-2xl border border-[#f1d8cf] bg-[#fff2ed] p-6 md:p-8">
+      <section className="stitch-reveal mt-10 rounded-2xl border border-[#f1d8cf] bg-[#fff2ed] p-6 md:p-8" style={{ animationDelay: "160ms" }}>
         <h2 className="flex items-center gap-2 text-3xl font-black md:text-4xl">
           <span className="material-symbols-outlined text-[#f06233]">account_tree</span>
           Proceso de devolucion
@@ -63,22 +63,22 @@ const RefundPolicyPage = () => {
           <article>
             <p className="text-2xl font-black text-[#f06233]">01.</p>
             <p className="mt-2 text-lg font-bold">Enviar solicitud</p>
-            <p className="mt-1 text-sm text-slate-600">Solicita el reembolso desde tu reserva activa.</p>
+            <p className="mt-1 text-sm text-slate-600">Inicia sesion y selecciona Solicitar Reembolso en tu reserva activa.</p>
           </article>
           <article>
             <p className="text-2xl font-black text-[#f06233]">02.</p>
             <p className="mt-2 text-lg font-bold">Revision interna</p>
-            <p className="mt-1 text-sm text-slate-600">Validamos plazos y estado del servicio en 24 horas.</p>
+            <p className="mt-1 text-sm text-slate-600">Nuestro equipo valida plazo de cancelacion y estado del servicio en 24 horas.</p>
           </article>
           <article>
             <p className="text-2xl font-black text-[#f06233]">03.</p>
             <p className="mt-2 text-lg font-bold">Aprobacion</p>
-            <p className="mt-1 text-sm text-slate-600">Recibes confirmacion por correo con monto final.</p>
+            <p className="mt-1 text-sm text-slate-600">Una vez aprobado, recibes confirmacion por correo con monto final.</p>
           </article>
         </div>
       </section>
 
-      <section className="mt-12">
+      <section className="stitch-reveal mt-12" style={{ animationDelay: "230ms" }}>
         <h2 className="flex items-center gap-2 text-3xl font-black md:text-4xl">
           <span className="material-symbols-outlined text-[#f06233]">schedule</span>
           Cronograma de reembolsos
@@ -109,7 +109,7 @@ const RefundPolicyPage = () => {
         </div>
       </section>
 
-      <section className="mt-12 rounded-2xl bg-[#0b1a3f] p-8 text-center text-white md:p-12">
+      <section className="stitch-reveal mt-12 rounded-2xl bg-[#0b1a3f] p-8 text-center text-white md:p-12" style={{ animationDelay: "300ms" }}>
         <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#f06233]">
           <span className="material-symbols-outlined">support_agent</span>
         </div>

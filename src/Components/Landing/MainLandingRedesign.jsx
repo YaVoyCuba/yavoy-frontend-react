@@ -41,7 +41,7 @@ const avatarTwo = "/assets/img/stitch-main/avatar-2.webp";
 const MainLandingRedesign = () => {
   return (
     <div className="-mx-3 lg:-mx-14 bg-[#f6f6f7] text-slate-900">
-      <section className="relative overflow-hidden border-b border-[#f0d7cf] bg-[#f7f3f1]">
+      <section className="stitch-reveal relative overflow-hidden border-b border-[#f0d7cf] bg-[#f7f3f1]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(242,98,51,0.16),_transparent_42%)]" />
         <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 py-10 md:px-8 lg:grid-cols-2 lg:items-center lg:py-16">
           <div>
@@ -110,7 +110,7 @@ const MainLandingRedesign = () => {
         </div>
       </section>
 
-      <section className="border-b border-[#efd7cf] bg-[#f7efeb] py-4">
+      <section className="stitch-reveal border-b border-[#efd7cf] bg-[#f7efeb] py-4" style={{ animationDelay: "90ms" }}>
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 text-xs font-semibold uppercase tracking-wide text-slate-600 md:grid-cols-4 md:px-8">
           <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">verified_user</span>Tienda real</p>
           <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">partner_exchange</span>Socios distribuidos</p>
@@ -119,7 +119,7 @@ const MainLandingRedesign = () => {
         </div>
       </section>
 
-      <section id="how-it-works" className="mx-auto w-full max-w-7xl px-4 py-16 md:px-8">
+      <section id="how-it-works" className="stitch-reveal mx-auto w-full max-w-7xl px-4 py-16 md:px-8" style={{ animationDelay: "160ms" }}>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-black md:text-4xl">Como funciona YaVoy</h2>
           <p className="mt-3 text-slate-600">
@@ -155,7 +155,7 @@ const MainLandingRedesign = () => {
         </div>
       </section>
 
-      <section className="bg-white py-16">
+      <section className="stitch-reveal bg-white py-16" style={{ animationDelay: "230ms" }}>
         <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
           <div className="mb-8 flex items-end justify-between gap-3">
             <div>
@@ -189,7 +189,7 @@ const MainLandingRedesign = () => {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 py-16 md:px-8">
+      <section className="stitch-reveal mx-auto w-full max-w-7xl px-4 py-16 md:px-8" style={{ animationDelay: "300ms" }}>
         <div className="rounded-3xl bg-[#f06233] p-8 text-white md:p-12">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>

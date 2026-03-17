@@ -7,7 +7,7 @@ const AboutCompanyPage = () => {
 
   return (
     <main className="-mx-3 bg-[#f7f5f6] text-slate-900 lg:-mx-14">
-      <section className="mx-auto w-full max-w-7xl px-4 py-10 md:px-8">
+      <section className="stitch-reveal mx-auto w-full max-w-7xl px-4 py-10 md:px-8">
         <div className="relative min-h-[360px] overflow-hidden rounded-2xl bg-slate-900 shadow-2xl md:min-h-[430px]">
           <img src="/assets/img/fondo.webp" alt="YaVoy Cuba" className="absolute inset-0 h-full w-full object-cover opacity-60" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/55 to-transparent" />
@@ -26,7 +26,7 @@ const AboutCompanyPage = () => {
         </div>
       </section>
 
-      <section className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:px-8">
+      <section className="stitch-reveal mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:px-8" style={{ animationDelay: "90ms" }}>
         <div>
           <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f06233]">Nuestra mision</p>
           <h2 className="mt-2 text-3xl font-black leading-tight md:text-5xl">
@@ -34,8 +34,8 @@ const AboutCompanyPage = () => {
           </h2>
           <p className="mt-5 text-base leading-relaxed text-slate-600">
             YaVoy Cuba nacio de una profunda comprension de los desafios que enfrentan las familias cuando intentan
-            apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y seguro para
-            comestibles, medicinas y articulos de cuidado personal.
+            apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y absolutamente
+            seguro para comestibles, medicinas y articulos de cuidado personal.
           </p>
           <div className="mt-7 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
             <p className="flex items-center gap-2 text-sm font-bold text-slate-900">
@@ -57,7 +57,7 @@ const AboutCompanyPage = () => {
         </div>
       </section>
 
-      <section className="bg-[#f4ebea] py-16">
+      <section className="stitch-reveal bg-[#f4ebea] py-16" style={{ animationDelay: "160ms" }}>
         <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <h2 className="flex items-center justify-center gap-2 text-4xl font-black">
@@ -65,31 +65,31 @@ const AboutCompanyPage = () => {
               Nuestra Historia
             </h2>
             <p className="mt-3 text-slate-600">
-              Lo que comenzo como un pequeno proyecto de logistica en Miami se convirtio en un puente comunitario de
-              confianza para la diaspora cubana.
+              Lo que comenzo como un pequeno proyecto de logistica en Miami se ha convertido en un pilar comunitario
+              de confianza para la diaspora cubana.
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             <article className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm">
               <p className="text-4xl font-black text-[#f06233]">2018</p>
               <p className="mt-3 text-lg font-bold">El Comienzo</p>
-              <p className="mt-2 text-sm text-slate-600">Fundamos la operacion para simplificar envios a La Habana.</p>
+              <p className="mt-2 text-sm text-slate-600">Fundada por un grupo de ingenieros y expertos en logistica para simplificar envios a La Habana.</p>
             </article>
             <article className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm">
               <p className="text-4xl font-black text-[#f06233]">2021</p>
               <p className="mt-3 text-lg font-bold">Expandiendo el Alcance</p>
-              <p className="mt-2 text-sm text-slate-600">Llevamos cobertura estable a todas las provincias de Cuba.</p>
+              <p className="mt-2 text-sm text-slate-600">Expandimos operaciones para cubrir cada provincia en Cuba, sin dejar familias fuera del alcance.</p>
             </article>
             <article className="rounded-xl border border-slate-200 bg-white p-7 shadow-sm">
               <p className="text-4xl font-black text-[#f06233]">Today</p>
               <p className="mt-3 text-lg font-bold">El Puente Digital</p>
-              <p className="mt-2 text-sm text-slate-600">Inventario real integrado con equipos locales de entrega.</p>
+              <p className="mt-2 text-sm text-slate-600">Plataforma integrada que conecta inventario real con equipos locales de entrega confiables.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:px-8">
+      <section className="stitch-reveal mx-auto grid w-full max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:items-center md:px-8" style={{ animationDelay: "220ms" }}>
         <div className="overflow-hidden rounded-2xl bg-white shadow-xl">
           <div className="flex items-center justify-between bg-[#f06233] px-5 py-3 text-sm font-bold text-white">
             <span className="flex items-center gap-2">
@@ -118,27 +118,27 @@ const AboutCompanyPage = () => {
                 <span className="material-symbols-outlined text-[#f06233]">handshake</span>
                 Socios Locales
               </p>
-              <p className="mt-1 text-slate-600">Trabajamos con agentes de entrega verificados para cada vecindario.</p>
+              <p className="mt-1 text-slate-600">Trabajamos directamente con agentes de entrega locales verificados que entienden cada vecindario.</p>
             </article>
             <article>
               <p className="flex items-center gap-2 text-xl font-bold">
                 <span className="material-symbols-outlined text-[#f06233]">inventory_2</span>
                 Inventario en Tiempo Real
               </p>
-              <p className="mt-1 text-slate-600">La disponibilidad mostrada responde a existencias fisicas reales.</p>
+              <p className="mt-1 text-slate-600">A diferencia de revendedores externos, mantenemos existencias fisicas para entrega real.</p>
             </article>
             <article>
               <p className="flex items-center gap-2 text-xl font-bold">
                 <span className="material-symbols-outlined text-[#f06233]">map</span>
                 Presencia en Toda la Isla
               </p>
-              <p className="mt-1 text-slate-600">Cobertura desde Pinar del Rio hasta Guantanamo con plazos confiables.</p>
+              <p className="mt-1 text-slate-600">Desde Pinar del Rio hasta Guantanamo, nuestra red cubre todo el pais con plazos confiables.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-4 pb-20 md:px-8">
+      <section className="stitch-reveal mx-auto w-full max-w-7xl px-4 pb-20 md:px-8" style={{ animationDelay: "280ms" }}>
         <div className="rounded-2xl bg-[#f06233] px-6 py-12 text-center text-white shadow-xl md:px-14 md:py-14">
           <h2 className="text-4xl font-black leading-tight md:text-5xl">Listo para enviar un poco de amor a casa?</h2>
           <p className="mx-auto mt-4 max-w-2xl text-white/90">

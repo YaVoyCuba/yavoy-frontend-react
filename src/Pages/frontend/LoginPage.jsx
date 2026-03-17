@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/macro'
 import apiManager from "../../api/apiManager";
 import { Loading } from "../../common/Loading";
 import { notificationOptions } from "../../mock/notification";
@@ -69,7 +71,7 @@ const LoginPage = () => {
       });
 
       if (res.code == "ok") {
-        toast.success("Código enviado", notificationOptions);
+        toast.success(t`Code sent`, notificationOptions);
         setValidatePin(true);
         setEmailToValidate(email);
         setEmail("");
@@ -93,7 +95,7 @@ const LoginPage = () => {
       });
 
       if (res.code == "ok") {
-        toast.success("Código correcto", notificationOptions);
+        toast.success(t`Correct code`, notificationOptions);
         setValidatePin(false);
         setMode("password");
 
@@ -141,7 +143,7 @@ const LoginPage = () => {
         }
       } else {
         toast.warning(
-          "No se ha podido completar la operación",
+          "The operation could not be completed",
           notificationOptions
         );
       }
@@ -166,7 +168,7 @@ const LoginPage = () => {
       {page == "login" ? (
         <>
           <div className="flex mt-7 items-center flex-col">
-            <span className="font-bold text-center">Acceder</span>
+            <span className="font-bold text-center"><Trans>Sign in</Trans></span>
           </div>
           {mode === "email" ? (
             <form
@@ -181,7 +183,7 @@ const LoginPage = () => {
                   value={email}
                   autoComplete="off"
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Correo electrónico"
+                  placeholder={t`Email address`}
                 />
               </div>
               <div>
@@ -192,7 +194,7 @@ const LoginPage = () => {
                   value={password}
                   autoComplete="off"
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Contraseña"
+                  placeholder={t`Password`}
                   minLength={8}
                 />
               </div>
@@ -201,10 +203,10 @@ const LoginPage = () => {
                   to={"/forgot-password"}
                   className="text-primary font-medium hover:underline"
                 >
-                  Olvidé mi contraseña
+                  <Trans>Forgot my password</Trans>
                 </Link>
               </div>
-              <button className="btn-main">Continuar</button>
+              <button className="btn-main"><Trans>Continue</Trans></button>
             </form>
           ) : !validatePin ? (
             <div className="w-full flex flex-col gap-3 mt-4 ">
@@ -213,10 +215,10 @@ const LoginPage = () => {
                 onChange={(event) => setEmail(event.target.value)}
                 type="text"
                 className="input-text"
-                placeholder="Email de CrecexDiez"
+                placeholder={t`CrecexDiez Email`}
               />
               <button onClick={() => sendCodeToEmail()} className="btn-main">
-                Autentificarse con CrecexDiez
+                <Trans>Authenticate with CrecexDiez</Trans>
               </button>
             </div>
           ) : (
@@ -227,19 +229,19 @@ const LoginPage = () => {
                 onChange={(event) => setPin(event.target.value)}
                 type="text"
                 className="input-text"
-                placeholder="Pin"
+                placeholder={t`Pin`}
               />
               <button onClick={() => checkPin()} className="btn-main">
-                Validar Pin
+                <Trans>Validate Pin</Trans>
               </button>
             </div>
           )}
           <div className="flex py-10 pt-2 flex-col ">
             <br />
-            <span className="text-center">¿No tienes cuenta?</span>
+            <span className="text-center"><Trans>Don't have an account?</Trans></span>
             <button onClick={() => setPage("register")}>
               <span className="text-center text-blue-700 font-medium hover:underline">
-                Regístrate
+                <Trans>Sign up</Trans>
               </span>
             </button>
           </div>
@@ -250,13 +252,13 @@ const LoginPage = () => {
 
 
         <div className="flex flex-col">
-            <span className="font-bold text-center">Regístrate</span>
+            <span className="font-bold text-center"><Trans>Sign up</Trans></span>
           </div>
           <div className="flex flex-col">
            
             <input
               type="text"
-              placeholder="Nombre"
+              placeholder={t`Name`}
               className="input-text"
               {...register("firstName")}
               required
@@ -287,21 +289,21 @@ const LoginPage = () => {
             <input
               type="password"
               className="input-text"
-              placeholder="Confirma la contraseña"
+              placeholder={t`Confirm password`}
               {...register("confirmPassword")}
               required
             />
           </div>
           <button type="submit" className="btn-main" disabled={loading}>
-            Regístrate
+            <Trans>Sign up</Trans>
           </button>
         </form>
         <div className="flex py-10 pt-2 flex-col ">
             <br />
-            <span className="text-center">¿Ya tienes cuenta?</span>
+            <span className="text-center"><Trans>Already have an account?</Trans></span>
             <button onClick={() => setPage("login")}>
               <span className="text-center text-blue-700 font-medium hover:underline">
-                Accede
+                <Trans>Sign in</Trans>
               </span>
             </button>
           </div>

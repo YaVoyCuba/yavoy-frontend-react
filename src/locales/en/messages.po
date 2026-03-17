@@ -13,19 +13,96 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/Components/Header/Location.jsx:289
+msgid "Accept"
+msgstr "Accept"
+
 #: src/Components/Footer/Footer.jsx:169
 msgid "Add your accommodation"
 msgstr "Add your accommodation"
+
+#: src/Components/Landing/Restaurants.jsx:311
+msgid "Air Shipments"
+msgstr "Air Shipments"
+
+#: src/Pages/frontend/LoginPage.jsx:303
+msgid "Already have an account?"
+msgstr "Already have an account?"
+
+#: src/Pages/frontend/LoginPage.jsx:221
+msgid "Authenticate with CrecexDiez"
+msgstr "Authenticate with CrecexDiez"
+
+#: src/Components/Header/HeaderCategories.jsx:53
+#: src/Components/Header/HeaderCategories.jsx:132
+#: src/Components/Header/HeaderCategories.jsx:210
+#: src/Components/Header/HeaderCategories.jsx:281
+msgid "Bags"
+msgstr "Bags"
+
+#: src/Components/Header/Location.jsx:302
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/Pages/frontend/LoginPage.jsx:74
+msgid "Code sent"
+msgstr "Code sent"
+
+#: src/Components/Header/HeaderCategories.jsx:33
+#: src/Components/Header/HeaderCategories.jsx:112
+#: src/Components/Header/HeaderCategories.jsx:191
+#: src/Components/Header/HeaderCategories.jsx:263
+msgid "Computers"
+msgstr "Computers"
+
+#: src/Pages/frontend/LoginPage.jsx:292
+msgid "Confirm password"
+msgstr "Confirm password"
 
 #: src/Components/Footer/Footer.jsx:14
 msgid "Connect with us"
 msgstr "Connect with us"
 
+#: src/Pages/frontend/LoginPage.jsx:209
+msgid "Continue"
+msgstr "Continue"
+
+#: src/Pages/frontend/LoginPage.jsx:98
+msgid "Correct code"
+msgstr "Correct code"
+
+#: src/Pages/frontend/LoginPage.jsx:218
+msgid "CrecexDiez Email"
+msgstr "CrecexDiez Email"
+
+#: src/Components/Header/Location.jsx:163
+msgid "Delivery set to"
+msgstr "Delivery set to"
+
 #: src/Components/Footer/Footer.jsx:199
 msgid "Developed by"
 msgstr "Developed by"
 
+#: src/Pages/frontend/LoginPage.jsx:241
+msgid "Don't have an account?"
+msgstr "Don't have an account?"
+
+#: src/Components/Header/HeaderCategories.jsx:73
+#: src/Components/Header/HeaderCategories.jsx:152
+#: src/Components/Header/HeaderCategories.jsx:228
+msgid "Electronics"
+msgstr "Electronics"
+
+#: src/Pages/frontend/LoginPage.jsx:186
+msgid "Email address"
+msgstr "Email address"
+
+#: src/Pages/frontend/LoginPage.jsx:206
+msgid "Forgot my password"
+msgstr "Forgot my password"
+
 #: src/Components/Header/HeaderTop.jsx:337
+#: src/Components/Landing/Restaurants.jsx:177
 msgid "Gifts"
 msgstr "Gifts"
 
@@ -33,34 +110,131 @@ msgstr "Gifts"
 msgid "Home"
 msgstr "Home"
 
+#: src/Components/Header/Location.jsx:214
+msgid "I agree"
+msgstr "I agree"
+
 #: src/Components/Header/HeaderTop.jsx:293
+#: src/Components/Landing/Restaurants.jsx:123
 msgid "Markets"
 msgstr "Markets"
+
+#: src/Components/Landing/Restaurants.jsx:312
+msgid "Minimum 15lb"
+msgstr "Minimum 15lb"
+
+#: src/Components/Landing/Restaurants.jsx:328
+msgid "Minimum 22lb"
+msgstr "Minimum 22lb"
+
+#: src/Pages/frontend/LoginPage.jsx:261
+msgid "Name"
+msgstr "Name"
 
 #: src/Components/Footer/Footer.jsx:108
 #: src/Components/Header/HeaderTop.jsx:179
 msgid "Need help?"
 msgstr "Need help?"
 
+#: src/Components/Landing/Restaurants.jsx:275
+msgid "No services available in this area"
+msgstr "No services available in this area"
+
 #: src/Components/Header/HeaderTop.jsx:359
+#: src/Components/Landing/Restaurants.jsx:204
 msgid "Package shipping"
 msgstr "Package shipping"
 
+#: src/Pages/frontend/LoginPage.jsx:197
+msgid "Password"
+msgstr "Password"
+
+#: src/Components/Header/HeaderCategories.jsx:93
+#: src/Components/Header/HeaderCategories.jsx:172
+#: src/Components/Header/HeaderCategories.jsx:246
+msgid "Phones"
+msgstr "Phones"
+
+#: src/Pages/frontend/LoginPage.jsx:232
+msgid "Pin"
+msgstr "Pin"
+
+#: src/Components/Header/Location.jsx:285
+msgid "Please select a province and a municipality"
+msgstr "Please select a province and a municipality"
+
+#: src/Components/Header/Location.jsx:227
+msgid "Please set a delivery address"
+msgstr "Please set a delivery address"
+
+#: src/Components/Landing/Restaurants.jsx:306
+msgid "Price details."
+msgstr "Price details."
+
+#: src/Components/Landing/Restaurants.jsx:303
+msgid "Prices per pound"
+msgstr "Prices per pound"
+
 #: src/Components/Header/HeaderTop.jsx:271
+#: src/Components/Landing/Restaurants.jsx:96
 msgid "Restaurants"
 msgstr "Restaurants"
+
+#: src/Components/Landing/Restaurants.jsx:327
+msgid "Sea Shipments"
+msgstr "Sea Shipments"
+
+#: src/Components/Header/Location.jsx:267
+msgid "Select municipality"
+msgstr "Select municipality"
+
+#: src/Components/Header/Location.jsx:250
+msgid "Select province"
+msgstr "Select province"
 
 #: src/Components/Header/HeaderTop.jsx:158
 msgid "Shops"
 msgstr "Shops"
 
+#: src/Pages/frontend/LoginPage.jsx:171
+#: src/Pages/frontend/LoginPage.jsx:306
+msgid "Sign in"
+msgstr "Sign in"
+
 #: src/Components/Header/HeaderTop.jsx:198
 msgid "Sign in / Register"
 msgstr "Sign in / Register"
 
+#: src/Pages/frontend/LoginPage.jsx:244
+#: src/Pages/frontend/LoginPage.jsx:255
+#: src/Pages/frontend/LoginPage.jsx:298
+msgid "Sign up"
+msgstr "Sign up"
+
 #: src/Components/Header/HeaderTop.jsx:315
+#: src/Components/Landing/Restaurants.jsx:150
 msgid "Sweets"
 msgstr "Sweets"
+
+#: src/Components/Landing/SellersTopWeek.jsx:20
+msgid "Top sellers of the week"
+msgstr "Top sellers of the week"
+
+#: src/Pages/frontend/LoginPage.jsx:235
+msgid "Validate Pin"
+msgstr "Validate Pin"
+
+#: src/Components/Landing/Restaurants.jsx:295
+msgid "We offer Air and Sea Shipments"
+msgstr "We offer Air and Sea Shipments"
+
+#: src/Components/Header/Location.jsx:214
+msgid "We use our own and third-party cookies to optimize your experience on the platform. By continuing to browse, you agree to their use."
+msgstr "We use our own and third-party cookies to optimize your experience on the platform. By continuing to browse, you agree to their use."
+
+#: src/Components/Header/Location.jsx:231
+msgid "We will show you results based on this address"
+msgstr "We will show you results based on this address"
 
 #: src/Components/Header/HeaderTop.jsx:115
 msgid "Welcome to YaVoy Marketplace!"

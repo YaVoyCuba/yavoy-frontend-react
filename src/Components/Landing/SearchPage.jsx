@@ -1,6 +1,8 @@
 import React, { useState, Fragment, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react';
+import { useLingui } from '@lingui/react';
+import { msg } from '@lingui/macro';
 
 import apiManager from '../../api/apiManager';
 import RestaurantCard from '../Misc/RestaurantCard';
@@ -8,6 +10,7 @@ import CardProductVertical from '../Misc/CardProductVertical';
 import { useSelector } from 'react-redux';
 
 const SearchPage = () => {
+    const { _ } = useLingui();
     const [ open, setOpen ] = useState( false );
 
     const [ results, setResults ] = useState( [] );
@@ -114,7 +117,7 @@ const SearchPage = () => {
                                 onClick={ () => setOpen( true ) }
                                 className="bg-gray-100  rounded-full w-96 pl-10 pr-4 py-2 focus:outline-none focus:shadow-outline"
                                 type="text"
-                                placeholder="Buscar algo"
+                                placeholder={_(msg`Search`)}
                             />
                         </div>
                     </div>
@@ -180,7 +183,7 @@ const SearchPage = () => {
                                                     onChange={ ( event ) => onSearch( event.target.value ) }
                                                     className="bg-gray-100    w-full px-3  py-2 focus:outline-none focus:shadow-outline"
                                                     type="text"
-                                                    placeholder="Buscar algo"
+                                                    placeholder={_(msg`Search`)}
                                                 />
                                             </Dialog.Title>
                                             <div className="mt-2">

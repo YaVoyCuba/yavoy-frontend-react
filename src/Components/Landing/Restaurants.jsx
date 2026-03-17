@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Trans } from '@lingui/react/macro'
 import apiManager from "../../api/apiManager";
 import RestaurantCard from "../Misc/RestaurantCard";
 import { Loading } from "../../common/Loading";
@@ -92,7 +93,7 @@ const Restaurants = () => {
 
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
-                  Restaurantes
+                  <Trans>Restaurants</Trans>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -119,7 +120,7 @@ const Restaurants = () => {
 
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
-                  Mercados
+                  <Trans>Markets</Trans>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -146,7 +147,7 @@ const Restaurants = () => {
 
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
-                  Dulcerías
+                  <Trans>Sweets</Trans>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -173,7 +174,7 @@ const Restaurants = () => {
 
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
-                  Regalitos
+                  <Trans>Gifts</Trans>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -200,7 +201,7 @@ const Restaurants = () => {
 
                   className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
                 >
-                  Envío de paquetes
+                  <Trans>Package shipping</Trans>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
                        className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round"
@@ -271,7 +272,7 @@ const Restaurants = () => {
                       <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                         <div className="px-4 py-5 sm:px-6">
                           <h3 className="text-lg leading-6 font-medium text-gray-900">
-                            No hay servicios disponibles en esta zona
+                            <Trans>No services available in this area</Trans>
                           </h3>
                         </div>
                       </div>
@@ -291,7 +292,7 @@ const Restaurants = () => {
                           <div className="lg:self-center">
                             <h2 className="text-3xl font-extrabold sm:text-4xl">
                               <span className="block">Ya Voy Envíos</span>
-                              <span className="text-lg font-bold text-gray-700 mt-3">Tenemos envíos Aéreos y Marítimos</span>
+                              <span className="text-lg font-bold text-gray-700 mt-3"><Trans>We offer Air and Sea Shipments</Trans></span>
                             </h2>
                             <br />
 
@@ -299,16 +300,16 @@ const Restaurants = () => {
                               <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                                 <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
                                   <h3 className="text-lg leading-6 font-medium text-gray-900">
-                                    Precios por libras
+                                    <Trans>Prices per pound</Trans>
                                   </h3>
                                   <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                                    Detalles de los precios.
+                                    <Trans>Price details.</Trans>
                                   </p>
                                 </div>
                                 <div>
                                   <section className="px-2 py-2 sm:pt-2 sm:px-6 lg:py-6 lg:pr-6 xl:py-6 xl:px-6">
-                                    <h3 style={{fontSize: 'larger', fontWeight: '300'}}>Envíos Aéreos</h3>
-                                    <h6 style={{fontSize: 'small', fontWeight: '300'}}>Mínimo 15lb</h6>
+                                    <h3 style={{fontSize: 'larger', fontWeight: '300'}}><Trans>Air Shipments</Trans></h3>
+                                    <h6 style={{fontSize: 'small', fontWeight: '300'}}><Trans>Minimum 15lb</Trans></h6>
                                     <article>De 15 a 44lb <p
                                         className="px-1 inline-flex  rounded bg-green-100 text-green-800 font-semibold">
                                       3.99 </p>
@@ -323,8 +324,8 @@ const Restaurants = () => {
                                     </article>
                                   </section>
                                   <section className="px-2 py-2 sm:pt-2 sm:px-6 lg:py-6 lg:pr-6 xl:py-6 xl:px-6">
-                                    <h3 style={{fontSize: 'larger', fontWeight: '300'}}>Envíos Marítimos</h3>
-                                    <h6 style={{fontSize: 'small', fontWeight: '300'}}>Mínimo 22lb</h6>
+                                    <h3 style={{fontSize: 'larger', fontWeight: '300'}}><Trans>Sea Shipments</Trans></h3>
+                                    <h6 style={{fontSize: 'small', fontWeight: '300'}}><Trans>Minimum 22lb</Trans></h6>
                                     <article>De 22 a 100lb <p
                                         className="px-1 inline-flex  rounded bg-green-100 text-green-800 font-semibold">
                                       2.60 </p>

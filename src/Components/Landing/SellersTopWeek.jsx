@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Trans } from '@lingui/react/macro'
 import CardSeller from "../Misc/CardSeller";
 
 const SellersTopWeek = () => {
@@ -16,7 +17,7 @@ const SellersTopWeek = () => {
 
   return (
     <div className="flex px-3 mb-20 flex-col">
-      <h2 className="title pb-6">Principales proveedores de la semana</h2>
+      <h2 className="title pb-6"><Trans>Top sellers of the week</Trans></h2>
       <hr className="separator" />
       <div className="grid grid-cols-12">
         {sellers.slice(0, 4).map((seller) => {

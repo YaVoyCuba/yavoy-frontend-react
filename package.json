@@ -13,6 +13,7 @@
     "preview": "vite preview",
     "lingui:extract": "lingui extract",
     "lingui:compile": "lingui compile",
+    "postlingui:compile": "node scripts/fix-catalogs.cjs",
     "lingui:add:es": "lingui add-locale es",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "hestiacp": "vite build --config vite.hestiacp.config.js"

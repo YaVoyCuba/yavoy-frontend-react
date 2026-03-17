@@ -13,19 +13,96 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/Components/Header/Location.jsx:289
+msgid "Accept"
+msgstr "Aceptar"
+
 #: src/Components/Footer/Footer.jsx:169
 msgid "Add your accommodation"
 msgstr "Añade tu alojamiento"
+
+#: src/Components/Landing/Restaurants.jsx:311
+msgid "Air Shipments"
+msgstr "Envíos Aéreos"
+
+#: src/Pages/frontend/LoginPage.jsx:303
+msgid "Already have an account?"
+msgstr "¿Ya tienes cuenta?"
+
+#: src/Pages/frontend/LoginPage.jsx:221
+msgid "Authenticate with CrecexDiez"
+msgstr "Autentificarse con CrecexDiez"
+
+#: src/Components/Header/HeaderCategories.jsx:53
+#: src/Components/Header/HeaderCategories.jsx:132
+#: src/Components/Header/HeaderCategories.jsx:210
+#: src/Components/Header/HeaderCategories.jsx:281
+msgid "Bags"
+msgstr "Bolsos"
+
+#: src/Components/Header/Location.jsx:302
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/Pages/frontend/LoginPage.jsx:74
+msgid "Code sent"
+msgstr "Código enviado"
+
+#: src/Components/Header/HeaderCategories.jsx:33
+#: src/Components/Header/HeaderCategories.jsx:112
+#: src/Components/Header/HeaderCategories.jsx:191
+#: src/Components/Header/HeaderCategories.jsx:263
+msgid "Computers"
+msgstr "Computadoras"
+
+#: src/Pages/frontend/LoginPage.jsx:292
+msgid "Confirm password"
+msgstr "Confirma la contraseña"
 
 #: src/Components/Footer/Footer.jsx:14
 msgid "Connect with us"
 msgstr "Estamos en las redes"
 
+#: src/Pages/frontend/LoginPage.jsx:209
+msgid "Continue"
+msgstr "Continuar"
+
+#: src/Pages/frontend/LoginPage.jsx:98
+msgid "Correct code"
+msgstr "Código correcto"
+
+#: src/Pages/frontend/LoginPage.jsx:218
+msgid "CrecexDiez Email"
+msgstr "Email de CrecexDiez"
+
+#: src/Components/Header/Location.jsx:163
+msgid "Delivery set to"
+msgstr "Delivery fijado en"
+
 #: src/Components/Footer/Footer.jsx:199
 msgid "Developed by"
 msgstr "Desarrollado por"
 
+#: src/Pages/frontend/LoginPage.jsx:241
+msgid "Don't have an account?"
+msgstr "¿No tienes cuenta?"
+
+#: src/Components/Header/HeaderCategories.jsx:73
+#: src/Components/Header/HeaderCategories.jsx:152
+#: src/Components/Header/HeaderCategories.jsx:228
+msgid "Electronics"
+msgstr "Electrónica"
+
+#: src/Pages/frontend/LoginPage.jsx:186
+msgid "Email address"
+msgstr "Correo electrónico"
+
+#: src/Pages/frontend/LoginPage.jsx:206
+msgid "Forgot my password"
+msgstr "Olvidé mi contraseña"
+
 #: src/Components/Header/HeaderTop.jsx:337
+#: src/Components/Landing/Restaurants.jsx:177
 msgid "Gifts"
 msgstr "Regalitos"
 
@@ -33,34 +110,131 @@ msgstr "Regalitos"
 msgid "Home"
 msgstr "Inicio"
 
+#: src/Components/Header/Location.jsx:214
+msgid "I agree"
+msgstr "De acuerdo"
+
 #: src/Components/Header/HeaderTop.jsx:293
+#: src/Components/Landing/Restaurants.jsx:123
 msgid "Markets"
 msgstr "Mercados"
+
+#: src/Components/Landing/Restaurants.jsx:312
+msgid "Minimum 15lb"
+msgstr "Mínimo 15lb"
+
+#: src/Components/Landing/Restaurants.jsx:328
+msgid "Minimum 22lb"
+msgstr "Mínimo 22lb"
+
+#: src/Pages/frontend/LoginPage.jsx:261
+msgid "Name"
+msgstr "Nombre"
 
 #: src/Components/Footer/Footer.jsx:108
 #: src/Components/Header/HeaderTop.jsx:179
 msgid "Need help?"
 msgstr "¿Necesitas ayuda?"
 
+#: src/Components/Landing/Restaurants.jsx:275
+msgid "No services available in this area"
+msgstr "No hay servicios disponibles en esta zona"
+
 #: src/Components/Header/HeaderTop.jsx:359
+#: src/Components/Landing/Restaurants.jsx:204
 msgid "Package shipping"
 msgstr "Envío de paquetes"
 
+#: src/Pages/frontend/LoginPage.jsx:197
+msgid "Password"
+msgstr "Contraseña"
+
+#: src/Components/Header/HeaderCategories.jsx:93
+#: src/Components/Header/HeaderCategories.jsx:172
+#: src/Components/Header/HeaderCategories.jsx:246
+msgid "Phones"
+msgstr "Teléfonos"
+
+#: src/Pages/frontend/LoginPage.jsx:232
+msgid "Pin"
+msgstr "Pin"
+
+#: src/Components/Header/Location.jsx:285
+msgid "Please select a province and a municipality"
+msgstr "Selecciona una provincia y un municipio"
+
+#: src/Components/Header/Location.jsx:227
+msgid "Please set a delivery address"
+msgstr "Favor de establecer una dirección de entrega"
+
+#: src/Components/Landing/Restaurants.jsx:306
+msgid "Price details."
+msgstr "Detalles de los precios."
+
+#: src/Components/Landing/Restaurants.jsx:303
+msgid "Prices per pound"
+msgstr "Precios por libras"
+
 #: src/Components/Header/HeaderTop.jsx:271
+#: src/Components/Landing/Restaurants.jsx:96
 msgid "Restaurants"
 msgstr "Restaurantes"
+
+#: src/Components/Landing/Restaurants.jsx:327
+msgid "Sea Shipments"
+msgstr "Envíos Marítimos"
+
+#: src/Components/Header/Location.jsx:267
+msgid "Select municipality"
+msgstr "Seleccione un municipio"
+
+#: src/Components/Header/Location.jsx:250
+msgid "Select province"
+msgstr "Seleccione la provincia"
 
 #: src/Components/Header/HeaderTop.jsx:158
 msgid "Shops"
 msgstr "Tiendas"
 
+#: src/Pages/frontend/LoginPage.jsx:171
+#: src/Pages/frontend/LoginPage.jsx:306
+msgid "Sign in"
+msgstr "Acceder"
+
 #: src/Components/Header/HeaderTop.jsx:198
 msgid "Sign in / Register"
 msgstr "Acceder / Registrar"
 
+#: src/Pages/frontend/LoginPage.jsx:244
+#: src/Pages/frontend/LoginPage.jsx:255
+#: src/Pages/frontend/LoginPage.jsx:298
+msgid "Sign up"
+msgstr "Regístrate"
+
 #: src/Components/Header/HeaderTop.jsx:315
+#: src/Components/Landing/Restaurants.jsx:150
 msgid "Sweets"
 msgstr "Dulcerías"
+
+#: src/Components/Landing/SellersTopWeek.jsx:20
+msgid "Top sellers of the week"
+msgstr "Principales proveedores de la semana"
+
+#: src/Pages/frontend/LoginPage.jsx:235
+msgid "Validate Pin"
+msgstr "Validar Pin"
+
+#: src/Components/Landing/Restaurants.jsx:295
+msgid "We offer Air and Sea Shipments"
+msgstr "Tenemos envíos Aéreos y Marítimos"
+
+#: src/Components/Header/Location.jsx:214
+msgid "We use our own and third-party cookies to optimize your experience on the platform. By continuing to browse, you agree to their use."
+msgstr "Utilizamos cookies propias y de terceros para optimizar tu experiencia en la plataforma. Si sigue navegando estarás aceptando su uso."
+
+#: src/Components/Header/Location.jsx:231
+msgid "We will show you results based on this address"
+msgstr "Te mostraremos los resultados en correspondencia a esta dirección"
 
 #: src/Components/Header/HeaderTop.jsx:115
 msgid "Welcome to YaVoy Marketplace!"

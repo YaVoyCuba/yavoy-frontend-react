@@ -2,6 +2,8 @@ import React, { useState, Fragment, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/24/outline';
+import { Trans } from '@lingui/react/macro'
+import { t } from '@lingui/macro'
 import apiManager from '../../api/apiManager';
 import { setProvince, setMunicipality } from '../../redux/locationSlice';
 import { toast } from 'react-toastify';
@@ -99,7 +101,7 @@ const Location = () => {
             } else {
                 console.log( '--> can else: ', can );
                 toast.warning(
-                    'No puedes cambiar a esta ubicacion porque el restaurante de los productos del carrito no hace envíos a la misma',
+                    'You cannot change to this location because the restaurant in your cart does not deliver there',
 
                     {
                         position:        'top-center',
@@ -158,7 +160,7 @@ const Location = () => {
                         </g>
                     </svg>
                     <span className="text-gray-700 text-sm font-medium pl-3">
-            Delivery fijado en { getMunicipality.label }
+            <Trans>Delivery set to</Trans> { getMunicipality.label }
           </span>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -209,9 +211,7 @@ const Location = () => {
                             >
                                 <Dialog.Panel
                                     className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                                    <CookieConsent buttonText="De acuerdo" overlay> Utilizamos cookies propias y de terceros para optimizar
-                                        tu experiencia en la plataforma. Si sigue
-                                        navegando estarás aceptando su uso.</CookieConsent>
+                                    <CookieConsent buttonText={t`I agree`} overlay><Trans>We use our own and third-party cookies to optimize your experience on the platform. By continuing to browse, you agree to their use.</Trans></CookieConsent>
                                     <div>
                                         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                                             <CheckIcon
@@ -224,12 +224,11 @@ const Location = () => {
                                                 as="h3"
                                                 className="text-lg font-medium leading-6 text-gray-900"
                                             >
-                                                Favor de establecer una dirección de entrega
+                                            <Trans>Please set a delivery address</Trans>
                                             </Dialog.Title>
                                             <div className="mt-2">
                                                 <p className="text-sm text-gray-500">
-                                                    Te mostraremos los resultados en correspondencia a
-                                                    esta dirección
+                                                    <Trans>We will show you results based on this address</Trans>
                                                 </p>
                                             </div>
                                             { loadingProvinces ? (
@@ -248,7 +247,7 @@ const Location = () => {
                                                         // menuIsOpen={false}
                                                         className="react-select-container my-5"
                                                         classNamePrefix="react-select"
-                                                        placeholder="Seleccione la provincia"
+                                                        placeholder={t`Select province`}
                                                         value={ provinceSelected?.value?.id ? provinceSelected : null }
                                                         onChange={ ( event ) => {
                                                             setMunicipalitySelected( { label: '', value: { id: 0 } } );
@@ -265,7 +264,7 @@ const Location = () => {
                                                                 options={ municipalities }
                                                                 className="react-select-container"
                                                                 classNamePrefix="react-select"
-                                                                placeholder="Seleccione un municipio"
+                                                                placeholder={t`Select municipality`}
                                                                 value={ municipalitySelected?.value?.id ? municipalitySelected : null }
                                                                 onChange={ ( event ) => {
                                                                     setMunicipalitySelected( event );
@@ -283,11 +282,11 @@ const Location = () => {
                                             className="inline-flex w-full justify-center rounded-md border border-transparent bg-main px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-2 sm:text-sm"
                                             onClick={ () => {
                                                 municipalitySelected?.value?.id > 0 ?
-                                                    storeLocation() : alert( 'Selecciona una provincia y un municipio' );
+                                                    storeLocation() : alert( t`Please select a province and a municipality` );
                                             }
                                             }
                                         >
-                                            Aceptar
+                                            <Trans>Accept</Trans>
                                         </button>
                                         <button
                                             type="button"
@@ -300,7 +299,7 @@ const Location = () => {
                                             } }
                                             ref={ cancelButtonRef }
                                         >
-                                            Cancelar
+                                            <Trans>Cancel</Trans>
                                         </button>
                                     </div>
                                 </Dialog.Panel>

@@ -6,11 +6,11 @@ import { Trans } from "@lingui/react/macro";
 
 const categories = [
   {
-    id: "dulcerias",
-    name: "Dulcerias",
-    description: "Postres y combos dulces para sorprender en casa.",
-    href: "/dulcerias",
-    image: "/assets/img/stitch-main/cat-dulcerias.webp",
+    id: "restaurantes",
+    name: "Restaurantes",
+    description: "Comidas listas, combos y ofertas para la familia.",
+    href: "/restaurantes",
+    image: "/assets/img/stitch-main/cat-restaurants.png",
   },
   {
     id: "mercados",
@@ -20,18 +20,18 @@ const categories = [
     image: "/assets/img/stitch-main/cat-mercados.webp",
   },
   {
+    id: "dulcerias",
+    name: "Dulcerias",
+    description: "Postres y combos dulces para sorprender en casa.",
+    href: "/dulcerias",
+    image: "/assets/img/stitch-main/cat-dulcerias.webp",
+  },
+  {
     id: "regalitos",
     name: "Regalitos",
     description: "Detalles y paquetes para fechas especiales.",
     href: "/regalitos",
     image: "/assets/img/stitch-main/cat-regalitos.webp",
-  },
-  {
-    id: "restaurantes",
-    name: "Aseo",
-    description: "Productos de limpieza e higiene.",
-    href: "/restaurantes",
-    image: "/assets/img/stitch-main/cat-aseo.webp",
   },
 ];
 
@@ -59,8 +59,8 @@ const MainLandingRedesign = () => {
         description: _(msg`Details and bundles for special occasions.`),
       },
       restaurantes: {
-        name: _(msg`Cleaning`),
-        description: _(msg`Cleaning and hygiene products.`),
+        name: _(msg`Restaurants`),
+        description: _(msg`Restaurants`),
       },
     };
 

@@ -18,7 +18,7 @@ msgstr ""
 #: src/Components/Landing/Restaurants.jsx:304
 #: src/Components/Landing/Restaurants.jsx:309
 msgid "{0}"
-msgstr ""
+msgstr "{0}"
 
 #: src/Components/Footer/Footer.jsx:100
 #: src/Pages/frontend/RefundPolicyPage.jsx:127
@@ -109,7 +109,7 @@ msgstr "Envíos Aéreos"
 
 #: src/Components/Landing/Restaurants.jsx:452
 msgid "All stores"
-msgstr ""
+msgstr "Todas las tiendas"
 
 #: src/Pages/frontend/LoginPage.jsx:303
 msgid "Already have an account?"
@@ -172,7 +172,7 @@ msgstr "Reservas canceladas al menos 48 horas antes: reembolso completo menos ta
 
 #: src/Components/Landing/Restaurants.jsx:243
 msgid "Browse restaurants, markets, sweets, gifts, and shipping services from trusted local partners."
-msgstr ""
+msgstr "Explora restaurantes, mercados, dulces, regalos y servicios de envio con socios locales confiables."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:170
 msgid "Browse the available selection and add what you need to cart."
@@ -397,7 +397,7 @@ msgstr "Billeteras digitales (PayPal/Apple Pay)"
 
 #: src/Components/Landing/Restaurants.jsx:238
 msgid "Discover top stores"
-msgstr ""
+msgstr "Descubre las mejores tiendas"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:150
 msgid "Distributed partners"
@@ -531,7 +531,7 @@ msgstr "Cada articulo es rastreado y manejado con el maximo cuidado desde el env
 
 #: src/Components/Landing/Restaurants.jsx:235
 msgid "Exclusive offer"
-msgstr ""
+msgstr "Oferta exclusiva"
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:78
 #~ msgid "Expandiendo el Alcance"
@@ -551,11 +551,11 @@ msgstr "Expandiendo el alcance"
 
 #: src/Components/Landing/Restaurants.jsx:281
 msgid "Explore categories"
-msgstr ""
+msgstr "Explora categorias"
 
 #: src/Components/Landing/Restaurants.jsx:453
 msgid "Explore the full catalog of local partners."
-msgstr ""
+msgstr "Explora el catalogo completo de socios locales."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:85
 #~ msgid "familia"
@@ -575,7 +575,7 @@ msgstr "Familia recibiendo una entrega"
 
 #: src/Components/Landing/Restaurants.jsx:270
 msgid "Fast delivery"
-msgstr ""
+msgstr "Entrega rapida"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:196
 msgid "Featured categories"
@@ -583,7 +583,7 @@ msgstr "Categorias destacadas"
 
 #: src/Components/Landing/Restaurants.jsx:430
 msgid "Featured stores"
-msgstr ""
+msgstr "Tiendas destacadas"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:44
 msgid "Force majeure events"
@@ -836,7 +836,7 @@ msgstr "Nombre"
 
 #: src/Components/Landing/Restaurants.jsx:240
 msgid "near your family"
-msgstr ""
+msgstr "cerca de tu familia"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:111
 #~ msgid "Necesita mas ayuda?"
@@ -921,7 +921,7 @@ msgstr "o uso indebido de la plataforma. En esos casos, se notifica al usuario y
 
 #: src/Components/Landing/Restaurants.jsx:250
 msgid "Order now"
-msgstr ""
+msgstr "Ordenar ahora"
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:18
 msgid "Our commitment"
@@ -977,7 +977,7 @@ msgstr "Envío de paquetes"
 
 #: src/Components/Landing/Restaurants.jsx:273
 msgid "Partner stores deliver quickly with real-time stock availability."
-msgstr ""
+msgstr "Las tiendas asociadas entregan rapido con disponibilidad de inventario en tiempo real."
 
 #: src/Pages/frontend/LoginPage.jsx:197
 msgid "Password"
@@ -1102,7 +1102,7 @@ msgstr "Tiempo de procesamiento"
 
 #: src/Components/Landing/Restaurants.jsx:92
 msgid "products available"
-msgstr ""
+msgstr "productos disponibles"
 
 #: src/Pages/frontend/ContactPage.jsx:39
 msgid "Question about..."
@@ -1329,7 +1329,7 @@ msgstr "El comienzo"
 
 #: src/Components/Landing/Restaurants.jsx:283
 msgid "The best of Cuba delivered to your family."
-msgstr ""
+msgstr "Lo mejor de Cuba entregado a tu familia."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:83
 msgid "The digital bridge"
@@ -1353,7 +1353,7 @@ msgstr "Hoy"
 
 #: src/Components/Landing/Restaurants.jsx:431
 msgid "Top rated stores selected for this week."
-msgstr ""
+msgstr "Tiendas mejor valoradas seleccionadas para esta semana."
 
 #: src/Components/Landing/SellersTopWeek.jsx:20
 msgid "Top sellers of the week"
@@ -1452,11 +1452,11 @@ msgstr "Ver todo"
 
 #: src/Components/Landing/Restaurants.jsx:469
 msgid "View all stores"
-msgstr ""
+msgstr "Ver todas las tiendas"
 
 #: src/Components/Landing/Restaurants.jsx:256
 msgid "View offer"
-msgstr ""
+msgstr "Ver oferta"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:95
 #: src/Pages/frontend/AboutCompanyPage.jsx:150

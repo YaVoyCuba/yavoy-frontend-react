@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Trans } from "@lingui/react/macro";
+import { useLingui } from "@lingui/react";
+import { msg } from "@lingui/core/macro";
 import apiManager from "../../api/apiManager";
 import { Loading } from "../../common/Loading";
 import { useSelector } from "react-redux";
@@ -19,42 +21,32 @@ const CATEGORY_CARDS = [
   {
     key: "restaurants",
     href: "/restaurantes",
-    label: "Restaurants",
     icon: "restaurant",
     image: "/assets/img/stitch-main/cat-restaurants.png",
-    description: "Fresh meals from trusted local partners.",
   },
   {
     key: "markets",
     href: "/mercados",
-    label: "Markets",
     icon: "storefront",
     image: "/assets/img/stitch-main/cat-mercados.webp",
-    description: "Essentials delivered to your family.",
   },
   {
     key: "sweets",
     href: "/dulcerias",
-    label: "Sweets",
     icon: "cake",
     image: "/assets/img/stitch-main/cat-dulcerias.webp",
-    description: "Desserts and sweet combos for special moments.",
   },
   {
     key: "gifts",
     href: "/regalitos",
-    label: "Gifts",
     icon: "redeem",
     image: "/assets/img/stitch-main/cat-regalitos.webp",
-    description: "Curated details for celebrations and surprises.",
   },
   {
     key: "shipping",
     href: "/servicios",
-    label: "Shipping",
     icon: "local_shipping",
     image: "/assets/img/product_by_libras.jpg",
-    description: "Air and sea cargo options across Cuba.",
   },
 ];
 
@@ -101,6 +93,7 @@ const StoreCard = ({ restaurant, imageBase }) => {
 };
 
 const Restaurants = () => {
+  const { _ } = useLingui();
   const locationRouter = useLocation();
   const path = locationRouter.pathname;
   const isMainPage = path === "/";
@@ -111,6 +104,29 @@ const Restaurants = () => {
   const getMunicipality = useSelector((state) => state.location.municipality);
 
   const imageBase = apiManager.UrlBase;
+
+  const categoryI18n = {
+    restaurants: {
+      label: _(msg`Restaurants`),
+      description: _(msg`Fresh meals from trusted local partners.`),
+    },
+    markets: {
+      label: _(msg`Markets`),
+      description: _(msg`Essentials delivered to your family.`),
+    },
+    sweets: {
+      label: _(msg`Sweets`),
+      description: _(msg`Desserts and sweet combos for special moments.`),
+    },
+    gifts: {
+      label: _(msg`Gifts`),
+      description: _(msg`Curated details for celebrations and surprises.`),
+    },
+    shipping: {
+      label: _(msg`Shipping`),
+      description: _(msg`Air and sea cargo options across Cuba.`),
+    },
+  };
 
   const isServicesPage = path === "/servicios";
 
@@ -295,19 +311,15 @@ const Restaurants = () => {
                 >
                   <img
                     src={category.image}
-                    alt={category.label}
+                    alt={categoryI18n[category.key]?.label || category.key}
                     className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-110 lg:h-44"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/25 to-transparent" />
                   <div className="absolute bottom-3 left-3 right-3">
-                    <p className="text-lg font-black uppercase tracking-tight text-white">
-                      <Trans>{category.label}</Trans>
-                    </p>
+                    <p className="text-lg font-black uppercase tracking-tight text-white">{categoryI18n[category.key]?.label || category.key}</p>
                     <div className="mt-1 flex items-center gap-2 text-white/90">
                       <span className="material-symbols-outlined !text-base">{category.icon}</span>
-                      <p className="line-clamp-1 text-[11px] font-semibold uppercase tracking-wide">
-                        <Trans>{category.description}</Trans>
-                      </p>
+                      <p className="line-clamp-1 text-[11px] font-semibold uppercase tracking-wide">{categoryI18n[category.key]?.description || ""}</p>
                     </div>
                   </div>
                 </Link>

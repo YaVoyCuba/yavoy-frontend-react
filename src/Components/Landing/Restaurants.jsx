@@ -1,24 +1,106 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { Trans } from '@lingui/react/macro'
+import React, { useEffect, useMemo, useState } from "react";
+import { Trans } from "@lingui/react/macro";
 import apiManager from "../../api/apiManager";
-import RestaurantCard from "../Misc/RestaurantCard";
 import { Loading } from "../../common/Loading";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
-import SwiperCore, { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay } from "swiper";
 
-import { Swiper, SwiperSlide  } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Link } from "react-router-dom";
 import MainLandingRedesign from "./MainLandingRedesign";
 
+SwiperCore.use([Autoplay]);
+
+const CATEGORY_CARDS = [
+  {
+    key: "restaurants",
+    href: "/restaurantes",
+    label: "Restaurants",
+    icon: "restaurant",
+    image: "/assets/img/stitch-main/cat-restaurants.png",
+    description: "Fresh meals from trusted local partners.",
+  },
+  {
+    key: "markets",
+    href: "/mercados",
+    label: "Markets",
+    icon: "storefront",
+    image: "/assets/img/stitch-main/cat-mercados.webp",
+    description: "Essentials delivered to your family.",
+  },
+  {
+    key: "sweets",
+    href: "/dulcerias",
+    label: "Sweets",
+    icon: "cake",
+    image: "/assets/img/stitch-main/cat-dulcerias.webp",
+    description: "Desserts and sweet combos for special moments.",
+  },
+  {
+    key: "gifts",
+    href: "/regalitos",
+    label: "Gifts",
+    icon: "redeem",
+    image: "/assets/img/stitch-main/cat-regalitos.webp",
+    description: "Curated details for celebrations and surprises.",
+  },
+  {
+    key: "shipping",
+    href: "/servicios",
+    label: "Shipping",
+    icon: "local_shipping",
+    image: "/assets/img/product_by_libras.jpg",
+    description: "Air and sea cargo options across Cuba.",
+  },
+];
+
+const STORE_ICONS = ["restaurant", "local_cafe", "storefront", "shopping_bag", "lunch_dining"];
+
+const StoreCard = ({ restaurant, imageBase }) => {
+  const rating = Number(restaurant?.valoration) || 0;
+  const productsCount = Number(restaurant?.products_count) || 0;
+  const image = restaurant?.avatar ? `${imageBase}${restaurant.avatar}` : "/assets/img/fondo.webp";
+  const icon = STORE_ICONS[(Number(restaurant?.id) || 0) % STORE_ICONS.length];
+
+  return (
+    <Link
+      to={`/restaurante/${restaurant.slug}`}
+      className="group block rounded-3xl bg-[#f7f7f8] p-4 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-xl"
+      aria-label={restaurant?.name || "Store"}
+    >
+      <div className="relative mb-4 overflow-hidden rounded-2xl bg-slate-100">
+        <img
+          src={image}
+          alt={restaurant?.name || "Store"}
+          className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+        {rating > 0 && (
+          <div className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/95 px-2 py-1 text-xs font-black text-slate-900 shadow-sm">
+            <span className="material-symbols-outlined !text-sm text-[#f06233]">star</span>
+            <span>{rating.toFixed(1)}</span>
+          </div>
+        )}
+      </div>
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h3 className="text-xl font-black tracking-tight text-slate-900">{restaurant?.name}</h3>
+          <p className="mt-1 text-sm font-semibold text-slate-500">
+            {productsCount} <Trans>products available</Trans>
+          </p>
+        </div>
+        <span className="inline-flex rounded-lg bg-[#ffede8] p-2 text-[#f06233]">
+          <span className="material-symbols-outlined !text-base">{icon}</span>
+        </span>
+      </div>
+    </Link>
+  );
+};
+
 const Restaurants = () => {
-  SwiperCore.use([Autoplay]);
-  //Get path for this route
   const locationRouter = useLocation();
   const path = locationRouter.pathname;
   const isMainPage = path === "/";
@@ -26,15 +108,52 @@ const Restaurants = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [promoRestaurants, setPromoRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
-  const getMunicipality = useSelector( ( state ) => state.location.municipality );
+  const getMunicipality = useSelector((state) => state.location.municipality);
+
+  const imageBase = apiManager.UrlBase;
+
+  const isServicesPage = path === "/servicios";
+
+  const promoSlides = useMemo(() => {
+    return promoRestaurants
+      ?.map((photo) => {
+        const image = photo?.image || photo?.image_movil;
+        if (!image) {
+          return null;
+        }
+
+        return {
+          id: photo.id,
+          image: `${imageBase}${image}`,
+          link: photo.link,
+        };
+      })
+      .filter(Boolean);
+  }, [promoRestaurants, imageBase]);
+
+  const featuredRestaurants = useMemo(() => {
+    return [...restaurants]
+      .sort((a, b) => (Number(b?.valoration) || 0) - (Number(a?.valoration) || 0))
+      .slice(0, 4);
+  }, [restaurants]);
+
+  const featuredIds = useMemo(() => new Set(featuredRestaurants.map((item) => item.id)), [featuredRestaurants]);
+
+  const regularRestaurants = useMemo(() => {
+    return restaurants.filter((item) => !featuredIds.has(item.id));
+  }, [restaurants, featuredIds]);
+
+  const isCategoryActive = (href) => {
+    if (href === "/restaurantes") {
+      return path === "/restaurantes";
+    }
+
+    return path === href;
+  };
 
   async function getRestaurants() {
-    let locationFinal = "";
-    if (getMunicipality.value?.id === 0) {
-      locationFinal = 0;
-    } else {
-      locationFinal = getMunicipality.value.id;
-    }
+    const municipalityId = getMunicipality?.value?.id;
+    const locationFinal = municipalityId === 0 ? 0 : municipalityId;
 
     let type = "restaurant";
 
@@ -53,17 +172,22 @@ const Restaurants = () => {
       type = "regalos";
     }
 
-    let json = await apiManager.getRestaurants(locationFinal, type);
-    if (json !== 500) {
-      setRestaurants(json.restaurants);
-      setLoading(false);
-    }
-
-    let json2 = await apiManager.getPromosRestaurants();
-    if (json2 !== 500) {
-      {
-        setPromoRestaurants(json2.promos);
+    try {
+      const json = await apiManager.getRestaurants(locationFinal, type);
+      if (json !== 500) {
+        setRestaurants(json?.restaurants || []);
+      } else {
+        setRestaurants([]);
       }
+
+      const json2 = await apiManager.getPromosRestaurants();
+      if (json2 !== 500) {
+        setPromoRestaurants(json2?.promos || []);
+      } else {
+        setPromoRestaurants([]);
+      }
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -74,7 +198,9 @@ const Restaurants = () => {
     }
 
     setLoading(true);
-    getMunicipality.value && getMunicipality.value.id !== 0 && getRestaurants();
+    if (getMunicipality?.value) {
+      getRestaurants();
+    }
   }, [getMunicipality, path, isMainPage]);
 
   if (isMainPage) {
@@ -86,211 +212,110 @@ const Restaurants = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div>
-          <div className="flex flex-col mx-auto">
-            <div
-              className="  grid grid-cols-3 mx-auto  p-4 md:grid-cols-2 lg:grid-cols-5  gap-4"
-              aria-hidden="true"
-            >
-              <Link
-                to={"/"}
-                className={`col-span-1 ${
-                  path === "/" || path === "/restaurantes"
-                    ? "text-color"
-                    : "text-gray-500"
-                }`}
+        <div className="-mx-3 bg-[#f2f0f1] pb-16 lg:-mx-14">
+          <section className="mx-auto w-full max-w-7xl px-4 pt-6 lg:px-8 lg:pt-8">
+            <div className="relative overflow-hidden rounded-3xl bg-slate-900 shadow-2xl">
+              <Swiper
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false,
+                }}
+                spaceBetween={0}
+                slidesPerView={1}
               >
-                <button
-
-                  className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
-                >
-                  <Trans>Restaurants</Trans>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 text-center h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z"
-                    />
-                  </svg>
-                </button>
-              </Link>
-              <Link
-                to={"/mercados"}
-                className={`col-span-1 ${
-                  path === "/mercados" ? "text-color" : "text-gray-500"
-                }`}
-              >
-                <button
-
-                  className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
-                >
-                  <Trans>Markets</Trans>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
-                    />
-                  </svg>
-                </button>
-              </Link>
-              <Link
-                to={"/dulcerias"}
-                className={`col-span-1 ${
-                  path === "/dulcerias" ? "text-color" : "text-gray-500"
-                }`}
-              >
-                <button
-
-                  className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
-                >
-                  <Trans>Sweets</Trans>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zm-7.518-.267A8.25 8.25 0 1120.25 10.5M8.288 14.212A5.25 5.25 0 1117.25 10.5"
-                    />
-                  </svg>
-                </button>
-              </Link>
-              <Link
-                to={"/regalitos"}
-                className={`col-span-1 ${
-                  path === "/regalitos" ? "text-color" : "text-gray-500"
-                }`}
-              >
-                <button
-
-                  className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
-                >
-                  <Trans>Gifts</Trans>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
-                    />
-                  </svg>
-                </button>
-              </Link>
-              <Link
-                to={"/servicios"}
-                className={`col-span-1 ${
-                  path === "/servicios" ? "text-color" : "text-gray-500"
-                }`}
-              >
-                <button
-
-                  className="flex flex-col justify-center items-center w-full h-full  text-center  hover:text-gray-700 hover:border-gray-300"
-                >
-                  <Trans>Package shipping</Trans>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
-                       className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round"
-                          d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-                  </svg>
-                </button>
-              </Link>
-            </div>
-          </div>
-          <div className="my-3 hidden lg:block">
-            <Swiper
-              autoplay={{
-                delay: 4000,
-                disableOnInteraction: false,
-              }}
-              spaceBetween={50}
-              slidesPerView={1}
-            >
-              {promoRestaurants?.map(
-                (photo) =>
-                  photo.image && (
-                    <SwiperSlide key={ `d-${photo.id}`}>
-                      <a href={photo.link}>
-                        <img src={apiManager.UrlBase + photo.image}  alt={photo.id}/>
-                      </a>
-                    </SwiperSlide>
-                  )
-              )}
-            </Swiper>
-          </div>
-          <div className="my-3  lg:hidden">
-            <Swiper
-              autoplay={{
-                delay: 4000,
-                disableOnInteraction: false,
-              }}
-              spaceBetween={50}
-              slidesPerView={1}
-            >
-              {promoRestaurants?.map(
-                (photo) =>
-                  photo.image_movil && (
-                    <SwiperSlide key={ `m-${photo.id}`}>
-                      <a href={photo.link}>
-                        <img src={apiManager.UrlBase + photo.image_movil}  alt={photo.id}/>
-                      </a>
-                    </SwiperSlide>
-                  )
-              )}
-            </Swiper>
-          </div>
-
-          { path !== '/servicios' ? (
-              <div className="grid mb-10 grid-cols-3">
-                {restaurants.map((restaurant) => {
-                  return (
-                      <div
-                          key={`restaurant-${restaurant.id}`}
-                          className="col-span-3 my-2 lg:col-span-1"
-                      >
-                        <RestaurantCard restaurant={restaurant} />
-                      </div>
-                  );
-                })}
-
-                {restaurants.length === 0 && (
-                    <div className="col-span-3 my-2 lg:col-span-1">
-                      <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-                        <div className="px-4 py-5 sm:px-6">
-                          <h3 className="text-lg leading-6 font-medium text-gray-900">
-                            <Trans>No services available in this area</Trans>
-                          </h3>
+                {(promoSlides.length > 0 ? promoSlides : [{ id: "fallback", image: "/assets/img/fondo.webp", link: "/restaurantes" }]).map(
+                  (slide) => (
+                    <SwiperSlide key={`hero-${slide.id}`}>
+                      <div className="relative min-h-[320px] md:min-h-[400px]">
+                        <img src={slide.image} alt="Promo" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/70 to-transparent" />
+                        <div className="relative z-10 flex h-full items-center p-7 md:p-10 lg:p-12">
+                          <div className="max-w-2xl">
+                            <p className="inline-flex rounded-full bg-[#f06233]/20 px-4 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-[#ff9f80]">
+                              <Trans>Exclusive offer</Trans>
+                            </p>
+                            <h1 className="mt-5 text-4xl font-black uppercase leading-[0.92] tracking-tight text-white md:text-6xl">
+                              <Trans>Discover top stores</Trans>
+                              <br />
+                              <span className="text-[#f06233]"><Trans>near your family</Trans></span>
+                            </h1>
+                            <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-slate-200 md:text-lg">
+                              <Trans>Browse restaurants, markets, sweets, gifts, and shipping services from trusted local partners.</Trans>
+                            </p>
+                            <div className="mt-7 flex flex-wrap gap-3">
+                              <Link
+                                to="/restaurantes"
+                                className="rounded-xl bg-[#f06233] px-7 py-3 text-sm font-black uppercase tracking-wide text-white shadow-lg shadow-orange-400/30 transition hover:scale-[1.02]"
+                              >
+                                <Trans>Order now</Trans>
+                              </Link>
+                              <a
+                                href={slide.link || "#"}
+                                className="rounded-xl border-2 border-white/30 bg-white/10 px-7 py-3 text-sm font-black uppercase tracking-wide text-white backdrop-blur-sm transition hover:bg-white/20"
+                              >
+                                <Trans>View offer</Trans>
+                              </a>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </SwiperSlide>
+                  )
                 )}
+              </Swiper>
+
+              <div className="absolute bottom-6 right-6 z-20 hidden rounded-2xl bg-white/90 p-4 shadow-xl backdrop-blur-md lg:block">
+                <div className="flex items-center gap-2 text-slate-900">
+                  <span className="material-symbols-outlined text-[#f06233]">local_shipping</span>
+                  <p className="text-xs font-black uppercase tracking-wide"><Trans>Fast delivery</Trans></p>
+                </div>
+                <p className="mt-2 max-w-[210px] text-xs font-medium leading-relaxed text-slate-600">
+                  <Trans>Partner stores deliver quickly with real-time stock availability.</Trans>
+                </p>
               </div>
-          ) : (
+            </div>
+          </section>
+
+          <section className="mx-auto mt-12 w-full max-w-7xl px-4 lg:px-8">
+            <div className="mb-8">
+              <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>Explore categories</Trans></h2>
+              <p className="mt-1 text-sm font-semibold text-slate-500">
+                <Trans>The best of Cuba delivered to your family.</Trans>
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+              {CATEGORY_CARDS.map((category) => (
+                <Link
+                  key={category.key}
+                  to={category.href}
+                  className={`group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-xl ${
+                    isCategoryActive(category.href) ? "ring-2 ring-[#f06233]/60" : "ring-1 ring-slate-200"
+                  }`}
+                >
+                  <img
+                    src={category.image}
+                    alt={category.label}
+                    className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-110 lg:h-44"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/25 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <p className="text-lg font-black uppercase tracking-tight text-white">
+                      <Trans>{category.label}</Trans>
+                    </p>
+                    <div className="mt-1 flex items-center gap-2 text-white/90">
+                      <span className="material-symbols-outlined !text-base">{category.icon}</span>
+                      <p className="line-clamp-1 text-[11px] font-semibold uppercase tracking-wide">
+                        <Trans>{category.description}</Trans>
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {isServicesPage ? (
               <div className="grid mb-10 grid-cols-1">
                 <div className="bg-white">
                   <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
@@ -397,7 +422,80 @@ const Restaurants = () => {
                   </div>
                 </div>
               </div>
-          ) }
+          ) : (
+            <>
+              <section className="mx-auto mt-14 w-full max-w-7xl px-4 lg:px-8">
+                <div className="mb-8 flex items-center justify-between">
+                  <div>
+                    <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>Featured stores</Trans></h2>
+                    <p className="mt-1 text-sm font-semibold text-slate-500"><Trans>Top rated stores selected for this week.</Trans></p>
+                  </div>
+                  <div className="hidden items-center gap-2 md:flex">
+                    <button
+                      type="button"
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
+                      aria-label="Previous featured stores"
+                    >
+                      <span className="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button
+                      type="button"
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
+                      aria-label="Next featured stores"
+                    >
+                      <span className="material-symbols-outlined">chevron_right</span>
+                    </button>
+                  </div>
+                </div>
+
+                {featuredRestaurants.length > 0 ? (
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+                    {featuredRestaurants.map((restaurant) => (
+                      <StoreCard key={`featured-${restaurant.id}`} restaurant={restaurant} imageBase={imageBase} />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="rounded-2xl bg-white p-6 text-slate-700 shadow-sm">
+                    <p className="text-lg font-semibold">
+                      <Trans>No services available in this area</Trans>
+                    </p>
+                  </div>
+                )}
+              </section>
+
+              <section className="mx-auto mt-16 w-full max-w-7xl px-4 lg:px-8">
+                <div className="mb-8">
+                  <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>All stores</Trans></h2>
+                  <p className="mt-1 text-sm font-semibold text-slate-500"><Trans>Explore the full catalog of local partners.</Trans></p>
+                </div>
+
+                {restaurants.length > 0 ? (
+                  <>
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+                      {(regularRestaurants.length > 0 ? regularRestaurants : restaurants).map((restaurant) => (
+                        <StoreCard key={`store-${restaurant.id}`} restaurant={restaurant} imageBase={imageBase} />
+                      ))}
+                    </div>
+
+                    <div className="mt-10 flex justify-center">
+                      <button
+                        type="button"
+                        className="rounded-full border-2 border-slate-400 px-7 py-3 text-sm font-black text-slate-800 transition hover:border-[#f06233] hover:text-[#f06233]"
+                      >
+                        <Trans>View all stores</Trans>
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <div className="rounded-2xl bg-white p-6 text-slate-700 shadow-sm">
+                    <p className="text-lg font-semibold">
+                      <Trans>No services available in this area</Trans>
+                    </p>
+                  </div>
+                )}
+              </section>
+            </>
+          )}
 
         </div>
       )}

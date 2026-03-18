@@ -19,7 +19,7 @@ const RefundPolicyPage = () => {
       </div>
 
       <p className="text-base leading-relaxed text-slate-700">
-        <Trans>At YaVoy Cuba, we understand that travel plans can change unexpectedly. This policy describes our standard operational procedure for cancellations and refunds. Our goal is to balance customer flexibility with the logistics commitments we have with local partners across Cuba.</Trans>
+        <Trans>At YaVoy, we understand that travel plans can change unexpectedly. This policy describes our standard operational procedure for cancellations and refunds. Our goal is to balance customer flexibility with the logistics commitments we have with local partners across Cuba.</Trans>
       </p>
 
       <section className="stitch-reveal mt-12" style={{ animationDelay: "90ms" }}>
@@ -124,7 +124,7 @@ const RefundPolicyPage = () => {
         </div>
       </section>
       <div className="h-8" />
-      <div className="border-t border-[#f1d8cf] pt-5 text-center text-xs text-slate-500"><Trans>© 2026 YaVoy Cuba. All rights reserved.</Trans></div>
+      <div className="border-t border-[#f1d8cf] pt-5 text-center text-xs text-slate-500"><Trans>© 2026 YaVoy. All rights reserved.</Trans></div>
     </main>
   );
 };

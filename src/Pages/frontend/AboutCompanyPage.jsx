@@ -11,7 +11,7 @@ const AboutCompanyPage = () => {
     <main className="-mx-3 bg-[#f7f5f6] text-slate-900 lg:-mx-14">
       <section className="stitch-reveal mx-auto w-full max-w-7xl px-4 py-10 md:px-8">
         <div className="relative min-h-[360px] overflow-hidden rounded-2xl bg-slate-900 shadow-2xl md:min-h-[430px]">
-          <img src="/assets/img/fondo.webp" alt={t`YaVoy Cuba`} className="absolute inset-0 h-full w-full object-cover opacity-60" />
+          <img src="/assets/img/fondo.webp" alt={t`YaVoy`} className="absolute inset-0 h-full w-full object-cover opacity-60" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/55 to-transparent" />
           <div className="relative flex h-full max-w-3xl flex-col justify-end p-7 md:p-14">
             <span className="mb-4 inline-block rounded bg-[#f06233] px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-white">
@@ -34,7 +34,7 @@ const AboutCompanyPage = () => {
             <Trans>Delivery goes beyond packages; it is about caring.</Trans>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-slate-600">
-            <Trans>YaVoy Cuba was born from a deep understanding of the challenges families face when supporting relatives on the island. Our mission is to provide a transparent and fully secure bridge for groceries, medicines, and personal care items.</Trans>
+            <Trans>YaVoy was born from a deep understanding of the challenges families face when supporting relatives on the island. Our mission is to provide a transparent and fully secure bridge for groceries, medicines, and personal care items.</Trans>
           </p>
           <div className="mt-7 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
             <p className="flex items-center gap-2 text-sm font-bold text-slate-900">
@@ -109,7 +109,7 @@ const AboutCompanyPage = () => {
         </div>
         <div>
           <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#f06233]"><Trans>Transparency and security</Trans></p>
-          <h2 className="mt-2 text-4xl font-black"><Trans>Why trust YaVoy Cuba?</Trans></h2>
+          <h2 className="mt-2 text-4xl font-black"><Trans>Why trust YaVoy?</Trans></h2>
           <div className="mt-6 space-y-6">
             <article>
               <p className="flex items-center gap-2 text-xl font-bold">
@@ -140,7 +140,7 @@ const AboutCompanyPage = () => {
         <div className="rounded-2xl bg-[#f06233] px-6 py-12 text-center text-white shadow-xl md:px-14 md:py-14">
           <h2 className="text-4xl font-black leading-tight md:text-5xl"><Trans>Ready to send a little love home?</Trans></h2>
           <p className="mx-auto mt-4 max-w-2xl text-white/90">
-            <Trans>Join thousands of families who trust YaVoy Cuba for their essential monthly deliveries.</Trans>
+            <Trans>Join thousands of families who trust YaVoy for their essential monthly deliveries.</Trans>
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a href="/" className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-[#f06233]">

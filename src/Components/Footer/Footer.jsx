@@ -23,7 +23,7 @@ export default function Footer() {
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 md:grid-cols-4 md:px-8">
         <section>
           <div className="flex items-center gap-3">
-            <img src="/assets/img/logoyavoy.png" alt={t`YaVoy Cuba`} className="h-8 w-auto" />
+            <img src="/assets/img/logoyavoy.png" alt={t`YaVoy`} className="h-8 w-auto" />
           </div>
           <p className="mt-4 text-sm leading-relaxed text-slate-300">
             <Trans>Connecting families with reliable e-commerce and delivery services.</Trans>
@@ -97,7 +97,7 @@ export default function Footer() {
 
       <div className="border-t border-slate-800">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-5 text-xs text-slate-500 md:flex-row md:items-center md:justify-between md:px-8">
-          <p><Trans>© 2026 YaVoy Cuba. All rights reserved.</Trans></p>
+          <p><Trans>© 2026 YaVoy. All rights reserved.</Trans></p>
           <p>
             <Trans>Maintained by</Trans>{" "}<a className="hover:text-[#f06233]" href="https://github.com/kmilodenisglez">KDG</a>
           </p>

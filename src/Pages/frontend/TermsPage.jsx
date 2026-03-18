@@ -53,7 +53,7 @@ const TermsPage = () => {
                 <Trans>Introduction</Trans>
               </h2>
               <p className="text-lg leading-relaxed text-slate-600">
-                <Trans>Welcome to YaVoy Cuba. These terms govern the use of our platform and related services. By accessing or using our site, you agree to be fully bound by these legal conditions.</Trans>
+                <Trans>Welcome to YaVoy. These terms govern the use of our platform and related services. By accessing or using our site, you agree to be fully bound by these legal conditions.</Trans>
               </p>
             </section>
 
@@ -113,7 +113,7 @@ const TermsPage = () => {
                 <Trans>Security and cancellations</Trans>
               </h2>
               <p className="leading-relaxed text-slate-600">
-                <Trans>YaVoy Cuba applies a zero-tolerance policy against illicit activities.</Trans>{" "}
+                <Trans>YaVoy applies a zero-tolerance policy against illicit activities.</Trans>{" "}
                 <span className="rounded bg-red-50 px-1 font-semibold text-red-700">
                   <Trans>We reserve the right to cancel orders with signs of fraud</Trans>
                 </span>{" "}

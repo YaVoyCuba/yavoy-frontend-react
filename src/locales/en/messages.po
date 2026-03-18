@@ -15,13 +15,13 @@ msgstr ""
 
 #: src/Components/Footer/Footer.jsx:100
 #: src/Pages/frontend/RefundPolicyPage.jsx:127
-msgid "© 2026 YaVoy Cuba. All rights reserved."
-msgstr "© 2026 YaVoy Cuba. All rights reserved."
+msgid "© 2026 YaVoy. All rights reserved."
+msgstr "© 2026 YaVoy. All rights reserved."
 
 #: src/Components/Footer/Footer.jsx:100
 #: src/Pages/frontend/RefundPolicyPage.jsx:127
-#~ msgid "© 2026 YaVoy Cuba. Todos los derechos reservados."
-#~ msgstr "© 2026 YaVoy Cuba. Todos los derechos reservados."
+#~ msgid "© 2026 YaVoy. Todos los derechos reservados."
+#~ msgstr "© 2026 YaVoy. Todos los derechos reservados."
 
 #: src/Components/Footer/Footer.jsx:92
 #: src/Pages/frontend/ContactPage.jsx:70
@@ -125,12 +125,12 @@ msgstr "Approval"
 #~ msgstr "Asunto"
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:23
-msgid "At YaVoy Cuba, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
-msgstr "At YaVoy Cuba, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
+msgid "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
+msgstr "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:22
-msgid "At YaVoy Cuba, we understand that travel plans can change unexpectedly. This policy describes our standard operational procedure for cancellations and refunds. Our goal is to balance customer flexibility with the logistics commitments we have with local partners across Cuba."
-msgstr "At YaVoy Cuba, we understand that travel plans can change unexpectedly. This policy describes our standard operational procedure for cancellations and refunds. Our goal is to balance customer flexibility with the logistics commitments we have with local partners across Cuba."
+msgid "At YaVoy, we understand that travel plans can change unexpectedly. This policy describes our standard operational procedure for cancellations and refunds. Our goal is to balance customer flexibility with the logistics commitments we have with local partners across Cuba."
+msgstr "At YaVoy, we understand that travel plans can change unexpectedly. This policy describes our standard operational procedure for cancellations and refunds. Our goal is to balance customer flexibility with the logistics commitments we have with local partners across Cuba."
 
 #: src/Pages/frontend/LoginPage.jsx:221
 msgid "Authenticate with CrecexDiez"
@@ -451,8 +451,8 @@ msgstr "email@example.com"
 #~ msgstr "Empresa"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:22
-#~ msgid "En YaVoy Cuba, entendemos que los planes de viaje pueden cambiar inesperadamente. Esta politica describe nuestro procedimiento operativo estandar para cancelaciones y reembolsos. Nuestro objetivo es equilibrar la flexibilidad de nuestros clientes con los compromisos logisticos asumidos con socios locales en toda Cuba."
-#~ msgstr "En YaVoy Cuba, entendemos que los planes de viaje pueden cambiar inesperadamente. Esta politica describe nuestro procedimiento operativo estandar para cancelaciones y reembolsos. Nuestro objetivo es equilibrar la flexibilidad de nuestros clientes con los compromisos logisticos asumidos con socios locales en toda Cuba."
+#~ msgid "En YaVoy, entendemos que los planes de viaje pueden cambiar inesperadamente. Esta politica describe nuestro procedimiento operativo estandar para cancelaciones y reembolsos. Nuestro objetivo es equilibrar la flexibilidad de nuestros clientes con los compromisos logisticos asumidos con socios locales en toda Cuba."
+#~ msgstr "En YaVoy, entendemos que los planes de viaje pueden cambiar inesperadamente. Esta politica describe nuestro procedimiento operativo estandar para cancelaciones y reembolsos. Nuestro objetivo es equilibrar la flexibilidad de nuestros clientes con los compromisos logisticos asumidos con socios locales en toda Cuba."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:151
 msgid "Encrypted payment"
@@ -661,8 +661,8 @@ msgid "Join thousands of Cubans abroad who trust us for their monthly deliveries
 msgstr "Join thousands of Cubans abroad who trust us for their monthly deliveries."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:143
-msgid "Join thousands of families who trust YaVoy Cuba for their essential monthly deliveries."
-msgstr "Join thousands of families who trust YaVoy Cuba for their essential monthly deliveries."
+msgid "Join thousands of families who trust YaVoy for their essential monthly deliveries."
+msgstr "Join thousands of families who trust YaVoy for their essential monthly deliveries."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:34
 #~ msgid "La entrega va mas alla de los paquetes; se trata de cuidar."
@@ -1004,8 +1004,8 @@ msgstr "Policy document"
 #~ msgstr "Politica de Reembolso"
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:112
-#~ msgid "Por que confiar en YaVoy Cuba?"
-#~ msgstr "Por que confiar en YaVoy Cuba?"
+#~ msgid "Por que confiar en YaVoy?"
+#~ msgstr "Por que confiar en YaVoy?"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:51
 #~ msgid "Postres y combos dulces para sorprender en casa."
@@ -1341,8 +1341,8 @@ msgstr "Transparency and security"
 #~ msgstr "Una vez aprobado, recibes confirmacion por correo con monto final."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:143
-#~ msgid "Unase a miles de familias que confian en YaVoy Cuba para sus entregas mensuales esenciales."
-#~ msgstr "Unase a miles de familias que confian en YaVoy Cuba para sus entregas mensuales esenciales."
+#~ msgid "Unase a miles de familias que confian en YaVoy para sus entregas mensuales esenciales."
+#~ msgstr "Unase a miles de familias que confian en YaVoy para sus entregas mensuales esenciales."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:230
 #~ msgid "Unete a los miles de cubanos en el exterior que confian en nosotros para sus envios mensuales."
@@ -1491,8 +1491,8 @@ msgid "We work directly with verified local delivery agents who understand every
 msgstr "We work directly with verified local delivery agents who understand every neighborhood."
 
 #: src/Pages/frontend/TermsPage.jsx:56
-msgid "Welcome to YaVoy Cuba. These terms govern the use of our platform and related services. By accessing or using our site, you agree to be fully bound by these legal conditions."
-msgstr "Welcome to YaVoy Cuba. These terms govern the use of our platform and related services. By accessing or using our site, you agree to be fully bound by these legal conditions."
+msgid "Welcome to YaVoy. These terms govern the use of our platform and related services. By accessing or using our site, you agree to be fully bound by these legal conditions."
+msgstr "Welcome to YaVoy. These terms govern the use of our platform and related services. By accessing or using our site, you agree to be fully bound by these legal conditions."
 
 #: src/Components/Header/HeaderTop.jsx:119
 msgid "Welcome to YaVoy Marketplace!"
@@ -1503,25 +1503,25 @@ msgid "What started as a small logistics project in Miami has become a trusted c
 msgstr "What started as a small logistics project in Miami has become a trusted community pillar for the Cuban diaspora."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:112
-msgid "Why trust YaVoy Cuba?"
-msgstr "Why trust YaVoy Cuba?"
+msgid "Why trust YaVoy?"
+msgstr "Why trust YaVoy?"
 
 #: src/Components/Footer/Footer.jsx:26
 #: src/Pages/frontend/AboutCompanyPage.jsx:14
-msgid "YaVoy Cuba"
-msgstr "YaVoy Cuba"
+msgid "YaVoy"
+msgstr "YaVoy"
 
 #: src/Pages/frontend/TermsPage.jsx:116
-msgid "YaVoy Cuba applies a zero-tolerance policy against illicit activities."
-msgstr "YaVoy Cuba applies a zero-tolerance policy against illicit activities."
+msgid "YaVoy applies a zero-tolerance policy against illicit activities."
+msgstr "YaVoy applies a zero-tolerance policy against illicit activities."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:37
-#~ msgid "YaVoy Cuba nacio de una profunda comprension de los desafios que enfrentan las familias cuando intentan apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y absolutamente seguro para comestibles, medicinas y articulos de cuidado personal."
-#~ msgstr "YaVoy Cuba nacio de una profunda comprension de los desafios que enfrentan las familias cuando intentan apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y absolutamente seguro para comestibles, medicinas y articulos de cuidado personal."
+#~ msgid "YaVoy nacio de una profunda comprension de los desafios que enfrentan las familias cuando intentan apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y absolutamente seguro para comestibles, medicinas y articulos de cuidado personal."
+#~ msgstr "YaVoy nacio de una profunda comprension de los desafios que enfrentan las familias cuando intentan apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y absolutamente seguro para comestibles, medicinas y articulos de cuidado personal."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:37
-msgid "YaVoy Cuba was born from a deep understanding of the challenges families face when supporting relatives on the island. Our mission is to provide a transparent and fully secure bridge for groceries, medicines, and personal care items."
-msgstr "YaVoy Cuba was born from a deep understanding of the challenges families face when supporting relatives on the island. Our mission is to provide a transparent and fully secure bridge for groceries, medicines, and personal care items."
+msgid "YaVoy was born from a deep understanding of the challenges families face when supporting relatives on the island. Our mission is to provide a transparent and fully secure bridge for groceries, medicines, and personal care items."
+msgstr "YaVoy was born from a deep understanding of the challenges families face when supporting relatives on the island. Our mission is to provide a transparent and fully secure bridge for groceries, medicines, and personal care items."
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:64
 msgid "YaVoy guarantee"

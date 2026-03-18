@@ -20,7 +20,7 @@ const PrivacyPolicyPage = () => {
               <span className="text-[#f06233]"><Trans>vital commitment.</Trans></span>
             </h1>
             <p className="mt-6 max-w-2xl text-xl leading-relaxed text-slate-600">
-              <Trans>At YaVoy Cuba, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders.</Trans>
+              <Trans>At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders.</Trans>
             </p>
           </div>
 

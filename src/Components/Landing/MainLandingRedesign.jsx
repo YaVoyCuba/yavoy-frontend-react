@@ -127,7 +127,9 @@ const MainLandingRedesign = () => {
                 className="h-full max-h-[420px] w-full object-cover"
               />
               <div className="m-4 rounded-xl border border-emerald-200 bg-white p-3 text-sm shadow-sm">
-                <div className="flex items-center gap-3">
+                {/* Future changes */}
+                {/* TODO: Add latest delivery information */}
+                <div className="flex items-center gap-3 hidden">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500 text-white">
                     <span className="material-symbols-outlined !text-xl">package_2</span>
                   </div>

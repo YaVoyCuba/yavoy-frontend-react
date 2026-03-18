@@ -27,11 +27,11 @@ const TermsPage = () => {
 
         <div className="lg:col-span-9">
           <nav className="mb-4 flex gap-2 overflow-x-auto pb-2 lg:hidden" aria-label="Terms section navigation mobile">
-            <a className="whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-[#f06233] shadow-sm ring-1 ring-[#f06233]/20" href="#introduction"><Trans>Introduction</Trans></a>
-            <a className="whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200" href="#operation"><Trans>Platform operation</Trans></a>
-            <a className="whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200" href="#logistics"><Trans>Logistics and timelines</Trans></a>
-            <a className="whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200" href="#obligations"><Trans>User obligations</Trans></a>
-            <a className="whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200" href="#security"><Trans>Security and cancellations</Trans></a>
+            <a className="whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-[#f06233] shadow-sm ring-1 ring-[#f06233]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f06233]/40" href="#introduction"><Trans>Introduction</Trans></a>
+            <a className="whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f06233]/30" href="#operation"><Trans>Platform operation</Trans></a>
+            <a className="whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f06233]/30" href="#logistics"><Trans>Logistics and timelines</Trans></a>
+            <a className="whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f06233]/30" href="#obligations"><Trans>User obligations</Trans></a>
+            <a className="whitespace-nowrap rounded-full bg-white px-3 py-1.5 text-xs font-bold text-slate-600 shadow-sm ring-1 ring-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f06233]/30" href="#security"><Trans>Security and cancellations</Trans></a>
           </nav>
 
           <article className="rounded-3xl bg-white p-7 shadow-xl shadow-slate-200/60 ring-1 ring-slate-100 md:p-10 lg:p-14">
@@ -39,7 +39,7 @@ const TermsPage = () => {
               <p className="inline-flex rounded-full bg-[#ffede8] px-3 py-1 text-[11px] font-black uppercase tracking-[0.16em] text-[#f06233]">
                 <Trans>Official document v2024</Trans>
               </p>
-              <h1 className="mt-4 text-4xl font-black leading-[0.95] tracking-tight text-slate-900 md:text-[64px]">
+              <h1 className="mt-4 max-w-3xl text-4xl font-black leading-[0.95] tracking-tight text-slate-900 md:text-[64px]">
                 <Trans>Terms and conditions</Trans>
               </h1>
               <p className="mt-3 text-sm font-medium text-slate-500">
@@ -79,19 +79,19 @@ const TermsPage = () => {
               </p>
               <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
                 <li className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 shadow-sm">
-                  <span className="material-symbols-outlined text-[#f06233]">schedule</span>
+                  <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">schedule</span>
                   <span className="text-sm font-semibold text-slate-700"><Trans>Estimated delivery windows are subject to change.</Trans></span>
                 </li>
                 <li className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 shadow-sm">
-                  <span className="material-symbols-outlined text-[#f06233]">cloud</span>
+                  <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">cloud</span>
                   <span className="text-sm font-semibold text-slate-700"><Trans>Variations due to weather conditions.</Trans></span>
                 </li>
                 <li className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 shadow-sm">
-                  <span className="material-symbols-outlined text-[#f06233]">inventory</span>
+                  <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">inventory</span>
                   <span className="text-sm font-semibold text-slate-700"><Trans>Real-time stock availability.</Trans></span>
                 </li>
                 <li className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 shadow-sm">
-                  <span className="material-symbols-outlined text-[#f06233]">local_shipping</span>
+                  <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">local_shipping</span>
                   <span className="text-sm font-semibold text-slate-700"><Trans>Logistics factors related to third-party carriers.</Trans></span>
                 </li>
               </ul>
@@ -135,7 +135,7 @@ const TermsPage = () => {
                   <Trans>Contact support</Trans>
                 </Link>
               </div>
-              <span className="material-symbols-outlined absolute -right-2 -top-3 text-[110px] text-white/10">gavel</span>
+              <span className="material-symbols-outlined absolute -right-2 -top-3 text-[110px] text-white/10" aria-hidden="true">gavel</span>
               <div className="absolute -right-10 -top-10 h-28 w-28 rotate-45 bg-white/5" />
             </div>
           </article>

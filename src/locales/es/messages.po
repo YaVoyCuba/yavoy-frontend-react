@@ -125,6 +125,10 @@ msgstr "Aprobacion"
 #~ msgstr ""
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:23
+#~ msgid "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
+#~ msgstr "En YaVoy, la confianza es la base de cada entrega. Esta politica explica como protegemos tu informacion mientras conectamos fronteras."
+
+#: src/Pages/frontend/PrivacyPolicyPage.jsx:23
 msgid "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
 msgstr "En YaVoy, la confianza es la base de cada entrega. Esta politica explica como protegemos tu informacion mientras conectamos fronteras."
 
@@ -1490,13 +1494,13 @@ msgstr "Te mostraremos los resultados en correspondencia a esta dirección"
 msgid "We work directly with verified local delivery agents who understand every neighborhood."
 msgstr "Trabajamos directamente con agentes de entrega locales verificados que entienden cada vecindario."
 
-#: src/Pages/frontend/TermsPage.jsx:56
-msgid "Welcome to YaVoy. These terms govern the use of our platform and related services. By accessing or using our site, you agree to be fully bound by these legal conditions."
-msgstr "Bienvenido a YaVoy. Estos terminos regulan el uso de nuestra plataforma y servicios relacionados. Al acceder o usar nuestro sitio, aceptas quedar plenamente sujeto a estas condiciones legales."
-
 #: src/Components/Header/HeaderTop.jsx:119
 msgid "Welcome to YaVoy Marketplace!"
 msgstr "¡Bienvenido a YaVoy MarketPlace!"
+
+#: src/Pages/frontend/TermsPage.jsx:56
+msgid "Welcome to YaVoy. These terms govern the use of our platform and related services. By accessing or using our site, you agree to be fully bound by these legal conditions."
+msgstr "Bienvenido a YaVoy. Estos terminos regulan el uso de nuestra plataforma y servicios relacionados. Al acceder o usar nuestro sitio, aceptas quedar plenamente sujeto a estas condiciones legales."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:67
 msgid "What started as a small logistics project in Miami has become a trusted community pillar for the Cuban diaspora."
@@ -1515,17 +1519,13 @@ msgstr "YaVoy"
 msgid "YaVoy applies a zero-tolerance policy against illicit activities."
 msgstr "YaVoy aplica una politica de tolerancia cero frente a actividades ilicitas."
 
-#: src/Pages/frontend/AboutCompanyPage.jsx:37
-#~ msgid "YaVoy nacio de una profunda comprension de los desafios que enfrentan las familias cuando intentan apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y absolutamente seguro para comestibles, medicinas y articulos de cuidado personal."
-#~ msgstr ""
-
-#: src/Pages/frontend/AboutCompanyPage.jsx:37
-msgid "YaVoy was born from a deep understanding of the challenges families face when supporting relatives on the island. Our mission is to provide a transparent and fully secure bridge for groceries, medicines, and personal care items."
-msgstr "YaVoy nacio de una profunda comprension de los desafios que enfrentan las familias cuando intentan apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y absolutamente seguro para comestibles, medicinas y articulos de cuidado personal."
-
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:64
 msgid "YaVoy guarantee"
 msgstr "Garantia YaVoy"
+
+#: src/Pages/frontend/AboutCompanyPage.jsx:37
+#~ msgid "YaVoy nacio de una profunda comprension de los desafios que enfrentan las familias cuando intentan apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y absolutamente seguro para comestibles, medicinas y articulos de cuidado personal."
+#~ msgstr ""
 
 #: src/Pages/frontend/TermsPage.jsx:14
 #~ msgid "YaVoy opera como plataforma de comercio y coordinacion de entregas con socios locales. Al usar el sitio, aceptas cumplir las politicas de compra, pago y entrega publicadas."
@@ -1534,6 +1534,10 @@ msgstr "Garantia YaVoy"
 #: src/Pages/frontend/TermsPage.jsx:67
 msgid "YaVoy operates as an e-commerce platform that coordinates deliveries with local partners. By using this site, you agree to comply with our published purchase, payment, and delivery policies."
 msgstr "YaVoy opera como plataforma de comercio y coordinacion de entregas con socios locales. Al usar el sitio, aceptas cumplir las politicas de compra, pago y entrega publicadas."
+
+#: src/Pages/frontend/AboutCompanyPage.jsx:37
+msgid "YaVoy was born from a deep understanding of the challenges families face when supporting relatives on the island. Our mission is to provide a transparent and fully secure bridge for groceries, medicines, and personal care items."
+msgstr "YaVoy nacio de una profunda comprension de los desafios que enfrentan las familias cuando intentan apoyar a sus parientes en la isla. Nuestra mision es proporcionar un puente transparente y absolutamente seguro para comestibles, medicinas y articulos de cuidado personal."
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:19
 msgid "Your privacy is our"

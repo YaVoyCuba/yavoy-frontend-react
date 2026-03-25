@@ -30,11 +30,6 @@ msgstr "© 2026 YaVoy. Todos los derechos reservados."
 #~ msgid "© 2026 YaVoy. Todos los derechos reservados."
 #~ msgstr ""
 
-#: src/Components/Footer/Footer.jsx:92
-#: src/Pages/frontend/ContactPage.jsx:70
-msgid "+1 (800) 123-4567"
-msgstr "+1 (800) 123-4567"
-
 #: src/Pages/frontend/ContactPage.jsx:96
 msgid "10:00 AM - 2:00 PM"
 msgstr "10:00 AM - 2:00 PM"
@@ -276,8 +271,8 @@ msgid "Connecting families across borders"
 msgstr "Conectando familias a traves de las fronteras"
 
 #: src/Components/Footer/Footer.jsx:29
-msgid "Connecting families with reliable e-commerce and delivery services."
-msgstr "Conectando familias con un servicio de e-commerce y entregas confiable."
+msgid "E-commerce platform with secure purchases and coordinated deliveries."
+msgstr "Plataforma de comercio electrónico con compras seguras y entregas coordinadas."
 
 #: src/Pages/frontend/ContactPage.jsx:39
 #~ msgid "Consulta sobre..."
@@ -1266,11 +1261,6 @@ msgstr "Regístrate"
 #: src/Components/Landing/MainLandingRedesign.jsx:150
 #~ msgid "Soporte 24/7"
 #~ msgstr ""
-
-#: src/Components/Footer/Footer.jsx:91
-#: src/Pages/frontend/ContactPage.jsx:63
-msgid "soporte@yavoycuba.com"
-msgstr "soporte@yavoycuba.com"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:32
 msgid "Standard cancellations"

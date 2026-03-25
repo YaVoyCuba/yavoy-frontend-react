@@ -30,11 +30,6 @@ msgstr "© 2026 YaVoy. All rights reserved."
 #~ msgid "© 2026 YaVoy. Todos los derechos reservados."
 #~ msgstr "© 2026 YaVoy. Todos los derechos reservados."
 
-#: src/Components/Footer/Footer.jsx:92
-#: src/Pages/frontend/ContactPage.jsx:70
-msgid "+1 (800) 123-4567"
-msgstr "+1 (800) 123-4567"
-
 #: src/Pages/frontend/ContactPage.jsx:96
 msgid "10:00 AM - 2:00 PM"
 msgstr "10:00 AM - 2:00 PM"
@@ -1266,11 +1261,6 @@ msgstr "Sign up"
 #: src/Components/Landing/MainLandingRedesign.jsx:150
 #~ msgid "Soporte 24/7"
 #~ msgstr "Soporte 24/7"
-
-#: src/Components/Footer/Footer.jsx:91
-#: src/Pages/frontend/ContactPage.jsx:63
-msgid "soporte@yavoycuba.com"
-msgstr "soporte@yavoycuba.com"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:32
 msgid "Standard cancellations"

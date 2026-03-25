@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Trans } from "@lingui/react/macro";
 import { t } from "@lingui/core/macro";
+import defaults from "../../config/defaults";
 
 const ContactPage = () => {
   const info = useSelector((state) => state.info.info);
@@ -60,14 +61,14 @@ const ContactPage = () => {
               <span className="material-symbols-outlined">mail</span>
             </p>
             <p className="text-sm text-slate-500"><Trans>Email us</Trans></p>
-            <p className="mt-1 text-2xl font-bold">{info?.mail || t`soporte@yavoycuba.com`}</p>
+            <p className="mt-1 text-2xl font-bold">{info?.mail || defaults.mail}</p>
           </article>
           <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
             <p className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#fff1ec] text-[#f06233]">
               <span className="material-symbols-outlined">call</span>
             </p>
             <p className="text-sm text-slate-500"><Trans>Call us</Trans></p>
-            <p className="mt-1 text-2xl font-bold">{info?.phone || t`+1 (800) 123-4567`}</p>
+            <p className="mt-1 text-2xl font-bold">{info?.phone || defaults.phone}</p>
           </article>
           <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
             <p className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#fff1ec] text-[#f06233]">

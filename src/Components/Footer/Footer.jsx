@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Trans } from "@lingui/react/macro";
 import { t } from "@lingui/core/macro";
+import defaults from "../../config/defaults";
 
 export default function Footer() {
   const info = useSelector((state) => state.info.info);
@@ -26,7 +27,7 @@ export default function Footer() {
             <img src="/assets/img/logoyavoy.png" alt={t`YaVoy`} className="h-8 w-auto" />
           </div>
           <p className="mt-4 text-sm leading-relaxed text-slate-300">
-            <Trans>Connecting families with reliable e-commerce and delivery services.</Trans>
+            <Trans>E-commerce platform with secure purchases and coordinated deliveries.</Trans>
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {socialLinks.map((social) => (
@@ -88,9 +89,9 @@ export default function Footer() {
         <section>
           <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400"><Trans>Contact</Trans></h3>
           <ul className="mt-4 space-y-2 text-sm text-slate-300">
-            <li>{info.mail || t`soporte@yavoycuba.com`}</li>
-            <li>{info.phone || t`+1 (800) 123-4567`}</li>
-            <li><Trans>Miami, FL, USA</Trans></li>
+            <li>{info.mail || defaults.mail}</li>
+            <li>{info.phone || defaults.phone}</li>
+            <li>{info.place || defaults.place}</li>
           </ul>
         </section>
       </div>

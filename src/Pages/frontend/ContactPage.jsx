@@ -15,6 +15,11 @@ const ContactPage = () => {
     event.preventDefault();
   };
 
+  const place = info?.place || defaults.place;
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place)}`;
+  const phone = info?.phone || defaults.phone;
+  const phoneUrl = `tel:${phone.replace(/[^\d+]/g, "")}`;
+
   return (
     <main className="-mx-3 bg-[#f6f4f5] text-slate-900 lg:-mx-14">
       <section className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 lg:grid-cols-2 lg:px-8">
@@ -77,14 +82,22 @@ const ContactPage = () => {
               <span className="material-symbols-outlined">call</span>
             </p>
             <p className="text-sm text-slate-500"><Trans>Call us</Trans></p>
-            <p className="mt-1 text-2xl font-bold">{info?.phone || defaults.phone}</p>
+            <p className="mt-1 text-2xl font-bold">
+              <a className="hover:text-[#f06233]" href={phoneUrl}>
+                {phone}
+              </a>
+            </p>
           </article>
           <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
             <p className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#fff1ec] text-[#f06233]">
               <span className="material-symbols-outlined">location_on</span>
             </p>
             <p className="text-sm text-slate-500"><Trans>Visit us</Trans></p>
-            <p className="mt-1 text-2xl font-bold"><Trans>8300 NW 33rd St, Miami, FL 33122</Trans></p>
+            <p className="mt-1 text-2xl font-bold">
+              <a className="hover:text-[#f06233]" href={mapsUrl} target="_blank" rel="noopener noreferrer">
+                {place}
+              </a>
+            </p>
           </article>
 
           <div className="relative h-[320px] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">

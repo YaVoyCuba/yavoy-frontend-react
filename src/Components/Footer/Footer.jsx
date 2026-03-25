@@ -99,8 +99,24 @@ export default function Footer() {
                 {info.mail || defaults.mail}
               </a>
             </li>
-            <li>{info.phone || defaults.phone}</li>
-            <li>{info.place || defaults.place}</li>
+            <li>
+              <a
+                className="transition hover:text-[#f06233]"
+                href={`tel:${(info.phone || defaults.phone).replace(/[^\d+]/g, "")}`}
+              >
+                {info.phone || defaults.phone}
+              </a>
+            </li>
+            <li>
+              <a
+                className="transition hover:text-[#f06233]"
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(info.place || defaults.place)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {info.place || defaults.place}
+              </a>
+            </li>
           </ul>
         </section>
       </div>

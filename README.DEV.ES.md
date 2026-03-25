@@ -98,3 +98,25 @@ Archivos relevantes
 - [scripts/fix-catalogs.cjs](scripts/fix-catalogs.cjs)
 - [src/locales/es/messages.po](src/locales/es/messages.po)
 
+Variables de entorno y overrides locales
+- Vite soporta varios ficheros `.env` con este orden de precedencia: `.env` → `.env.[mode]` → `.env.[mode].local`.
+- Flujo recomendado:
+  - Mantén valores por defecto en `.env` o `.env.[mode]` (versionados en el repo).
+  - Mantén overrides de desarrollador en `.env.[mode].local` (gitignored). Así cada dev puede usar `VITE_APP_BASE_URL=http://127.0.0.1:9000` sin modificar archivos compartidos.
+- Ejemplo de fichero local (no commitear):
+```env
+# .env.development.local
+VITE_APP_BASE_URL=http://127.0.0.1:9000
+VITE_DEFAULT_MAIL=servicios@yavoycuba.com
+VITE_DEFAULT_PHONE=+1 (305) 645-7572
+VITE_DEFAULT_PLACE=Miami, FL, USA
+```
+- CI / Hosting (sin tocar el repo): configura `VITE_APP_BASE_URL` en las variables de entorno del proveedor (Vercel, Netlify, GitHub Actions). Ejemplo en GitHub Actions:
+```yaml
+- name: Build
+  env:
+    VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
+  run: npm run build
+```
+- Si necesitas cambiar valores en runtime sin rebuild, usa `public/config.json` y cárgalo al arrancar la app.
+

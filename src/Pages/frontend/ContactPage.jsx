@@ -61,7 +61,16 @@ const ContactPage = () => {
               <span className="material-symbols-outlined">mail</span>
             </p>
             <p className="text-sm text-slate-500"><Trans>Email us</Trans></p>
-            <p className="mt-1 text-2xl font-bold">{info?.mail || defaults.mail}</p>
+            <p className="mt-1 text-2xl font-bold">
+              <a
+                className="hover:text-[#f06233]"
+                href={`mailto:${info?.mail || defaults.mail}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {info?.mail || defaults.mail}
+              </a>
+            </p>
           </article>
           <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
             <p className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#fff1ec] text-[#f06233]">

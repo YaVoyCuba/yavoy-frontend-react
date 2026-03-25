@@ -89,7 +89,16 @@ export default function Footer() {
         <section>
           <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400"><Trans>Contact</Trans></h3>
           <ul className="mt-4 space-y-2 text-sm text-slate-300">
-            <li>{info.mail || defaults.mail}</li>
+            <li>
+              <a
+                className="transition hover:text-[#f06233]"
+                href={`mailto:${info.mail || defaults.mail}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {info.mail || defaults.mail}
+              </a>
+            </li>
             <li>{info.phone || defaults.phone}</li>
             <li>{info.place || defaults.place}</li>
           </ul>

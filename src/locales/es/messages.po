@@ -122,7 +122,7 @@ msgstr "¿Ya tienes cuenta?"
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:23
 msgid "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
-msgstr "En YaVoy, la confianza es la base de cada entrega. Esta politica explica como protegemos tu informacion mientras conectamos fronteras."
+msgstr "En YaVoy, la confianza es la base de cada entrega. Esta política explica como protegemos tu informacion mientras conectamos fronteras."
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:22
 msgid "At YaVoy, we want you to have a safe and satisfying shopping experience."
@@ -746,54 +746,6 @@ msgstr "Necesita mas ayuda?"
 msgid "No services available in this area"
 msgstr "No hay servicios disponibles en esta zona"
 
-#: src/Pages/frontend/AboutCompanyPage.jsx:106
-#~ msgid "No somos solo una app; gestionamos inventario real."
-#~ msgstr ""
-
-#: src/Pages/frontend/PrivacyPolicyPage.jsx:20
-#~ msgid "No vendemos datos personales. Solo compartimos informacion con proveedores y socios cuando es necesario para completar el servicio solicitado."
-#~ msgstr ""
-
-#: src/Pages/frontend/ContactPage.jsx:29
-#~ msgid "Nombre"
-#~ msgstr ""
-
-#: src/Pages/frontend/ContactPage.jsx:30
-#~ msgid "Nombre completo"
-#~ msgstr ""
-
-#: src/Pages/frontend/TermsPage.jsx:20
-#~ msgid "Nos reservamos el derecho de cancelar pedidos con indicios de fraude, incumplimiento o uso indebido de la plataforma."
-#~ msgstr ""
-
-#: src/Pages/frontend/AboutCompanyPage.jsx:64
-#~ msgid "Nuestra Historia"
-#~ msgstr ""
-
-#: src/Pages/frontend/AboutCompanyPage.jsx:32
-#~ msgid "Nuestra mision"
-#~ msgstr ""
-
-#: src/Pages/frontend/ContactPage.jsx:83
-#~ msgid "Nuestra sede en Miami"
-#~ msgstr ""
-
-#: src/Pages/frontend/AboutCompanyPage.jsx:18
-#~ msgid "Nuestro compromiso"
-#~ msgstr ""
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:113
-#~ msgid "Nuestro equipo de soporte esta disponible para responder consultas sobre la politica y casos especificos."
-#~ msgstr ""
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:66
-#~ msgid "Nuestro equipo valida plazo de cancelacion y estado del servicio en 24 horas."
-#~ msgstr ""
-
-#: src/Components/Landing/MainLandingRedesign.jsx:184
-#~ msgid "Nuestros socios locales entregan en puerta a la familia beneficiaria."
-#~ msgstr ""
-
 #: src/Pages/frontend/TermsPage.jsx:40
 msgid "Official document v2026"
 msgstr "Documento oficial v2026"
@@ -864,7 +816,7 @@ msgstr "Nuestra misión es facilitar la compra de productos y servicios mediante
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:128
 msgid "Our support team is available to answer questions about this policy and specific cases."
-msgstr "Nuestro equipo de soporte esta disponible para responder consultas sobre la politica y casos especificos."
+msgstr "Nuestro equipo de soporte esta disponible para responder consultas sobre la política y casos especificos."
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:81
 msgid "Our team reviews the application within 24 to 48 hours."
@@ -946,31 +898,6 @@ msgstr "Favor de establecer una dirección de entrega"
 msgid "Policy document"
 msgstr "Documento de política"
 
-#: src/Components/Footer/Footer.jsx:77
-#: src/Pages/frontend/PrivacyPolicyPage.jsx:11
-#~ msgid "Politica de privacidad"
-#~ msgstr ""
-
-#: src/Components/Footer/Footer.jsx:82
-#~ msgid "Politica de reembolso"
-#~ msgstr ""
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:15
-#~ msgid "Politica de Reembolso"
-#~ msgstr ""
-
-#: src/Pages/frontend/AboutCompanyPage.jsx:112
-#~ msgid "Por que confiar en YaVoy?"
-#~ msgstr ""
-
-#: src/Components/Landing/MainLandingRedesign.jsx:51
-#~ msgid "Postres y combos dulces para sorprender en casa."
-#~ msgstr ""
-
-#: src/Pages/frontend/AboutCompanyPage.jsx:54
-#~ msgid "Preparacion de paquetes"
-#~ msgstr ""
-
 #: src/Pages/frontend/AboutCompanyPage.jsx:131
 #~ msgid "Presence across the island"
 #~ msgstr "Presencia en toda la isla"
@@ -989,11 +916,7 @@ msgstr "Precios por libras"
 
 #: src/Components/Footer/Footer.jsx:78
 msgid "Privacy policy"
-msgstr "Politica de privacidad"
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:55
-#~ msgid "Proceso de devolucion"
-#~ msgstr ""
+msgstr "Política de privacidad"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:101
 msgid "Processing time"
@@ -1074,11 +997,11 @@ msgstr "Elegibilidad de reembolso"
 #: src/Components/Footer/Footer.jsx:83
 #: src/Pages/frontend/RefundPolicyPage.jsx:15
 msgid "Refund policy"
-msgstr "Politica de reembolso"
+msgstr "Política de reembolso"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:70
 msgid "Refund process"
-msgstr "Proceso de devolucion"
+msgstr "Proceso de devolución"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:94
 msgid "Refund timeline"
@@ -1551,7 +1474,7 @@ msgstr "YaVoy"
 
 #: src/Pages/frontend/TermsPage.jsx:116
 msgid "YaVoy applies a zero-tolerance policy against illicit activities."
-msgstr "YaVoy aplica una politica de tolerancia cero frente a actividades ilicitas."
+msgstr "YaVoy aplica una política de tolerancia cero frente a actividades ilicitas."
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:64
 msgid "YaVoy guarantee"

@@ -531,12 +531,12 @@ msgstr "para tus seres queridos"
 #~ msgstr "Eventos de fuerza mayor"
 
 #: src/Pages/frontend/LoginPage.jsx:206
-msgid "Forgot my password"
+msgid "Forgot my password"          
 msgstr "Olvidé mi contraseña"
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:74
 #~ msgid "Founded by a group of engineers and logistics experts to simplify deliveries to Havana."
-#~ msgstr "Fundada por un grupo de ingenieros y expertos en logística para simplificar envios a La Habana."
+#~ msgstr "Fundada por un grupo de ingenieros y expertos en logística para simplificar envíos a La Habana."
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:116
 msgid "Frequently asked questions"
@@ -816,7 +816,7 @@ msgstr "Nuestra misión es facilitar la compra de productos y servicios mediante
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:128
 msgid "Our support team is available to answer questions about this policy and specific cases."
-msgstr "Nuestro equipo de soporte esta disponible para responder consultas sobre la política y casos especificos."
+msgstr "Nuestro equipo de soporte esta disponible para responder consultas sobre la política y casos específicos."
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:81
 msgid "Our team reviews the application within 24 to 48 hours."
@@ -1294,7 +1294,7 @@ msgid "Variety and quality"
 msgstr "Variedad y calidad"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:237
-#~ msgid "Ver envios"
+#~ msgid "Ver envíos"
 #~ msgstr ""
 
 #: src/Components/Landing/MainLandingRedesign.jsx:95
@@ -1336,7 +1336,7 @@ msgstr "Ver productos"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:239
 msgid "View shipments"
-msgstr "Ver envios"
+msgstr "Ver envíos"
 
 #: src/Pages/frontend/ContactPage.jsx:95
 msgid "Visit us"
@@ -1358,7 +1358,7 @@ msgstr "Trabajador de almacén seleccionando productos alimenticios"
 
 #: src/Pages/frontend/ContactPage.jsx:29
 msgid "We are here to help with your trips and deliveries to Cuba. Write to us and we will contact you as soon as possible."
-msgstr "Estamos aqui para asistirte con tus viajes y envios a Cuba. Escribenos y nos pondremos en contacto contigo lo antes posible."
+msgstr "Estamos aqui para asistirte con tus viajes y envíos a Cuba. Escribenos y nos pondremos en contacto contigo lo antes posible."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:106
 #~ msgid "We are not just an app; we manage real inventory."

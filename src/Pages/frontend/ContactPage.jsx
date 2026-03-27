@@ -32,7 +32,10 @@ const ContactPage = () => {
     ];
 
     const mailtoUrl = `mailto:servicios@yavoycuba.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    window.location.href = mailtoUrl;
+    const mailWindow = window.open(mailtoUrl, "_blank", "noopener,noreferrer");
+    if (!mailWindow) {
+      window.location.href = mailtoUrl;
+    }
 
     form.reset();
   };

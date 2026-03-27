@@ -14,7 +14,7 @@ const RefundPolicyPage = () => {
         </p>
         <h1 className="mt-4 text-4xl font-black leading-tight md:text-6xl"><Trans>Refund policy</Trans></h1>
         <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
-          <Trans>Last updated: October 24, 2023. Our commitment to transparency, fairness, and excellence in travel logistics.</Trans>
+          <Trans>Last updated: March 24, 2026. Our commitment to transparency, fairness, and excellence.</Trans>
         </p>
       </div>
 
@@ -72,18 +72,18 @@ const RefundPolicyPage = () => {
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <article>
             <p className="text-2xl font-black text-[#f06233]">01.</p>
-            <p className="mt-2 text-lg font-bold"><Trans>Submit request</Trans></p>
-            <p className="mt-1 text-sm text-slate-600"><Trans>Log in and select Request Refund in your active booking.</Trans></p>
+            <p className="mt-2 text-lg font-bold"><Trans>Request</Trans></p>
+            <p className="mt-1 text-sm text-slate-600"><Trans>The client contacts support, indicating the problem.</Trans></p>
           </article>
           <article>
             <p className="text-2xl font-black text-[#f06233]">02.</p>
-            <p className="mt-2 text-lg font-bold"><Trans>Internal review</Trans></p>
-            <p className="mt-1 text-sm text-slate-600"><Trans>Our team validates cancellation timing and service status within 24 hours.</Trans></p>
+            <p className="mt-2 text-lg font-bold"><Trans>Review</Trans></p>
+            <p className="mt-1 text-sm text-slate-600"><Trans>Our team reviews the application within 24 to 48 hours.</Trans></p>
           </article>
           <article>
             <p className="text-2xl font-black text-[#f06233]">03.</p>
-            <p className="mt-2 text-lg font-bold"><Trans>Approval</Trans></p>
-            <p className="mt-1 text-sm text-slate-600"><Trans>Once approved, you receive email confirmation with the final amount.</Trans></p>
+            <p className="mt-2 text-lg font-bold"><Trans>Resolve</Trans></p>
+            <p className="mt-1 text-sm text-slate-600"><Trans>The reimbursement or corresponding resolution is approved.</Trans></p>
           </article>
         </div>
       </section>
@@ -97,7 +97,7 @@ const RefundPolicyPage = () => {
           <table className="w-full text-left text-sm">
             <thead className="bg-[#fff2ed]">
               <tr>
-                <th className="px-5 py-3 font-bold"><Trans>Payment method</Trans></th>
+                <th className="px-5 py-3 font-bold"><Trans>Reimbursement Method</Trans></th>
                 <th className="px-5 py-3 font-bold"><Trans>Processing time</Trans></th>
               </tr>
             </thead>

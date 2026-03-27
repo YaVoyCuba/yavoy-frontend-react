@@ -120,22 +120,6 @@ msgstr "Already have an account?"
 #~ msgid "An integrated platform that connects real inventory with reliable local delivery teams."
 #~ msgstr "An integrated platform that connects real inventory with reliable local delivery teams."
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:85
-msgid "Approval"
-msgstr "Approval"
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:70
-#~ msgid "Aprobacion"
-#~ msgstr "Aprobacion"
-
-#: src/Components/Landing/MainLandingRedesign.jsx:62
-#~ msgid "Aseo"
-#~ msgstr "Aseo"
-
-#: src/Pages/frontend/ContactPage.jsx:38
-#~ msgid "Asunto"
-#~ msgstr "Asunto"
-
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:23
 msgid "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
 msgstr "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
@@ -746,10 +730,6 @@ msgstr "Incorrect or incomplete product"
 #~ msgid "Iniciar pedido ahora"
 #~ msgstr "Iniciar pedido ahora"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:80
-msgid "Internal review"
-msgstr "Internal review"
-
 #: src/Pages/frontend/TermsPage.jsx:19
 #: src/Pages/frontend/TermsPage.jsx:30
 #: src/Pages/frontend/TermsPage.jsx:53
@@ -780,13 +760,17 @@ msgstr "Inventory management"
 msgid "Last updated: Mar 27, 2026"
 msgstr "Last updated: Mar 27, 2026"
 
+#: src/Pages/frontend/RefundPolicyPage.jsx:17
+msgid "Last updated: March 24, 2026. Our commitment to transparency, fairness, and excellence in travel logistics."
+msgstr "Last updated: March 24, 2026. Our commitment to transparency, fairness, and excellence in travel logistics."
+
 #: src/Pages/frontend/TermsPage.jsx:46
 #~ msgid "Last updated: May 24, 2024"
 #~ msgstr "Last updated: May 24, 2024"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:17
-msgid "Last updated: October 24, 2023. Our commitment to transparency, fairness, and excellence in travel logistics."
-msgstr "Last updated: October 24, 2023. Our commitment to transparency, fairness, and excellence in travel logistics."
+#~ msgid "Last updated: October 24, 2023. Our commitment to transparency, fairness, and excellence in travel logistics."
+#~ msgstr "Last updated: October 24, 2023. Our commitment to transparency, fairness, and excellence in travel logistics."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:137
 msgid "Latest delivery"
@@ -815,10 +799,6 @@ msgstr "Legal"
 #: src/Pages/frontend/ContactPage.jsx:104
 msgid "Location in Miami"
 msgstr "Location in Miami"
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:76
-msgid "Log in and select Request Refund in your active booking."
-msgstr "Log in and select Request Refund in your active booking."
 
 #: src/Pages/frontend/TermsPage.jsx:95
 msgid "Logistical factors related to independent logistics providers."
@@ -1002,10 +982,6 @@ msgstr "No services available in this area"
 msgid "Official document v2026"
 msgstr "Official document v2026"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:86
-msgid "Once approved, you receive email confirmation with the final amount."
-msgstr "Once approved, you receive email confirmation with the final amount."
-
 #: src/Pages/frontend/AboutCompanyPage.jsx:84
 msgid "Online shopping"
 msgstr "Online shopping"
@@ -1071,8 +1047,8 @@ msgid "Our support team is available to answer questions about this policy and s
 msgstr "Our support team is available to answer questions about this policy and specific cases."
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:81
-msgid "Our team validates cancellation timing and service status within 24 hours."
-msgstr "Our team validates cancellation timing and service status within 24 hours."
+msgid "Our team reviews the application within 24 to 48 hours."
+msgstr "Our team reviews the application within 24 to 48 hours."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:54
 #~ msgid "Package preparation"
@@ -1105,10 +1081,6 @@ msgstr "Password"
 #: src/Components/Landing/MainLandingRedesign.jsx:178
 msgid "Pay securely from anywhere in the world."
 msgstr "Pay securely from anywhere in the world."
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:100
-msgid "Payment method"
-msgstr "Payment method"
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:53
 msgid "Payment methods"
@@ -1308,9 +1280,21 @@ msgstr "Refunds apply in the following cases:"
 #~ msgid "Regalitos"
 #~ msgstr "Regalitos"
 
+#: src/Pages/frontend/RefundPolicyPage.jsx:100
+msgid "Reimbursement Method"
+msgstr "Reimbursement Method"
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:75
+msgid "Request"
+msgstr "Request"
+
 #: src/Pages/frontend/RefundPolicyPage.jsx:34
 #~ msgid "Reservas canceladas al menos 48 horas antes: reembolso completo menos tarifa administrativa del 5%. Cancelaciones entre 24 y 48 horas: reembolso del 50%."
 #~ msgstr "Reservas canceladas al menos 48 horas antes: reembolso completo menos tarifa administrativa del 5%. Cancelaciones entre 24 y 48 horas: reembolso del 50%."
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:85
+msgid "Resolve"
+msgstr "Resolve"
 
 #: src/Components/Header/HeaderTop.jsx:275
 #: src/Components/Landing/MainLandingRedesign.jsx:62
@@ -1318,6 +1302,10 @@ msgstr "Refunds apply in the following cases:"
 #: src/Components/Landing/Restaurants.jsx:110
 msgid "Restaurants"
 msgstr "Restaurants"
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:80
+msgid "Review"
+msgstr "Review"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:65
 #~ msgid "Revision interna"
@@ -1457,10 +1445,6 @@ msgstr "Status notifications and order tracking updates."
 msgid "Subject"
 msgstr "Subject"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:75
-msgid "Submit request"
-msgstr "Submit request"
-
 #: src/Components/Landing/MainLandingRedesign.jsx:51
 msgid "Sweet desserts and combos to surprise your family."
 msgstr "Sweet desserts and combos to surprise your family."
@@ -1493,9 +1477,17 @@ msgstr "Terms and conditions"
 #~ msgid "The beginning"
 #~ msgstr "The beginning"
 
+#: src/Pages/frontend/RefundPolicyPage.jsx:76
+msgid "The client contacts support, indicating the problem."
+msgstr "The client contacts support, indicating the problem."
+
 #: src/Pages/frontend/AboutCompanyPage.jsx:83
 #~ msgid "The digital bridge"
 #~ msgstr "The digital bridge"
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:86
+msgid "The reimbursement or corresponding resolution is approved."
+msgstr "The reimbursement or corresponding resolution is approved."
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:26
 msgid "This policy outlines the conditions under which you may request exchanges or refunds for products purchased through our platform."

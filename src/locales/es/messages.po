@@ -120,22 +120,6 @@ msgstr "¿Ya tienes cuenta?"
 #~ msgid "An integrated platform that connects real inventory with reliable local delivery teams."
 #~ msgstr "Plataforma integrada que conecta inventario real con equipos locales de entrega confiables."
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:85
-msgid "Approval"
-msgstr "Aprobacion"
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:70
-#~ msgid "Aprobacion"
-#~ msgstr ""
-
-#: src/Components/Landing/MainLandingRedesign.jsx:62
-#~ msgid "Aseo"
-#~ msgstr ""
-
-#: src/Pages/frontend/ContactPage.jsx:38
-#~ msgid "Asunto"
-#~ msgstr ""
-
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:23
 msgid "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
 msgstr "En YaVoy, la confianza es la base de cada entrega. Esta politica explica como protegemos tu informacion mientras conectamos fronteras."
@@ -428,29 +412,13 @@ msgstr "Tienes dudas sobre estos términos?"
 msgid "Document content"
 msgstr "Contenido del documento"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:13
-#~ msgid "Documento de politica"
-#~ msgstr ""
-
 #: src/Pages/frontend/LoginPage.jsx:241
 msgid "Don't have an account?"
 msgstr "¿No tienes cuenta?"
 
-#: src/Components/Landing/MainLandingRedesign.jsx:50
-#~ msgid "Dulcerias"
-#~ msgstr ""
-
 #: src/Components/Footer/Footer.jsx:30
 msgid "E-commerce platform with secure purchases and coordinated deliveries."
 msgstr "Plataforma de comercio electrónico con compras seguras y entregas coordinadas."
-
-#: src/Pages/frontend/AboutCompanyPage.jsx:73
-#~ msgid "El Comienzo"
-#~ msgstr ""
-
-#: src/Pages/frontend/AboutCompanyPage.jsx:83
-#~ msgid "El Puente Digital"
-#~ msgstr ""
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:66
 msgid "Electronic goods in boxes ready for shipping"
@@ -650,10 +618,6 @@ msgstr "Importante"
 msgid "Incorrect or incomplete product"
 msgstr "Producto incorrecto o incompleto"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:80
-msgid "Internal review"
-msgstr "Revision interna"
-
 #: src/Pages/frontend/TermsPage.jsx:19
 #: src/Pages/frontend/TermsPage.jsx:30
 #: src/Pages/frontend/TermsPage.jsx:53
@@ -673,12 +637,16 @@ msgid "Last updated: Mar 27, 2026"
 msgstr "Última actualización: 27 de marzo de 2026"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:17
+msgid "Last updated: March 24, 2026. Our commitment to transparency, fairness, and excellence."
+msgstr "Última actualización: 24 de marzo de 2026. Nuestro compromiso con la transparencia, la equidad y la excelencia."
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:17
 #~ msgid "Last updated: March 27, 2026. Our commitment to transparency, fairness, and excellence in travel logistics."
 #~ msgstr "Última actualización: 27 de marzo de 2026. Nuestro compromiso con la transparencia, la equidad y la excelencia en la logística de viajes."
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:17
-msgid "Last updated: October 24, 2023. Our commitment to transparency, fairness, and excellence in travel logistics."
-msgstr ""
+#~ msgid "Last updated: October 24, 2023. Our commitment to transparency, fairness, and excellence in travel logistics."
+#~ msgstr ""
 
 #: src/Components/Landing/MainLandingRedesign.jsx:137
 msgid "Latest delivery"
@@ -695,10 +663,6 @@ msgstr "Legal"
 #: src/Pages/frontend/ContactPage.jsx:104
 msgid "Location in Miami"
 msgstr "Ubicacion en Miami"
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:76
-msgid "Log in and select Request Refund in your active booking."
-msgstr "Inicia sesion y selecciona Solicitar Reembolso en tu reserva activa."
 
 #: src/Pages/frontend/TermsPage.jsx:95
 msgid "Logistical factors related to independent logistics providers."
@@ -835,8 +799,8 @@ msgid "Official document v2026"
 msgstr "Documento oficial v2026"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:86
-msgid "Once approved, you receive email confirmation with the final amount."
-msgstr "Una vez aprobado, recibes confirmacion por correo con monto final."
+#~ msgid "Once approved, you receive email confirmation with the final amount."
+#~ msgstr "Se aprueba el reembolso o solución correspondiente."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:84
 msgid "Online shopping"
@@ -903,8 +867,8 @@ msgid "Our support team is available to answer questions about this policy and s
 msgstr "Nuestro equipo de soporte esta disponible para responder consultas sobre la politica y casos especificos."
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:81
-msgid "Our team validates cancellation timing and service status within 24 hours."
-msgstr "Nuestro equipo valida plazo de cancelacion y estado del servicio en 24 horas."
+msgid "Our team reviews the application within 24 to 48 hours."
+msgstr "Nuestro equipo revisa la solicitud en un plazo de 24-48 horas."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:54
 #~ msgid "Package preparation"
@@ -929,10 +893,6 @@ msgstr "Contraseña"
 #: src/Components/Landing/MainLandingRedesign.jsx:178
 msgid "Pay securely from anywhere in the world."
 msgstr "Paga de forma segura desde cualquier lugar del mundo."
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:100
-msgid "Payment method"
-msgstr "Metodo de pago"
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:53
 msgid "Payment methods"
@@ -984,7 +944,7 @@ msgstr "Favor de establecer una dirección de entrega"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:13
 msgid "Policy document"
-msgstr "Documento de politica"
+msgstr "Documento de política"
 
 #: src/Components/Footer/Footer.jsx:77
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:11
@@ -1132,9 +1092,21 @@ msgstr "Reembolsos aplican en los siguientes casos:"
 #~ msgid "Regalitos"
 #~ msgstr ""
 
+#: src/Pages/frontend/RefundPolicyPage.jsx:100
+msgid "Reimbursement Method"
+msgstr "Forma de reembolso"
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:75
+msgid "Request"
+msgstr "Solicitud"
+
 #: src/Pages/frontend/RefundPolicyPage.jsx:34
 #~ msgid "Reservas canceladas al menos 48 horas antes: reembolso completo menos tarifa administrativa del 5%. Cancelaciones entre 24 y 48 horas: reembolso del 50%."
 #~ msgstr ""
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:85
+msgid "Resolve"
+msgstr "Resolución"
 
 #: src/Components/Header/HeaderTop.jsx:275
 #: src/Components/Landing/MainLandingRedesign.jsx:62
@@ -1142,6 +1114,10 @@ msgstr "Reembolsos aplican en los siguientes casos:"
 #: src/Components/Landing/Restaurants.jsx:110
 msgid "Restaurants"
 msgstr "Restaurantes"
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:80
+msgid "Review"
+msgstr "Evaluación"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:65
 #~ msgid "Revision interna"
@@ -1273,10 +1249,6 @@ msgstr "Notificaciones de estado y actualizaciones del seguimiento del pedido."
 msgid "Subject"
 msgstr "Asunto"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:75
-msgid "Submit request"
-msgstr "Enviar solicitud"
-
 #: src/Components/Landing/MainLandingRedesign.jsx:51
 msgid "Sweet desserts and combos to surprise your family."
 msgstr "Postres y combos dulces para sorprender en casa."
@@ -1300,9 +1272,17 @@ msgstr "Términos y condiciones"
 #~ msgid "The beginning"
 #~ msgstr "El comienzo"
 
+#: src/Pages/frontend/RefundPolicyPage.jsx:76
+msgid "The client contacts support, indicating the problem."
+msgstr "El cliente contacta al soporte, indicando el problema."
+
 #: src/Pages/frontend/AboutCompanyPage.jsx:83
 #~ msgid "The digital bridge"
 #~ msgstr "El puente digital"
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:86
+msgid "The reimbursement or corresponding resolution is approved."
+msgstr "Se aprueba el reembolso o solución correspondiente."
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:26
 msgid "This policy outlines the conditions under which you may request exchanges or refunds for products purchased through our platform."

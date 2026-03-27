@@ -334,7 +334,7 @@ msgstr "Horario de atención al cliente"
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:36
 msgid "Data collection"
-msgstr "Recopilacion de datos"
+msgstr "Recopilación de datos"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:138
 msgid "Delivered in Havana 15 min ago"

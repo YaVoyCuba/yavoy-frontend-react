@@ -1148,7 +1148,7 @@ msgstr "Dulcerías"
 
 #: src/Pages/frontend/ContactPage.jsx:51
 msgid "Tell us more about your needs..."
-msgstr "Cuentanos mas sobre tus necesidades..."
+msgstr "Cuéntanos mas sobre tus necesidades..."
 
 #: src/Components/Footer/Footer.jsx:73
 #: src/Pages/frontend/TermsPage.jsx:43

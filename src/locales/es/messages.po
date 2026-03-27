@@ -42,10 +42,10 @@ msgstr "Privacidad 100% humana"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:111
 msgid "2 - 3 business days"
-msgstr "2 - 3 dias habiles"
+msgstr "2 - 3 días hábiles"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:96
-#~ msgid "2 - 3 dias habiles"
+#~ msgid "2 - 3 días hábiles"
 #~ msgstr ""
 
 #: src/Components/Landing/MainLandingRedesign.jsx:152
@@ -54,18 +54,18 @@ msgstr "Soporte 24/7"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:107
 msgid "5 - 10 business days"
-msgstr "5 - 10 dias habiles"
+msgstr "5 - 10 días hábiles"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:92
-#~ msgid "5 - 10 dias habiles"
+#~ msgid "5 - 10 días hábiles"
 #~ msgstr ""
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:115
 msgid "7 - 14 business days"
-msgstr "7 - 14 dias habiles"
+msgstr "7 - 14 días hábiles"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:100
-#~ msgid "7 - 14 dias habiles"
+#~ msgid "7 - 14 días hábiles"
 #~ msgstr ""
 
 #: src/Pages/frontend/ContactPage.jsx:87
@@ -330,7 +330,7 @@ msgstr "Email de CrecexDiez"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:106
 msgid "Credit/debit cards"
-msgstr "Tarjetas de credito/debito"
+msgstr "Tarjetas de crédito/débito"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:79
 #~ msgid "Cronograma de reembolsos"
@@ -468,7 +468,7 @@ msgstr "Los tiempos estimados de entrega estan sujetos a cambios."
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:46
 #~ msgid "Events outside operational control are reviewed case by case. We generally offer credits valid for 12 months."
-#~ msgstr "Eventos fuera de control operativo se revisan caso por caso. Generalmente ofrecemos creditos validos por 12 meses."
+#~ msgstr "Eventos fuera de control operativo se revisan caso por caso. Generalmente ofrecemos créditos validos por 12 meses."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:147
 msgid "Every item in our food, electronics, and household catalog passes quality checks before shipping."
@@ -739,7 +739,7 @@ msgstr "¿Necesitas ayuda?"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:126
 msgid "Need more help?"
-msgstr "Necesita mas ayuda?"
+msgstr "Necesita más ayuda?"
 
 #: src/Components/Landing/Restaurants.jsx:473
 #: src/Components/Landing/Restaurants.jsx:505

@@ -909,10 +909,6 @@ msgstr "Most requested products for immediate delivery."
 msgid "Name"
 msgstr "Name"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:111
-#~ msgid "Necesita mas ayuda?"
-#~ msgstr "Necesita mas ayuda?"
-
 #: src/Components/Header/HeaderTop.jsx:183
 msgid "Need help?"
 msgstr "Need help?"

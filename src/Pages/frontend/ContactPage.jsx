@@ -13,6 +13,28 @@ const ContactPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const name = (formData.get("name") || "").toString().trim();
+    const email = (formData.get("email") || "").toString().trim();
+    const subject = (formData.get("subject") || "").toString().trim();
+    const message = (formData.get("message") || "").toString().trim();
+
+    const fallbackSubject = name ? `Contacto web de ${name}` : "Contacto web";
+    const mailSubject = subject || fallbackSubject;
+    const bodyLines = [
+      `Nombre: ${name}`,
+      `Correo: ${email}`,
+      "",
+      "Mensaje:",
+      message,
+    ];
+
+    const mailtoUrl = `mailto:servicios@yavoycuba.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    window.location.href = mailtoUrl;
+
+    form.reset();
   };
 
   const place = info?.place || defaults.place;
@@ -33,22 +55,24 @@ const ContactPage = () => {
             <div className="grid gap-4 md:grid-cols-2">
               <label className="text-sm font-semibold text-slate-700">
                 <Trans>Name</Trans>
-                <input className="mt-2 w-full rounded-lg border-slate-200" placeholder={t`Full name`} type="text" />
+                <input className="mt-2 w-full rounded-lg border-slate-200" placeholder={t`Full name`} type="text" name="name" required />
               </label>
               <label className="text-sm font-semibold text-slate-700">
                 <Trans>Email</Trans>
-                <input className="mt-2 w-full rounded-lg border-slate-200" placeholder={t`email@example.com`} type="email" />
+                <input className="mt-2 w-full rounded-lg border-slate-200" placeholder={t`email@example.com`} type="email" name="email" required />
               </label>
             </div>
             <label className="mt-4 block text-sm font-semibold text-slate-700">
               <Trans>Subject</Trans>
-              <input className="mt-2 w-full rounded-lg border-slate-200" placeholder={t`Question about...`} type="text" />
+              <input className="mt-2 w-full rounded-lg border-slate-200" placeholder={t`Question about...`} type="text" name="subject" required />
             </label>
             <label className="mt-4 block text-sm font-semibold text-slate-700">
               <Trans>Message</Trans>
               <textarea
                 className="mt-2 min-h-[140px] w-full resize-none rounded-lg border-slate-200"
                 placeholder={t`Tell us more about your needs...`}
+                name="message"
+                required
               />
             </label>
             <button className="mt-5 w-full rounded-lg bg-[#f06233] px-6 py-3 font-bold text-white shadow-lg shadow-orange-200 transition hover:bg-[#e1572b]" type="submit">

@@ -42,12 +42,12 @@ const CATEGORY_CARDS = [
     icon: "redeem",
     image: "/assets/img/stitch-main/cat-regalitos.webp",
   },
-  {
-    key: "shipping",
-    href: "/servicios",
-    icon: "local_shipping",
-    image: "/assets/img/product_by_libras.jpg",
-  },
+  // {
+  //   key: "shipping",
+  //   href: "/servicios",
+  //   icon: "local_shipping",
+  //   image: "/assets/img/product_by_libras.jpg",
+  // },
 ];
 
 const STORE_ICONS = ["restaurant", "local_cafe", "storefront", "shopping_bag", "lunch_dining"];
@@ -124,7 +124,7 @@ const Restaurants = () => {
     },
     shipping: {
       label: _(msg`Shipping`),
-      description: _(msg`Air and sea cargo options across Cuba.`),
+      description: _(msg`Air and sea cargo options.`),
     },
   };
 
@@ -243,7 +243,8 @@ const Restaurants = () => {
                   (slide) => (
                     <SwiperSlide key={`hero-${slide.id}`}>
                       <div className="relative min-h-[320px] md:min-h-[400px]">
-                        <img src={slide.image} alt="Promo" className="absolute inset-0 h-full w-full object-cover opacity-60" />
+                        {/* TODO: Temporarily disabled */}
+                        {/* <img src={slide.image} alt="Promo" className="absolute inset-0 h-full w-full object-cover opacity-60" /> */}
                         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/70 to-transparent" />
                         <div className="relative z-10 flex h-full items-center p-7 md:p-10 lg:p-12">
                           <div className="max-w-2xl">
@@ -253,7 +254,7 @@ const Restaurants = () => {
                             <h1 className="mt-5 text-4xl font-black uppercase leading-[0.92] tracking-tight text-white md:text-6xl">
                               <Trans>Discover top stores</Trans>
                               <br />
-                              <span className="text-[#f06233]"><Trans>near your family</Trans></span>
+                              <span className="text-[#f06233]"><Trans>for your loved ones</Trans></span>
                             </h1>
                             <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-slate-200 md:text-lg">
                               <Trans>Browse restaurants, markets, sweets, gifts, and shipping services from trusted local partners.</Trans>
@@ -265,12 +266,12 @@ const Restaurants = () => {
                               >
                                 <Trans>Order now</Trans>
                               </Link>
-                              <a
+                              {/* <a
                                 href={slide.link || "#"}
                                 className="rounded-xl border-2 border-white/30 bg-white/10 px-7 py-3 text-sm font-black uppercase tracking-wide text-white backdrop-blur-sm transition hover:bg-white/20"
                               >
                                 <Trans>View offer</Trans>
-                              </a>
+                              </a> */}
                             </div>
                           </div>
                         </div>
@@ -296,7 +297,7 @@ const Restaurants = () => {
             <div className="mb-8">
               <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>Explore categories</Trans></h2>
               <p className="mt-1 text-sm font-semibold text-slate-500">
-                <Trans>The best of Cuba delivered to your family.</Trans>
+                <Trans>Discover products and services designed for your loved ones.</Trans>
               </p>
             </div>
 
@@ -478,7 +479,7 @@ const Restaurants = () => {
               <section className="mx-auto mt-16 w-full max-w-7xl px-4 lg:px-8">
                 <div className="mb-8">
                   <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>All stores</Trans></h2>
-                  <p className="mt-1 text-sm font-semibold text-slate-500"><Trans>Explore the full catalog of local partners.</Trans></p>
+                  <p className="mt-1 text-sm font-semibold text-slate-500"><Trans>Explore our complete catalog of available stores.</Trans></p>
                 </div>
 
                 {restaurants.length > 0 ? (

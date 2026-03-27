@@ -1,6 +1,9 @@
 
 import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { useLingui } from "@lingui/react";
+import { t } from "@lingui/macro";
 import ProductDetailPage from "./Pages/frontend/ProductDetailPage";
 import Restaurants from "./Components/Landing/Restaurants";
 import TemplateLanding from "./Components/Templates/TemplateLanding";
@@ -20,6 +23,16 @@ import PaymentBookings from "./Pages/backend/bookings/PaymentBookings";
 
 
 function App() {
+  const { i18n } = useLingui();
+
+  useEffect(() => {
+    try {
+      document.title = i18n._(t`YaYoy MarketPlace | Buy Products and Bundles`);
+    } catch (e) {
+      document.title = "YaYoy MarketPlace | Buy Products and Bundles";
+    }
+  }, [i18n.locale]);
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

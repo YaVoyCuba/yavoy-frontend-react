@@ -19,7 +19,11 @@ const RefundPolicyPage = () => {
       </div>
 
       <p className="text-base leading-relaxed text-slate-700">
-        <Trans>At YaVoy, we understand that travel plans can change unexpectedly. This policy describes our standard operational procedure for cancellations and refunds. Our goal is to balance customer flexibility with the logistics commitments we have with local partners across Cuba.</Trans>
+        <Trans>At YaVoy, we want you to have a safe and satisfying shopping experience.</Trans>
+      </p>
+
+      <p className="text-base leading-relaxed text-slate-700">
+        <Trans>This policy outlines the conditions under which you may request exchanges or refunds for products purchased through our platform.</Trans>
       </p>
 
       <section className="stitch-reveal mt-12" style={{ animationDelay: "90ms" }}>

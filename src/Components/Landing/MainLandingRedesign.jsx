@@ -81,11 +81,11 @@ const MainLandingRedesign = () => {
               <Trans>100% guaranteed delivery</Trans>
             </div>
             <h1 className="max-w-xl text-4xl font-black leading-tight text-slate-900 md:text-6xl">
-              <Trans>Send products and packages to your</Trans>
-              <span className="text-[#f06233]"> <Trans>family</Trans></span>
+              <Trans>Buy products and packages for your</Trans>
+              <span className="text-[#f06233]"> <Trans>loved ones</Trans></span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              <Trans>Shop online safely and we coordinate delivery directly to their door with certified local partners.</Trans>
+              <Trans>Shop online securely, and we will coordinate delivery through our independent fulfillment partners.</Trans>
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -114,7 +114,7 @@ const MainLandingRedesign = () => {
                     +1k
                   </div>
                 </div>
-                <p><Trans>More than 1,000 happy families in Cuba</Trans></p>
+                <p><Trans>Satisfied Customers on Our Platform</Trans></p>
               </div>
             </div>
           </div>
@@ -147,7 +147,7 @@ const MainLandingRedesign = () => {
       <section className="stitch-reveal border-b border-[#efd7cf] bg-[#f7efeb] py-4" style={{ animationDelay: "90ms" }}>
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 text-xs font-semibold uppercase tracking-wide text-slate-600 md:grid-cols-4 md:px-8">
           <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">verified_user</span><Trans>Real store</Trans></p>
-          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">partner_exchange</span><Trans>Distributed partners</Trans></p>
+          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">partner_exchange</span><Trans>Compliance Partners</Trans></p>
           <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">security</span><Trans>Encrypted payment</Trans></p>
           <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">support_agent</span><Trans>24/7 support</Trans></p>
         </div>
@@ -157,7 +157,7 @@ const MainLandingRedesign = () => {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-black md:text-4xl"><Trans>How YaVoy works</Trans></h2>
           <p className="mt-3 text-slate-600">
-            <Trans>We deliver your purchases efficiently through a simple and transparent process.</Trans>
+            <Trans>We manage your orders efficiently through a simple and transparent process.</Trans>
           </p>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -183,7 +183,7 @@ const MainLandingRedesign = () => {
             </div>
             <h3 className="text-lg font-bold"><Trans>We coordinate delivery</Trans></h3>
             <p className="mt-2 text-sm text-slate-600">
-              <Trans>Our local partners deliver to your family at their doorstep.</Trans>
+              <Trans>Our independent compliance partners handle the preparation and coordination of delivery.</Trans>
             </p>
           </article>
         </div>
@@ -227,9 +227,9 @@ const MainLandingRedesign = () => {
         <div className="rounded-3xl bg-[#f06233] p-8 text-white md:p-12">
           <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <h2 className="text-4xl font-black leading-tight"><Trans>Ready to make your family smile?</Trans></h2>
+              <h2 className="text-4xl font-black leading-tight"><Trans>Ready to start?</Trans></h2>
               <p className="mt-3 max-w-2xl text-white/90">
-                <Trans>Join thousands of Cubans abroad who trust us for their monthly deliveries.</Trans>
+                <Trans>Shop securely and manage your orders easily from our platform.</Trans>
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link to="/restaurantes" className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-[#f06233]">

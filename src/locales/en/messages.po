@@ -100,10 +100,6 @@ msgstr "Accept"
 #~ msgid "Add your accommodation"
 #~ msgstr "Add your accommodation"
 
-#: src/Components/Landing/Restaurants.jsx:127
-msgid "Air and sea cargo options across Cuba."
-msgstr "Air and sea cargo options across Cuba."
-
 #: src/Components/Landing/Restaurants.jsx:359
 msgid "Air Shipments"
 msgstr "Air Shipments"
@@ -139,10 +135,6 @@ msgstr "Approval"
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:23
 msgid "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
 msgstr "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:22
-msgid "At YaVoy, we understand that travel plans can change unexpectedly. This policy describes our standard operational procedure for cancellations and refunds. Our goal is to balance customer flexibility with the logistics commitments we have with local partners across Cuba."
-msgstr "At YaVoy, we understand that travel plans can change unexpectedly. This policy describes our standard operational procedure for cancellations and refunds. Our goal is to balance customer flexibility with the logistics commitments we have with local partners across Cuba."
 
 #: src/Pages/frontend/LoginPage.jsx:221
 msgid "Authenticate with CrecexDiez"
@@ -586,10 +578,6 @@ msgstr "Explore categories"
 msgid "Explore our selection of food, electronics, and household items with the confidence of YaVoy Cuba."
 msgstr "Explore our selection of food, electronics, and household items with the confidence of YaVoy Cuba."
 
-#: src/Components/Landing/Restaurants.jsx:481
-msgid "Explore the full catalog of local partners."
-msgstr "Explore the full catalog of local partners."
-
 #: src/Components/Landing/MainLandingRedesign.jsx:85
 #~ msgid "familia"
 #~ msgstr "familia"
@@ -744,10 +732,6 @@ msgstr "Introduction"
 msgid "Inventory management"
 msgstr "Inventory management"
 
-#: src/Components/Landing/MainLandingRedesign.jsx:232
-msgid "Join thousands of Cubans abroad who trust us for their monthly deliveries."
-msgstr "Join thousands of Cubans abroad who trust us for their monthly deliveries."
-
 #: src/Pages/frontend/AboutCompanyPage.jsx:143
 #~ msgid "Join thousands of families who trust YaVoy for their essential monthly deliveries."
 #~ msgstr "Join thousands of families who trust YaVoy for their essential monthly deliveries."
@@ -897,10 +881,6 @@ msgstr "Most requested products for immediate delivery."
 msgid "Name"
 msgstr "Name"
 
-#: src/Components/Landing/Restaurants.jsx:256
-msgid "near your family"
-msgstr "near your family"
-
 #: src/Pages/frontend/RefundPolicyPage.jsx:111
 #~ msgid "Necesita mas ayuda?"
 #~ msgstr "Necesita mas ayuda?"
@@ -1017,10 +997,6 @@ msgstr "Our legal support team is available to answer any privacy-related reques
 #: src/Pages/frontend/TermsPage.jsx:131
 msgid "Our legal support team is available to assist you anytime."
 msgstr "Our legal support team is available to assist you anytime."
-
-#: src/Components/Landing/MainLandingRedesign.jsx:186
-msgid "Our local partners deliver to your family at their doorstep."
-msgstr "Our local partners deliver to your family at their doorstep."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:32
 #~ msgid "Our mission"
@@ -1211,9 +1187,6 @@ msgstr "Question about..."
 msgid "Questions about your data?"
 msgstr "Questions about your data?"
 
-#: src/Components/Landing/MainLandingRedesign.jsx:230
-msgid "Ready to make your family smile?"
-msgstr "Ready to make your family smile?"
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:165
 msgid "Ready to place your order?"
@@ -1436,10 +1409,6 @@ msgstr "Terms and conditions"
 #: src/Pages/frontend/AboutCompanyPage.jsx:73
 #~ msgid "The beginning"
 #~ msgstr "The beginning"
-
-#: src/Components/Landing/Restaurants.jsx:299
-msgid "The best of Cuba delivered to your family."
-msgstr "The best of Cuba delivered to your family."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:83
 #~ msgid "The digital bridge"

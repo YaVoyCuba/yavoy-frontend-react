@@ -37,13 +37,13 @@ const TermsPage = () => {
           <article className="rounded-3xl bg-white p-7 shadow-xl shadow-slate-200/60 ring-1 ring-slate-100 md:p-10 lg:p-14">
             <header className="mb-12 border-b border-slate-100 pb-9">
               <p className="inline-flex rounded-full bg-[#ffede8] px-3 py-1 text-[11px] font-black uppercase tracking-[0.16em] text-[#f06233]">
-                <Trans>Official document v2024</Trans>
+                <Trans>Official document v2026</Trans>
               </p>
               <h1 className="mt-4 max-w-3xl text-4xl font-black leading-[0.95] tracking-tight text-slate-900 md:text-[64px]">
                 <Trans>Terms and conditions</Trans>
               </h1>
               <p className="mt-3 text-sm font-medium text-slate-500">
-                <Trans>Last updated: May 24, 2024</Trans>
+                <Trans>Last updated: Mar 27, 2026</Trans>
               </p>
             </header>
 
@@ -64,7 +64,7 @@ const TermsPage = () => {
               </h2>
               <div className="rounded-xl border-l-4 border-[#f06233] bg-slate-50 p-5">
                 <p className="italic leading-relaxed text-slate-700">
-                  <Trans>YaVoy operates as an e-commerce platform that coordinates deliveries with local partners. By using this site, you agree to comply with our published purchase, payment, and delivery policies.</Trans>
+                  <Trans>YaVoy operates as an e-commerce platform and independent compliance partners. By using this site, you agree to comply with our published purchase, payment, and delivery policies.</Trans>
                 </p>
               </div>
             </section>
@@ -92,7 +92,7 @@ const TermsPage = () => {
                 </li>
                 <li className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 shadow-sm">
                   <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">local_shipping</span>
-                  <span className="text-sm font-semibold text-slate-700"><Trans>Logistics factors related to third-party carriers.</Trans></span>
+                  <span className="text-sm font-semibold text-slate-700"><Trans>Logistical factors related to independent logistics providers.</Trans></span>
                 </li>
               </ul>
             </section>

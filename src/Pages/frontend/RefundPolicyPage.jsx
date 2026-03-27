@@ -31,25 +31,36 @@ const RefundPolicyPage = () => {
           <span className="material-symbols-outlined text-[#f06233]">verified_user</span>
           <Trans>Refund eligibility</Trans>
         </h2>
-        <div className="mt-5 space-y-3">
-          <details className="rounded-xl border border-[#f1d8cf] bg-white p-4" open>
-            <summary className="cursor-pointer list-none text-lg font-bold"><Trans>Standard cancellations</Trans></summary>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600">
-              <Trans>Bookings canceled at least 48 hours in advance: full refund minus a 5% administrative fee. Cancellations between 24 and 48 hours: 50% refund.</Trans>
+        <div className="mt-6 grid gap-4 md:grid-cols-5">
+          <article className="md:col-span-3 rounded-2xl border border-[#f1d8cf] bg-white p-6 shadow-[0_10px_35px_-24px_rgba(240,98,51,0.65)]">
+            <p className="text-lg font-black text-slate-900">
+              <Trans>Refunds apply in the following cases:</Trans>
             </p>
-          </details>
-          <details className="rounded-xl border border-[#f1d8cf] bg-white p-4">
-            <summary className="cursor-pointer list-none text-lg font-bold"><Trans>Service failure</Trans></summary>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600">
-              <Trans>If we cannot fulfill a confirmed booking, we apply a 100% refund or an equivalent alternative at no extra cost.</Trans>
+            <ul className="mt-4 space-y-3 text-sm text-slate-700 md:text-base">
+              <li className="flex items-start gap-2 rounded-lg bg-[#fff6f2] px-3 py-2">
+                <span className="material-symbols-outlined mt-[1px] text-base text-[#f06233]">check_circle</span>
+                <Trans>Product not delivered</Trans>
+              </li>
+              <li className="flex items-start gap-2 rounded-lg bg-[#fff6f2] px-3 py-2">
+                <span className="material-symbols-outlined mt-[1px] text-base text-[#f06233]">check_circle</span>
+                <Trans>Incorrect or incomplete product</Trans>
+              </li>
+              <li className="flex items-start gap-2 rounded-lg bg-[#fff6f2] px-3 py-2">
+                <span className="material-symbols-outlined mt-[1px] text-base text-[#f06233]">check_circle</span>
+                <Trans>Product in poor condition (with evidence)</Trans>
+              </li>
+            </ul>
+          </article>
+
+          <aside className="md:col-span-2 rounded-2xl border border-[#f7b7a2] bg-[#fff2ed] p-6">
+            <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-black uppercase tracking-wider text-[#f06233]">
+              <span className="material-symbols-outlined !text-sm">priority_high</span>
+              <Trans>Important</Trans>
             </p>
-          </details>
-          <details className="rounded-xl border border-[#f1d8cf] bg-white p-4">
-            <summary className="cursor-pointer list-none text-lg font-bold"><Trans>Force majeure events</Trans></summary>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600">
-              <Trans>Events outside operational control are reviewed case by case. We generally offer credits valid for 12 months.</Trans>
+            <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
+              <Trans>To request a refund, the customer must contact our team within 48 hours after delivery, providing evidence when applicable.</Trans>
             </p>
-          </details>
+          </aside>
         </div>
       </section>
 

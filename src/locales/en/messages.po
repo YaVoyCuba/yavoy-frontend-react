@@ -18,8 +18,8 @@ msgstr ""
 #~ msgid "{0}"
 #~ msgstr "{0}"
 
-#: src/Components/Footer/Footer.jsx:110
-#: src/Pages/frontend/RefundPolicyPage.jsx:127
+#: src/Components/Footer/Footer.jsx:126
+#: src/Pages/frontend/RefundPolicyPage.jsx:142
 msgid "© 2026 YaVoy. All rights reserved."
 msgstr "© 2026 YaVoy. All rights reserved."
 
@@ -28,7 +28,7 @@ msgstr "© 2026 YaVoy. All rights reserved."
 #~ msgid "© 2026 YaVoy. Todos los derechos reservados."
 #~ msgstr "© 2026 YaVoy. Todos los derechos reservados."
 
-#: src/Pages/frontend/ContactPage.jsx:106
+#: src/Pages/frontend/ContactPage.jsx:119
 msgid "10:00 AM - 2:00 PM"
 msgstr "10:00 AM - 2:00 PM"
 
@@ -40,7 +40,7 @@ msgstr "100% guaranteed delivery"
 msgid "100% human privacy"
 msgstr "100% human privacy"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:96
+#: src/Pages/frontend/RefundPolicyPage.jsx:111
 msgid "2 - 3 business days"
 msgstr "2 - 3 business days"
 
@@ -52,7 +52,7 @@ msgstr "2 - 3 business days"
 msgid "24/7 support"
 msgstr "24/7 support"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:92
+#: src/Pages/frontend/RefundPolicyPage.jsx:107
 msgid "5 - 10 business days"
 msgstr "5 - 10 business days"
 
@@ -60,7 +60,7 @@ msgstr "5 - 10 business days"
 #~ msgid "5 - 10 dias habiles"
 #~ msgstr "5 - 10 dias habiles"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:100
+#: src/Pages/frontend/RefundPolicyPage.jsx:115
 msgid "7 - 14 business days"
 msgstr "7 - 14 business days"
 
@@ -69,10 +69,10 @@ msgstr "7 - 14 business days"
 #~ msgstr "7 - 14 dias habiles"
 
 #: src/Pages/frontend/ContactPage.jsx:87
-msgid "8300 NW 33rd St, Miami, FL 33122"
-msgstr "8300 NW 33rd St, Miami, FL 33122"
+#~ msgid "8300 NW 33rd St, Miami, FL 33122"
+#~ msgstr "8300 NW 33rd St, Miami, FL 33122"
 
-#: src/Pages/frontend/ContactPage.jsx:102
+#: src/Pages/frontend/ContactPage.jsx:115
 msgid "9:00 AM - 6:00 PM"
 msgstr "9:00 AM - 6:00 PM"
 
@@ -100,11 +100,15 @@ msgstr "Accept"
 #~ msgid "Add your accommodation"
 #~ msgstr "Add your accommodation"
 
-#: src/Components/Landing/Restaurants.jsx:359
+#: src/Components/Landing/Restaurants.jsx:127
+msgid "Air and sea cargo options."
+msgstr "Air and sea cargo options."
+
+#: src/Components/Landing/Restaurants.jsx:360
 msgid "Air Shipments"
 msgstr "Air Shipments"
 
-#: src/Components/Landing/Restaurants.jsx:480
+#: src/Components/Landing/Restaurants.jsx:481
 msgid "All stores"
 msgstr "All stores"
 
@@ -116,7 +120,7 @@ msgstr "Already have an account?"
 #~ msgid "An integrated platform that connects real inventory with reliable local delivery teams."
 #~ msgstr "An integrated platform that connects real inventory with reliable local delivery teams."
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:70
+#: src/Pages/frontend/RefundPolicyPage.jsx:85
 msgid "Approval"
 msgstr "Approval"
 
@@ -136,6 +140,10 @@ msgstr "Approval"
 msgid "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
 msgstr "At YaVoy, trust is the foundation of every delivery. This policy explains how we protect your information while connecting borders."
 
+#: src/Pages/frontend/RefundPolicyPage.jsx:22
+msgid "At YaVoy, we want you to have a safe and satisfying shopping experience."
+msgstr "At YaVoy, we want you to have a safe and satisfying shopping experience."
+
 #: src/Pages/frontend/LoginPage.jsx:221
 msgid "Authenticate with CrecexDiez"
 msgstr "Authenticate with CrecexDiez"
@@ -147,7 +155,7 @@ msgstr "Authenticate with CrecexDiez"
 msgid "Bags"
 msgstr "Bags"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:99
+#: src/Pages/frontend/RefundPolicyPage.jsx:114
 msgid "Bank transfers"
 msgstr "Bank transfers"
 
@@ -160,10 +168,10 @@ msgstr "Basic identity"
 #~ msgstr "Billeteras digitales (PayPal/Apple Pay)"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:34
-msgid "Bookings canceled at least 48 hours in advance: full refund minus a 5% administrative fee. Cancellations between 24 and 48 hours: 50% refund."
-msgstr "Bookings canceled at least 48 hours in advance: full refund minus a 5% administrative fee. Cancellations between 24 and 48 hours: 50% refund."
+#~ msgid "Bookings canceled at least 48 hours in advance: full refund minus a 5% administrative fee. Cancellations between 24 and 48 hours: 50% refund."
+#~ msgstr "Bookings canceled at least 48 hours in advance: full refund minus a 5% administrative fee. Cancellations between 24 and 48 hours: 50% refund."
 
-#: src/Components/Landing/Restaurants.jsx:259
+#: src/Components/Landing/Restaurants.jsx:260
 msgid "Browse restaurants, markets, sweets, gifts, and shipping services from trusted local partners."
 msgstr "Browse restaurants, markets, sweets, gifts, and shipping services from trusted local partners."
 
@@ -171,11 +179,15 @@ msgstr "Browse restaurants, markets, sweets, gifts, and shipping services from t
 msgid "Browse the available selection and add what you need to cart."
 msgstr "Browse the available selection and add what you need to cart."
 
+#: src/Components/Landing/MainLandingRedesign.jsx:84
+msgid "Buy products and packages for your"
+msgstr "Buy products and packages for your"
+
 #: src/Pages/frontend/AboutCompanyPage.jsx:45
 #~ msgid "Cada articulo es rastreado y manejado con el maximo cuidado desde el envio hasta la puerta final."
 #~ msgstr "Cada articulo es rastreado y manejado con el maximo cuidado desde el envio hasta la puerta final."
 
-#: src/Pages/frontend/ContactPage.jsx:79
+#: src/Pages/frontend/ContactPage.jsx:84
 msgid "Call us"
 msgstr "Call us"
 
@@ -241,6 +253,10 @@ msgstr "Commitment to excellence"
 msgid "Company"
 msgstr "Company"
 
+#: src/Components/Landing/MainLandingRedesign.jsx:150
+msgid "Compliance Partners"
+msgstr "Compliance Partners"
+
 #: src/Components/Landing/MainLandingRedesign.jsx:88
 #~ msgid "Compra online de forma segura y coordinamos la entrega directamente a su puerta con nuestros socios locales certificados."
 #~ msgstr "Compra online de forma segura y coordinamos la entrega directamente a su puerta con nuestros socios locales certificados."
@@ -290,7 +306,7 @@ msgid "Contact channels"
 msgstr "Contact channels"
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:113
-#: src/Pages/frontend/RefundPolicyPage.jsx:118
+#: src/Pages/frontend/RefundPolicyPage.jsx:133
 #: src/Pages/frontend/TermsPage.jsx:135
 msgid "Contact support"
 msgstr "Contact support"
@@ -332,7 +348,7 @@ msgstr "Correct code"
 msgid "CrecexDiez Email"
 msgstr "CrecexDiez Email"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:91
+#: src/Pages/frontend/RefundPolicyPage.jsx:106
 msgid "Credit/debit cards"
 msgstr "Credit/debit cards"
 
@@ -348,7 +364,7 @@ msgstr "Credit/debit cards"
 msgid "Curated details for celebrations and surprises."
 msgstr "Curated details for celebrations and surprises."
 
-#: src/Pages/frontend/ContactPage.jsx:98
+#: src/Pages/frontend/ContactPage.jsx:111
 msgid "Customer service hours"
 msgstr "Customer service hours"
 
@@ -396,17 +412,21 @@ msgstr "Details and bundles for special occasions."
 #~ msgid "Developed by"
 #~ msgstr "Developed by"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:95
+#: src/Pages/frontend/RefundPolicyPage.jsx:110
 msgid "Digital wallets (PayPal/Apple Pay)"
 msgstr "Digital wallets (PayPal/Apple Pay)"
 
-#: src/Components/Landing/Restaurants.jsx:254
+#: src/Components/Landing/Restaurants.jsx:300
+msgid "Discover products and services designed for your loved ones."
+msgstr "Discover products and services designed for your loved ones."
+
+#: src/Components/Landing/Restaurants.jsx:255
 msgid "Discover top stores"
 msgstr "Discover top stores"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:150
-msgid "Distributed partners"
-msgstr "Distributed partners"
+#~ msgid "Distributed partners"
+#~ msgstr "Distributed partners"
 
 #: src/Pages/frontend/TermsPage.jsx:128
 msgid "Do you have questions about these terms?"
@@ -458,7 +478,7 @@ msgstr "Electronics"
 #~ msgid "Elige productos o paquetes"
 #~ msgstr "Elige productos o paquetes"
 
-#: src/Pages/frontend/ContactPage.jsx:34
+#: src/Pages/frontend/ContactPage.jsx:39
 msgid "Email"
 msgstr "Email"
 
@@ -466,11 +486,11 @@ msgstr "Email"
 msgid "Email address"
 msgstr "Email address"
 
-#: src/Pages/frontend/ContactPage.jsx:63
+#: src/Pages/frontend/ContactPage.jsx:68
 msgid "Email us"
 msgstr "Email us"
 
-#: src/Pages/frontend/ContactPage.jsx:35
+#: src/Pages/frontend/ContactPage.jsx:40
 msgid "email@example.com"
 msgstr "email@example.com"
 
@@ -539,8 +559,8 @@ msgstr "Estimated delivery windows are subject to change."
 #~ msgstr "Eventos fuera de control operativo se revisan caso por caso. Generalmente ofrecemos creditos validos por 12 meses."
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:46
-msgid "Events outside operational control are reviewed case by case. We generally offer credits valid for 12 months."
-msgstr "Events outside operational control are reviewed case by case. We generally offer credits valid for 12 months."
+#~ msgid "Events outside operational control are reviewed case by case. We generally offer credits valid for 12 months."
+#~ msgstr "Events outside operational control are reviewed case by case. We generally offer credits valid for 12 months."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:147
 msgid "Every item in our food, electronics, and household catalog passes quality checks before shipping."
@@ -550,7 +570,7 @@ msgstr "Every item in our food, electronics, and household catalog passes qualit
 #~ msgid "Every item is tracked and handled with maximum care from dispatch to final delivery."
 #~ msgstr "Every item is tracked and handled with maximum care from dispatch to final delivery."
 
-#: src/Components/Landing/Restaurants.jsx:251
+#: src/Components/Landing/Restaurants.jsx:252
 msgid "Exclusive offer"
 msgstr "Exclusive offer"
 
@@ -570,9 +590,13 @@ msgstr "Exclusive offer"
 #~ msgid "Explora la seleccion disponible y agrega lo necesario al carrito."
 #~ msgstr "Explora la seleccion disponible y agrega lo necesario al carrito."
 
-#: src/Components/Landing/Restaurants.jsx:297
+#: src/Components/Landing/Restaurants.jsx:298
 msgid "Explore categories"
 msgstr "Explore categories"
+
+#: src/Components/Landing/Restaurants.jsx:482
+msgid "Explore our complete catalog of available stores."
+msgstr "Explore our complete catalog of available stores."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:167
 msgid "Explore our selection of food, electronics, and household items with the confidence of YaVoy Cuba."
@@ -587,14 +611,14 @@ msgstr "Explore our selection of food, electronics, and household items with the
 #~ msgstr "Familia recibiendo una entrega"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:85
-msgid "family"
-msgstr "family"
+#~ msgid "family"
+#~ msgstr "family"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:126
 msgid "Family receiving a delivery"
 msgstr "Family receiving a delivery"
 
-#: src/Components/Landing/Restaurants.jsx:286
+#: src/Components/Landing/Restaurants.jsx:287
 msgid "Fast delivery"
 msgstr "Fast delivery"
 
@@ -602,13 +626,17 @@ msgstr "Fast delivery"
 msgid "Featured categories"
 msgstr "Featured categories"
 
-#: src/Components/Landing/Restaurants.jsx:442
+#: src/Components/Landing/Restaurants.jsx:443
 msgid "Featured stores"
 msgstr "Featured stores"
 
+#: src/Components/Landing/Restaurants.jsx:257
+msgid "for your loved ones"
+msgstr "for your loved ones"
+
 #: src/Pages/frontend/RefundPolicyPage.jsx:44
-msgid "Force majeure events"
-msgstr "Force majeure events"
+#~ msgid "Force majeure events"
+#~ msgstr "Force majeure events"
 
 #: src/Pages/frontend/LoginPage.jsx:206
 msgid "Forgot my password"
@@ -634,7 +662,7 @@ msgstr "Fresh products and essentials."
 #~ msgid "From Pinar del Rio to Guantanamo, our network covers the whole country with reliable timelines."
 #~ msgstr "From Pinar del Rio to Guantanamo, our network covers the whole country with reliable timelines."
 
-#: src/Pages/frontend/ContactPage.jsx:31
+#: src/Pages/frontend/ContactPage.jsx:36
 msgid "Full name"
 msgstr "Full name"
 
@@ -657,7 +685,7 @@ msgstr "Guaranteed quality"
 msgid "Happy customer"
 msgstr "Happy customer"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:122
+#: src/Pages/frontend/RefundPolicyPage.jsx:137
 msgid "Help center"
 msgstr "Help center"
 
@@ -669,7 +697,7 @@ msgstr "Home"
 #~ msgid "Horario de atencion al cliente"
 #~ msgstr "Horario de atencion al cliente"
 
-#: src/Pages/frontend/ContactPage.jsx:22
+#: src/Pages/frontend/ContactPage.jsx:27
 msgid "How can we help you?"
 msgstr "How can we help you?"
 
@@ -691,12 +719,20 @@ msgid "I agree"
 msgstr "I agree"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:40
-msgid "If we cannot fulfill a confirmed booking, we apply a 100% refund or an equivalent alternative at no extra cost."
-msgstr "If we cannot fulfill a confirmed booking, we apply a 100% refund or an equivalent alternative at no extra cost."
+#~ msgid "If we cannot fulfill a confirmed booking, we apply a 100% refund or an equivalent alternative at no extra cost."
+#~ msgstr "If we cannot fulfill a confirmed booking, we apply a 100% refund or an equivalent alternative at no extra cost."
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:17
 #~ msgid "Implementamos medidas de seguridad para proteger tu informacion y evitar accesos no autorizados."
 #~ msgstr "Implementamos medidas de seguridad para proteger tu informacion y evitar accesos no autorizados."
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:58
+msgid "Important"
+msgstr "Important"
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:46
+msgid "Incorrect or incomplete product"
+msgstr "Incorrect or incomplete product"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:38
 #~ msgid "Incumplimiento del servicio"
@@ -710,7 +746,7 @@ msgstr "If we cannot fulfill a confirmed booking, we apply a 100% refund or an e
 #~ msgid "Iniciar pedido ahora"
 #~ msgstr "Iniciar pedido ahora"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:65
+#: src/Pages/frontend/RefundPolicyPage.jsx:80
 msgid "Internal review"
 msgstr "Internal review"
 
@@ -741,8 +777,12 @@ msgstr "Inventory management"
 #~ msgstr "La entrega va mas alla de los paquetes; se trata de cuidar."
 
 #: src/Pages/frontend/TermsPage.jsx:46
-msgid "Last updated: May 24, 2024"
-msgstr "Last updated: May 24, 2024"
+msgid "Last updated: Mar 27, 2026"
+msgstr "Last updated: Mar 27, 2026"
+
+#: src/Pages/frontend/TermsPage.jsx:46
+#~ msgid "Last updated: May 24, 2024"
+#~ msgstr "Last updated: May 24, 2024"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:17
 msgid "Last updated: October 24, 2023. Our commitment to transparency, fairness, and excellence in travel logistics."
@@ -772,13 +812,17 @@ msgstr "Legal"
 #~ msgid "Local partners"
 #~ msgstr "Local partners"
 
-#: src/Pages/frontend/ContactPage.jsx:91
+#: src/Pages/frontend/ContactPage.jsx:104
 msgid "Location in Miami"
 msgstr "Location in Miami"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:61
+#: src/Pages/frontend/RefundPolicyPage.jsx:76
 msgid "Log in and select Request Refund in your active booking."
 msgstr "Log in and select Request Refund in your active booking."
+
+#: src/Pages/frontend/TermsPage.jsx:95
+msgid "Logistical factors related to independent logistics providers."
+msgstr "Logistical factors related to independent logistics providers."
 
 #: src/Pages/frontend/TermsPage.jsx:21
 #: src/Pages/frontend/TermsPage.jsx:32
@@ -791,8 +835,8 @@ msgstr "Logistics and timelines"
 #~ msgstr "Logistics center"
 
 #: src/Pages/frontend/TermsPage.jsx:95
-msgid "Logistics factors related to third-party carriers."
-msgstr "Logistics factors related to third-party carriers."
+#~ msgid "Logistics factors related to third-party carriers."
+#~ msgstr "Logistics factors related to third-party carriers."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:195
 #~ msgid "Los productos mas solicitados para envio inmediato."
@@ -802,11 +846,15 @@ msgstr "Logistics factors related to third-party carriers."
 #~ msgid "Los tiempos de entrega son estimados y pueden variar por disponibilidad, clima o factores logisticos de terceros. El cliente debe facilitar informacion correcta para procesar su orden."
 #~ msgstr "Los tiempos de entrega son estimados y pueden variar por disponibilidad, clima o factores logisticos de terceros. El cliente debe facilitar informacion correcta para procesar su orden."
 
+#: src/Components/Landing/MainLandingRedesign.jsx:85
+msgid "loved ones"
+msgstr "loved ones"
+
 #: src/Pages/frontend/ContactPage.jsx:91
 #~ msgid "Lun - Vie"
 #~ msgstr "Lun - Vie"
 
-#: src/Components/Footer/Footer.jsx:112
+#: src/Components/Footer/Footer.jsx:128
 msgid "Maintained by"
 msgstr "Maintained by"
 
@@ -832,7 +880,7 @@ msgstr "Markets"
 #~ msgid "Mercados"
 #~ msgstr "Mercados"
 
-#: src/Pages/frontend/ContactPage.jsx:43
+#: src/Pages/frontend/ContactPage.jsx:48
 msgid "Message"
 msgstr "Message"
 
@@ -848,11 +896,11 @@ msgstr "Miami operations center"
 #~ msgid "Miami, FL, USA"
 #~ msgstr "Miami, FL, USA"
 
-#: src/Components/Landing/Restaurants.jsx:360
+#: src/Components/Landing/Restaurants.jsx:361
 msgid "Minimum 15lb"
 msgstr "Minimum 15lb"
 
-#: src/Components/Landing/Restaurants.jsx:376
+#: src/Components/Landing/Restaurants.jsx:377
 msgid "Minimum 22lb"
 msgstr "Minimum 22lb"
 
@@ -864,19 +912,19 @@ msgstr "Modern e-commerce"
 msgid "Modern logistics warehouse with organized shelves of products"
 msgstr "Modern logistics warehouse with organized shelves of products"
 
-#: src/Pages/frontend/ContactPage.jsx:101
+#: src/Pages/frontend/ContactPage.jsx:114
 msgid "Mon - Fri"
 msgstr "Mon - Fri"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:117
-msgid "More than 1,000 happy families in Cuba"
-msgstr "More than 1,000 happy families in Cuba"
+#~ msgid "More than 1,000 happy families in Cuba"
+#~ msgstr "More than 1,000 happy families in Cuba"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:197
 msgid "Most requested products for immediate delivery."
 msgstr "Most requested products for immediate delivery."
 
-#: src/Pages/frontend/ContactPage.jsx:30
+#: src/Pages/frontend/ContactPage.jsx:35
 #: src/Pages/frontend/LoginPage.jsx:261
 msgid "Name"
 msgstr "Name"
@@ -889,12 +937,12 @@ msgstr "Name"
 msgid "Need help?"
 msgstr "Need help?"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:111
+#: src/Pages/frontend/RefundPolicyPage.jsx:126
 msgid "Need more help?"
 msgstr "Need more help?"
 
-#: src/Components/Landing/Restaurants.jsx:472
-#: src/Components/Landing/Restaurants.jsx:504
+#: src/Components/Landing/Restaurants.jsx:473
+#: src/Components/Landing/Restaurants.jsx:505
 msgid "No services available in this area"
 msgstr "No services available in this area"
 
@@ -947,10 +995,14 @@ msgstr "No services available in this area"
 #~ msgstr "Nuestros socios locales entregan en puerta a la familia beneficiaria."
 
 #: src/Pages/frontend/TermsPage.jsx:40
-msgid "Official document v2024"
-msgstr "Official document v2024"
+#~ msgid "Official document v2024"
+#~ msgstr "Official document v2024"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:71
+#: src/Pages/frontend/TermsPage.jsx:40
+msgid "Official document v2026"
+msgstr "Official document v2026"
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:86
 msgid "Once approved, you receive email confirmation with the final amount."
 msgstr "Once approved, you receive email confirmation with the final amount."
 
@@ -966,7 +1018,7 @@ msgstr "Online shopping"
 msgid "or misuse of the platform. In such cases, users are notified and the request is handled under internal security protocols."
 msgstr "or misuse of the platform. In such cases, users are notified and the request is handled under internal security protocols."
 
-#: src/Components/Landing/Restaurants.jsx:266
+#: src/Components/Landing/Restaurants.jsx:267
 msgid "Order now"
 msgstr "Order now"
 
@@ -982,13 +1034,17 @@ msgstr "Orders are processed online and coordinated with independent suppliers a
 msgid "Our commitment is to ensure every order reaches its destination with maximum efficiency and transparency."
 msgstr "Our commitment is to ensure every order reaches its destination with maximum efficiency and transparency."
 
-#: src/Pages/frontend/ContactPage.jsx:93
+#: src/Pages/frontend/ContactPage.jsx:106
 msgid "Our headquarters in Miami"
 msgstr "Our headquarters in Miami"
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:26
 msgid "Our identity"
 msgstr "Our identity"
+
+#: src/Components/Landing/MainLandingRedesign.jsx:186
+msgid "Our independent compliance partners handle the preparation and coordination of delivery."
+msgstr "Our independent compliance partners handle the preparation and coordination of delivery."
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:109
 msgid "Our legal support team is available to answer any privacy-related request."
@@ -1010,11 +1066,11 @@ msgstr "Our mission is to make it easier to purchase products and services throu
 #~ msgid "Our story"
 #~ msgstr "Our story"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:113
+#: src/Pages/frontend/RefundPolicyPage.jsx:128
 msgid "Our support team is available to answer questions about this policy and specific cases."
 msgstr "Our support team is available to answer questions about this policy and specific cases."
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:66
+#: src/Pages/frontend/RefundPolicyPage.jsx:81
 msgid "Our team validates cancellation timing and service status within 24 hours."
 msgstr "Our team validates cancellation timing and service status within 24 hours."
 
@@ -1038,7 +1094,7 @@ msgstr "Package shipping"
 msgid "Pallets of household goods in a professional warehouse"
 msgstr "Pallets of household goods in a professional warehouse"
 
-#: src/Components/Landing/Restaurants.jsx:289
+#: src/Components/Landing/Restaurants.jsx:290
 msgid "Partner stores deliver quickly with real-time stock availability."
 msgstr "Partner stores deliver quickly with real-time stock availability."
 
@@ -1050,7 +1106,7 @@ msgstr "Password"
 msgid "Pay securely from anywhere in the world."
 msgstr "Pay securely from anywhere in the world."
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:85
+#: src/Pages/frontend/RefundPolicyPage.jsx:100
 msgid "Payment method"
 msgstr "Payment method"
 
@@ -1139,11 +1195,11 @@ msgstr "Policy document"
 #~ msgid "Presencia en Toda la Isla"
 #~ msgstr "Presencia en Toda la Isla"
 
-#: src/Components/Landing/Restaurants.jsx:354
+#: src/Components/Landing/Restaurants.jsx:355
 msgid "Price details."
 msgstr "Price details."
 
-#: src/Components/Landing/Restaurants.jsx:351
+#: src/Components/Landing/Restaurants.jsx:352
 msgid "Prices per pound"
 msgstr "Prices per pound"
 
@@ -1155,9 +1211,17 @@ msgstr "Privacy policy"
 #~ msgid "Proceso de devolucion"
 #~ msgstr "Proceso de devolucion"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:86
+#: src/Pages/frontend/RefundPolicyPage.jsx:101
 msgid "Processing time"
 msgstr "Processing time"
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:50
+msgid "Product in poor condition (with evidence)"
+msgstr "Product in poor condition (with evidence)"
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:42
+msgid "Product not delivered"
+msgstr "Product not delivered"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:63
 #~ msgid "Productos de limpieza e higiene."
@@ -1179,14 +1243,13 @@ msgstr "Professional logistics"
 msgid "Professional storage"
 msgstr "Professional storage"
 
-#: src/Pages/frontend/ContactPage.jsx:40
+#: src/Pages/frontend/ContactPage.jsx:45
 msgid "Question about..."
 msgstr "Question about..."
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:107
 msgid "Questions about your data?"
 msgstr "Questions about your data?"
-
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:165
 msgid "Ready to place your order?"
@@ -1195,6 +1258,10 @@ msgstr "Ready to place your order?"
 #: src/Pages/frontend/AboutCompanyPage.jsx:141
 #~ msgid "Ready to send a little love home?"
 #~ msgstr "Ready to send a little love home?"
+
+#: src/Components/Landing/MainLandingRedesign.jsx:230
+msgid "Ready to start?"
+msgstr "Ready to start?"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:149
 msgid "Real store"
@@ -1216,7 +1283,7 @@ msgstr "Real-time stock availability."
 #~ msgid "Recopilamos informacion necesaria para gestionar compras, pagos y entregas, incluyendo datos de contacto y direccion de entrega."
 #~ msgstr "Recopilamos informacion necesaria para gestionar compras, pagos y entregas, incluyendo datos de contacto y direccion de entrega."
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:28
+#: src/Pages/frontend/RefundPolicyPage.jsx:32
 msgid "Refund eligibility"
 msgstr "Refund eligibility"
 
@@ -1225,13 +1292,17 @@ msgstr "Refund eligibility"
 msgid "Refund policy"
 msgstr "Refund policy"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:55
+#: src/Pages/frontend/RefundPolicyPage.jsx:70
 msgid "Refund process"
 msgstr "Refund process"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:79
+#: src/Pages/frontend/RefundPolicyPage.jsx:94
 msgid "Refund timeline"
 msgstr "Refund timeline"
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:37
+msgid "Refunds apply in the following cases:"
+msgstr "Refunds apply in the following cases:"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:58
 #~ msgid "Regalitos"
@@ -1260,11 +1331,15 @@ msgstr "Restaurants"
 #~ msgid "Safe handling"
 #~ msgstr "Safe handling"
 
-#: src/Pages/frontend/ContactPage.jsx:105
+#: src/Components/Landing/MainLandingRedesign.jsx:117
+msgid "Satisfied Customers on Our Platform"
+msgstr "Satisfied Customers on Our Platform"
+
+#: src/Pages/frontend/ContactPage.jsx:118
 msgid "Saturday"
 msgstr "Saturday"
 
-#: src/Components/Landing/Restaurants.jsx:375
+#: src/Components/Landing/Restaurants.jsx:376
 msgid "Sea Shipments"
 msgstr "Sea Shipments"
 
@@ -1291,17 +1366,17 @@ msgstr "Select municipality"
 msgid "Select province"
 msgstr "Select province"
 
-#: src/Pages/frontend/ContactPage.jsx:51
+#: src/Pages/frontend/ContactPage.jsx:56
 msgid "Send message"
 msgstr "Send message"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:84
-msgid "Send products and packages to your"
-msgstr "Send products and packages to your"
+#~ msgid "Send products and packages to your"
+#~ msgstr "Send products and packages to your"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:38
-msgid "Service failure"
-msgstr "Service failure"
+#~ msgid "Service failure"
+#~ msgstr "Service failure"
 
 #: src/Components/Landing/Restaurants.jsx:126
 msgid "Shipping"
@@ -1312,8 +1387,16 @@ msgid "Shop now"
 msgstr "Shop now"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:88
-msgid "Shop online safely and we coordinate delivery directly to their door with certified local partners."
-msgstr "Shop online safely and we coordinate delivery directly to their door with certified local partners."
+#~ msgid "Shop online safely and we coordinate delivery directly to their door with certified local partners."
+#~ msgstr "Shop online safely and we coordinate delivery directly to their door with certified local partners."
+
+#: src/Components/Landing/MainLandingRedesign.jsx:88
+msgid "Shop online securely, and we will coordinate delivery through our independent fulfillment partners."
+msgstr "Shop online securely, and we will coordinate delivery through our independent fulfillment partners."
+
+#: src/Components/Landing/MainLandingRedesign.jsx:232
+msgid "Shop securely and manage your orders easily from our platform."
+msgstr "Shop securely and manage your orders easily from our platform."
 
 #: src/Components/Header/HeaderTop.jsx:162
 msgid "Shops"
@@ -1355,8 +1438,8 @@ msgstr "Sign up"
 #~ msgstr "Soporte 24/7"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:32
-msgid "Standard cancellations"
-msgstr "Standard cancellations"
+#~ msgid "Standard cancellations"
+#~ msgstr "Standard cancellations"
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:147
 #~ msgid "Start order now"
@@ -1370,11 +1453,11 @@ msgstr "Start shopping"
 msgid "Status notifications and order tracking updates."
 msgstr "Status notifications and order tracking updates."
 
-#: src/Pages/frontend/ContactPage.jsx:39
+#: src/Pages/frontend/ContactPage.jsx:44
 msgid "Subject"
 msgstr "Subject"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:60
+#: src/Pages/frontend/RefundPolicyPage.jsx:75
 msgid "Submit request"
 msgstr "Submit request"
 
@@ -1392,7 +1475,7 @@ msgstr "Sweets"
 #~ msgid "Tarjetas de credito/debito"
 #~ msgstr "Tarjetas de credito/debito"
 
-#: src/Pages/frontend/ContactPage.jsx:46
+#: src/Pages/frontend/ContactPage.jsx:51
 msgid "Tell us more about your needs..."
 msgstr "Tell us more about your needs..."
 
@@ -1414,6 +1497,10 @@ msgstr "Terms and conditions"
 #~ msgid "The digital bridge"
 #~ msgstr "The digital bridge"
 
+#: src/Pages/frontend/RefundPolicyPage.jsx:26
+msgid "This policy outlines the conditions under which you may request exchanges or refunds for products purchased through our platform."
+msgstr "This policy outlines the conditions under which you may request exchanges or refunds for products purchased through our platform."
+
 #: src/Pages/frontend/AboutCompanyPage.jsx:43
 msgid "Through our platform, customers can purchase a wide range of products, including food, household items, electronics, and personal-use packages."
 msgstr "Through our platform, customers can purchase a wide range of products, including food, household items, electronics, and personal-use packages."
@@ -1430,11 +1517,15 @@ msgstr "Through our platform, customers can purchase a wide range of products, i
 msgid "To ensure service efficiency, the customer must provide accurate information to process each order. Any mistakes in address or contact details are the sole responsibility of the user and may cause delays or additional re-delivery charges."
 msgstr "To ensure service efficiency, the customer must provide accurate information to process each order. Any mistakes in address or contact details are the sole responsibility of the user and may cause delays or additional re-delivery charges."
 
+#: src/Pages/frontend/RefundPolicyPage.jsx:61
+msgid "To request a refund, the customer must contact our team within 48 hours after delivery, providing evidence when applicable."
+msgstr "To request a refund, the customer must contact our team within 48 hours after delivery, providing evidence when applicable."
+
 #: src/Pages/frontend/AboutCompanyPage.jsx:82
 #~ msgid "Today"
 #~ msgstr "Today"
 
-#: src/Components/Landing/Restaurants.jsx:443
+#: src/Components/Landing/Restaurants.jsx:444
 msgid "Top rated stores selected for this week."
 msgstr "Top rated stores selected for this week."
 
@@ -1549,7 +1640,7 @@ msgstr "Verified products"
 msgid "View all"
 msgstr "View all"
 
-#: src/Components/Landing/Restaurants.jsx:497
+#: src/Components/Landing/Restaurants.jsx:498
 msgid "View all stores"
 msgstr "View all stores"
 
@@ -1558,8 +1649,8 @@ msgid "View catalog"
 msgstr "View catalog"
 
 #: src/Components/Landing/Restaurants.jsx:272
-msgid "View offer"
-msgstr "View offer"
+#~ msgid "View offer"
+#~ msgstr "View offer"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:95
 msgid "View products"
@@ -1569,7 +1660,7 @@ msgstr "View products"
 msgid "View shipments"
 msgstr "View shipments"
 
-#: src/Pages/frontend/ContactPage.jsx:86
+#: src/Pages/frontend/ContactPage.jsx:95
 msgid "Visit us"
 msgstr "Visit us"
 
@@ -1587,7 +1678,7 @@ msgstr "vital commitment."
 msgid "Warehouse worker picking food products"
 msgstr "Warehouse worker picking food products"
 
-#: src/Pages/frontend/ContactPage.jsx:24
+#: src/Pages/frontend/ContactPage.jsx:29
 msgid "We are here to help with your trips and deliveries to Cuba. Write to us and we will contact you as soon as possible."
 msgstr "We are here to help with your trips and deliveries to Cuba. Write to us and we will contact you as soon as possible."
 
@@ -1604,8 +1695,8 @@ msgid "We coordinate delivery"
 msgstr "We coordinate delivery"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:160
-msgid "We deliver your purchases efficiently through a simple and transparent process."
-msgstr "We deliver your purchases efficiently through a simple and transparent process."
+#~ msgid "We deliver your purchases efficiently through a simple and transparent process."
+#~ msgstr "We deliver your purchases efficiently through a simple and transparent process."
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:20
 #~ msgid "We do not sell personal data. We only share information with providers and partners when necessary to complete the requested service."
@@ -1639,7 +1730,11 @@ msgstr "We maintain a broad range of essential products ready to be shipped with
 msgid "We maintain strict storage standards for all our products."
 msgstr "We maintain strict storage standards for all our products."
 
-#: src/Components/Landing/Restaurants.jsx:343
+#: src/Components/Landing/MainLandingRedesign.jsx:160
+msgid "We manage your orders efficiently through a simple and transparent process."
+msgstr "We manage your orders efficiently through a simple and transparent process."
+
+#: src/Components/Landing/Restaurants.jsx:344
 msgid "We offer Air and Sea Shipments"
 msgstr "We offer Air and Sea Shipments"
 
@@ -1720,8 +1815,12 @@ msgstr "YaVoy guarantee"
 #~ msgstr "YaVoy opera como plataforma de comercio y coordinacion de entregas con socios locales. Al usar el sitio, aceptas cumplir las politicas de compra, pago y entrega publicadas."
 
 #: src/Pages/frontend/TermsPage.jsx:67
-msgid "YaVoy operates as an e-commerce platform that coordinates deliveries with local partners. By using this site, you agree to comply with our published purchase, payment, and delivery policies."
-msgstr "YaVoy operates as an e-commerce platform that coordinates deliveries with local partners. By using this site, you agree to comply with our published purchase, payment, and delivery policies."
+msgid "YaVoy operates as an e-commerce platform and independent compliance partners. By using this site, you agree to comply with our published purchase, payment, and delivery policies."
+msgstr "YaVoy operates as an e-commerce platform and independent compliance partners. By using this site, you agree to comply with our published purchase, payment, and delivery policies."
+
+#: src/Pages/frontend/TermsPage.jsx:67
+#~ msgid "YaVoy operates as an e-commerce platform that coordinates deliveries with local partners. By using this site, you agree to comply with our published purchase, payment, and delivery policies."
+#~ msgstr "YaVoy operates as an e-commerce platform that coordinates deliveries with local partners. By using this site, you agree to comply with our published purchase, payment, and delivery policies."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:37
 #~ msgid "YaVoy was born from a deep understanding of the challenges families face when supporting relatives on the island. Our mission is to provide a transparent and fully secure bridge for groceries, medicines, and personal care items."
@@ -1730,6 +1829,10 @@ msgstr "YaVoy operates as an e-commerce platform that coordinates deliveries wit
 #: src/Pages/frontend/AboutCompanyPage.jsx:29
 msgid "YaVoyCuba.com is an e-commerce platform operated by YA VOY, LLC, a U.S.-registered company headquartered in Miami, Florida."
 msgstr "YaVoyCuba.com is an e-commerce platform operated by YA VOY, LLC, a U.S.-registered company headquartered in Miami, Florida."
+
+#: src/App.jsx:30
+msgid "YaYoy MarketPlace | Buy Products and Bundles"
+msgstr "YaYoy MarketPlace | Buy Products and Bundles"
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:19
 msgid "Your privacy is our"

@@ -1434,7 +1434,7 @@ msgstr "YaVoy aplica una política de tolerancia cero frente a actividades ilici
 
 #: src/Pages/frontend/PrivacyPolicyPage.jsx:64
 msgid "YaVoy guarantee"
-msgstr "Garantia YaVoy"
+msgstr "Garantía YaVoy"
 
 #: src/Pages/frontend/TermsPage.jsx:67
 msgid "YaVoy operates as an e-commerce platform and independent compliance partners. By using this site, you agree to comply with our published purchase, payment, and delivery policies."

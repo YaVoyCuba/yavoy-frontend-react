@@ -179,22 +179,6 @@ msgstr "Llamanos"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:32
-#~ msgid "Cancelaciones estandar"
-#~ msgstr ""
-
-#: src/Components/Landing/MainLandingRedesign.jsx:194
-#~ msgid "Categorias destacadas"
-#~ msgstr ""
-
-#: src/Pages/frontend/RefundPolicyPage.jsx:122
-#~ msgid "Centro de ayuda"
-#~ msgstr ""
-
-#: src/Pages/frontend/AboutCompanyPage.jsx:51
-#~ msgid "Centro logistico"
-#~ msgstr ""
-
 #: src/Components/Landing/MainLandingRedesign.jsx:168
 msgid "Choose products or bundles"
 msgstr "Elige productos o paquetes"
@@ -346,7 +330,7 @@ msgstr "Destinos de envío"
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:34
 #~ msgid "Delivery goes beyond packages; it is about caring."
-#~ msgstr "La entrega va mas alla de los paquetes; se trata de cuidar."
+#~ msgstr "La entrega va más alla de los paquetes; se trata de cuidar."
 
 #: src/Components/Header/Location.jsx:163
 msgid "Delivery set to"
@@ -500,7 +484,7 @@ msgstr "Entrega rapida"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:196
 msgid "Featured categories"
-msgstr "Categorias destacadas"
+msgstr "Categorías destacadas"
 
 #: src/Components/Landing/Restaurants.jsx:443
 msgid "Featured stores"
@@ -706,7 +690,7 @@ msgstr "Lun - Vie"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:197
 msgid "Most requested products for immediate delivery."
-msgstr "Los productos mas solicitados para envío inmediato."
+msgstr "Los productos más solicitados para envío inmediato."
 
 #: src/Pages/frontend/ContactPage.jsx:35
 #: src/Pages/frontend/LoginPage.jsx:261
@@ -1148,7 +1132,7 @@ msgstr "Dulcerías"
 
 #: src/Pages/frontend/ContactPage.jsx:51
 msgid "Tell us more about your needs..."
-msgstr "Cuéntanos mas sobre tus necesidades..."
+msgstr "Cuéntanos más sobre tus necesidades..."
 
 #: src/Components/Footer/Footer.jsx:73
 #: src/Pages/frontend/TermsPage.jsx:43

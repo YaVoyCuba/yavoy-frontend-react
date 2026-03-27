@@ -332,17 +332,9 @@ msgstr "Email de CrecexDiez"
 msgid "Credit/debit cards"
 msgstr "Tarjetas de crédito/débito"
 
-#: src/Pages/frontend/RefundPolicyPage.jsx:79
-#~ msgid "Cronograma de reembolsos"
-#~ msgstr ""
-
-#: src/Pages/frontend/ContactPage.jsx:45
-#~ msgid "Cuentanos mas sobre tus necesidades..."
-#~ msgstr ""
-
 #: src/Components/Landing/Restaurants.jsx:123
 msgid "Curated details for celebrations and surprises."
-msgstr ""
+msgstr "Detalles cuidadosamente seleccionados para celebraciones y sorpresas."
 
 #: src/Pages/frontend/ContactPage.jsx:111
 msgid "Customer service hours"
@@ -378,7 +370,7 @@ msgstr "Delivery fijado en"
 
 #: src/Components/Landing/Restaurants.jsx:119
 msgid "Desserts and sweet combos for special moments."
-msgstr ""
+msgstr "Postres y dulces combinaciones para momentos especiales."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:59
 msgid "Details and bundles for special occasions."
@@ -544,7 +536,7 @@ msgstr "Preguntas frecuentes"
 
 #: src/Components/Landing/Restaurants.jsx:111
 msgid "Fresh meals from trusted local partners."
-msgstr ""
+msgstr "Comidas frescas de proveedores locales de confianza."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:55
 msgid "Fresh products and essentials."

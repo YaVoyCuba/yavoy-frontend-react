@@ -28,7 +28,7 @@ msgstr "© 2026 YaVoy. All rights reserved."
 #~ msgid "© 2026 YaVoy. Todos los derechos reservados."
 #~ msgstr "© 2026 YaVoy. Todos los derechos reservados."
 
-#: src/Pages/frontend/ContactPage.jsx:119
+#: src/Pages/frontend/ContactPage.jsx:146
 msgid "10:00 AM - 2:00 PM"
 msgstr "10:00 AM - 2:00 PM"
 
@@ -72,7 +72,7 @@ msgstr "7 - 14 business days"
 #~ msgid "8300 NW 33rd St, Miami, FL 33122"
 #~ msgstr "8300 NW 33rd St, Miami, FL 33122"
 
-#: src/Pages/frontend/ContactPage.jsx:115
+#: src/Pages/frontend/ContactPage.jsx:142
 msgid "9:00 AM - 6:00 PM"
 msgstr "9:00 AM - 6:00 PM"
 
@@ -171,7 +171,7 @@ msgstr "Buy products and packages for your"
 #~ msgid "Cada articulo es rastreado y manejado con el maximo cuidado desde el envio hasta la puerta final."
 #~ msgstr "Cada articulo es rastreado y manejado con el maximo cuidado desde el envio hasta la puerta final."
 
-#: src/Pages/frontend/ContactPage.jsx:84
+#: src/Pages/frontend/ContactPage.jsx:111
 msgid "Call us"
 msgstr "Call us"
 
@@ -348,7 +348,7 @@ msgstr "Credit/debit cards"
 msgid "Curated details for celebrations and surprises."
 msgstr "Curated details for celebrations and surprises."
 
-#: src/Pages/frontend/ContactPage.jsx:111
+#: src/Pages/frontend/ContactPage.jsx:138
 msgid "Customer service hours"
 msgstr "Customer service hours"
 
@@ -462,7 +462,7 @@ msgstr "Electronics"
 #~ msgid "Elige productos o paquetes"
 #~ msgstr "Elige productos o paquetes"
 
-#: src/Pages/frontend/ContactPage.jsx:39
+#: src/Pages/frontend/ContactPage.jsx:64
 msgid "Email"
 msgstr "Email"
 
@@ -470,11 +470,11 @@ msgstr "Email"
 msgid "Email address"
 msgstr "Email address"
 
-#: src/Pages/frontend/ContactPage.jsx:68
+#: src/Pages/frontend/ContactPage.jsx:95
 msgid "Email us"
 msgstr "Email us"
 
-#: src/Pages/frontend/ContactPage.jsx:40
+#: src/Pages/frontend/ContactPage.jsx:65
 msgid "email@example.com"
 msgstr "email@example.com"
 
@@ -646,7 +646,7 @@ msgstr "Fresh products and essentials."
 #~ msgid "From Pinar del Rio to Guantanamo, our network covers the whole country with reliable timelines."
 #~ msgstr "From Pinar del Rio to Guantanamo, our network covers the whole country with reliable timelines."
 
-#: src/Pages/frontend/ContactPage.jsx:36
+#: src/Pages/frontend/ContactPage.jsx:61
 msgid "Full name"
 msgstr "Full name"
 
@@ -681,7 +681,7 @@ msgstr "Home"
 #~ msgid "Horario de atencion al cliente"
 #~ msgstr "Horario de atencion al cliente"
 
-#: src/Pages/frontend/ContactPage.jsx:27
+#: src/Pages/frontend/ContactPage.jsx:52
 msgid "How can we help you?"
 msgstr "How can we help you?"
 
@@ -761,8 +761,12 @@ msgid "Last updated: Mar 27, 2026"
 msgstr "Last updated: Mar 27, 2026"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:17
-msgid "Last updated: March 24, 2026. Our commitment to transparency, fairness, and excellence in travel logistics."
-msgstr "Last updated: March 24, 2026. Our commitment to transparency, fairness, and excellence in travel logistics."
+#~ msgid "Last updated: March 24, 2026. Our commitment to transparency, fairness, and excellence in travel logistics."
+#~ msgstr "Last updated: March 24, 2026. Our commitment to transparency, fairness, and excellence in travel logistics."
+
+#: src/Pages/frontend/RefundPolicyPage.jsx:17
+msgid "Last updated: March 24, 2026. Our commitment to transparency, fairness, and excellence."
+msgstr "Last updated: March 24, 2026. Our commitment to transparency, fairness, and excellence."
 
 #: src/Pages/frontend/TermsPage.jsx:46
 #~ msgid "Last updated: May 24, 2024"
@@ -796,7 +800,7 @@ msgstr "Legal"
 #~ msgid "Local partners"
 #~ msgstr "Local partners"
 
-#: src/Pages/frontend/ContactPage.jsx:104
+#: src/Pages/frontend/ContactPage.jsx:131
 msgid "Location in Miami"
 msgstr "Location in Miami"
 
@@ -860,7 +864,7 @@ msgstr "Markets"
 #~ msgid "Mercados"
 #~ msgstr "Mercados"
 
-#: src/Pages/frontend/ContactPage.jsx:48
+#: src/Pages/frontend/ContactPage.jsx:73
 msgid "Message"
 msgstr "Message"
 
@@ -892,7 +896,7 @@ msgstr "Modern e-commerce"
 msgid "Modern logistics warehouse with organized shelves of products"
 msgstr "Modern logistics warehouse with organized shelves of products"
 
-#: src/Pages/frontend/ContactPage.jsx:114
+#: src/Pages/frontend/ContactPage.jsx:141
 msgid "Mon - Fri"
 msgstr "Mon - Fri"
 
@@ -904,7 +908,7 @@ msgstr "Mon - Fri"
 msgid "Most requested products for immediate delivery."
 msgstr "Most requested products for immediate delivery."
 
-#: src/Pages/frontend/ContactPage.jsx:35
+#: src/Pages/frontend/ContactPage.jsx:60
 #: src/Pages/frontend/LoginPage.jsx:261
 msgid "Name"
 msgstr "Name"
@@ -1006,7 +1010,7 @@ msgstr "Orders are processed online and coordinated with independent suppliers a
 msgid "Our commitment is to ensure every order reaches its destination with maximum efficiency and transparency."
 msgstr "Our commitment is to ensure every order reaches its destination with maximum efficiency and transparency."
 
-#: src/Pages/frontend/ContactPage.jsx:106
+#: src/Pages/frontend/ContactPage.jsx:133
 msgid "Our headquarters in Miami"
 msgstr "Our headquarters in Miami"
 
@@ -1211,7 +1215,7 @@ msgstr "Professional logistics"
 msgid "Professional storage"
 msgstr "Professional storage"
 
-#: src/Pages/frontend/ContactPage.jsx:45
+#: src/Pages/frontend/ContactPage.jsx:70
 msgid "Question about..."
 msgstr "Question about..."
 
@@ -1319,7 +1323,7 @@ msgstr "Review"
 msgid "Satisfied Customers on Our Platform"
 msgstr "Satisfied Customers on Our Platform"
 
-#: src/Pages/frontend/ContactPage.jsx:118
+#: src/Pages/frontend/ContactPage.jsx:145
 msgid "Saturday"
 msgstr "Saturday"
 
@@ -1350,7 +1354,7 @@ msgstr "Select municipality"
 msgid "Select province"
 msgstr "Select province"
 
-#: src/Pages/frontend/ContactPage.jsx:56
+#: src/Pages/frontend/ContactPage.jsx:83
 msgid "Send message"
 msgstr "Send message"
 
@@ -1375,8 +1379,8 @@ msgstr "Shop now"
 #~ msgstr "Shop online safely and we coordinate delivery directly to their door with certified local partners."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:88
-msgid "Shop online securely, and we will coordinate delivery through our independent fulfillment partners."
-msgstr "Shop online securely, and we will coordinate delivery through our independent fulfillment partners."
+msgid "Shop online securely and manage your orders easily from our platform. We ensure that your experience is fast, clear, and reliable at all times."
+msgstr "Shop online securely and manage your orders easily from our platform. We ensure that your experience is fast, clear, and reliable at all times."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:232
 msgid "Shop securely and manage your orders easily from our platform."
@@ -1437,7 +1441,7 @@ msgstr "Start shopping"
 msgid "Status notifications and order tracking updates."
 msgstr "Status notifications and order tracking updates."
 
-#: src/Pages/frontend/ContactPage.jsx:44
+#: src/Pages/frontend/ContactPage.jsx:69
 msgid "Subject"
 msgstr "Subject"
 
@@ -1455,7 +1459,7 @@ msgstr "Sweets"
 #~ msgid "Tarjetas de credito/debito"
 #~ msgstr "Tarjetas de credito/debito"
 
-#: src/Pages/frontend/ContactPage.jsx:51
+#: src/Pages/frontend/ContactPage.jsx:76
 msgid "Tell us more about your needs..."
 msgstr "Tell us more about your needs..."
 
@@ -1648,7 +1652,7 @@ msgstr "View products"
 msgid "View shipments"
 msgstr "View shipments"
 
-#: src/Pages/frontend/ContactPage.jsx:95
+#: src/Pages/frontend/ContactPage.jsx:122
 msgid "Visit us"
 msgstr "Visit us"
 
@@ -1666,7 +1670,7 @@ msgstr "vital commitment."
 msgid "Warehouse worker picking food products"
 msgstr "Warehouse worker picking food products"
 
-#: src/Pages/frontend/ContactPage.jsx:29
+#: src/Pages/frontend/ContactPage.jsx:54
 msgid "We are here to help with your trips and deliveries to Cuba. Write to us and we will contact you as soon as possible."
 msgstr "We are here to help with your trips and deliveries to Cuba. Write to us and we will contact you as soon as possible."
 

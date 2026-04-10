@@ -28,7 +28,7 @@ msgstr "© 2026 YaVoy. Todos los derechos reservados."
 #~ msgid "© 2026 YaVoy. Todos los derechos reservados."
 #~ msgstr ""
 
-#: src/Pages/frontend/ContactPage.jsx:119
+#: src/Pages/frontend/ContactPage.jsx:146
 msgid "10:00 AM - 2:00 PM"
 msgstr "10:00 AM - 2:00 PM"
 
@@ -72,7 +72,7 @@ msgstr "7 - 14 días hábiles"
 #~ msgid "8300 NW 33rd St, Miami, FL 33122"
 #~ msgstr "8300 NW 33rd St, Miami, FL 33122"
 
-#: src/Pages/frontend/ContactPage.jsx:115
+#: src/Pages/frontend/ContactPage.jsx:142
 msgid "9:00 AM - 6:00 PM"
 msgstr "9:00 AM - 6:00 PM"
 
@@ -171,7 +171,7 @@ msgstr "Compra productos y paquetes para tus"
 #~ msgid "Cada articulo es rastreado y manejado con el maximo cuidado desde el envío hasta la puerta final."
 #~ msgstr ""
 
-#: src/Pages/frontend/ContactPage.jsx:84
+#: src/Pages/frontend/ContactPage.jsx:111
 msgid "Call us"
 msgstr "Llamanos"
 
@@ -312,7 +312,7 @@ msgstr "Tarjetas de crédito/débito"
 msgid "Curated details for celebrations and surprises."
 msgstr "Detalles cuidadosamente seleccionados para celebraciones y sorpresas."
 
-#: src/Pages/frontend/ContactPage.jsx:111
+#: src/Pages/frontend/ContactPage.jsx:138
 msgid "Customer service hours"
 msgstr "Horario de atención al cliente"
 
@@ -406,7 +406,7 @@ msgstr "Electrónica"
 #~ msgid "Elige productos o paquetes"
 #~ msgstr ""
 
-#: src/Pages/frontend/ContactPage.jsx:39
+#: src/Pages/frontend/ContactPage.jsx:64
 msgid "Email"
 msgstr "Correo electrónico"
 
@@ -414,11 +414,11 @@ msgstr "Correo electrónico"
 msgid "Email address"
 msgstr "Correo electrónico"
 
-#: src/Pages/frontend/ContactPage.jsx:68
+#: src/Pages/frontend/ContactPage.jsx:95
 msgid "Email us"
 msgstr "Escríbenos"
 
-#: src/Pages/frontend/ContactPage.jsx:40
+#: src/Pages/frontend/ContactPage.jsx:65
 msgid "email@example.com"
 msgstr "correo@ejemplo.com"
 
@@ -499,7 +499,7 @@ msgstr "para tus seres queridos"
 #~ msgstr "Eventos de fuerza mayor"
 
 #: src/Pages/frontend/LoginPage.jsx:206
-msgid "Forgot my password"          
+msgid "Forgot my password"
 msgstr "Olvidé mi contraseña"
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:74
@@ -522,7 +522,7 @@ msgstr "Productos frescos y de primera necesidad."
 #~ msgid "From Pinar del Rio to Guantanamo, our network covers the whole country with reliable timelines."
 #~ msgstr "Desde Pinar del Rio hasta Guantanamo, nuestra red cubre todo el pais con plazos confiables."
 
-#: src/Pages/frontend/ContactPage.jsx:36
+#: src/Pages/frontend/ContactPage.jsx:61
 msgid "Full name"
 msgstr "Nombre completo"
 
@@ -549,7 +549,7 @@ msgstr "Centro de ayuda"
 msgid "Home"
 msgstr "Inicio"
 
-#: src/Pages/frontend/ContactPage.jsx:27
+#: src/Pages/frontend/ContactPage.jsx:52
 msgid "How can we help you?"
 msgstr "Como podemos ayudarte?"
 
@@ -624,7 +624,7 @@ msgstr "Legal"
 #~ msgid "Local partners"
 #~ msgstr "Socios locales"
 
-#: src/Pages/frontend/ContactPage.jsx:104
+#: src/Pages/frontend/ContactPage.jsx:131
 msgid "Location in Miami"
 msgstr "Ubicacion en Miami"
 
@@ -656,7 +656,7 @@ msgstr "Mantenido por"
 msgid "Markets"
 msgstr "Mercados"
 
-#: src/Pages/frontend/ContactPage.jsx:48
+#: src/Pages/frontend/ContactPage.jsx:73
 msgid "Message"
 msgstr "Mensaje"
 
@@ -684,7 +684,7 @@ msgstr "E-commerce moderno"
 msgid "Modern logistics warehouse with organized shelves of products"
 msgstr "Almacén logístico moderno con estanterías de productos organizadas"
 
-#: src/Pages/frontend/ContactPage.jsx:114
+#: src/Pages/frontend/ContactPage.jsx:141
 msgid "Mon - Fri"
 msgstr "Lun - Vie"
 
@@ -692,7 +692,7 @@ msgstr "Lun - Vie"
 msgid "Most requested products for immediate delivery."
 msgstr "Los productos más solicitados para envío inmediato."
 
-#: src/Pages/frontend/ContactPage.jsx:35
+#: src/Pages/frontend/ContactPage.jsx:60
 #: src/Pages/frontend/LoginPage.jsx:261
 msgid "Name"
 msgstr "Nombre"
@@ -746,7 +746,7 @@ msgstr "Los pedidos se procesan en línea y se coordinan con proveedores indepen
 msgid "Our commitment is to ensure every order reaches its destination with maximum efficiency and transparency."
 msgstr "Nuestro compromiso es garantizar que cada pedido llegue a su destino con máxima eficiencia y transparencia."
 
-#: src/Pages/frontend/ContactPage.jsx:106
+#: src/Pages/frontend/ContactPage.jsx:133
 msgid "Our headquarters in Miami"
 msgstr "Nuestra sede en Miami"
 
@@ -914,7 +914,7 @@ msgstr "Logística profesional"
 msgid "Professional storage"
 msgstr "Almacenamiento profesional"
 
-#: src/Pages/frontend/ContactPage.jsx:45
+#: src/Pages/frontend/ContactPage.jsx:70
 msgid "Question about..."
 msgstr "Consulta sobre..."
 
@@ -1006,7 +1006,7 @@ msgstr "Evaluación"
 msgid "Satisfied Customers on Our Platform"
 msgstr "Clientes satisfechos en nuestra plataforma"
 
-#: src/Pages/frontend/ContactPage.jsx:118
+#: src/Pages/frontend/ContactPage.jsx:145
 msgid "Saturday"
 msgstr "Sábado"
 
@@ -1037,7 +1037,7 @@ msgstr "Seleccione un municipio"
 msgid "Select province"
 msgstr "Seleccione la provincia"
 
-#: src/Pages/frontend/ContactPage.jsx:56
+#: src/Pages/frontend/ContactPage.jsx:83
 msgid "Send message"
 msgstr "Enviar mensaje"
 
@@ -1054,7 +1054,7 @@ msgid "Shop now"
 msgstr "Comprar ahora"
 
 #: src/Components/Landing/MainLandingRedesign.jsx:88
-msgid "Shop online securely, and we will coordinate delivery through our independent fulfillment partners."
+msgid "Shop online securely and manage your orders easily from our platform. We ensure that your experience is fast, clear, and reliable at all times."
 msgstr "Compra online de forma segura y nosotros coordinamos la entrega a través de nuestros socios de cumplimiento independientes."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:232
@@ -1116,7 +1116,7 @@ msgstr "Empezar a comprar"
 msgid "Status notifications and order tracking updates."
 msgstr "Notificaciones de estado y actualizaciones del seguimiento del pedido."
 
-#: src/Pages/frontend/ContactPage.jsx:44
+#: src/Pages/frontend/ContactPage.jsx:69
 msgid "Subject"
 msgstr "Asunto"
 
@@ -1130,7 +1130,7 @@ msgstr "Postres y combos dulces para sorprender en casa."
 msgid "Sweets"
 msgstr "Dulcerías"
 
-#: src/Pages/frontend/ContactPage.jsx:51
+#: src/Pages/frontend/ContactPage.jsx:76
 msgid "Tell us more about your needs..."
 msgstr "Cuéntanos más sobre tus necesidades..."
 
@@ -1278,7 +1278,7 @@ msgstr "Ver productos"
 msgid "View shipments"
 msgstr "Ver envíos"
 
-#: src/Pages/frontend/ContactPage.jsx:95
+#: src/Pages/frontend/ContactPage.jsx:122
 msgid "Visit us"
 msgstr "Visitanos"
 
@@ -1296,7 +1296,7 @@ msgstr "compromiso vital."
 msgid "Warehouse worker picking food products"
 msgstr "Trabajador de almacén seleccionando productos alimenticios"
 
-#: src/Pages/frontend/ContactPage.jsx:29
+#: src/Pages/frontend/ContactPage.jsx:54
 msgid "We are here to help with your trips and deliveries to Cuba. Write to us and we will contact you as soon as possible."
 msgstr "Estamos aqui para asistirte con tus viajes y envíos a Cuba. Escríbenos y nos pondremos en contacto contigo lo antes posible."
 

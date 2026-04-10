@@ -4,6 +4,12 @@ import { useLingui } from "@lingui/react";
 import { msg } from "@lingui/core/macro";
 import { Trans } from "@lingui/react/macro";
 
+// Feature flag: hide main landing while we add comments and improvements.
+// To enable the component in development, create a `.env` file with:
+// VITE_ENABLE_MAIN_LANDING=true
+// Then restart the dev server (`npm run dev`).
+const ENABLE_MAIN_LANDING = import.meta.env.VITE_ENABLE_MAIN_LANDING === 'true';
+
 const categories = [
   {
     id: "restaurantes",
@@ -42,6 +48,10 @@ const avatarOne = "/assets/img/stitch-main/avatar-1.webp";
 const avatarTwo = "/assets/img/stitch-main/avatar-2.webp";
 
 const MainLandingRedesign = () => {
+  // If the feature flag is disabled, don't render this component.
+  // This keeps the UI clean while we add comments and iterate on implementation.
+  if (!ENABLE_MAIN_LANDING) return null;
+
   const { _ } = useLingui();
 
   const categoriesI18n = categories.map((category) => {
@@ -85,7 +95,7 @@ const MainLandingRedesign = () => {
               <span className="text-[#f06233]"> <Trans>loved ones</Trans></span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              <Trans>Shop online securely, and we will coordinate delivery through our independent fulfillment partners.</Trans>
+              <Trans>Shop online securely and manage your orders easily from our platform. We ensure that your experience is fast, clear, and reliable at all times.</Trans>
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -235,9 +245,23 @@ const MainLandingRedesign = () => {
                 <Link to="/restaurantes" className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-[#f06233]">
                   <Trans>Start shopping</Trans>
                 </Link>
+                {/* TODO: Shipments link hidden during redesign.
+                    Reason: the shipments feature/page is being redesigned and should remain hidden
+                    from production and development UIs until the backend/routes and UX are ready.
+
+                    Re-enable steps:
+                      1. Remove this comment block and uncomment the Link element below.
+                      2. Ensure route '/servicios' is implemented and covered by routes/tests.
+                      3. Add/update i18n entries if necessary and run `npm run lingui:extract`/`compile`.
+
+                    This follows best-practices: leave a clear TODO with re-enable steps and
+                    reference any related tickets/PRs when available.
+                */}
+                {/*
                 <Link to="/servicios" className="rounded-xl border border-white/40 px-6 py-3 text-sm font-bold text-white">
                   <Trans>View shipments</Trans>
                 </Link>
+                */}
               </div>
             </div>
             <div className="hidden h-24 w-24 items-center justify-center rounded-full border border-white/40 bg-white/15 md:flex">

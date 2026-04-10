@@ -8,8 +8,9 @@ import apiManager from '../../api/apiManager';
 import { setProvince, setMunicipality } from '../../redux/locationSlice';
 import { toast } from 'react-toastify';
 import { LoadingSmall } from '../../common/LoadingSmall';
-import CookieConsent from 'react-cookie-consent';
 import Select from 'react-select';
+
+const COOKIE_CONSENT_KEY = 'yavoy_cookie_consent';
 
 const Location = () => {
 
@@ -22,6 +23,13 @@ const Location = () => {
     const [ provinceSelected, setProvinceSelected ] = useState( getProvince );
     const [ municipalitySelected, setMunicipalitySelected ] = useState( getMunicipality );
     const [ isLocationFormOpen, setIsLocationFormOpen ] = useState( false );
+    const [ hasCookieConsent, setHasCookieConsent ] = useState( () => {
+        try {
+            return window.localStorage.getItem( COOKIE_CONSENT_KEY ) === 'accepted';
+        } catch (error) {
+            return false;
+        }
+    } );
 
     const onLocationFormOpen = () => setIsLocationFormOpen( true );
     const onLocationFormClose = () => setIsLocationFormOpen( false );
@@ -141,6 +149,14 @@ const Location = () => {
         setMunicipalitySelected(getMunicipality)
     }
 
+    const acceptCookieConsent = () => {
+        try {
+            window.localStorage.setItem( COOKIE_CONSENT_KEY, 'accepted' );
+        } catch (error) {
+        }
+        setHasCookieConsent( true );
+    };
+
     const cancelButtonRef = useRef( null );
     return (
         <>
@@ -211,7 +227,20 @@ const Location = () => {
                             >
                                 <Dialog.Panel
                                     className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-                                    <CookieConsent buttonText={t`I agree`} overlay><Trans>We use our own and third-party cookies to optimize your experience on the platform. By continuing to browse, you agree to their use.</Trans></CookieConsent>
+                                    { !hasCookieConsent && (
+                                        <div className="mb-4 rounded-md border border-gray-200 bg-gray-50 p-3 text-sm text-gray-700">
+                                            <p>
+                                                <Trans>We use our own and third-party cookies to optimize your experience on the platform. By continuing to browse, you agree to their use.</Trans>
+                                            </p>
+                                            <button
+                                                type="button"
+                                                className="mt-2 inline-flex rounded-md bg-main px-3 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-red-700"
+                                                onClick={ acceptCookieConsent }
+                                            >
+                                                { t`I agree` }
+                                            </button>
+                                        </div>
+                                    ) }
                                     <div>
                                         <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
                                             <CheckIcon

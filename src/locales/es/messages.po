@@ -741,6 +741,14 @@ msgstr "Nuestra sede en Miami"
 msgid "Our identity"
 msgstr "Nuestra identidad"
 
+
+#: src/Pages/frontend/AboutCompanyPage.jsx:141
+msgid "Accessible platform"
+msgstr "Plataforma accesible"
+
+#: src/Pages/frontend/AboutCompanyPage.jsx:142
+msgid "We connect customers with trusted local partners through an easy-to-use online platform."
+msgstr "Conectamos a los clientes con socios locales de confianza mediante una plataforma en línea fácil de usar."
 #: src/Components/Landing/MainLandingRedesign.jsx:186
 msgid "Our independent compliance partners handle the preparation and coordination of delivery."
 msgstr "Nuestros socios de cumplimiento independientes se encargan de la preparación y coordinación de la entrega."

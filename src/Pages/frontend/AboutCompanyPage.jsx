@@ -55,15 +55,15 @@ const AboutCompanyPage = () => {
         <div className="grid grid-cols-2 gap-4">
           <div className="h-64 overflow-hidden rounded-xl shadow-lg">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjsMl_wd2HWKNMLm1PLrNhQsvy0CxYwux_RqguuR9v__MX5afE0CogNu_FALlKA9rictEaNSd9EBBm_zHM6EXJRZNFmcruz-LMlOdXEvXoKnfT_1AfaaMOHcTzdFceUYJVIiKqQB3Rpdq9OpICit6OHOH-S8QIrk95BY6XH2F309TcU5L4rzsY9tjWwoHr3IBE7vzrenpdUmT1lBcWQ1-xSugipz3BIGvXTz5WtiP8RKwTrsvbjiMJWQLT-4s-f6W0OBf__ezcvQ"
-              alt={t`Warehouse worker picking food products`}
+              src="/assets/img/stitch-main/about-us-1.webp"
+              alt={t`Local chef preparing meals in a restaurant kitchen`}
               className="h-full w-full object-cover"
             />
           </div>
           <div className="h-64 translate-y-8 overflow-hidden rounded-xl shadow-lg">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB11TBnLvRqRydv2wxI0Lcfo1Y5sUAt-VGGqN4wdOpfmFg-ZOQ45K7BhjqffYs2AxX67ekc5sBlHCZpfPneiZq11IwV1FZ3UpUB1y-a90KbWyLt__44LkQlzvytwhrQKUOcezdRSvJO-Hb6ab8a5C1909mpxdONECo3UsTj4703GZj2EqRc_aoYzFtwEIPlqVoDo8VSkkZ19BfFWhoKnUDTE3jsiVaSEi1nwzIQYpJXqyY_1Cf7Y1WfvhHUMfap3BvqhnOUgXG0yQ"
-              alt={t`Electronic goods in boxes ready for shipping`}
+              src="/assets/img/stitch-main/about-us-0.webp"
+              alt={t`Assorted electronic and household products on display`}
               className="h-full w-full object-cover"
             />
           </div>
@@ -108,23 +108,18 @@ const AboutCompanyPage = () => {
         <div className="grid items-center gap-16 md:grid-cols-2">
           <div className="overflow-hidden rounded-2xl bg-white shadow-2xl">
             <div className="flex items-center justify-between bg-[#f06233] px-4 py-3 text-sm font-bold text-white">
-              <span><Trans>Miami operations center</Trans></span>
-              <span className="material-symbols-outlined !text-base">verified</span>
+              <span><Trans>Accessible platform</Trans></span>
+              <span className="material-symbols-outlined !text-base">public</span>
             </div>
             <div className="p-8">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzUrLKbz2Cs-jkc90ImnPfYZFhVcDjh35avx1pj4VjuyMNkqxe_kMupQlhnnmJTKsJ-g_0stnvoz6PRQhCdvRGJ0AafuQnbSV51p3p2DqOV-E8ItmcX1LtpQMAVNKMSjtqHWS92PxGeSKxRD3geKb_F0kqrrsAyd-Ua3vTygc1nAGUfH93lqmWuU6-Y_mz2VfKXA-Igr-7Boe_a3ifi-3tNVX9yjV4yAdaP-02_AABuh6tsqD2WB72bH2Qh7J6aAow9uAbzB-OcQ"
-                alt={t`Pallets of household goods in a professional warehouse`}
+                src="/assets/img/stitch-main/about-us-1.webp"
+                alt={t`Local chef preparing meals in a restaurant kitchen`}
                 className="mb-6 h-64 w-full rounded-lg object-cover"
               />
-              <div className="flex items-center gap-4 rounded-xl bg-slate-50 p-4">
-                <div className="rounded-full bg-green-100 p-3 text-green-600">
-                  <span className="material-symbols-outlined">warehouse</span>
-                </div>
-                <div>
-                  <p className="font-bold text-slate-900"><Trans>Professional storage</Trans></p>
-                  <p className="text-sm text-slate-500"><Trans>We maintain strict storage standards for all our products.</Trans></p>
-                </div>
+              <div className="rounded-xl bg-slate-50 p-4">
+                <p className="font-bold text-slate-900"><Trans>A platform designed to make essential products accessible from anywhere in the world.</Trans></p>
+                <p className="text-sm text-slate-500 mt-2"><Trans>We connect customers with trusted local partners through an easy-to-use online platform.</Trans></p>
               </div>
             </div>
           </div>

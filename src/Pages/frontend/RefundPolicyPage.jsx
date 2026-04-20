@@ -128,7 +128,7 @@ const RefundPolicyPage = () => {
           <Trans>Our support team is available to answer questions about this policy and specific cases.</Trans>
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
-          <a href="/contacto" className="inline-flex items-center gap-2 rounded-lg bg-[#f06233] px-6 py-3 text-sm font-bold text-white">
+          <a href="/contact" className="inline-flex items-center gap-2 rounded-lg bg-[#f06233] px-6 py-3 text-sm font-bold text-white">
             <span className="notranslate material-symbols-outlined !text-base">mail</span>
             <Trans>Contact support</Trans>
           </a>

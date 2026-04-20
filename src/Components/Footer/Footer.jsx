@@ -48,7 +48,7 @@ export default function Footer() {
           <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400"><Trans>Company</Trans></h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <Link className="transition hover:text-[#f06233]" to="/sobre-nosotros">
+              <Link className="transition hover:text-[#f06233]" to="/about-us">
                 <Trans>About us</Trans>
               </Link>
             </li>
@@ -58,7 +58,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <Link className="transition hover:text-[#f06233]" to="/contacto">
+              <Link className="transition hover:text-[#f06233]" to="/contact">
                 <Trans>Contact</Trans>
               </Link>
             </li>
@@ -69,17 +69,17 @@ export default function Footer() {
           <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400"><Trans>Legal</Trans></h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <Link className="transition hover:text-[#f06233]" to="/terminos-y-condiciones">
+              <Link className="transition hover:text-[#f06233]" to="/terms-and-conditions">
                 <Trans>Terms and conditions</Trans>
               </Link>
             </li>
             <li>
-              <Link className="transition hover:text-[#f06233]" to="/politica-de-privacidad">
+              <Link className="transition hover:text-[#f06233]" to="/privacy-policy">
                 <Trans>Privacy policy</Trans>
               </Link>
             </li>
             <li>
-              <Link className="transition hover:text-[#f06233]" to="/politica-de-reembolso">
+              <Link className="transition hover:text-[#f06233]" to="/refund-policy">
                 <Trans>Refund policy</Trans>
               </Link>
             </li>

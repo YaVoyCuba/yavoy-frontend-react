@@ -17,7 +17,7 @@ function RestaurantPage() {
 
     function handleActionProduct( productSlug ) {
 
-        navigate( `/producto/${ productSlug }` );
+        navigate( `/product/${ productSlug }` );
     }
 
 

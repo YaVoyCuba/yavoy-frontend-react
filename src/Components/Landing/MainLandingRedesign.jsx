@@ -15,28 +15,28 @@ const categories = [
     id: "restaurantes",
     name: "Restaurantes",
     description: "Comidas listas, combos y ofertas para la familia.",
-    href: "/restaurantes",
+    href: "/restaurants",
     image: "/assets/img/stitch-main/cat-restaurants.png",
   },
   {
     id: "mercados",
     name: "Mercados",
     description: "Productos frescos y de primera necesidad.",
-    href: "/mercados",
+    href: "/markets",
     image: "/assets/img/stitch-main/cat-mercados.webp",
   },
   {
     id: "dulcerias",
     name: "Dulcerias",
     description: "Postres y combos dulces para sorprender en casa.",
-    href: "/dulcerias",
+    href: "/sweets",
     image: "/assets/img/stitch-main/cat-dulcerias.webp",
   },
   {
     id: "regalitos",
     name: "Regalitos",
     description: "Detalles y paquetes para fechas especiales.",
-    href: "/regalitos",
+    href: "/gifts",
     image: "/assets/img/stitch-main/cat-regalitos.webp",
   },
 ];
@@ -99,7 +99,7 @@ const MainLandingRedesign = () => {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                to="/restaurantes"
+                to="/restaurants"
                 className="rounded-xl bg-[#f06233] px-7 py-3 text-sm font-bold text-white shadow-lg shadow-orange-300 transition hover:-translate-y-0.5 hover:bg-[#df592d]"
               >
                 <Trans>View products</Trans>
@@ -206,7 +206,7 @@ const MainLandingRedesign = () => {
               <h2 className="text-3xl font-black"><Trans>Featured categories</Trans></h2>
               <p className="mt-2 text-slate-600"><Trans>Most requested products for immediate delivery.</Trans></p>
             </div>
-            <Link className="text-sm font-bold text-[#f06233] hover:underline" to="/restaurantes">
+            <Link className="text-sm font-bold text-[#f06233] hover:underline" to="/restaurants">
               <Trans>View all</Trans>
             </Link>
           </div>
@@ -242,7 +242,7 @@ const MainLandingRedesign = () => {
                 <Trans>Shop securely and manage your orders easily from our platform.</Trans>
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link to="/restaurantes" className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-[#f06233]">
+                <Link to="/restaurants" className="rounded-xl bg-white px-6 py-3 text-sm font-bold text-[#f06233]">
                   <Trans>Start shopping</Trans>
                 </Link>
                 {/* TODO: Shipments link hidden during redesign.
@@ -251,14 +251,14 @@ const MainLandingRedesign = () => {
 
                     Re-enable steps:
                       1. Remove this comment block and uncomment the Link element below.
-                      2. Ensure route '/servicios' is implemented and covered by routes/tests.
+                      2. Ensure route '/services' is implemented and covered by routes/tests.
                       3. Add/update i18n entries if necessary and run `npm run lingui:extract`/`compile`.
 
                     This follows best-practices: leave a clear TODO with re-enable steps and
                     reference any related tickets/PRs when available.
                 */}
                 {/*
-                <Link to="/servicios" className="rounded-xl border border-white/40 px-6 py-3 text-sm font-bold text-white">
+                <Link to="/services" className="rounded-xl border border-white/40 px-6 py-3 text-sm font-bold text-white">
                   <Trans>View shipments</Trans>
                 </Link>
                 */}

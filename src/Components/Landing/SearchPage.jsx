@@ -29,12 +29,12 @@ const SearchPage = () => {
 
     function handleAction( restaurantSlug ) {
         setOpen( false );
-        navigate( `/restaurante/${ restaurantSlug }` );
+        navigate( `/restaurant/${ restaurantSlug }` );
     }
 
     function handleActionProduct( productSlug ) {
         setOpen( false );
-        navigate( `/producto/${ productSlug }` );
+        navigate( `/product/${ productSlug }` );
     }
 
     function classNames( ...classes ) {

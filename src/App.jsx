@@ -1,6 +1,6 @@
 
 import { Provider } from "react-redux";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useLingui } from "@lingui/react";
 import { t } from "@lingui/macro";
@@ -40,30 +40,46 @@ function App() {
           <div className="relative">
             <Routes>
               <Route element={<TemplateLanding />}>
+                <Route path="/restaurantes" element={<Navigate to="/restaurants" replace />} />
+                <Route path="/restaurante/:restaurantSlug" element={<Navigate to="/restaurant/:restaurantSlug" replace />} />
+                <Route path="/mercados" element={<Navigate to="/markets" replace />} />
+                <Route path="/servicios" element={<Navigate to="/services" replace />} />
+                <Route path="/dulcerias" element={<Navigate to="/sweets" replace />} />
+                <Route path="/regalitos" element={<Navigate to="/gifts" replace />} />
+                <Route path="/sobre-nosotros" element={<Navigate to="/about-us" replace />} />
+                <Route path="/contacto" element={<Navigate to="/contact" replace />} />
+                <Route path="/terminos-y-condiciones" element={<Navigate to="/terms-and-conditions" replace />} />
+                <Route path="/politica-de-privacidad" element={<Navigate to="/privacy-policy" replace />} />
+                <Route path="/politica-de-reembolso" element={<Navigate to="/refund-policy" replace />} />
+                <Route path="/pagocompletado" element={<Navigate to="/payment-completed" replace />} />
+                <Route path="/errorenpago" element={<Navigate to="/payment-failed" replace />} />
+                <Route path="/producto/:productSlug" element={<Navigate to="/product/:productSlug" replace />} />
+                <Route path="/caja" element={<Navigate to="/checkout" replace />} />
+
                 <Route key={"/"} path="/" element={<Restaurants />} />
                 <Route
-                  key={"/mercados"}
-                  path="/mercados"
+                  key={"/markets"}
+                  path="/markets"
                   element={<Restaurants />}
                 />
                 <Route
-                  key={"/servicios"}
-                  path="/servicios"
+                  key={"/services"}
+                  path="/services"
                   element={<Restaurants />}
                 />
                 <Route
-                  key={"/restaurantes"}
-                  path="/restaurantes"
+                  key={"/restaurants"}
+                  path="/restaurants"
                   element={<Restaurants />}
                 />
                 <Route
-                  key={"/regalitos"}
-                  path="/regalitos"
+                  key={"/gifts"}
+                  path="/gifts"
                   element={<Restaurants />}
                 />
                 <Route
-                  key={"/dulcerias"}
-                  path="/dulcerias"
+                  key={"/sweets"}
+                  path="/sweets"
                   element={<Restaurants />}
                 />
                 <Route
@@ -74,32 +90,32 @@ function App() {
                 {/*disabled temporarily*/}
                 {/*<Route key={"/login"} path="/login" element={<Login />} />*/}
                 <Route
-                  key={"/restaurante"}
-                  path="/restaurante/:restaurantSlug"
+                  key={"/restaurant"}
+                  path="/restaurant/:restaurantSlug"
                   element={<RestaurantPage />}
                 />
                 <Route
-                  key={"/pagocompletado"}
-                  path="/pagocompletado"
+                  key={"/payment-completed"}
+                  path="/payment-completed"
                   element={<PaymentCompleted />}
                 />
                 <Route
-                  key={"/errorenpago"}
-                  path="/errorenpago"
+                  key={"/payment-failed"}
+                  path="/payment-failed"
                   element={<PaymentFailed />}
                 />
                 <Route
-                  key={"/producto"}
-                  path="/producto/:productSlug"
+                  key={"/product"}
+                  path="/product/:productSlug"
                   element={<ProductDetailPage />}
                 />
-                <Route key={"/contacto"} path="/contacto" element={<ContactPage />} />
-                <Route key={"/sobre-nosotros"} path="/sobre-nosotros" element={<AboutCompanyPage />} />
-                <Route key={"/terminos-y-condiciones"} path="/terminos-y-condiciones" element={<TermsPage />} />
-                <Route key={"/politica-de-privacidad"} path="/politica-de-privacidad" element={<PrivacyPolicyPage />} />
-                <Route key={"/politica-de-reembolso"} path="/politica-de-reembolso" element={<RefundPolicyPage />} />
+                <Route key={"/contact"} path="/contact" element={<ContactPage />} />
+                <Route key={"/about-us"} path="/about-us" element={<AboutCompanyPage />} />
+                <Route key={"/terms-and-conditions"} path="/terms-and-conditions" element={<TermsPage />} />
+                <Route key={"/privacy-policy"} path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route key={"/refund-policy"} path="/refund-policy" element={<RefundPolicyPage />} />
 
-                <Route key={"/caja"} path="caja" element={<CheckOut />} />
+                <Route key={"/checkout"} path="/checkout" element={<CheckOut />} />
                 {/*disabled temporarily*/}
                 {/*<Route key={"/carrito"} path="/carrito" element={<Cart />} />*/}
               </Route>

@@ -20,31 +20,31 @@ SwiperCore.use([Autoplay]);
 const CATEGORY_CARDS = [
   {
     key: "restaurants",
-    href: "/restaurantes",
+    href: "/restaurants",
     icon: "restaurant",
     image: "/assets/img/stitch-main/cat-restaurants.png",
   },
   {
     key: "markets",
-    href: "/mercados",
+    href: "/markets",
     icon: "storefront",
     image: "/assets/img/stitch-main/cat-mercados.webp",
   },
   {
     key: "sweets",
-    href: "/dulcerias",
+    href: "/sweets",
     icon: "cake",
     image: "/assets/img/stitch-main/cat-dulcerias.webp",
   },
   {
     key: "gifts",
-    href: "/regalitos",
+    href: "/gifts",
     icon: "redeem",
     image: "/assets/img/stitch-main/cat-regalitos.webp",
   },
   // {
   //   key: "shipping",
-  //   href: "/servicios",
+  //   href: "/services",
   //   icon: "local_shipping",
   //   image: "/assets/img/product_by_libras.jpg",
   // },
@@ -60,7 +60,7 @@ const StoreCard = ({ restaurant, imageBase }) => {
 
   return (
     <Link
-      to={`/restaurante/${restaurant.slug}`}
+      to={`/restaurant/${restaurant.slug}`}
       className="group block rounded-3xl bg-[#f7f7f8] p-4 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-xl"
       aria-label={restaurant?.name || "Store"}
     >
@@ -128,7 +128,7 @@ const Restaurants = () => {
     },
   };
 
-  const isServicesPage = path === "/servicios";
+  const isServicesPage = path === "/services";
 
   const promoSlides = useMemo(() => {
     return promoRestaurants
@@ -160,8 +160,8 @@ const Restaurants = () => {
   }, [restaurants, featuredIds]);
 
   const isCategoryActive = (href) => {
-    if (href === "/restaurantes") {
-      return path === "/restaurantes";
+    if (href === "/restaurants") {
+      return path === "/restaurants";
     }
 
     return path === href;
@@ -173,18 +173,18 @@ const Restaurants = () => {
 
     let type = "restaurant";
 
-    if (path === "/dulcerias") {
+    if (path === "/sweets") {
       type = "dulceria";
     }
 
-    if (path === "/mercados") {
+    if (path === "/markets") {
       type = "market";
     }
-    if (path === "/servicios") {
+    if (path === "/services") {
       type = "servicios";
     }
 
-    if (path === "/regalitos") {
+    if (path === "/gifts") {
       type = "regalos";
     }
 
@@ -239,7 +239,7 @@ const Restaurants = () => {
                 spaceBetween={0}
                 slidesPerView={1}
               >
-                {(promoSlides.length > 0 ? promoSlides : [{ id: "fallback", image: "/assets/img/fondo.webp", link: "/restaurantes" }]).map(
+                {(promoSlides.length > 0 ? promoSlides : [{ id: "fallback", image: "/assets/img/fondo.webp", link: "/restaurants" }]).map(
                   (slide) => (
                     <SwiperSlide key={`hero-${slide.id}`}>
                       <div className="relative min-h-[320px] md:min-h-[400px]">
@@ -261,7 +261,7 @@ const Restaurants = () => {
                             </p>
                             <div className="mt-7 flex flex-wrap gap-3">
                               <Link
-                                to="/restaurantes"
+                                to="/restaurants"
                                 className="rounded-xl bg-[#f06233] px-7 py-3 text-sm font-black uppercase tracking-wide text-white shadow-lg shadow-orange-400/30 transition hover:scale-[1.02]"
                               >
                                 <Trans>Order now</Trans>

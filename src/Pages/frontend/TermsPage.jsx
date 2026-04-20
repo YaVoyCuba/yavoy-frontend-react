@@ -131,7 +131,7 @@ const TermsPage = () => {
                     <Trans>Our legal support team is available to assist you anytime.</Trans>
                   </p>
                 </div>
-                <Link to="/contacto" className="inline-flex items-center justify-center rounded-xl bg-[#f06233] px-7 py-3 text-sm font-black text-white shadow-lg shadow-orange-400/30 transition hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60">
+                <Link to="/contact" className="inline-flex items-center justify-center rounded-xl bg-[#f06233] px-7 py-3 text-sm font-black text-white shadow-lg shadow-orange-400/30 transition hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60">
                   <Trans>Contact support</Trans>
                 </Link>
               </div>

@@ -165,7 +165,7 @@ const AboutCompanyPage = () => {
             <a href="/" className="rounded-xl bg-white px-8 py-4 text-sm font-bold text-[#f06233] transition hover:bg-slate-50">
               <Trans>Shop now</Trans>
             </a>
-            <a href="/restaurantes" className="rounded-xl border-2 border-white px-8 py-4 text-sm font-bold text-white transition hover:bg-white/10">
+            <a href="/restaurants" className="rounded-xl border-2 border-white px-8 py-4 text-sm font-bold text-white transition hover:bg-white/10">
               <Trans>View catalog</Trans>
             </a>
           </div>

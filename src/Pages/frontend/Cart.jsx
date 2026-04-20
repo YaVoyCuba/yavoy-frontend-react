@@ -121,7 +121,7 @@ const Cart = () => {
             <span className="text-lg">Total</span>
             <span className="text-lg">${getTotalPrice()}</span>
           </div>
-          <Link  className="mt-4" to={"/caja"}>
+          <Link  className="mt-4" to={"/checkout"}>
             <button className="btn-main">Proceder a completar pago</button>
           </Link>
         </div>

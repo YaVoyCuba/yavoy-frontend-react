@@ -109,7 +109,7 @@ const PrivacyPolicyPage = () => {
             <Trans>Our legal support team is available to answer any privacy-related request.</Trans>
           </p>
           <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link to="/contacto" className="rounded-xl bg-[#f06233] px-8 py-3 text-sm font-black text-white shadow-lg shadow-orange-300/40 transition hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f06233]/40">
+            <Link to="/contact" className="rounded-xl bg-[#f06233] px-8 py-3 text-sm font-black text-white shadow-lg shadow-orange-300/40 transition hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f06233]/40">
               <Trans>Contact support</Trans>
             </Link>
             <Link to="/" className="rounded-xl border-2 border-[#f06233]/20 bg-white px-8 py-3 text-sm font-black text-slate-800 transition hover:bg-[#f06233]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f06233]/30">

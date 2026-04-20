@@ -14,7 +14,7 @@ const TemplateLanding = () => {
   const tabs = [
     {
       name: "Comercios",
-      href: "/restaurantes",
+      href: "/restaurants",
       current: true,
       rutes: [
         "",

@@ -1,1 +1,17 @@
+ /restaurantes /restaurants 301
+ /restaurante/:restaurantSlug /restaurant/:restaurantSlug 301
+ /mercados /markets 301
+ /servicios /services 301
+ /dulcerias /sweets 301
+ /regalitos /gifts 301
+ /sobre-nosotros /about-us 301
+ /contacto /contact 301
+ /terminos-y-condiciones /terms-and-conditions 301
+ /politica-de-privacidad /privacy-policy 301
+ /politica-de-reembolso /refund-policy 301
+ /pagocompletado /payment-completed 301
+ /errorenpago /payment-failed 301
+ /producto/:productSlug /product/:productSlug 301
+ /caja /checkout 301
+
 /* /index.html 200

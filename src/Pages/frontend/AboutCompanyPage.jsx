@@ -25,7 +25,7 @@ const AboutCompanyPage = () => {
             <span className="mb-4 inline-block rounded bg-[#f06233] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
               <Trans>Our identity</Trans>
             </span>
-            <h1 className="text-4xl font-black leading-tight text-white md:text-6xl">
+            <h1 className="text-4xl font-black leading-tight text-white">
               <Trans>YaVoyCuba.com is an e-commerce platform operated by YA VOY, LLC, a U.S.-registered company headquartered in Miami, Florida.</Trans>
             </h1>
             <p className="mt-4 text-base font-medium leading-relaxed text-slate-200 md:text-xl">

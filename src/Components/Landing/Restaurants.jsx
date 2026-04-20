@@ -281,7 +281,7 @@ const Restaurants = () => {
                 )}
               </Swiper>
 
-              <div className="absolute bottom-6 right-6 z-20 hidden rounded-2xl bg-white/90 p-4 shadow-xl backdrop-blur-md lg:block">
+              <div className="absolute bottom-6 right-6 z-0 hidden rounded-2xl bg-white/90 p-4 shadow-xl backdrop-blur-md lg:block">
                 <div className="flex items-center gap-2 text-slate-900">
                   <span className="material-symbols-outlined text-[#f06233]">local_shipping</span>
                   <p className="text-xs font-black uppercase tracking-wide"><Trans>Fast delivery</Trans></p>

@@ -156,8 +156,8 @@ msgstr "Basic identity"
 #~ msgstr "Bookings canceled at least 48 hours in advance: full refund minus a 5% administrative fee. Cancellations between 24 and 48 hours: 50% refund."
 
 #: src/Components/Landing/Restaurants.jsx:260
-msgid "Browse restaurants, markets, sweets, gifts, and shipping services from trusted local partners."
-msgstr "Browse restaurants, markets, sweets, gifts, and shipping services from trusted local partners."
+msgid "Discover products and services available on our platform. Shop securely and manage your orders easily online."
+msgstr "Discover products and services available on our platform. Shop securely and manage your orders easily online."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:170
 msgid "Browse the available selection and add what you need to cart."
@@ -219,19 +219,6 @@ msgstr "Code sent"
 #: src/Pages/frontend/AboutCompanyPage.jsx:134
 msgid "Commitment to excellence"
 msgstr "Commitment to excellence"
-
-#: src/Components/Footer/Footer.jsx:56
-#: src/Components/Landing/MainLandingRedesign.jsx:101
-#~ msgid "Como funciona"
-#~ msgstr "Como funciona"
-
-#: src/Components/Landing/MainLandingRedesign.jsx:156
-#~ msgid "Como funciona YaVoy"
-#~ msgstr "Como funciona YaVoy"
-
-#: src/Pages/frontend/ContactPage.jsx:21
-#~ msgid "Como podemos ayudarte?"
-#~ msgstr "Como podemos ayudarte?"
 
 #: src/Components/Footer/Footer.jsx:48
 msgid "Company"
@@ -1671,8 +1658,8 @@ msgid "Warehouse worker picking food products"
 msgstr "Warehouse worker picking food products"
 
 #: src/Pages/frontend/ContactPage.jsx:54
-msgid "We are here to help with your trips and deliveries to Cuba. Write to us and we will contact you as soon as possible."
-msgstr "We are here to help with your trips and deliveries to Cuba. Write to us and we will contact you as soon as possible."
+msgid "Our team is available to assist you with any inquiries regarding products, orders, or your account. Contact us, and we will respond as soon as possible."
+msgstr "Our team is available to assist you with any inquiries regarding products, orders, or your account. Contact us, and we will respond as soon as possible."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:106
 #~ msgid "We are not just an app; we manage real inventory."

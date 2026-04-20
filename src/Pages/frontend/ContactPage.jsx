@@ -51,7 +51,7 @@ const ContactPage = () => {
         <div className="stitch-reveal">
           <h1 className="text-5xl font-black leading-tight md:text-6xl"><Trans>How can we help you?</Trans></h1>
           <p className="mt-4 max-w-lg text-lg leading-relaxed text-slate-600">
-            <Trans>We are here to help with your trips and deliveries to Cuba. Write to us and we will contact you as soon as possible.</Trans>
+            <Trans>Our team is available to assist you with any inquiries regarding products, orders, or your account. Contact us, and we will respond as soon as possible.</Trans>
           </p>
 
           <form onSubmit={handleSubmit} className="mt-7 rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">

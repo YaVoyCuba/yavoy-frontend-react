@@ -257,7 +257,7 @@ const Restaurants = () => {
                               <span className="text-[#f06233]"><Trans>for your loved ones</Trans></span>
                             </h1>
                             <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-slate-200 md:text-lg">
-                              <Trans>Browse restaurants, markets, sweets, gifts, and shipping services from trusted local partners.</Trans>
+                              <Trans>Discover products and services available on our platform. Shop securely and manage your orders easily online.</Trans>
                             </p>
                             <div className="mt-7 flex flex-wrap gap-3">
                               <Link

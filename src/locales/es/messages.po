@@ -156,8 +156,8 @@ msgstr "Identidad básica"
 #~ msgstr "Reservas canceladas al menos 48 horas antes: reembolso completo menos tarifa administrativa del 5%. Cancelaciones entre 24 y 48 horas: reembolso del 50%."
 
 #: src/Components/Landing/Restaurants.jsx:260
-msgid "Browse restaurants, markets, sweets, gifts, and shipping services from trusted local partners."
-msgstr "Explora restaurantes, mercados, dulces, regalos y servicios de envío con socios locales confiables."
+msgid "Discover products and services available on our platform. Shop securely and manage your orders easily online."
+msgstr "Descubre productos y servicios disponibles en nuestra plataforma. Compra de forma segura y gestiona tus pedidos fácilmente en línea."
 
 #: src/Components/Landing/MainLandingRedesign.jsx:170
 msgid "Browse the available selection and add what you need to cart."
@@ -203,19 +203,6 @@ msgstr "Código enviado"
 #: src/Pages/frontend/AboutCompanyPage.jsx:134
 msgid "Commitment to excellence"
 msgstr "Compromiso con la excelencia"
-
-#: src/Components/Footer/Footer.jsx:56
-#: src/Components/Landing/MainLandingRedesign.jsx:101
-#~ msgid "Como funciona"
-#~ msgstr ""
-
-#: src/Components/Landing/MainLandingRedesign.jsx:156
-#~ msgid "Como funciona YaVoy"
-#~ msgstr ""
-
-#: src/Pages/frontend/ContactPage.jsx:21
-#~ msgid "Como podemos ayudarte?"
-#~ msgstr ""
 
 #: src/Components/Footer/Footer.jsx:48
 msgid "Company"
@@ -1297,8 +1284,8 @@ msgid "Warehouse worker picking food products"
 msgstr "Trabajador de almacén seleccionando productos alimenticios"
 
 #: src/Pages/frontend/ContactPage.jsx:54
-msgid "We are here to help with your trips and deliveries to Cuba. Write to us and we will contact you as soon as possible."
-msgstr "Estamos aqui para asistirte con tus viajes y envíos a Cuba. Escríbenos y nos pondremos en contacto contigo lo antes posible."
+msgid "Our team is available to assist you with any inquiries regarding products, orders, or your account. Contact us, and we will respond as soon as possible."
+msgstr "Nuestro equipo está disponible para ayudarte con cualquier consulta sobre productos, pedidos o tu cuenta. Contáctanos y te responderemos lo antes posible."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:106
 #~ msgid "We are not just an app; we manage real inventory."

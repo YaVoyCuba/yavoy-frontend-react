@@ -1220,6 +1220,10 @@ msgstr "Variaciones por condiciones climáticas."
 msgid "Variety and quality"
 msgstr "Variedad y calidad"
 
+#: src/Pages/frontend/AboutCompanyPage.jsx:91
+msgid "Business partnerships"
+msgstr "Alianzas empresariales"
+
 #: src/Components/Landing/MainLandingRedesign.jsx:237
 #~ msgid "Ver envíos"
 #~ msgstr ""
@@ -1376,8 +1380,8 @@ msgstr "Te mostraremos los resultados en correspondencia a esta dirección"
 #~ msgstr "Trabajamos directamente con agentes de entrega locales verificados que entienden cada vecindario."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:93
-msgid "We work with an optimized logistics network to ensure household goods, food, and electronics are properly handled in our warehouses."
-msgstr "Trabajamos con una red logística optimizada para garantizar que los artículos del hogar, alimentos y productos electrónicos se manejen correctamente en nuestros almacenes."
+msgid "We partner with local businesses to offer curated products, ensure safety standards, and deliver products to our customers."
+msgstr "Trabajamos con locales para ofrecer productos seleccionados, garantizar estándares de seguridad  y entregar productos a nuestros clientes."
 
 #: src/Components/Header/HeaderTop.jsx:119
 msgid "Welcome to YaVoy Marketplace!"

@@ -88,9 +88,9 @@ const AboutCompanyPage = () => {
             </article>
             <article className="rounded-xl border border-slate-200 bg-white p-8 shadow-sm">
               <p className="text-4xl font-black text-[#f06233]">02</p>
-              <p className="mt-3 text-lg font-bold"><Trans>Professional logistics</Trans></p>
+              <p className="mt-3 text-lg font-bold"><Trans>Business partnerships</Trans></p>
               <p className="mt-2 text-sm text-slate-600">
-                <Trans>We work with an optimized logistics network to ensure household goods, food, and electronics are properly handled in our warehouses.</Trans>
+                <Trans>We partner with local businesses to offer curated products, ensure safety standards, and deliver products to our customers.</Trans>
               </p>
             </article>
             <article className="rounded-xl border border-slate-200 bg-white p-8 shadow-sm">

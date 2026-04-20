@@ -1754,8 +1754,8 @@ msgstr "We will show you results based on this address"
 #~ msgstr "We work directly with verified local delivery agents who understand every neighborhood."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:93
-msgid "We work with an optimized logistics network to ensure household goods, food, and electronics are properly handled in our warehouses."
-msgstr "We work with an optimized logistics network to ensure household goods, food, and electronics are properly handled in our warehouses."
+msgid "We partner with local businesses to offer curated products, ensure safety standards, and deliver products to our customers."
+msgstr "We partner with local businesses to offer curated products, ensure safety standards, and deliver products to our customers."
 
 #: src/Components/Header/HeaderTop.jsx:119
 msgid "Welcome to YaVoy Marketplace!"

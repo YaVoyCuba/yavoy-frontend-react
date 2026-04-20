@@ -141,7 +141,7 @@ const MainLandingRedesign = () => {
                 {/* TODO: Add latest delivery information */}
                 <div className="flex items-center gap-3 hidden">
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500 text-white">
-                    <span className="material-symbols-outlined !text-xl">package_2</span>
+                    <span className="notranslate material-symbols-outlined !text-xl">package_2</span>
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wide text-emerald-600"><Trans>Latest delivery</Trans></p>
@@ -156,10 +156,10 @@ const MainLandingRedesign = () => {
 
       <section className="stitch-reveal border-b border-[#efd7cf] bg-[#f7efeb] py-4" style={{ animationDelay: "90ms" }}>
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 text-xs font-semibold uppercase tracking-wide text-slate-600 md:grid-cols-4 md:px-8">
-          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">verified_user</span><Trans>Real store</Trans></p>
-          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">partner_exchange</span><Trans>Compliance Partners</Trans></p>
-          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">security</span><Trans>Encrypted payment</Trans></p>
-          <p className="flex items-center gap-2"><span className="material-symbols-outlined !text-base">support_agent</span><Trans>24/7 support</Trans></p>
+          <p className="flex items-center gap-2"><span className="notranslate material-symbols-outlined !text-base">verified_user</span><Trans>Real store</Trans></p>
+          <p className="flex items-center gap-2"><span className="notranslate material-symbols-outlined !text-base">partner_exchange</span><Trans>Compliance Partners</Trans></p>
+          <p className="flex items-center gap-2"><span className="notranslate material-symbols-outlined !text-base">security</span><Trans>Encrypted payment</Trans></p>
+          <p className="flex items-center gap-2"><span className="notranslate material-symbols-outlined !text-base">support_agent</span><Trans>24/7 support</Trans></p>
         </div>
       </section>
 
@@ -173,7 +173,7 @@ const MainLandingRedesign = () => {
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           <article className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-[#f06233]">
-              <span className="material-symbols-outlined !text-2xl">ads_click</span>
+              <span className="notranslate material-symbols-outlined !text-2xl">ads_click</span>
             </div>
             <h3 className="text-lg font-bold"><Trans>Choose products or bundles</Trans></h3>
             <p className="mt-2 text-sm text-slate-600">
@@ -182,14 +182,14 @@ const MainLandingRedesign = () => {
           </article>
           <article className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-[#f06233]">
-              <span className="material-symbols-outlined !text-2xl">credit_card</span>
+              <span className="notranslate material-symbols-outlined !text-2xl">credit_card</span>
             </div>
             <h3 className="text-lg font-bold"><Trans>Place your order online</Trans></h3>
             <p className="mt-2 text-sm text-slate-600"><Trans>Pay securely from anywhere in the world.</Trans></p>
           </article>
           <article className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-[#f06233]">
-              <span className="material-symbols-outlined !text-2xl">handshake</span>
+              <span className="notranslate material-symbols-outlined !text-2xl">handshake</span>
             </div>
             <h3 className="text-lg font-bold"><Trans>We coordinate delivery</Trans></h3>
             <p className="mt-2 text-sm text-slate-600">

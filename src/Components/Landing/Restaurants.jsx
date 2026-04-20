@@ -72,7 +72,7 @@ const StoreCard = ({ restaurant, imageBase }) => {
         />
         {rating > 0 && (
           <div className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/95 px-2 py-1 text-xs font-black text-slate-900 shadow-sm">
-            <span className="material-symbols-outlined !text-sm text-[#f06233]">star</span>
+            <span className="notranslate material-symbols-outlined !text-sm text-[#f06233]">star</span>
             <span>{rating.toFixed(1)}</span>
           </div>
         )}
@@ -85,7 +85,7 @@ const StoreCard = ({ restaurant, imageBase }) => {
           </p>
         </div>
         <span className="inline-flex rounded-lg bg-[#ffede8] p-2 text-[#f06233]">
-          <span className="material-symbols-outlined !text-base">{icon}</span>
+          <span className="notranslate material-symbols-outlined !text-base">{icon}</span>
         </span>
       </div>
     </Link>
@@ -283,7 +283,7 @@ const Restaurants = () => {
 
               <div className="absolute bottom-6 right-6 z-0 hidden rounded-2xl bg-white/90 p-4 shadow-xl backdrop-blur-md lg:block">
                 <div className="flex items-center gap-2 text-slate-900">
-                  <span className="material-symbols-outlined text-[#f06233]">local_shipping</span>
+                  <span className="notranslate material-symbols-outlined text-[#f06233]">local_shipping</span>
                   <p className="text-xs font-black uppercase tracking-wide"><Trans>Fast delivery</Trans></p>
                 </div>
                 <p className="mt-2 max-w-[210px] text-xs font-medium leading-relaxed text-slate-600">
@@ -319,7 +319,7 @@ const Restaurants = () => {
                   <div className="absolute bottom-3 left-3 right-3">
                     <p className="text-lg font-black uppercase tracking-tight text-white">{categoryI18n[category.key]?.label || category.key}</p>
                     <div className="mt-1 flex items-center gap-2 text-white/90">
-                      <span className="material-symbols-outlined !text-base">{category.icon}</span>
+                      <span className="notranslate material-symbols-outlined !text-base">{category.icon}</span>
                       <p className="line-clamp-1 text-[11px] font-semibold uppercase tracking-wide">{categoryI18n[category.key]?.description || ""}</p>
                     </div>
                   </div>
@@ -449,14 +449,14 @@ const Restaurants = () => {
                       className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
                       aria-label="Previous featured stores"
                     >
-                      <span className="material-symbols-outlined">chevron_left</span>
+                      <span className="notranslate material-symbols-outlined">chevron_left</span>
                     </button>
                     <button
                       type="button"
                       className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
                       aria-label="Next featured stores"
                     >
-                      <span className="material-symbols-outlined">chevron_right</span>
+                      <span className="notranslate material-symbols-outlined">chevron_right</span>
                     </button>
                   </div>
                 </div>

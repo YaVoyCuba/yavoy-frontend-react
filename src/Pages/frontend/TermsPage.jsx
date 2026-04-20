@@ -79,19 +79,19 @@ const TermsPage = () => {
               </p>
               <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
                 <li className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 shadow-sm">
-                  <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">schedule</span>
+                  <span className="notranslate material-symbols-outlined text-[#f06233]" aria-hidden="true">schedule</span>
                   <span className="text-sm font-semibold text-slate-700"><Trans>Estimated delivery windows are subject to change.</Trans></span>
                 </li>
                 <li className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 shadow-sm">
-                  <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">cloud</span>
+                  <span className="notranslate material-symbols-outlined text-[#f06233]" aria-hidden="true">cloud</span>
                   <span className="text-sm font-semibold text-slate-700"><Trans>Variations due to weather conditions.</Trans></span>
                 </li>
                 <li className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 shadow-sm">
-                  <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">inventory</span>
+                  <span className="notranslate material-symbols-outlined text-[#f06233]" aria-hidden="true">inventory</span>
                   <span className="text-sm font-semibold text-slate-700"><Trans>Real-time stock availability.</Trans></span>
                 </li>
                 <li className="flex items-start gap-3 rounded-xl bg-slate-50 p-4 shadow-sm">
-                  <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">local_shipping</span>
+                  <span className="notranslate material-symbols-outlined text-[#f06233]" aria-hidden="true">local_shipping</span>
                   <span className="text-sm font-semibold text-slate-700"><Trans>Logistical factors related to independent logistics providers.</Trans></span>
                 </li>
               </ul>
@@ -135,7 +135,7 @@ const TermsPage = () => {
                   <Trans>Contact support</Trans>
                 </Link>
               </div>
-              <span className="material-symbols-outlined absolute -right-2 -top-3 text-[110px] text-white/10" aria-hidden="true">gavel</span>
+              <span className="notranslate material-symbols-outlined absolute -right-2 -top-3 text-[110px] text-white/10" aria-hidden="true">gavel</span>
               <div className="absolute -right-10 -top-10 h-28 w-28 rotate-45 bg-white/5" />
             </div>
           </article>

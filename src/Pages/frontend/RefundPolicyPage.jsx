@@ -28,7 +28,7 @@ const RefundPolicyPage = () => {
 
       <section className="stitch-reveal mt-12" style={{ animationDelay: "90ms" }}>
         <h2 className="flex items-center gap-2 text-3xl font-black md:text-4xl">
-          <span className="material-symbols-outlined text-[#f06233]">verified_user</span>
+          <span className="notranslate material-symbols-outlined text-[#f06233]">verified_user</span>
           <Trans>Refund eligibility</Trans>
         </h2>
         <div className="mt-6 grid gap-4 md:grid-cols-5">
@@ -38,15 +38,15 @@ const RefundPolicyPage = () => {
             </p>
             <ul className="mt-4 space-y-3 text-sm text-slate-700 md:text-base">
               <li className="flex items-start gap-2 rounded-lg bg-[#fff6f2] px-3 py-2">
-                <span className="material-symbols-outlined mt-[1px] text-base text-[#f06233]">check_circle</span>
+                <span className="notranslate material-symbols-outlined mt-[1px] text-base text-[#f06233]">check_circle</span>
                 <Trans>Product not delivered</Trans>
               </li>
               <li className="flex items-start gap-2 rounded-lg bg-[#fff6f2] px-3 py-2">
-                <span className="material-symbols-outlined mt-[1px] text-base text-[#f06233]">check_circle</span>
+                <span className="notranslate material-symbols-outlined mt-[1px] text-base text-[#f06233]">check_circle</span>
                 <Trans>Incorrect or incomplete product</Trans>
               </li>
               <li className="flex items-start gap-2 rounded-lg bg-[#fff6f2] px-3 py-2">
-                <span className="material-symbols-outlined mt-[1px] text-base text-[#f06233]">check_circle</span>
+                <span className="notranslate material-symbols-outlined mt-[1px] text-base text-[#f06233]">check_circle</span>
                 <Trans>Product in poor condition (with evidence)</Trans>
               </li>
             </ul>
@@ -54,7 +54,7 @@ const RefundPolicyPage = () => {
 
           <aside className="md:col-span-2 rounded-2xl border border-[#f7b7a2] bg-[#fff2ed] p-6">
             <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-black uppercase tracking-wider text-[#f06233]">
-              <span className="material-symbols-outlined !text-sm">priority_high</span>
+              <span className="notranslate material-symbols-outlined !text-sm">priority_high</span>
               <Trans>Important</Trans>
             </p>
             <p className="mt-4 text-sm leading-relaxed text-slate-700 md:text-base">
@@ -66,7 +66,7 @@ const RefundPolicyPage = () => {
 
       <section className="stitch-reveal mt-10 rounded-2xl border border-[#f1d8cf] bg-[#fff2ed] p-6 md:p-8" style={{ animationDelay: "160ms" }}>
         <h2 className="flex items-center gap-2 text-3xl font-black md:text-4xl">
-          <span className="material-symbols-outlined text-[#f06233]">account_tree</span>
+          <span className="notranslate material-symbols-outlined text-[#f06233]">account_tree</span>
           <Trans>Refund process</Trans>
         </h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
@@ -90,7 +90,7 @@ const RefundPolicyPage = () => {
 
       <section className="stitch-reveal mt-12" style={{ animationDelay: "230ms" }}>
         <h2 className="flex items-center gap-2 text-3xl font-black md:text-4xl">
-          <span className="material-symbols-outlined text-[#f06233]">schedule</span>
+          <span className="notranslate material-symbols-outlined text-[#f06233]">schedule</span>
           <Trans>Refund timeline</Trans>
         </h2>
         <div className="mt-5 overflow-hidden rounded-xl border border-[#f1d8cf]">
@@ -121,7 +121,7 @@ const RefundPolicyPage = () => {
 
       <section className="stitch-reveal mt-12 rounded-2xl bg-[#0b1a3f] p-8 text-center text-white md:p-12" style={{ animationDelay: "300ms" }}>
         <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#f06233]">
-          <span className="material-symbols-outlined">support_agent</span>
+          <span className="notranslate material-symbols-outlined">support_agent</span>
         </div>
         <h2 className="text-4xl font-black md:text-5xl"><Trans>Need more help?</Trans></h2>
         <p className="mx-auto mt-3 max-w-2xl text-slate-200">
@@ -129,11 +129,11 @@ const RefundPolicyPage = () => {
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
           <a href="/contacto" className="inline-flex items-center gap-2 rounded-lg bg-[#f06233] px-6 py-3 text-sm font-bold text-white">
-            <span className="material-symbols-outlined !text-base">mail</span>
+            <span className="notranslate material-symbols-outlined !text-base">mail</span>
             <Trans>Contact support</Trans>
           </a>
           <a href="/" className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold text-white">
-            <span className="material-symbols-outlined !text-base">help</span>
+            <span className="notranslate material-symbols-outlined !text-base">help</span>
             <Trans>Help center</Trans>
           </a>
         </div>

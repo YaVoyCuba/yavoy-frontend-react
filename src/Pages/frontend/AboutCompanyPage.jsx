@@ -44,7 +44,7 @@ const AboutCompanyPage = () => {
           </p>
           <div className="mt-7 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
             <p className="flex items-center gap-2 text-sm font-bold text-slate-900">
-              <span className="material-symbols-outlined !text-base text-[#f06233]">inventory</span>
+              <span className="notranslate material-symbols-outlined !text-base text-[#f06233]">inventory</span>
               <Trans>Inventory management</Trans>
             </p>
             <p className="mt-1 text-sm text-slate-600">
@@ -109,7 +109,7 @@ const AboutCompanyPage = () => {
           <div className="overflow-hidden rounded-2xl bg-white shadow-2xl">
             <div className="flex items-center justify-between bg-[#f06233] px-4 py-3 text-sm font-bold text-white">
               <span><Trans>Accessible platform</Trans></span>
-              <span className="material-symbols-outlined !text-base">public</span>
+              <span className="notranslate material-symbols-outlined !text-base">public</span>
             </div>
             <div className="p-8">
               <img
@@ -129,21 +129,21 @@ const AboutCompanyPage = () => {
             <h2 className="mt-2 text-4xl font-black"><Trans>Commitment to excellence</Trans></h2>
             <div className="mt-8 space-y-8">
               <article className="flex gap-4">
-                <span className="material-symbols-outlined text-3xl text-[#f06233]">shopping_cart_checkout</span>
+                <span className="notranslate material-symbols-outlined text-3xl text-[#f06233]">shopping_cart_checkout</span>
                 <div>
                   <p className="text-xl font-bold"><Trans>Modern e-commerce</Trans></p>
                   <p className="text-slate-600"><Trans>A platform designed to make essential products accessible from anywhere in the world.</Trans></p>
                 </div>
               </article>
               <article className="flex gap-4">
-                <span className="material-symbols-outlined text-3xl text-[#f06233]">package_2</span>
+                <span className="notranslate material-symbols-outlined text-3xl text-[#f06233]">package_2</span>
                 <div>
                   <p className="text-xl font-bold"><Trans>Verified products</Trans></p>
                   <p className="text-slate-600"><Trans>Every item in our food, electronics, and household catalog passes quality checks before shipping.</Trans></p>
                 </div>
               </article>
               <article className="flex gap-4">
-                <span className="material-symbols-outlined text-3xl text-[#f06233]">support_agent</span>
+                <span className="notranslate material-symbols-outlined text-3xl text-[#f06233]">support_agent</span>
                 <div>
                   <p className="text-xl font-bold"><Trans>Personalized support</Trans></p>
                   <p className="text-slate-600"><Trans>We provide continuous support to ensure your shopping experience is satisfactory from start to finish.</Trans></p>
@@ -156,7 +156,7 @@ const AboutCompanyPage = () => {
 
       <section className="stitch-reveal mx-auto w-full max-w-7xl px-4 pb-20 md:px-8" style={{ animationDelay: "280ms" }}>
         <div className="relative overflow-hidden rounded-2xl bg-[#f06233] px-8 py-12 text-center text-white md:px-16 md:py-16">
-          <span className="material-symbols-outlined pointer-events-none absolute -left-8 -top-10 text-[260px] text-white/10">shopping_basket</span>
+          <span className="notranslate material-symbols-outlined pointer-events-none absolute -left-8 -top-10 text-[260px] text-white/10">shopping_basket</span>
           <h2 className="relative z-10 text-4xl font-black leading-tight md:text-5xl"><Trans>Ready to place your order?</Trans></h2>
           <p className="relative z-10 mx-auto mt-4 max-w-2xl text-white/90">
             <Trans>Explore our selection of food, electronics, and household items with the confidence of YaVoy Cuba.</Trans>

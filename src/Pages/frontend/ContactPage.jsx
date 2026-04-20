@@ -81,7 +81,7 @@ const ContactPage = () => {
             <button className="mt-5 w-full rounded-lg bg-[#f06233] px-6 py-3 font-bold text-white shadow-lg shadow-orange-200 transition hover:bg-[#e1572b]" type="submit">
               <span className="inline-flex items-center gap-2">
                 <Trans>Send message</Trans>
-                <span className="material-symbols-outlined !text-base">send</span>
+                <span className="notranslate material-symbols-outlined !text-base">send</span>
               </span>
             </button>
           </form>
@@ -90,7 +90,7 @@ const ContactPage = () => {
         <div className="space-y-4 stitch-reveal" style={{ animationDelay: "120ms" }}>
           <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
             <p className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#fff1ec] text-[#f06233]">
-              <span className="material-symbols-outlined">mail</span>
+              <span className="notranslate material-symbols-outlined">mail</span>
             </p>
             <p className="text-sm text-slate-500"><Trans>Email us</Trans></p>
             <p className="mt-1 text-2xl font-bold">
@@ -106,7 +106,7 @@ const ContactPage = () => {
           </article>
           <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
             <p className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#fff1ec] text-[#f06233]">
-              <span className="material-symbols-outlined">call</span>
+              <span className="notranslate material-symbols-outlined">call</span>
             </p>
             <p className="text-sm text-slate-500"><Trans>Call us</Trans></p>
             <p className="mt-1 text-2xl font-bold">
@@ -117,7 +117,7 @@ const ContactPage = () => {
           </article>
           <article className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-7">
             <p className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#fff1ec] text-[#f06233]">
-              <span className="material-symbols-outlined">location_on</span>
+              <span className="notranslate material-symbols-outlined">location_on</span>
             </p>
             <p className="text-sm text-slate-500"><Trans>Visit us</Trans></p>
             <p className="mt-1 text-2xl font-bold">

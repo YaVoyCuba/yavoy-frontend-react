@@ -34,33 +34,33 @@ const PrivacyPolicyPage = () => {
           <article className="md:col-span-8 rounded-3xl bg-white p-7 shadow-md md:p-10">
             <div className="flex items-start justify-between gap-3">
               <h2 className="text-3xl font-black tracking-tight text-slate-900"><Trans>Data collection</Trans></h2>
-              <span className="material-symbols-outlined text-5xl text-[#f06233]/20" aria-hidden="true">database</span>
+              <span className="notranslate material-symbols-outlined text-5xl text-[#f06233]/20" aria-hidden="true">database</span>
             </div>
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
               <Trans>We collect the information needed to manage purchases, payments, and deliveries, including contact details and delivery address.</Trans>
             </p>
             <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div className="flex items-center gap-2 rounded-xl bg-slate-50 p-3 text-sm font-semibold text-slate-700">
-                <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">person</span>
+                <span className="notranslate material-symbols-outlined text-[#f06233]" aria-hidden="true">person</span>
                 <Trans>Basic identity</Trans>
               </div>
               <div className="flex items-center gap-2 rounded-xl bg-slate-50 p-3 text-sm font-semibold text-slate-700">
-                <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">location_on</span>
+                <span className="notranslate material-symbols-outlined text-[#f06233]" aria-hidden="true">location_on</span>
                 <Trans>Delivery destinations</Trans>
               </div>
               <div className="flex items-center gap-2 rounded-xl bg-slate-50 p-3 text-sm font-semibold text-slate-700">
-                <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">payments</span>
+                <span className="notranslate material-symbols-outlined text-[#f06233]" aria-hidden="true">payments</span>
                 <Trans>Payment methods</Trans>
               </div>
               <div className="flex items-center gap-2 rounded-xl bg-slate-50 p-3 text-sm font-semibold text-slate-700">
-                <span className="material-symbols-outlined text-[#f06233]" aria-hidden="true">contact_mail</span>
+                <span className="notranslate material-symbols-outlined text-[#f06233]" aria-hidden="true">contact_mail</span>
                 <Trans>Contact channels</Trans>
               </div>
             </div>
           </article>
 
           <article className="md:col-span-4 rounded-3xl bg-[#f06233] p-7 text-white shadow-lg shadow-orange-300/40 md:p-10">
-            <span className="material-symbols-outlined text-5xl" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">verified_user</span>
+            <span className="notranslate material-symbols-outlined text-5xl" style={{ fontVariationSettings: "'FILL' 1" }} aria-hidden="true">verified_user</span>
             <h3 className="mt-5 text-3xl font-black tracking-tight"><Trans>YaVoy guarantee</Trans></h3>
             <p className="mt-4 leading-relaxed text-white/90">
               <Trans>We do not sell personal data. Your information is a service tool, not a commercial product.</Trans>
@@ -73,7 +73,7 @@ const PrivacyPolicyPage = () => {
           <article className="relative overflow-hidden md:col-span-5 rounded-3xl bg-slate-900 p-7 text-white shadow-md md:p-10">
             <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#f06233]/20 blur-2xl" />
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#f06233]">
-              <span className="material-symbols-outlined" aria-hidden="true">security</span>
+              <span className="notranslate material-symbols-outlined" aria-hidden="true">security</span>
             </div>
             <h2 className="mt-5 text-3xl font-black tracking-tight"><Trans>Security</Trans></h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-300">

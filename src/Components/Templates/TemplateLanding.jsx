@@ -1,6 +1,7 @@
 import { setInfo } from "../../redux/infoSlice";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import apiManager from "../../api/apiManager";
+import { Trans } from "@lingui/react/macro";
 
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
@@ -13,7 +14,7 @@ const TemplateLanding = () => {
 
   const tabs = [
     {
-      name: "Comercios",
+      name: <Trans>Shops</Trans>,
       href: "/restaurants",
       current: true,
       rutes: [

@@ -1058,7 +1058,7 @@ msgstr "Compra de forma segura y gestiona tus pedidos fácilmente desde nuestra 
 
 #: src/Components/Header/HeaderTop.jsx:162
 msgid "Shops"
-msgstr "Tiendas"
+msgstr "Comercios"
 
 #: src/Pages/frontend/RefundPolicyPage.jsx:40
 #~ msgid "Si no podemos cumplir una reserva confirmada, aplicamos reembolso del 100% o alternativa equivalente sin costo adicional."

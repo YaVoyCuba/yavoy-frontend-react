@@ -98,6 +98,29 @@ Relevant files
 - `scripts/fix-catalogs.cjs`
 - `src/locales/es/messages.po`
 
+Location component
+The `Location` component (`src/Components/Header/Location.jsx`) lets users select a delivery province and municipality. It can be toggled on or off via constants in `src/utils/constants.js`.
+
+- `LOCATION_PICKER_ENABLED` — set to `true` (default) to show the interactive picker; set to `false` to lock the app to a fixed location.
+- `FIXED_PROVINCE` — the province dispatched to Redux when the picker is disabled.
+- `FIXED_MUNICIPALITY` — the municipality dispatched to Redux when the picker is disabled.
+
+To disable the picker and lock to a specific location:
+```js
+// src/utils/constants.js
+export const LOCATION_PICKER_ENABLED = false;
+export const FIXED_PROVINCE     = { label: 'La Habana', value: { id: 1, name: 'La Habana' } };
+export const FIXED_MUNICIPALITY = { label: 'Plaza de la Revolución', value: { id: 1, name: 'Plaza de la Revolución' } };
+```
+Update `id` and `name` to match the actual values returned by the backend (`/api/v1/location/provinces` and `/api/v1/location/province/:id/municipalities`).
+
+When the picker is disabled:
+- The picker UI is not rendered.
+- `FIXED_PROVINCE` and `FIXED_MUNICIPALITY` are dispatched to the Redux store once on mount.
+- The rest of the app (restaurants list, cart validation, etc.) behaves as if the user had selected that location manually.
+
+When the picker is enabled, all standard behavior is restored: the dialog opens automatically on the first visit if no location has been set, and users can change their delivery zone at any time.
+
 Environment variables and local overrides
 - Vite supports multiple `.env` files and a precedence order: `.env` → `.env.[mode]` → `.env.[mode].local`.
 - Recommended workflow:

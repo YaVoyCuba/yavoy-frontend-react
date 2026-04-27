@@ -6,6 +6,7 @@ import { Trans } from '@lingui/react/macro'
 import { t } from '@lingui/macro'
 import apiManager from '../../api/apiManager';
 import { setProvince, setMunicipality } from '../../redux/locationSlice';
+import { LOCATION_PICKER_ENABLED, FIXED_PROVINCE, FIXED_MUNICIPALITY } from '../../utils/constants';
 import { toast } from 'react-toastify';
 import { LoadingSmall } from '../../common/LoadingSmall';
 import Select from 'react-select';
@@ -35,6 +36,14 @@ const Location = () => {
     const onLocationFormClose = () => setIsLocationFormOpen( false );
 
     const dispatch = useDispatch();
+    // When the picker is disabled, dispatch the fixed location once on mount.
+    useEffect( () => {
+        if (!LOCATION_PICKER_ENABLED) {
+            dispatch( setProvince( FIXED_PROVINCE ) );
+            dispatch( setMunicipality( FIXED_MUNICIPALITY ) );
+        }
+    }, [] ); // eslint-disable-line react-hooks/exhaustive-deps
+
     const cancelButtonRef = useRef( null );
 
     const fetchProvinces = useCallback( async () => {
@@ -71,9 +80,9 @@ const Location = () => {
         }
     }, [] );
 
-    // Auto-open on first visit when no location has been set
+    // Auto-open on first visit when no location has been set (picker mode only)
     useEffect( () => {
-        if (getMunicipality.value?.id === 0) {
+        if (LOCATION_PICKER_ENABLED && getMunicipality.value?.id === 0) {
             onLocationFormOpen();
         }
     }, [] ); // eslint-disable-line react-hooks/exhaustive-deps
@@ -152,6 +161,10 @@ const Location = () => {
             setValuesByDefault();
         }
     };
+
+    if (!LOCATION_PICKER_ENABLED) {
+        return null;
+    }
 
     return (
         <>

@@ -98,6 +98,29 @@ Archivos relevantes
 - [scripts/fix-catalogs.cjs](scripts/fix-catalogs.cjs)
 - [src/locales/es/messages.po](src/locales/es/messages.po)
 
+Componente Location
+El componente `Location` (`src/Components/Header/Location.jsx`) permite al usuario seleccionar una provincia y un municipio de entrega. Puede habilitarse o deshabilitarse mediante constantes en `src/utils/constants.js`.
+
+- `LOCATION_PICKER_ENABLED` — `true` (valor por defecto) muestra el selector interactivo; `false` bloquea la app a una ubicación fija.
+- `FIXED_PROVINCE` — la provincia que se despacha a Redux cuando el selector está deshabilitado.
+- `FIXED_MUNICIPALITY` — el municipio que se despacha a Redux cuando el selector está deshabilitado.
+
+Para deshabilitar el selector y fijar una ubicación concreta:
+```js
+// src/utils/constants.js
+export const LOCATION_PICKER_ENABLED = false;
+export const FIXED_PROVINCE     = { label: 'La Habana', value: { id: 1, name: 'La Habana' } };
+export const FIXED_MUNICIPALITY = { label: 'Plaza de la Revolución', value: { id: 1, name: 'Plaza de la Revolución' } };
+```
+Actualiza `id` y `name` con los valores reales devueltos por el backend (`/api/v1/location/provinces` y `/api/v1/location/province/:id/municipalities`).
+
+Cuando el selector está deshabilitado:
+- No se renderiza ninguna UI de selección de ubicación.
+- `FIXED_PROVINCE` y `FIXED_MUNICIPALITY` se despachan al store de Redux una sola vez al montar el componente.
+- El resto de la app (listado de restaurantes, validación del carrito, etc.) se comporta como si el usuario hubiera seleccionado esa ubicación manualmente.
+
+Cuando el selector está habilitado se restaura todo el comportamiento estándar: el diálogo se abre automáticamente en la primera visita si no hay ubicación guardada, y el usuario puede cambiar su zona de entrega en cualquier momento.
+
 Variables de entorno y overrides locales
 - Vite soporta varios ficheros `.env` con este orden de precedencia: `.env` → `.env.[mode]` → `.env.[mode].local`.
 - Flujo recomendado:

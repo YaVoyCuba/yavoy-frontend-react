@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useRef, useEffect } from 'react';
+import React, { useState, Fragment, useRef, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dialog, Transition } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/24/outline';
@@ -26,7 +26,7 @@ const Location = () => {
     const [ hasCookieConsent, setHasCookieConsent ] = useState( () => {
         try {
             return window.localStorage.getItem( COOKIE_CONSENT_KEY ) === 'accepted';
-        } catch (error) {
+        } catch {
             return false;
         }
     } );
@@ -35,137 +35,132 @@ const Location = () => {
     const onLocationFormClose = () => setIsLocationFormOpen( false );
 
     const dispatch = useDispatch();
+    const cancelButtonRef = useRef( null );
 
-    useEffect( () => {
-        // get all municipalities by a province selected only if Location Form is open
-        if (isLocationFormOpen) {
-            setMunicipalitiesByProvince( provinceSelected ).then( r => {
-            } );
-        }
-    }, [ provinceSelected ] );
-
-    useEffect( () => {
-        if (getMunicipality.value?.id === 0) {
-            // open Location Form and throw useEffect "isLocationFormOpen"
-            onLocationFormOpen();
+    const fetchProvinces = useCallback( async () => {
+        setLoadingProvinces( true );
+        try {
+            const json = await apiManager.getLocationData();
+            if (json.code === 'ok') {
+                const provincesOptions = json.data.provinces.map( ( province ) => ( {
+                    value: province,
+                    label: province.name,
+                } ) );
+                setProvinces( provincesOptions );
+            }
+        } catch {
+            toast.error( t`Failed to load provinces. Please try again.` );
+        } finally {
+            setLoadingProvinces( false );
         }
     }, [] );
 
+    const fetchMunicipalitiesByProvince = useCallback( async ( selected ) => {
+        if (!selected?.value?.id) return;
+        try {
+            const jsonM = await apiManager.getMunicipalities( selected.value.id );
+            if (jsonM.code === 'ok') {
+                const municipalitiesOptions = jsonM.data.map( ( item ) => ( {
+                    value: item,
+                    label: item.name,
+                } ) );
+                setMunicipalities( municipalitiesOptions );
+            }
+        } catch {
+            toast.error( t`Failed to load municipalities. Please try again.` );
+        }
+    }, [] );
+
+    // Auto-open on first visit when no location has been set
+    useEffect( () => {
+        if (getMunicipality.value?.id === 0) {
+            onLocationFormOpen();
+        }
+    }, [] ); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Load provinces when the dialog opens
     useEffect( () => {
         if (isLocationFormOpen) {
-            getProvinces().then( r => {
-                setMunicipalitiesByProvince( provinceSelected ).catch( err => {
-                } );
-            } ).catch( err => {
-            } );
+            fetchProvinces();
         }
-    }, [ isLocationFormOpen ] );
+    }, [ isLocationFormOpen, fetchProvinces ] );
 
-    const getProvinces = async () => {
-        console.log( 'getProvinces' );
-        let json = await apiManager.getLocationData();
-        if (json.code === 'ok') {
-            const provincesOptions = json.data.provinces.map( ( province ) => {
-                    // Ideally you can change the value to something different that is easier to keep track of like the UTC offset
-                    return {
-                        value: province,
-                        label: province.name,
-                    };
-                },
-            );
-            setProvinces( provincesOptions );
-            setLoadingProvinces( false );
+    // Load municipalities whenever the selected province changes (while the dialog is open)
+    useEffect( () => {
+        if (isLocationFormOpen && provinceSelected?.value?.id) {
+            fetchMunicipalitiesByProvince( provinceSelected );
         }
-    };
+    }, [ provinceSelected, isLocationFormOpen, fetchMunicipalitiesByProvince ] );
 
-    const setMunicipalitiesByProvince = async ( event ) => {
-        let jsonM = await apiManager.getMunicipalities( event.value.id );
-        if (jsonM.code === 'ok') {
-            const municipalitiesOptions = jsonM.data.map( ( item ) => {
-                    // Ideally you can change the value to something different that is easier to keep track of like the UTC offset
-                    return {
-                        value: item,
-                        label: item.name,
-                    };
-                },
-            );
-            setMunicipalities( municipalitiesOptions );
-            // setMunicipalitySelected( municipalitiesOptions[0] );
-        }
-    };
-
-    const storeLocation = async () => {
-        // close Location Form
-        onLocationFormClose();
-
+    const storeLocation = useCallback( async () => {
         if (cart?.length > 0) {
-            console.log( '--> check cart: ', cart );
-            let can = await checkIfNewLocationCanBeAddedWithRestaurantInCart();
-            console.log( '--> can: ', can );
-            if (can) {
-                // save location to localstorage
-                dispatch( setProvince( provinceSelected ) );
-                dispatch( setMunicipality( municipalitySelected ) );
-            } else {
-                console.log( '--> can else: ', can );
-                toast.warning(
-                    'You cannot change to this location because the restaurant in your cart does not deliver there',
-
-                    {
-                        position:        'top-center',
-                        autoClose:       5000,
-                        hideProgressBar: false,
-                        closeOnClick:    true,
-                        pauseOnHover:    true,
-                        draggable:       true,
-                        progress:        undefined,
-                    },
-                );
+            try {
+                const response = await apiManager.getZones( cart[0].restaurantId );
+                if (response.code === 'ok') {
+                    const canDeliver = response.zones.some(
+                        ( zone ) => zone.municipalitie_id === municipalitySelected.value.id,
+                    );
+                    if (canDeliver) {
+                        dispatch( setProvince( provinceSelected ) );
+                        dispatch( setMunicipality( municipalitySelected ) );
+                        onLocationFormClose();
+                    } else {
+                        toast.warning(
+                            t`You cannot change to this location because the restaurant in your cart does not deliver there`,
+                            { position: 'top-center', autoClose: 5000 },
+                        );
+                    }
+                }
+            } catch {
+                toast.error( t`Failed to validate delivery zones. Please try again.` );
             }
         } else {
-            // save location to localstorage
             dispatch( setProvince( provinceSelected ) );
             dispatch( setMunicipality( municipalitySelected ) );
+            onLocationFormClose();
         }
+    }, [ cart, dispatch, municipalitySelected, provinceSelected ] );
+
+    const setValuesByDefault = () => {
+        setProvinceSelected( getProvince );
+        setMunicipalitySelected( getMunicipality );
     };
-
-    const checkIfNewLocationCanBeAddedWithRestaurantInCart = async () => {
-        let isFound = false;
-        let response = await apiManager.getZones( cart[0].restaurantId );
-
-        if (response.code === 'ok') {
-            isFound = response.zones.some( zone => {
-                return zone.municipalitie_id === municipalitySelected.value.id;
-            } );
-        }
-
-        console.log( '--> ', isFound, 'muniSelct: ', municipalitySelected );
-        return isFound; //let zones = apiManager.getZones(cart[0].restaurantId);
-    };
-
-    const setValuesByDefault = async () => {
-        console.log('setValuesByDefault: ', getProvince, getMunicipality)
-        setProvinceSelected(getProvince)
-        setMunicipalitySelected(getMunicipality)
-    }
 
     const acceptCookieConsent = () => {
         try {
             window.localStorage.setItem( COOKIE_CONSENT_KEY, 'accepted' );
-        } catch (error) {
+        } catch {
+            // localStorage not available
         }
         setHasCookieConsent( true );
     };
 
-    const cancelButtonRef = useRef( null );
+    const handleAccept = () => {
+        if (municipalitySelected?.value?.id > 0) {
+            storeLocation();
+        } else {
+            toast.warning( t`Please select a province and a municipality`, {
+                position: 'top-center',
+                autoClose: 4000,
+            } );
+        }
+    };
+
+    const handleCancel = () => {
+        if (getMunicipality.value.id > 0) {
+            onLocationFormClose();
+            setValuesByDefault();
+        }
+    };
+
     return (
         <>
-            <div className="flex py-3 mx-auto  bg-gray-200 mt-1 mb-3 rounded-lg px-3   lg:w-3/4">
+            <div className="flex py-3 mx-auto bg-gray-200 mt-1 mb-3 rounded-lg px-3 lg:w-3/4">
                 <button
-                    className="btn flex mx-auto "
-                    onClick={ ( event ) => {
-                        setIsLocationFormOpen( !isLocationFormOpen );
-                    } }
+                    className="btn flex mx-auto"
+                    onClick={ () => setIsLocationFormOpen( !isLocationFormOpen ) }
+                    aria-expanded={ isLocationFormOpen }
+                    aria-haspopup="dialog"
                 >
                     <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                          viewBox="0 0 17 21">
@@ -176,8 +171,8 @@ const Location = () => {
                         </g>
                     </svg>
                     <span className="text-gray-700 text-sm font-medium pl-3">
-            <Trans>Delivery set to</Trans> { getMunicipality.label }
-          </span>
+                        <Trans>Delivery set to</Trans> { getMunicipality.label }
+                    </span>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -185,6 +180,7 @@ const Location = () => {
                         strokeWidth={ 1.5 }
                         stroke="currentColor"
                         className="w-6 ml-3 h-6"
+                        aria-hidden="true"
                     >
                         <path
                             strokeLinecap="round"
@@ -253,7 +249,7 @@ const Location = () => {
                                                 as="h3"
                                                 className="text-lg font-medium leading-6 text-gray-900"
                                             >
-                                            <Trans>Please set a delivery address</Trans>
+                                                <Trans>Please set a delivery address</Trans>
                                             </Dialog.Title>
                                             <div className="mt-2">
                                                 <p className="text-sm text-gray-500">
@@ -267,40 +263,31 @@ const Location = () => {
                                             ) : (
                                                 <div className="flex my-5 flex-col">
                                                     <Select
-                                                        aria-labelledby="aria-label"
-                                                        inputId="aria-example-input"
-                                                        name="aria-live-province"
-                                                        // onMenuOpen={onMenuOpen}
-                                                        // ={onMenuClose}
+                                                        inputId="province-select"
+                                                        name="province"
                                                         options={ provinces }
-                                                        // menuIsOpen={false}
                                                         className="react-select-container my-5"
                                                         classNamePrefix="react-select"
-                                                        placeholder={t`Select province`}
+                                                        placeholder={ t`Select province` }
                                                         value={ provinceSelected?.value?.id ? provinceSelected : null }
                                                         onChange={ ( event ) => {
                                                             setMunicipalitySelected( { label: '', value: { id: 0 } } );
+                                                            setMunicipalities( [] );
                                                             setProvinceSelected( event );
                                                         } }
                                                     />
-                                                    {
-                                                        (municipalities?.length > 0 ||
-                                                            provinceSelected.value?.id > 0) && (
-                                                            <Select
-                                                                aria-labelledby="aria-label"
-                                                                inputId="aria-example-input"
-                                                                name="aria-live-municipalities"
-                                                                options={ municipalities }
-                                                                className="react-select-container"
-                                                                classNamePrefix="react-select"
-                                                                placeholder={t`Select municipality`}
-                                                                value={ municipalitySelected?.value?.id ? municipalitySelected : null }
-                                                                onChange={ ( event ) => {
-                                                                    setMunicipalitySelected( event );
-                                                                } }
-                                                            />
-                                                        )
-                                                    }
+                                                    { (municipalities?.length > 0 || provinceSelected.value?.id > 0) && (
+                                                        <Select
+                                                            inputId="municipality-select"
+                                                            name="municipality"
+                                                            options={ municipalities }
+                                                            className="react-select-container"
+                                                            classNamePrefix="react-select"
+                                                            placeholder={ t`Select municipality` }
+                                                            value={ municipalitySelected?.value?.id ? municipalitySelected : null }
+                                                            onChange={ ( event ) => setMunicipalitySelected( event ) }
+                                                        />
+                                                    ) }
                                                 </div>
                                             ) }
                                         </div>
@@ -309,23 +296,14 @@ const Location = () => {
                                         <button
                                             type="button"
                                             className="inline-flex w-full justify-center rounded-md border border-transparent bg-main px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-2 sm:text-sm"
-                                            onClick={ () => {
-                                                municipalitySelected?.value?.id > 0 ?
-                                                    storeLocation() : alert( t`Please select a province and a municipality` );
-                                            }
-                                            }
+                                            onClick={ handleAccept }
                                         >
                                             <Trans>Accept</Trans>
                                         </button>
                                         <button
                                             type="button"
                                             className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm"
-                                            onClick={ () => {
-                                                if( getMunicipality.value.id > 0 ) {
-                                                    onLocationFormClose();
-                                                    setValuesByDefault()
-                                                }
-                                            } }
+                                            onClick={ handleCancel }
                                             ref={ cancelButtonRef }
                                         >
                                             <Trans>Cancel</Trans>

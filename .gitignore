@@ -27,3 +27,28 @@ public_web
 *.sw?
 /.env
 /reports
+
+# Node
+node_modules/
+dist/
+.next/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE - Personal settings (NO COMMITEAR)
+.vscode/*.log
+.vscode/extensions.json
+.vscode/keybindings.json
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# NOTE: .vscode/settings.json MUST BE COMMITTED (contains agent config)
+# NOTE: .agent/ MUST BE IN GIT (team configuration)
+# NOTE: .instructions.md MUST BE IN GIT (team standards)

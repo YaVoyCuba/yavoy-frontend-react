@@ -56,7 +56,7 @@ const TemplateLanding = () => {
           locationType={path.split("/")[1] === "" ? "/" : path.split("/")[1]}
         />
 
-        {!isMainPage && (
+        {/* {!isMainPage && (
           <div className="flex ">
             <div className=" mx-auto">
               <div className=" mb-3 border-gray-200">
@@ -80,7 +80,7 @@ const TemplateLanding = () => {
               </div>
             </div>
           </div>
-        )}
+        )} */}
 
 
         <Outlet />

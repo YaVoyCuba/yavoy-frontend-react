@@ -470,8 +470,8 @@ msgid "Featured categories"
 msgstr "Categorías destacadas"
 
 #: src/Components/Landing/Restaurants.jsx:443
-msgid "Featured stores"
-msgstr "Tiendas destacadas"
+msgid "Top rating"
+msgstr "Mejor valoradas"
 
 #: src/Components/Landing/Restaurants.jsx:257
 msgid "for your loved ones"

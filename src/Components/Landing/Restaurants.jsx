@@ -244,77 +244,13 @@ const Restaurants = () => {
         <Loading />
       ) : (
         <div className="-mx-3 bg-[#f2f0f1] pb-16 lg:-mx-14">
-          <section className="mx-auto w-full max-w-7xl px-4 pt-6 lg:px-8 lg:pt-8">
-            <div className="relative overflow-hidden rounded-3xl bg-slate-900 shadow-2xl">
-              <Swiper
-                autoplay={{
-                  delay: 5000,
-                  disableOnInteraction: false,
-                }}
-                spaceBetween={0}
-                slidesPerView={1}
-              >
-                {(promoSlides.length > 0 ? promoSlides : [{ id: "fallback", image: "/assets/img/fondo.webp", link: "/restaurants" }]).map(
-                  (slide) => (
-                    <SwiperSlide key={`hero-${slide.id}`}>
-                      <div className="relative min-h-[320px] md:min-h-[400px]">
-                        {/* TODO: Temporarily disabled */}
-                        {/* <img src={slide.image} alt="Promo" className="absolute inset-0 h-full w-full object-cover opacity-60" /> */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/70 to-transparent" />
-                        <div className="relative z-10 flex h-full items-center p-7 md:p-10 lg:p-12">
-                          <div className="max-w-2xl">
-                            <p className="inline-flex rounded-full bg-[#f06233]/20 px-4 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-[#ff9f80]">
-                              <Trans>Exclusive offer</Trans>
-                            </p>
-                            <h1 className="mt-5 text-4xl font-black uppercase leading-[0.92] tracking-tight text-white md:text-6xl">
-                              <Trans>Discover top stores</Trans>
-                              <br />
-                              <span className="text-[#f06233]"><Trans>for your loved ones</Trans></span>
-                            </h1>
-                            <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-slate-200 md:text-lg">
-                              <Trans>Discover products and services available on our platform. Shop securely and manage your orders easily online.</Trans>
-                            </p>
-                            <div className="mt-7 flex flex-wrap gap-3">
-                              <Link
-                                to="/restaurants"
-                                className="rounded-xl bg-[#f06233] px-7 py-3 text-sm font-black uppercase tracking-wide text-white shadow-lg shadow-orange-400/30 transition hover:scale-[1.02]"
-                              >
-                                <Trans>Order now</Trans>
-                              </Link>
-                              {/* <a
-                                href={slide.link || "#"}
-                                className="rounded-xl border-2 border-white/30 bg-white/10 px-7 py-3 text-sm font-black uppercase tracking-wide text-white backdrop-blur-sm transition hover:bg-white/20"
-                              >
-                                <Trans>View offer</Trans>
-                              </a> */}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  )
-                )}
-              </Swiper>
-
-              <div className="absolute bottom-6 right-6 z-0 hidden rounded-2xl bg-white/90 p-4 shadow-xl backdrop-blur-md lg:block">
-                <div className="flex items-center gap-2 text-slate-900">
-                  <span className="notranslate material-symbols-outlined text-[#f06233]">local_shipping</span>
-                  <p className="text-xs font-black uppercase tracking-wide"><Trans>Fast delivery</Trans></p>
-                </div>
-                <p className="mt-2 max-w-[210px] text-xs font-medium leading-relaxed text-slate-600">
-                  <Trans>Partner stores deliver quickly with real-time stock availability.</Trans>
-                </p>
-              </div>
-            </div>
-          </section>
-
           <section className="mx-auto mt-12 w-full max-w-7xl px-4 lg:px-8">
-            <div className="mb-8">
+            {/* <div className="mb-8">
               <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>Explore categories</Trans></h2>
               <p className="mt-1 text-sm font-semibold text-slate-500">
                 <Trans>Discover products and services designed for your loved ones.</Trans>
               </p>
-            </div>
+            </div> */}
 
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
               {CATEGORY_CARDS.map((category) => (
@@ -342,6 +278,70 @@ const Restaurants = () => {
                   </div>
                 </Link>
               ))}
+            </div>
+          </section>
+
+          <section className="mx-auto w-full max-w-7xl px-4 pt-6 lg:px-8 lg:pt-8">
+            <div className="relative overflow-hidden rounded-3xl bg-slate-900 shadow-2xl">
+              <Swiper
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: false,
+                }}
+                spaceBetween={0}
+                slidesPerView={1}
+              >
+                {(promoSlides.length > 0 ? promoSlides : [{ id: "fallback", image: "/assets/img/fondo.webp", link: "/restaurants" }]).map(
+                  (slide) => (
+                    <SwiperSlide key={`hero-${slide.id}`}>
+                      <div className="relative min-h-[320px] md:min-h-[400px]">
+                        {/* TODO: Temporarily disabled */}
+                        {/* <img src={slide.image} alt="Promo" className="absolute inset-0 h-full w-full object-cover opacity-60" /> */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/70 to-transparent" />
+                        <div className="relative z-10 flex h-full items-center p-7 md:p-10 lg:p-12">
+                          <div className="max-w-2xl">
+                            <p className="inline-flex rounded-full bg-[#f06233]/20 px-4 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-[#ff9f80]">
+                              <Trans>Exclusive offer</Trans>
+                            </p>
+                            <h1 className="mt-5 text-4xl font-black uppercase leading-[0.92] tracking-tight text-white md:text-6xl">
+                              <Trans>Discover top stores</Trans>
+                              <br />
+                              <span className="text-[#f06233]"><Trans>for your loved ones</Trans></span>
+                            </h1>
+                            {/* <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-slate-200 md:text-lg">
+                              <Trans>Discover products and services available on our platform. Shop securely and manage your orders easily online.</Trans>
+                            </p> */}
+                            {/* <div className="mt-7 flex flex-wrap gap-3">
+                              <Link
+                                to="/restaurants"
+                                className="rounded-xl bg-[#f06233] px-7 py-3 text-sm font-black uppercase tracking-wide text-white shadow-lg shadow-orange-400/30 transition hover:scale-[1.02]"
+                              >
+                                <Trans>Order now</Trans>
+                              </Link>
+                              <a
+                                href={slide.link || "#"}
+                                className="rounded-xl border-2 border-white/30 bg-white/10 px-7 py-3 text-sm font-black uppercase tracking-wide text-white backdrop-blur-sm transition hover:bg-white/20"
+                              >
+                                <Trans>View offer</Trans>
+                              </a>
+                            </div> */}
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  )
+                )}
+              </Swiper>
+
+              <div className="absolute bottom-6 right-6 z-0 hidden rounded-2xl bg-white/90 p-4 shadow-xl backdrop-blur-md lg:block">
+                <div className="flex items-center gap-2 text-slate-900">
+                  <span className="notranslate material-symbols-outlined text-[#f06233]">local_shipping</span>
+                  <p className="text-xs font-black uppercase tracking-wide"><Trans>Fast delivery</Trans></p>
+                </div>
+                <p className="mt-2 max-w-[210px] text-xs font-medium leading-relaxed text-slate-600">
+                  <Trans>Partner stores deliver quickly with real-time stock availability.</Trans>
+                </p>
+              </div>
             </div>
           </section>
 
@@ -454,44 +454,6 @@ const Restaurants = () => {
               </div>
           ) : (
             <>
-              <section className="mx-auto mt-14 w-full max-w-7xl px-4 lg:px-8">
-                <div className="mb-8 flex items-center justify-between">
-                  <div>
-                    <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>Featured stores</Trans></h2>
-                    <p className="mt-1 text-sm font-semibold text-slate-500"><Trans>Top rated stores selected for this week.</Trans></p>
-                  </div>
-                  <div className="hidden items-center gap-2 md:flex">
-                    <button
-                      type="button"
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
-                      aria-label="Previous featured stores"
-                    >
-                      <span className="notranslate material-symbols-outlined">chevron_left</span>
-                    </button>
-                    <button
-                      type="button"
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
-                      aria-label="Next featured stores"
-                    >
-                      <span className="notranslate material-symbols-outlined">chevron_right</span>
-                    </button>
-                  </div>
-                </div>
-
-                {featuredRestaurants.length > 0 ? (
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-                    {featuredRestaurants.map((restaurant) => (
-                      <StoreCard key={`featured-${restaurant.id}`} restaurant={restaurant} imageBase={imageBase} />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="rounded-2xl bg-white p-6 text-slate-700 shadow-sm">
-                    <p className="text-lg font-semibold">
-                      <Trans>No services available in this area</Trans>
-                    </p>
-                  </div>
-                )}
-              </section>
 
               <section className="mx-auto mt-16 w-full max-w-7xl px-4 lg:px-8">
                 <div className="mb-8">
@@ -518,6 +480,45 @@ const Restaurants = () => {
                       </button>
                     </div> */}
                   </>
+                ) : (
+                  <div className="rounded-2xl bg-white p-6 text-slate-700 shadow-sm">
+                    <p className="text-lg font-semibold">
+                      <Trans>No services available in this area</Trans>
+                    </p>
+                  </div>
+                )}
+              </section>
+
+              <section className="mx-auto mt-14 w-full max-w-7xl px-4 lg:px-8">
+                <div className="mb-8 flex items-center justify-between">
+                  <div>
+                    <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>Top rating</Trans></h2>
+                    <p className="mt-1 text-sm font-semibold text-slate-500"><Trans>Top rated stores selected for this week.</Trans></p>
+                  </div>
+                  <div className="hidden items-center gap-2 md:flex">
+                    <button
+                      type="button"
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
+                      aria-label="Previous featured stores"
+                    >
+                      <span className="notranslate material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <button
+                      type="button"
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
+                      aria-label="Next featured stores"
+                    >
+                      <span className="notranslate material-symbols-outlined">chevron_right</span>
+                    </button>
+                  </div>
+                </div>
+
+                {featuredRestaurants.length > 0 ? (
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+                    {featuredRestaurants.map((restaurant) => (
+                      <StoreCard key={`featured-${restaurant.id}`} restaurant={restaurant} imageBase={imageBase} />
+                    ))}
+                  </div>
                 ) : (
                   <div className="rounded-2xl bg-white p-6 text-slate-700 shadow-sm">
                     <p className="text-lg font-semibold">

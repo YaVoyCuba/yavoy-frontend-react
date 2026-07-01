@@ -598,8 +598,8 @@ msgid "Featured categories"
 msgstr "Featured categories"
 
 #: src/Components/Landing/Restaurants.jsx:443
-msgid "Featured stores"
-msgstr "Featured stores"
+msgid "Top rating"
+msgstr "Top rating"
 
 #: src/Components/Landing/Restaurants.jsx:257
 msgid "for your loved ones"

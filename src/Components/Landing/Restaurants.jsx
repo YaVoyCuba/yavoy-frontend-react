@@ -288,7 +288,7 @@ const Restaurants = () => {
           </section>
 
           <section ref={catalogSectionRef} className="mx-auto w-full max-w-7xl px-4 pt-6 lg:px-8 lg:pt-8">
-            <div className="relative overflow-hidden rounded-3xl bg-slate-900 shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl bg-slate-950 shadow-2xl">
               <Swiper
                 autoplay={{
                   delay: 5000,
@@ -296,55 +296,54 @@ const Restaurants = () => {
                 }}
                 spaceBetween={0}
                 slidesPerView={1}
+                className="w-full h-full"
               >
                 {(promoSlides.length > 0 ? promoSlides : [{ id: "fallback", image: "/assets/img/fondo.webp", link: "/restaurants" }]).map(
                   (slide) => (
                     <SwiperSlide key={`hero-${slide.id}`}>
-                      <div className="relative min-h-[320px] md:min-h-[400px]">
-                        {/* TODO: Temporarily disabled */}
-                        {/* <img src={slide.image} alt="Promo" className="absolute inset-0 h-full w-full object-cover opacity-60" /> */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/70 to-transparent" />
-                        <div className="relative z-10 flex h-full items-center p-7 md:p-10 lg:p-12">
-                          <div className="max-w-2xl">
-                            <p className="inline-flex rounded-full bg-[#f06233]/20 px-4 py-1 text-[11px] font-black uppercase tracking-[0.18em] text-[#ff9f80]">
+                      <div className="relative flex min-h-[380px] md:min-h-[460px] w-full overflow-hidden">
+                        
+                        {/* 1. Imagen de fondo optimizada */}
+                        <img 
+                          src={slide.image} 
+                          alt="Promo" 
+                          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-out select-none" 
+                        />
+                        
+                        {/* 2. Oscurecimiento global de la imagen para asegurar contraste */}
+                        <div className="absolute inset-0 bg-slate-900/20" />
+                        
+                        {/* 3. Gradiente direccional para la zona del texto */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-transparent" />
+                        
+                        {/* 4. Contenido del Slide - Simplificado para evitar conflictos con texto de imágenes */}
+                        {/* <div className="relative z-10 w-full p-8 md:p-12 lg:p-16">
+                          <div className="max-w-xl">
+                            <span className="rounded-full bg-[#f06233]/20 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-[#ff9f80] backdrop-blur-sm">
                               <Trans>Exclusive offer</Trans>
-                            </p>
-                            <h1 className="mt-5 text-4xl font-black uppercase leading-[0.92] tracking-tight text-white md:text-6xl">
+                            </span>
+                            
+                            <h1 className="mt-4 text-3xl font-black uppercase leading-[1.1] tracking-tight text-white drop-shadow-lg">
                               <Trans>Discover top stores</Trans>
                               <br />
                               <span className="text-[#f06233]"><Trans>for your loved ones</Trans></span>
                             </h1>
-                            {/* <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-slate-200 md:text-lg">
-                              <Trans>Discover products and services available on our platform. Shop securely and manage your orders easily online.</Trans>
-                            </p> */}
-                            {/* <div className="mt-7 flex flex-wrap gap-3">
-                              <Link
-                                to="/restaurants"
-                                className="rounded-xl bg-[#f06233] px-7 py-3 text-sm font-black uppercase tracking-wide text-white shadow-lg shadow-orange-400/30 transition hover:scale-[1.02]"
-                              >
-                                <Trans>Order now</Trans>
-                              </Link>
-                              <a
-                                href={slide.link || "#"}
-                                className="rounded-xl border-2 border-white/30 bg-white/10 px-7 py-3 text-sm font-black uppercase tracking-wide text-white backdrop-blur-sm transition hover:bg-white/20"
-                              >
-                                <Trans>View offer</Trans>
-                              </a>
-                            </div> */}
                           </div>
-                        </div>
+                        </div> */}
+
                       </div>
                     </SwiperSlide>
                   )
                 )}
               </Swiper>
 
-              <div className="absolute bottom-6 right-6 z-0 hidden rounded-2xl bg-white/90 p-4 shadow-xl backdrop-blur-md lg:block">
+              {/* 5. Tarjeta Flotante "Fast delivery" (Se sube a z-20 y se añade hover sutil) */}
+              <div className="absolute bottom-6 right-6 z-20 hidden rounded-2xl bg-white/95 p-5 shadow-2xl backdrop-blur-md border border-white/20 lg:block max-w-[260px] transition-all duration-300 hover:scale-[1.02]">
                 <div className="flex items-center gap-2 text-slate-900">
-                  <span className="notranslate material-symbols-outlined text-[#f06233]">local_shipping</span>
-                  <p className="text-xs font-black uppercase tracking-wide"><Trans>Fast delivery</Trans></p>
+                  <span className="notranslate material-symbols-outlined text-[#f06233] !text-2xl">local_shipping</span>
+                  <p className="text-xs font-black uppercase tracking-wider"><Trans>Fast delivery</Trans></p>
                 </div>
-                <p className="mt-2 max-w-[210px] text-xs font-medium leading-relaxed text-slate-600">
+                <p className="mt-2.5 text-xs font-bold leading-relaxed text-slate-600">
                   <Trans>Partner stores deliver quickly with real-time stock availability.</Trans>
                 </p>
               </div>

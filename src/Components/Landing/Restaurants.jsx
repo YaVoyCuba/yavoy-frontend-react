@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 import { Trans } from "@lingui/react/macro";
 import { useLingui } from "@lingui/react";
 import { msg } from "@lingui/core/macro";
@@ -102,6 +102,9 @@ const Restaurants = () => {
   const path = locationRouter.pathname;
   const isMainPage = path === "/";
 
+  // Ref for the catalog section to scroll into view when category changes
+  const catalogSectionRef = useRef(null);
+
   const [restaurants, setRestaurants] = useState([]);
   const [promoRestaurants, setPromoRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -109,12 +112,15 @@ const Restaurants = () => {
 
   const imageBase = apiManager.UrlBase;
 
-  // Add scroll to top effect when category changes
+  // Scroll to the catalog section when the category changes and it's not the main page
   useEffect(() => {
-    if (!isMainPage) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [path, isMainPage]);
+      if (!isMainPage && catalogSectionRef.current) {
+        catalogSectionRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start", // Align the top of the section with the top of the viewport
+        });
+      }
+    }, [path, isMainPage]);
 
   const categoryI18n = {
     restaurants: {
@@ -281,7 +287,7 @@ const Restaurants = () => {
             </div>
           </section>
 
-          <section className="mx-auto w-full max-w-7xl px-4 pt-6 lg:px-8 lg:pt-8">
+          <section ref={catalogSectionRef} className="mx-auto w-full max-w-7xl px-4 pt-6 lg:px-8 lg:pt-8">
             <div className="relative overflow-hidden rounded-3xl bg-slate-900 shadow-2xl">
               <Swiper
                 autoplay={{

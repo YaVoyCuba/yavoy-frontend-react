@@ -243,8 +243,8 @@ const Restaurants = () => {
       {loading ? (
         <Loading />
       ) : (
-        <div className="-mx-3 bg-[#f2f0f1] pb-16 lg:-mx-14">
-          <section className="mx-auto mt-12 w-full max-w-7xl px-4 lg:px-8">
+        <div className="-mx-3 pb-16 lg:-mx-14">
+          <section className="mx-auto mt-1 w-full max-w-7xl px-4 lg:px-8">
             {/* <div className="mb-8">
               <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>Explore categories</Trans></h2>
               <p className="mt-1 text-sm font-semibold text-slate-500">
@@ -263,7 +263,7 @@ const Restaurants = () => {
                       : "bg-white text-slate-900 border border-slate-200 shadow-sm hover:border-[#f06233]/50"
                   }`}
                 >
-                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors ${
+                  <div className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-xl transition-colors ${
                     isCategoryActive(category.href) ? "bg-white/20 text-white" : "bg-[#ffede8] text-[#f06233]"
                   }`}>
                     <span className="notranslate material-symbols-outlined !text-2xl">{category.icon}</span>

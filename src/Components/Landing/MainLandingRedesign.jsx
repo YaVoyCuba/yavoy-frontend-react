@@ -154,7 +154,41 @@ const MainLandingRedesign = () => {
         </div>
       </section>
 
-      <section className="stitch-reveal border-b border-[#efd7cf] bg-[#f7efeb] py-4" style={{ animationDelay: "90ms" }}>
+      <section className="stitch-reveal bg-white py-16" style={{ animationDelay: "80ms" }}>
+        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+          <div className="mb-8 flex items-end justify-between gap-3">
+            <div>
+              <h2 className="text-3xl font-black"><Trans>Featured categories</Trans></h2>
+              <p className="mt-2 text-slate-600"><Trans>Most requested products for immediate delivery.</Trans></p>
+            </div>
+            <Link className="text-sm font-bold text-[#f06233] hover:underline" to="/restaurants">
+              <Trans>View all</Trans>
+            </Link>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {categoriesI18n.map((category) => (
+              <Link
+                key={category.id}
+                to={category.href}
+                className="group relative h-64 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                <img
+                  src={category.image}
+                  alt={category.description}
+                  className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                  <h3 className="text-2xl font-black">{category.name}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="stitch-reveal border-b border-[#efd7cf] bg-[#f7efeb] py-4" style={{ animationDelay: "140ms" }}>
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 px-4 text-xs font-semibold uppercase tracking-wide text-slate-600 md:grid-cols-4 md:px-8">
           <p className="flex items-center gap-2"><span className="notranslate material-symbols-outlined !text-base">verified_user</span><Trans>Real store</Trans></p>
           <p className="flex items-center gap-2"><span className="notranslate material-symbols-outlined !text-base">partner_exchange</span><Trans>Compliance Partners</Trans></p>
@@ -163,7 +197,7 @@ const MainLandingRedesign = () => {
         </div>
       </section>
 
-      <section id="how-it-works" className="stitch-reveal mx-auto w-full max-w-7xl px-4 py-16 md:px-8" style={{ animationDelay: "160ms" }}>
+      <section id="how-it-works" className="stitch-reveal mx-auto w-full max-w-7xl px-4 py-16 md:px-8" style={{ animationDelay: "200ms" }}>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-black md:text-4xl"><Trans>How YaVoy works</Trans></h2>
           <p className="mt-3 text-slate-600">
@@ -196,40 +230,6 @@ const MainLandingRedesign = () => {
               <Trans>Our independent compliance partners handle the preparation and coordination of delivery.</Trans>
             </p>
           </article>
-        </div>
-      </section>
-
-      <section className="stitch-reveal bg-white py-16" style={{ animationDelay: "230ms" }}>
-        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
-          <div className="mb-8 flex items-end justify-between gap-3">
-            <div>
-              <h2 className="text-3xl font-black"><Trans>Featured categories</Trans></h2>
-              <p className="mt-2 text-slate-600"><Trans>Most requested products for immediate delivery.</Trans></p>
-            </div>
-            <Link className="text-sm font-bold text-[#f06233] hover:underline" to="/restaurants">
-              <Trans>View all</Trans>
-            </Link>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {categoriesI18n.map((category) => (
-              <Link
-                key={category.id}
-                to={category.href}
-                className="group relative h-64 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
-              >
-                <img
-                  src={category.image}
-                  alt={category.description}
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                  <h3 className="text-2xl font-black">{category.name}</h3>
-                </div>
-              </Link>
-            ))}
-          </div>
         </div>
       </section>
 

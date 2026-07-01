@@ -105,6 +105,13 @@ const Restaurants = () => {
 
   const imageBase = apiManager.UrlBase;
 
+  // Add scroll to top effect when category changes
+  useEffect(() => {
+    if (!isMainPage) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [path, isMainPage]);
+
   const categoryI18n = {
     restaurants: {
       label: _(msg`Restaurants`),
@@ -306,22 +313,24 @@ const Restaurants = () => {
                 <Link
                   key={category.key}
                   to={category.href}
-                  className={`group relative overflow-hidden rounded-2xl shadow-md transition-all hover:shadow-xl ${
-                    isCategoryActive(category.href) ? "ring-2 ring-[#f06233]/60" : "ring-1 ring-slate-200"
+                  className={`group relative flex items-center gap-3 overflow-hidden rounded-2xl p-4 transition-all hover:shadow-lg ${
+                    isCategoryActive(category.href)
+                      ? "bg-[#f06233] text-white shadow-md ring-2 ring-[#f06233]/20"
+                      : "bg-white text-slate-900 border border-slate-200 shadow-sm hover:border-[#f06233]/50"
                   }`}
                 >
-                  <img
-                    src={category.image}
-                    alt={categoryI18n[category.key]?.label || category.key}
-                    className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-110 lg:h-44"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/25 to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3">
-                    <p className="text-lg font-black uppercase tracking-tight text-white">{categoryI18n[category.key]?.label || category.key}</p>
-                    <div className="mt-1 flex items-center gap-2 text-white/90">
-                      <span className="notranslate material-symbols-outlined !text-base">{category.icon}</span>
-                      <p className="line-clamp-1 text-[11px] font-semibold uppercase tracking-wide">{categoryI18n[category.key]?.description || ""}</p>
-                    </div>
+                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors ${
+                    isCategoryActive(category.href) ? "bg-white/20 text-white" : "bg-[#ffede8] text-[#f06233]"
+                  }`}>
+                    <span className="notranslate material-symbols-outlined !text-2xl">{category.icon}</span>
+                  </div>
+                  <div>
+                    <p className="text-sm font-black uppercase tracking-tight leading-none">{categoryI18n[category.key]?.label || category.key}</p>
+                    <p className={`mt-1 line-clamp-1 text-[10px] font-bold uppercase tracking-wider opacity-60 ${
+                      isCategoryActive(category.href) ? "text-white" : "text-slate-500"
+                    }`}>
+                      {categoryI18n[category.key]?.description || ""}
+                    </p>
                   </div>
                 </Link>
               ))}

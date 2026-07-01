@@ -87,8 +87,6 @@ function App() {
                   path="/booking/:bookingCode"
                   element={<PaymentBookings />}
                 />
-                {/*disabled temporarily*/}
-                {/*<Route key={"/login"} path="/login" element={<Login />} />*/}
                 <Route
                   key={"/restaurant"}
                   path="/restaurant/:restaurantSlug"
@@ -119,10 +117,6 @@ function App() {
                 {/*disabled temporarily*/}
                 {/*<Route key={"/carrito"} path="/carrito" element={<Cart />} />*/}
               </Route>
-              {/*disabled temporarily*/}
-              {/*<Route element={<TemplateUser />}>*/}
-              {/*  <Route key={"/perfil"} path="/perfil" element={<ProfilePage />} />*/}
-              {/*</Route>*/}
             </Routes>
           </div>
           <ToastContainer />

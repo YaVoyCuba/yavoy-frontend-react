@@ -441,17 +441,13 @@ msgstr "Oferta exclusiva"
 #~ msgid "Expanding our reach"
 #~ msgstr "Expandiendo el alcance"
 
-#: src/Components/Landing/MainLandingRedesign.jsx:168
-#~ msgid "Explora la seleccion disponible y agrega lo necesario al carrito."
-#~ msgstr ""
-
 #: src/Components/Landing/Restaurants.jsx:298
 msgid "Explore categories"
 msgstr "Explora categorias"
 
 #: src/Components/Landing/Restaurants.jsx:482
-msgid "Explore our complete catalog of available stores."
-msgstr "Explora nuestro catalogo completo de tiendas disponibles."
+msgid "Explore our complete catalog."
+msgstr "Explora nuestro catalogo completo."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:167
 msgid "Explore our selection of food, electronics, and household items with the confidence of YaVoy Cuba."

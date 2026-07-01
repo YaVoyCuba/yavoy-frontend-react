@@ -23,24 +23,28 @@ const CATEGORY_CARDS = [
     href: "/restaurants",
     icon: "restaurant",
     image: "/assets/img/stitch-main/cat-restaurants.png",
+    label: msg`Restaurants`,
   },
   {
     key: "markets",
     href: "/markets",
     icon: "storefront",
     image: "/assets/img/stitch-main/cat-mercados.webp",
+    label: msg`Markets`,
   },
   {
     key: "sweets",
     href: "/sweets",
     icon: "cake",
     image: "/assets/img/stitch-main/cat-dulcerias.webp",
+    label: msg`Sweets`,
   },
   {
     key: "gifts",
     href: "/gifts",
     icon: "redeem",
     image: "/assets/img/stitch-main/cat-regalitos.webp",
+    label: msg`Gifts`,
   },
   // {
   //   key: "shipping",
@@ -137,6 +141,16 @@ const Restaurants = () => {
 
   const isServicesPage = path === "/services";
 
+  const currentCategoryCard = useMemo(() => {
+    const activeCard = CATEGORY_CARDS.find(cat => {
+        if (cat.href === "/restaurants") return path === "/restaurants";
+        return path === cat.href;
+    });
+      
+    // Return category key or null if none active
+    return activeCard ? activeCard.key : null;
+  }, [path]);
+
   const promoSlides = useMemo(() => {
     return promoRestaurants
       ?.map((photo) => {
@@ -178,22 +192,16 @@ const Restaurants = () => {
     const municipalityId = getMunicipality?.value?.id;
     const locationFinal = municipalityId === 0 ? 0 : municipalityId;
 
-    let type = "restaurant";
+    // Rapid mapping of keys to API types
+    const typeMapping = {
+      restaurants: "restaurant",
+      sweets: "dulceria",
+      markets: "market",
+      services: "servicios",
+      gifts: "regalos"
+    };
 
-    if (path === "/sweets") {
-      type = "dulceria";
-    }
-
-    if (path === "/markets") {
-      type = "market";
-    }
-    if (path === "/services") {
-      type = "servicios";
-    }
-
-    if (path === "/gifts") {
-      type = "regalos";
-    }
+    let type = typeMapping[currentCategoryCard] || "restaurant";
 
     try {
       const json = await apiManager.getRestaurants(locationFinal, type);
@@ -487,8 +495,10 @@ const Restaurants = () => {
 
               <section className="mx-auto mt-16 w-full max-w-7xl px-4 lg:px-8">
                 <div className="mb-8">
-                  <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>All stores</Trans></h2>
-                  <p className="mt-1 text-sm font-semibold text-slate-500"><Trans>Explore our complete catalog of available stores.</Trans></p>
+                  <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900">
+                    {categoryI18n[currentCategoryCard]?.label || <Trans>Explore categories</Trans>}
+                  </h2>
+                  <p className="mt-1 text-sm font-semibold text-slate-500"><Trans>Explore our complete catalog.</Trans></p>
                 </div>
 
                 {restaurants.length > 0 ? (
@@ -499,14 +509,14 @@ const Restaurants = () => {
                       ))}
                     </div>
 
-                    <div className="mt-10 flex justify-center">
+                    {/* <div className="mt-10 flex justify-center">
                       <button
                         type="button"
                         className="rounded-full border-2 border-slate-400 px-7 py-3 text-sm font-black text-slate-800 transition hover:border-[#f06233] hover:text-[#f06233]"
                       >
                         <Trans>View all stores</Trans>
                       </button>
-                    </div>
+                    </div> */}
                   </>
                 ) : (
                   <div className="rounded-2xl bg-white p-6 text-slate-700 shadow-sm">

@@ -47,7 +47,6 @@ export default {
                 return await request.json()
             }
         } catch (error) {
-            // TODO: done
             console.log(error)
         }
     }

@@ -566,8 +566,8 @@ msgid "Explore categories"
 msgstr "Explore categories"
 
 #: src/Components/Landing/Restaurants.jsx:482
-msgid "Explore our complete catalog of available stores."
-msgstr "Explore our complete catalog of available stores."
+msgid "Explore our complete catalog."
+msgstr "Explore our complete catalog."
 
 #: src/Pages/frontend/AboutCompanyPage.jsx:167
 msgid "Explore our selection of food, electronics, and household items with the confidence of YaVoy Cuba."

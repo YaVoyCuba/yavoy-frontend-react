@@ -31,7 +31,6 @@ export const apiCall = async (endpoint, token, data, method) => {
       return await request.json();
     }
   } catch (error) {
-    // TODO: done
     console.log(error)
   }
 };
@@ -51,7 +50,6 @@ export const post = async (endpoint, token, data) => {
       return await request.json();
     }
   } catch (error) {
-    // TODO: done
     console.log(error)
   }
 };
@@ -119,7 +117,6 @@ export const get = async (endpoint, token, data) => {
       return await request.json();
     }
   } catch (error) {
-    // TODO: done
     console.log(error)
   }
 };
@@ -139,7 +136,6 @@ export const del = async (endpoint, token, data) => {
       return await request.json();
     }
   } catch (error) {
-    // TODO: done
     console.log(error)
   }
 };
@@ -176,7 +172,6 @@ export const patch = async (endpoint, token, data) => {
       return await request.json();
     }
   } catch (error) {
-    // TODO: done
     console.log(error)
   }
 };

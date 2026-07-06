@@ -4,9 +4,9 @@ import { i18n } from '../../i18n'
 const LanguageSwitcher = () => {
   const [lang, setLang] = useState(() => {
     try {
-      return localStorage.getItem('lang') || i18n.locale || 'en'
+      return localStorage.getItem('lang') || i18n.locale || 'es'
     } catch (e) {
-      return i18n.locale || 'en'
+      return i18n.locale || 'es'
     }
   })
 

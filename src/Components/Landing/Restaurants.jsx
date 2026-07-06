@@ -294,7 +294,7 @@ const Restaurants = () => {
           </section>
 
           <section ref={catalogSectionRef} className="mx-auto w-full max-w-7xl px-4 pt-6 lg:px-8 lg:pt-8">
-            <div className="relative overflow-hidden rounded-3xl bg-slate-950 shadow-2xl">
+            <div className="relative overflow-hidden rounded-3xl bg-white shadow-2xl">
               <Swiper
                 autoplay={{
                   delay: 5000,
@@ -307,7 +307,7 @@ const Restaurants = () => {
                 {(promoSlides.length > 0 ? promoSlides : [{ id: "fallback", image: "/assets/img/fondo.webp", link: "/restaurants" }]).map(
                   (slide) => (
                     <SwiperSlide key={`hero-${slide.id}`}>
-                      <div className="relative flex h-auto aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden bg-slate-900">
+                      <div className="relative flex h-auto aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden bg-white">
                         
                         {/* 1. Imagen de fondo optimizada - Ahora con object-contain para no recortar */}
                         <img 
@@ -317,10 +317,10 @@ const Restaurants = () => {
                         />
                         
                         {/* 2. Oscurecimiento global opcional */}
-                        <div className="absolute inset-0 bg-slate-900/20" />
+                        <div className="absolute inset-0 bg-slate-900/5" />
                         
                         {/* 3. Gradiente direccional para la zona del texto */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent" />
                         
                         {/* 4. Contenido del Slide - Simplificado para evitar conflictos con texto de imágenes */}
                         {/* <div className="relative z-10 w-full p-8 md:p-12 lg:p-16">

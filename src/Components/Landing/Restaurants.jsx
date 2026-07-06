@@ -65,32 +65,36 @@ const StoreCard = ({ restaurant, imageBase }) => {
   return (
     <Link
       to={`/restaurant/${restaurant.slug}`}
-      className="group block rounded-3xl bg-[#f7f7f8] p-4 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-xl"
+      className="group block rounded-3xl bg-[#f7f7f8] p-3 shadow-md transition-all hover:-translate-y-0.5 hover:shadow-xl sm:p-4"
       aria-label={restaurant?.name || "Store"}
     >
-      <div className="relative mb-4 overflow-hidden rounded-2xl bg-slate-100">
-        <img
-          src={image}
-          alt={restaurant?.name || "Store"}
-          className="h-40 w-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        {rating > 0 && (
-          <div className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/95 px-2 py-1 text-xs font-black text-slate-900 shadow-sm">
-            <span className="notranslate material-symbols-outlined !text-sm text-[#f06233]">star</span>
-            <span>{rating.toFixed(1)}</span>
-          </div>
-        )}
-      </div>
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <h3 className="text-xl font-black tracking-tight text-slate-900">{restaurant?.name}</h3>
-          <p className="mt-1 text-sm font-semibold text-slate-500">
-            {productsCount} <Trans>products available</Trans>
-          </p>
+      <div className="flex gap-4 sm:block">
+        <div className="relative mb-0 h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-slate-100 sm:mb-4 sm:h-40 sm:w-full">
+          <img
+            src={image}
+            alt={restaurant?.name || "Store"}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          {rating > 0 && (
+            <div className="absolute right-2 top-2 inline-flex items-center gap-1 rounded-full bg-white/95 px-2 py-1 text-[10px] font-black text-slate-900 shadow-sm sm:right-3 sm:top-3 sm:text-xs">
+              <span className="notranslate material-symbols-outlined !text-[10px] text-[#f06233] sm:!text-sm">star</span>
+              <span>{rating.toFixed(1)}</span>
+            </div>
+          )}
         </div>
-        <span className="inline-flex rounded-lg bg-[#ffede8] p-2 text-[#f06233]">
-          <span className="notranslate material-symbols-outlined !text-base">{icon}</span>
-        </span>
+        <div className="flex flex-1 flex-col justify-center sm:block">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0 flex-1">
+              <h3 className="truncate text-lg font-black tracking-tight text-slate-900 sm:text-xl">{restaurant?.name}</h3>
+              <p className="mt-1 text-xs font-semibold text-slate-500 sm:text-sm">
+                {productsCount} <Trans>products available</Trans>
+              </p>
+            </div>
+            <span className="hidden rounded-lg bg-[#ffede8] p-2 text-[#f06233] sm:inline-flex">
+              <span className="notranslate material-symbols-outlined !text-base">{icon}</span>
+            </span>
+          </div>
+        </div>
       </div>
     </Link>
   );

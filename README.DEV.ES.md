@@ -19,6 +19,18 @@ Scripts importantes (en `package.json`)
 - `npm run lingui:compile` — compila `.po` a JS (ejecuta `postlingui:compile` para convertir a ESM)
 - `npm run lingui:add:es` — añade locale `es` (ejemplo)
 
+Configuración de Comportamiento del Sitio
+### Idioma por defecto
+Para cambiar el idioma por defecto de la aplicación (el que se muestra a usuarios nuevos):
+1. Edita [src/i18n.js](src/i18n.js) y cambia `i18n.activate('es')` por el código deseado (`es` o `en`).
+2. Edita [src/Components/Header/LanguageSwitcher.jsx](src/Components/Header/LanguageSwitcher.jsx) y cambia el valor por defecto en el `useState` (ej: `... || 'es'`).
+
+### Landing Page Principal
+El comportamiento de la página de inicio (`/`) se controla mediante variables de entorno:
+- `VITE_ENABLE_MAIN_LANDING`: 
+  - `true`: Muestra la página de bienvenida (Landing Redesign).
+  - `false`: Muestra directamente la sección de **Restaurantes** en la página de inicio.
+
 Flujo de trabajo de i18n (Lingui)
 1. Añade cadenas en componentes usando las macros recomendadas:
    - Para fragmentos JSX use `Trans`:

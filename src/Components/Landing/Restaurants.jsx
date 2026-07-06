@@ -100,7 +100,9 @@ const Restaurants = () => {
   const { _ } = useLingui();
   const locationRouter = useLocation();
   const path = locationRouter.pathname;
-  const isMainPage = path === "/";
+
+  const enableMainLanding = import.meta.env.VITE_ENABLE_MAIN_LANDING === "true";
+  const isMainPage = path === "/" && enableMainLanding;
 
   // Ref for the catalog section to scroll into view when category changes
   const catalogSectionRef = useRef(null);
@@ -148,13 +150,13 @@ const Restaurants = () => {
   const isServicesPage = path === "/services";
 
   const currentCategoryCard = useMemo(() => {
-    const activeCard = CATEGORY_CARDS.find(cat => {
-        if (cat.href === "/restaurants") return path === "/restaurants";
-        return path === cat.href;
+    const activeCard = CATEGORY_CARDS.find((cat) => {
+      if (cat.href === "/restaurants") return path === "/restaurants" || path === "/";
+      return path === cat.href;
     });
-      
-    // Return category key or null if none active
-    return activeCard ? activeCard.key : null;
+
+    // Return category key or default to restaurants
+    return activeCard ? activeCard.key : "restaurants";
   }, [path]);
 
   const promoSlides = useMemo(() => {
@@ -188,7 +190,7 @@ const Restaurants = () => {
 
   const isCategoryActive = (href) => {
     if (href === "/restaurants") {
-      return path === "/restaurants";
+      return path === "/restaurants" || path === "/";
     }
 
     return path === href;

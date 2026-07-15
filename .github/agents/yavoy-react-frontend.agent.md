@@ -1,5 +1,5 @@
 ---
-name: yavoy-react-agent
+name: yavoy-react-frontend
 description: "Agent specializing in YaVoy React frontend development with TypeScript, Tailwind CSS, and modern tooling"
 ---
 

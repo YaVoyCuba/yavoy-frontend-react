@@ -560,7 +560,7 @@ const CheckOut = () => {
             <ol className="space-y-4 text-gray-600">
               <li className="flex gap-3">
                 <span className="bg-main text-white rounded-full h-6 w-6 flex items-center justify-center flex-shrink-0">1</span>
-                <span>Envía <strong>${orderSuccessData.total}</strong> por Zelle a: <strong>info@yavoycuba.com</strong></span>
+                <span>Envía <strong>${orderSuccessData.total}</strong> por Zelle a: <strong>servicios@yavoycuba.com</strong></span>
               </li>
               <li className="flex gap-3">
                 <span className="bg-main text-white rounded-full h-6 w-6 flex items-center justify-center flex-shrink-0">2</span>
@@ -586,6 +586,8 @@ const CheckOut = () => {
             
             <Link 
               to={`/track/${orderSuccessData.unique_payment_token}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex-1 bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors uppercase text-center"
             >
               Seguir mi pedido

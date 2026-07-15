@@ -157,7 +157,7 @@ const OrderTrackingPage = () => {
 
           {/* Sidebar Info */}
           <div className="space-y-6">
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            {/* <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
               <h3 className="font-bold text-lg mb-4 text-gray-800">¿Necesitas Ayuda?</h3>
               <p className="text-sm text-gray-600 mb-6">Si tienes alguna duda sobre tu pedido o el pago, contáctanos por WhatsApp.</p>
               <a 
@@ -169,14 +169,14 @@ const OrderTrackingPage = () => {
                 <img src="/assets/img/wa.png" className="h-5 w-5 brightness-0 invert" alt="" />
                 Chat de Soporte
               </a>
-            </div>
+            </div> */}
 
             {order.status === 'pending' && (
               <div className="bg-yellow-50 p-6 rounded-xl border border-yellow-200">
                 <h3 className="font-bold text-yellow-800 mb-2 font-lg">Acción Requerida</h3>
                 <p className="text-sm text-yellow-700 mb-4">Aún no hemos confirmado tu pago. Envía el comprobante de Zelle por WhatsApp para activar tu orden.</p>
                 <div className="text-xs space-y-2 text-yellow-800">
-                  <p><strong>Zelle:</strong> info@yavoycuba.com</p>
+                  <p><strong>Zelle:</strong> servicios@yavoycuba.com</p>
                   <p><strong>Total:</strong> ${Number(order.total).toFixed(2)} USD</p>
                 </div>
               </div>

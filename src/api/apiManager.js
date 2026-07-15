@@ -293,6 +293,14 @@ export default {
     }
   },
 
+  getOrderTracking: async (token) => {
+    let urlApi = "/order/track/" + token;
+    const request = await fetch(UrlApiBase + urlApi);
+    if (request) {
+      return await request.json();
+    }
+  },
+
   newBookingPayment: async (data) => {
     let urlApi = '/payment/booking';
 

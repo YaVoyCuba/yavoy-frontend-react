@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import CheckOut from "./Pages/frontend/CheckOut";
 import PaymentCompleted from "./Pages/frontend/PaymentCompleted";
 import PaymentFailed from "./Pages/frontend/PaymentFailed";
+import OrderTrackingPage from "./Pages/frontend/OrderTrackingPage";
 import AboutCompanyPage from "./Pages/frontend/AboutCompanyPage";
 import ContactPage from "./Pages/frontend/ContactPage";
 import TermsPage from "./Pages/frontend/TermsPage";
@@ -114,6 +115,7 @@ function App() {
                 <Route key={"/refund-policy"} path="/refund-policy" element={<RefundPolicyPage />} />
 
                 <Route key={"/checkout"} path="/checkout" element={<CheckOut />} />
+                <Route key={"/track"} path="/track/:token" element={<OrderTrackingPage />} />
                 {/*disabled temporarily*/}
                 {/*<Route key={"/carrito"} path="/carrito" element={<Cart />} />*/}
               </Route>

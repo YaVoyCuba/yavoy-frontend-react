@@ -35,11 +35,10 @@ const CheckOut = () => {
   const [pickService, setPickService] = useState(0);
   const [empty, setEmpty] = useState(false);
   const [redirectToPayment, setRedirectToPayment] = useState(false);
-  const [tropipayData, setTropipayData] = useState(false);
+  const [orderSuccessData, setOrderSuccessData] = useState(null);
   const [loading, setLoading] = useState(false);
   const { cart } = useSelector((state) => state.cart);
   const getMunicipality = useSelector( ( state ) => state.location.municipality );
-  const [countries, setCountries] = useState([]);
   const {
     register,
     handleSubmit,
@@ -124,12 +123,7 @@ const CheckOut = () => {
       setDeliveryService(json.data.restaurant?.delivery);
     }
   };
-  const getTropipayCountries = async () => {
-    let json = await apiManager.getTropiapayCountries();
-    if (json.code === "ok") {
-      setCountries(json.data);
-    }
-  };
+
 
   const newOrder = async (data) => {
     setLoading(true);
@@ -152,20 +146,11 @@ const CheckOut = () => {
       schedule: data.schedule,
       dayDelivery: data.dayDelivery,
       currency_code: "USD",
-      method_payment: "tropipay",
-      clientPhone: null, // data.clientPhone,
-      clientEmail: null, // data.clientEmail,
-      clientName: null, // data.clientName + " " + data.clientLastName,
+      method_payment: "whatsapp_zelle",
+      clientPhone: data.receiverPhone,
+      clientEmail: null,
+      clientName: data.receiverName,
       client: null,
-      // client: {
-      //   name: data.clientName,
-      //   lastName: data.clientLastName,
-      //   address: data.clientAddress,
-      //   phone: data.clientPhone,
-      //   email: data.clientEmail,
-      //   countryId: data.clientCountry,
-      //   termsAndConditions: true,
-      // },
     };
 
     if (methodDelivery === "delivery" && !getMunicipality.value.id) {
@@ -184,17 +169,16 @@ const CheckOut = () => {
 
 
 
-    let json = await apiManager.newOrder(payload);
+    let json = await apiManager.newOrderWhatsApp(payload);
 
 
 
     if (json.code === "ok") {
+      setOrderSuccessData(json.data);
       setEmpty(true);
-      setRedirectToPayment(true);
       dispatch(clearCart());
-      window.location.href = json.url;
     } else {
-      toast.error("Ocurrió un error al procesar el pago!", {
+      toast.error("Ocurrió un error al procesar el pedido!", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -215,7 +199,7 @@ const CheckOut = () => {
   useEffect(() => {
     if (cart.length > 0) {
       getRestaurantData();
-      getTropipayCountries();
+
     } else {
       setEmpty(true);
     }
@@ -533,150 +517,24 @@ const CheckOut = () => {
                       </div>
 
                       <hr className="separator  " />
-                      <span className="title p-3">Método de pago</span>
-                      {tropipayData ? (
-                        <div>
-                          <span className="title p-3">
-                            Datos de facturación
-                          </span>
-                          <div className="p-3">
-                            <div className="flex flex-col space-y-3">
-                              <span className="text-gray-700">Nombre</span>
-                              <input
-                                type="text"
-                                className="input-text"
-                                {...register("clientName", { required: true })}
-                              />
-                              {errors.clientName && (
-                                <span className="text-red-500 font-medium">
-                                  Este campo es requerido
-                                </span>
-                              )}
-                            </div>
-                            <div className="flex flex-col space-y-3">
-                              <span className="text-gray-700">Apellidos</span>
-                              <input
-                                type="text"
-                                className="input-text"
-                                {...register("clientLastName", {
-                                  required: true,
-                                })}
-                              />
-                              {errors.clientLastName && (
-                                <span className="text-red-500 font-medium">
-                                  Este campo es requerido
-                                </span>
-                              )}
-                            </div>
-                            <div className="flex flex-col space-y-3">
-                              <span className="text-gray-700">Dirección</span>
-                              <input
-                                type="text"
-                                className="input-text"
-                                {...register("clientAddress", {
-                                  required: true,
-                                })}
-                              />
-                              {errors.clientAddress && (
-                                <span className="text-red-500 font-medium">
-                                  Este campo es requerido
-                                </span>
-                              )}
-                            </div>
-                            <div className="flex flex-col space-y-3">
-                              <label className="text-gray-700" htmlFor="email">Correo</label>
-                              <input
-                                  type="email"
-                                  className="input-text"
-                                  id="email" name="email"
-                                  placeholder="username@mycompany.com"
-                                  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
-                                  required
-                                  { ...register( 'clientEmail', { required: true } ) }
-                              />
-                              {errors.clientEmail && (
-                                <span className="text-red-500 font-medium">
-                                  Este campo es requerido
-                                </span>
-                              )}
-                            </div>
-                            <input id="scales" value={true} name="scales" type="checkbox" onChange={handleMarketingChange} />
-                            <label htmlFor="scales"> Acepto recibir correos electrónicos generales y ofertas de productos de yavoy</label>
-                            <div className="flex flex-col space-y-3">
+                      <span className="title p-3">Confirmación de Pedido</span>
+                      
+                      <div className="p-4 bg-blue-50 border-l-4 border-blue-500 text-blue-700 m-3">
+                        <p className="font-bold">Pago vía Zelle / WhatsApp</p>
+                        <p className="text-sm">Al finalizar, recibirás un mensaje de WhatsApp con las instrucciones para realizar tu pago por Zelle.</p>
+                      </div>
 
-                            </div>
-                            <div className="flex flex-col space-y-3">
-                              <span className="text-gray-700">Teléfono</span>
-                              <input
-                                type="text"
-                                className="input-text"
-                                {...register("clientPhone", { required: true })}
-                              />
-                              {errors.clientPhone && (
-                                <span className="text-red-500 font-medium">
-                                  Este campo es requerido
-                                </span>
-                              )}
-                            </div>
-                            <div className="flex flex-col space-y-3">
-                              <span className="text-gray-700   mt-2">País</span>
-                              <select
-                                {...register("clientCountry", {
-                                  required: false,
-                                })}
-                                className="input-text"
-                              >
-                                <option value="">-Selecciona-</option>
-                                {countries?.map((country, index) => {
-                                  return (
-                                    <option
-                                      key={`country-${country.id}`}
-                                      value={country.id}
-                                    >
-                                      {country.name}
-                                    </option>
-                                  );
-                                })}
-                              </select>
-                              {errors.clientCountry && (
-                                <span className="text-red-500 font-medium">
-                                  Este campo es requerido
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                          <span className="text-center mx-auto">
-                            * Las tarjetas deben tener habilitado 3D-Secure para
-                            ser aceptadas
-                          </span>
-                          <button
-                            type="submit"
-                            className="btn-main flex  mt-7 px-7 mx-auto"
-                          >
-                            <span className="px-7 text-lg font-medium">
-                            Continuar
-                            </span>
-                            <img
-                              src="/assets/img/tropipay.png"
-                              className="h-10 w-auto"
-                            />
-                          </button>
-                        </div>
-                      ) : (pickService == 1 &&
+                      {(pickService == 1 &&
                           method.name == "Recogida/consumo en el lugar") ||
                         (deliveryService == 1 &&
                           method.name == "Entrega a domicilio") ? (
                         <button
-                          onClick={() => setTropipayData(false)}
-                          className="btn-main flex  mt-7 px-7 mx-auto"
+                          type="submit"
+                          className="btn-main flex mt-7 px-7 mx-auto"
                         >
                           <span className="px-7 text-lg font-medium">
-                          Pagar con tarjeta
+                          Finalizar Pedido
                           </span>
-                          <img
-                            src="/assets/img/tropipay.png"
-                            className="h-10 w-auto"
-                          />
                         </button>
                       ) : (
                         <span className="text-center p-3 text-red-500">
@@ -691,9 +549,54 @@ const CheckOut = () => {
             </form>
           </div>
         )
-      ) : (
+      ) : orderSuccessData ? (
+        <div className="flex flex-col my-20 justify-center items-center max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+          <img src="/assets/img/completed.png" className="h-48 w-auto mb-6" />
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">¡Pedido Recibido!</h2>
+          <p className="text-xl text-main font-semibold mb-6">Orden #{orderSuccessData.order_id}</p>
+          
+          <div className="w-full bg-gray-50 p-6 rounded-lg border border-gray-200 mb-8">
+            <h3 className="font-bold text-lg mb-4 text-gray-700">🚀 Próximos pasos:</h3>
+            <ol className="space-y-4 text-gray-600">
+              <li className="flex gap-3">
+                <span className="bg-main text-white rounded-full h-6 w-6 flex items-center justify-center flex-shrink-0">1</span>
+                <span>Envía <strong>${orderSuccessData.total}</strong> por Zelle a: <strong>info@yavoycuba.com</strong></span>
+              </li>
+              <li className="flex gap-3">
+                <span className="bg-main text-white rounded-full h-6 w-6 flex items-center justify-center flex-shrink-0">2</span>
+                <span>Envía el comprobante de pago por <strong>WhatsApp</strong>.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="bg-main text-white rounded-full h-6 w-6 flex items-center justify-center flex-shrink-0">3</span>
+                <span>Una vez validado, procesaremos tu orden inmediatamente.</span>
+              </li>
+            </ol>
+          </div>
 
-        redirectToPayment ?
+          <div className="flex flex-col sm:flex-row gap-4 w-full">
+            <a 
+              href={orderSuccessData.whatsapp_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors uppercase text-center"
+            >
+              <img src="/assets/img/wa.png" className="h-6 w-6 brightness-0 invert" alt="" />
+              Confirmar en WhatsApp
+            </a>
+            
+            <Link 
+              to={`/track/${orderSuccessData.unique_payment_token}`}
+              className="flex-1 bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors uppercase text-center"
+            >
+              Seguir mi pedido
+            </Link>
+          </div>
+
+          <Link to="/" className="mt-8 text-gray-500 hover:text-main underline">
+            Volver a la tienda
+          </Link>
+        </div>
+      ) : redirectToPayment ? (
 
         <div className="flex flex-col my-7 justify-center items-center">
 

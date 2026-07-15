@@ -276,6 +276,23 @@ export default {
     }
   },
 
+  newOrderWhatsApp: async (data) => {
+    let urlApi = '/payment/checkout-whatsapp';
+
+    const request = await fetch(UrlApiBase  + urlApi, {
+        method:'POST',
+        headers:{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+    if(request){
+
+        return await request.json();
+    }
+  },
+
   newBookingPayment: async (data) => {
     let urlApi = '/payment/booking';
 

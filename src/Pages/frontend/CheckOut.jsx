@@ -597,14 +597,10 @@ const CheckOut = () => {
           </Link>
         </div>
       ) : redirectToPayment ? (
-
         <div className="flex flex-col my-7 justify-center items-center">
-
           <span className="text-2xl font-bold">Redireccionando al procesador de pago</span>
-
         </div>
-
-        :
+      ) : (
         <div className="flex flex-col my-7 justify-center items-center">
           <img src="/assets/img/notfound.png" className="h-96 w-auto" />
           <span className="text-2xl font-bold">Tu carrito está vacío</span>
@@ -612,7 +608,6 @@ const CheckOut = () => {
             <button className="btn-main mt-5">Ir al inicio</button>
           </Link>
         </div>
-
       )}
     </>
   );

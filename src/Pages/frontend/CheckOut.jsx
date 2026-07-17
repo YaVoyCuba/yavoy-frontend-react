@@ -81,10 +81,11 @@ const CheckOut = () => {
       return 0;
     } else {
       //Find in zones the zone where the location is municipalitie_id and get price
+      if (!Array.isArray(zones)) return 0;
       let zone = zones.find(
-        (zone) => zone.municipalitie_id === getMunicipality.value?.id
+        (zone) => zone.municipalitie_id === getMunicipality?.value?.id
       );
-      return zone?.price ?? 0;
+      return Number(zone?.price ?? 0);
     }
   };
 
@@ -95,10 +96,10 @@ const CheckOut = () => {
   const fee = () => {
     let feeTotal = 0;
 
-    if (settings.fee_restaurants !== undefined) {
+    if (settings && settings.fee_restaurants !== undefined) {
       let total = getTotalPrice() + deliveryCost();
 
-      feeTotal = (total * settings.fee_restaurants) / 100;
+      feeTotal = (total * Number(settings.fee_restaurants)) / 100;
     }
 
     let extraFee = 0;
@@ -294,7 +295,7 @@ const CheckOut = () => {
                           </div>
                           <div className="flex flex-col space-y-3">
                             <span className="text-gray-700  ">
-                              Dirección del receptor en {getMunicipality.value.name}
+                              Dirección del receptor en {getMunicipality?.value?.name ?? getMunicipality?.label ?? ''}
                             </span>
                             <input
                               type="text"
@@ -331,13 +332,13 @@ const CheckOut = () => {
                               Recogida/consumo en el restaurante
                             </span>
                             <span className="text-gray-700">
-                              Dirección: {restaurant.address}
+                              Dirección: {restaurant?.address}
                             </span>
                             <span className="text-gray-700">
-                              Teléfono: {restaurant.phone}
+                              Teléfono: {restaurant?.phone}
                             </span>
                             <span className="text-gray-700">
-                              Email: {restaurant.phone}
+                              Email: {restaurant?.email ?? restaurant?.phone}
                             </span>
                           </div>
                           <div className="flex flex-col space-y-3">
@@ -410,7 +411,7 @@ const CheckOut = () => {
                       {schedules?.map((schedule, index) => {
                         return (
                           <option key={`schedule-${index}`} value={schedule.id}>
-                            {schedule.schedule.schedule}
+                            {schedule.schedule?.schedule ?? 'Horario disponible'}
                           </option>
                         );
                       })}

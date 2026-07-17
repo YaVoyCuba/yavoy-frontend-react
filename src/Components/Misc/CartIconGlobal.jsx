@@ -40,7 +40,7 @@ const CartIconGlobal = () => {
 
     const getStoreLink = () => {
         if (cart && cart.length)
-            return 'restaurante/' + cart[0]?.restaurantSlug
+            return '/restaurant/' + cart[0]?.restaurantSlug
         return ''
     }
 
@@ -229,7 +229,7 @@ const CartIconGlobal = () => {
                                                 </div>
                                                 <hr className="separator  " />
                                                 <div className="flex flex-col">
-                                                    <Link className=" mt-3 text-center" to={ 'carrito' }>
+                                                    <Link className=" mt-3 text-center" to={ '/carrito' }>
                             <span
                                 onClick={ () => setOpen( false ) }
                                 className="text-center text-lg  color-main  font-medium mt-3 hidden"
@@ -248,7 +248,7 @@ const CartIconGlobal = () => {
                                                     <Link
                                                         onClick={ () => setOpen( false ) }
                                                         className="btn-main  mt-5 text-center"
-                                                        to={ 'caja' }
+                                                        to={ '/caja' }
                                                     >
                                                         <button
 

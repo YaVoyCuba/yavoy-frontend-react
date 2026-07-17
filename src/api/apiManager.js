@@ -1,10 +1,9 @@
-
-let UrlBase = import.meta.env.VITE_APP_BASE_URL;
+export const UrlBase = import.meta.env.VITE_APP_BASE_URL;
 const shopSlug = "yavoycuba";
 const UrlApiBase = UrlBase + "/api/v1";
 
 export default {
-
+  UrlBase,
   getGeneralData: async () => {
     let urlApi = "/settings";
     const request = await fetch(UrlApiBase + urlApi);

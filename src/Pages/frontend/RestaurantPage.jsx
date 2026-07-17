@@ -6,7 +6,9 @@ import { Loading } from '../../common/Loading';
 import { useSelector } from 'react-redux';
 
 function RestaurantPage() {
-    useEffect( () => window.scrollTo( 0, 0 ) );
+    useEffect( () => {
+        window.scrollTo( 0, 0 );
+    }, [] );
     const [ loading, setLoading ] = useState( true );
     const [ disabled, setDisabled ] = useState( true );
     const { restaurantSlug } = useParams();
@@ -122,7 +124,7 @@ function RestaurantPage() {
                                 </div>
                                 <div className="lg:col-span-2">
                                     <div className="lg:grid lg:grid-cols-2">
-                                        { restaurant.experiences.map( ( exp ) => {
+                                        { restaurant.experiences?.map( ( exp ) => {
 
                                             if (exp.status === 'active') {
                                                 return (
@@ -165,7 +167,7 @@ function RestaurantPage() {
                                                 </div>
                                                 <div className="lg:col-span-2">
                                                     <div className="lg:grid lg:grid-cols-2">
-                                                        { category.products.map( ( product ) => {
+                                                        { category.products?.map( ( product ) => {
                                                             if (
                                                                 product.category_id === category.id &&
                                                                 product.status === 'active' && product.experience === 'N'

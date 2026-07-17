@@ -101,7 +101,7 @@ const StoreCard = ({ restaurant, imageBase }) => {
 };
 
 const Restaurants = () => {
-  const { _ } = useLingui();
+  const { i18n } = useLingui();
   const locationRouter = useLocation();
   const path = locationRouter.pathname;
 
@@ -130,24 +130,24 @@ const Restaurants = () => {
 
   const categoryI18n = {
     restaurants: {
-      label: _(msg`Restaurants`),
-      description: _(msg`Fresh meals from trusted local partners.`),
+      label: i18n._(msg`Restaurants`),
+      description: i18n._(msg`Fresh meals from trusted local partners.`),
     },
     markets: {
-      label: _(msg`Markets`),
-      description: _(msg`Essentials delivered to your family.`),
+      label: i18n._(msg`Markets`),
+      description: i18n._(msg`Essentials delivered to your family.`),
     },
     sweets: {
-      label: _(msg`Sweets`),
-      description: _(msg`Desserts and sweet combos for special moments.`),
+      label: i18n._(msg`Sweets`),
+      description: i18n._(msg`Desserts and sweet combos for special moments.`),
     },
     gifts: {
-      label: _(msg`Gifts`),
-      description: _(msg`Curated details for celebrations and surprises.`),
+      label: i18n._(msg`Gifts`),
+      description: i18n._(msg`Curated details for celebrations and surprises.`),
     },
     shipping: {
-      label: _(msg`Shipping`),
-      description: _(msg`Air and sea cargo options.`),
+      label: i18n._(msg`Shipping`),
+      description: i18n._(msg`Air and sea cargo options.`),
     },
   };
 

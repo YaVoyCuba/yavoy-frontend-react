@@ -10,7 +10,7 @@ import CardProductVertical from '../Misc/CardProductVertical';
 import { useSelector } from 'react-redux';
 
 const SearchPage = () => {
-    const { _ } = useLingui();
+    const { i18n } = useLingui();
     const [ open, setOpen ] = useState( false );
 
     const [ results, setResults ] = useState( [] );
@@ -117,7 +117,7 @@ const SearchPage = () => {
                                 onClick={ () => setOpen( true ) }
                                 className="bg-gray-100  rounded-full w-96 pl-10 pr-4 py-2 focus:outline-none focus:shadow-outline"
                                 type="text"
-                                placeholder={_(msg`Search`)}
+                                placeholder={i18n._(msg`Search`)}
                             />
                         </div>
                     </div>
@@ -183,7 +183,7 @@ const SearchPage = () => {
                                                     onChange={ ( event ) => onSearch( event.target.value ) }
                                                     className="bg-gray-100    w-full px-3  py-2 focus:outline-none focus:shadow-outline"
                                                     type="text"
-                                                    placeholder={_(msg`Search`)}
+                                                    placeholder={i18n._(msg`Search`)}
                                                 />
                                             </Dialog.Title>
                                             <div className="mt-2">

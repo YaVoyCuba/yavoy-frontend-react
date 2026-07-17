@@ -52,25 +52,25 @@ const MainLandingRedesign = () => {
   // This keeps the UI clean while we add comments and iterate on implementation.
   if (!ENABLE_MAIN_LANDING) return null;
 
-  const { _ } = useLingui();
+  const { i18n } = useLingui();
 
   const categoriesI18n = categories.map((category) => {
     const labels = {
       dulcerias: {
-        name: _(msg`Sweets`),
-        description: _(msg`Sweet desserts and combos to surprise your family.`),
+        name: i18n._(msg`Sweets`),
+        description: i18n._(msg`Sweet desserts and combos to surprise your family.`),
       },
       mercados: {
-        name: _(msg`Markets`),
-        description: _(msg`Fresh products and essentials.`),
+        name: i18n._(msg`Markets`),
+        description: i18n._(msg`Fresh products and essentials.`),
       },
       regalitos: {
-        name: _(msg`Gifts`),
-        description: _(msg`Details and bundles for special occasions.`),
+        name: i18n._(msg`Gifts`),
+        description: i18n._(msg`Details and bundles for special occasions.`),
       },
       restaurantes: {
-        name: _(msg`Restaurants`),
-        description: _(msg`Restaurants`),
+        name: i18n._(msg`Restaurants`),
+        description: i18n._(msg`Restaurants`),
       },
     };
 

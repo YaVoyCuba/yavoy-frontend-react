@@ -1,6 +1,6 @@
 
 import { Provider } from "react-redux";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useLingui } from "@lingui/react";
 import { t } from "@lingui/macro";
@@ -22,6 +22,11 @@ import { persistor, store } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import PaymentBookings from "./Pages/backend/bookings/PaymentBookings";
 
+const RedirectWithSlug = ( { to } ) => {
+  const { restaurantSlug, productSlug } = useParams();
+  const slug = restaurantSlug || productSlug;
+  return <Navigate to={ to.replace( ":slug", slug ) } replace />;
+};
 
 function App() {
   const { i18n } = useLingui();
@@ -42,7 +47,7 @@ function App() {
             <Routes>
               <Route element={<TemplateLanding />}>
                 <Route path="/restaurantes" element={<Navigate to="/restaurants" replace />} />
-                <Route path="/restaurante/:restaurantSlug" element={<Navigate to="/restaurant/:restaurantSlug" replace />} />
+                <Route path="/restaurante/:restaurantSlug" element={<RedirectWithSlug to="/restaurant/:slug" />} />
                 <Route path="/mercados" element={<Navigate to="/markets" replace />} />
                 <Route path="/servicios" element={<Navigate to="/services" replace />} />
                 <Route path="/dulcerias" element={<Navigate to="/sweets" replace />} />
@@ -54,7 +59,7 @@ function App() {
                 <Route path="/politica-de-reembolso" element={<Navigate to="/refund-policy" replace />} />
                 <Route path="/pagocompletado" element={<Navigate to="/payment-completed" replace />} />
                 <Route path="/errorenpago" element={<Navigate to="/payment-failed" replace />} />
-                <Route path="/producto/:productSlug" element={<Navigate to="/product/:productSlug" replace />} />
+                <Route path="/producto/:productSlug" element={<RedirectWithSlug to="/product/:slug" />} />
                 <Route path="/caja" element={<Navigate to="/checkout" replace />} />
 
                 <Route key={"/"} path="/" element={<Restaurants />} />

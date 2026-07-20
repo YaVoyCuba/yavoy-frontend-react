@@ -152,7 +152,7 @@ function RestaurantPage() {
                         ) }
 
                         { restaurant.categories?.length > 0 &&
-                            restaurant.categories.map( ( category ) => {
+                            restaurant.categories?.map( ( category ) => {
                                 if (
                                     category.products?.filter( ( prod ) => prod.status == 'active' && prod.experience == 'N' )
                                         .length > 0

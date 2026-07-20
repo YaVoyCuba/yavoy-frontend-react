@@ -2,7 +2,9 @@ import React from "react";
 import { useEffect } from "react";
 
 function AboutPage() {
-  useEffect(() => window.scrollTo(0, 0));
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <div className="grid h-screen grid-cols-7">

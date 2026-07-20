@@ -6,7 +6,9 @@ import { incrementQuantity } from "../../redux/cartSlice";
 
 // unused temporarily
 const Cart = () => {
-  useEffect(() => window.scrollTo(0, 0));
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [quantity, setQuantity] = useState(1);
 
   const cart = useSelector((state) => state.cart.cart);
@@ -50,7 +52,7 @@ const Cart = () => {
               <th></th>
             </thead>
             <tbody>
-              {cart.map((product, index) => {
+              {cart?.map((product, index) => {
                 return (
                   <tr key={`productcart-${index}`}>
                     <td className="flex p-3">

@@ -51,7 +51,7 @@ const Location = () => {
         try {
             const json = await apiManager.getLocationData();
             if (json && json.code === 'ok' && json.data?.provinces) {
-                const provincesOptions = json.data.provinces.map( ( province ) => ( {
+                const provincesOptions = json.data.provinces?.map( ( province ) => ( {
                     value: province,
                     label: province.name,
                 } ) );
@@ -69,7 +69,7 @@ const Location = () => {
         try {
             const jsonM = await apiManager.getMunicipalities( selected.value.id );
             if (jsonM && jsonM.code === 'ok' && Array.isArray(jsonM.data)) {
-                const municipalitiesOptions = jsonM.data.map( ( item ) => ( {
+                const municipalitiesOptions = jsonM.data?.map( ( item ) => ( {
                     value: item,
                     label: item.name,
                 } ) );

@@ -31,7 +31,9 @@ const ProductDetailPage = (props) => {
   };
 
   //history
-  useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState([]);
@@ -52,19 +54,15 @@ const ProductDetailPage = (props) => {
   const dispatch = useDispatch();
 
   async function getProduct() {
+    setPhotos([]); // Clear photos before loading new ones to avoid duplicates
     const response = await apiManager.getProductDetails(productSlug);
-    if (response.code === "ok") {
+    if (response?.code === "ok" && response.product) {
       setProduct(response.product);
-      response.product.photos.map((photo) => {
-        console.log(photo);
-        setPhotos((photos) => [
-          ...photos,
-          {
-            original: apiManager.UrlBase + photo.path_photo,
-            thumbnail: apiManager.UrlBase + photo.path_photo,
-          },
-        ]);
-      });
+      const galleryPhotos = response.product.photos?.map((photo) => ({
+        original: apiManager.UrlBase + photo.path_photo,
+        thumbnail: apiManager.UrlBase + photo.path_photo,
+      })) || [];
+      setPhotos(galleryPhotos);
     }
 
     setLoading(false);
@@ -77,7 +75,11 @@ const ProductDetailPage = (props) => {
 
   //Function navigate back
   function goBack() {
-    navigate("/restaurant/" + product.restaurant.slug);
+    if (product?.restaurant?.slug) {
+      navigate("/restaurant/" + product.restaurant.slug);
+    } else {
+      navigate(-1);
+    }
   }
   const [tab, setTab] = useState("description");
   const [quantity, setQuantity] = useState(1);

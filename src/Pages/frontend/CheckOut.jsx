@@ -9,6 +9,7 @@ import { clearCart } from "../../redux/cartSlice";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useWatch } from 'react-hook-form';
+import defaults from "../../config/defaults";
 
 const methodsDeliveries = [
   { name: "Entrega a domicilio", active: true },
@@ -561,7 +562,7 @@ const CheckOut = () => {
             <ol className="space-y-4 text-gray-600">
               <li className="flex gap-3">
                 <span className="bg-main text-white rounded-full h-6 w-6 flex items-center justify-center flex-shrink-0">1</span>
-                <span>Envía <strong>${orderSuccessData.total}</strong> por Zelle a: <strong>servicios@yavoycuba.com</strong></span>
+                <span>Envía <strong>${orderSuccessData.total}</strong> por Zelle a: <strong>{defaults.phone}</strong></span>
               </li>
               <li className="flex gap-3">
                 <span className="bg-main text-white rounded-full h-6 w-6 flex items-center justify-center flex-shrink-0">2</span>

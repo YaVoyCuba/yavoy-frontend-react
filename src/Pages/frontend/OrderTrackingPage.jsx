@@ -47,8 +47,8 @@ const OrderTrackingPage = () => {
   const steps = [
     { id: "pending", label: "Pedido Recibido", description: "Esperando comprobante" },
     { id: "paid", label: "Pago Verificado", description: "Confirmado por YaVoy" },
-    { id: "preparing", label: "En Cocina", description: "El restaurante prepara tu orden" },
-    { id: "shipping", label: "De Camino", description: "El repartidor va hacia la entrega" },
+    // { id: "preparing", label: "En Cocina", description: "El restaurante prepara tu orden" },
+    // { id: "shipping", label: "De Camino", description: "El repartidor va hacia la entrega" },
     { id: "complete", label: "Entregado", description: "¡Buen provecho!" },
   ];
 

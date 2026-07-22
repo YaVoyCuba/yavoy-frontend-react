@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import apiManager from "../../api/apiManager";
 import { Loading } from "../../common/Loading";
+import defaults from "../../config/defaults";
 import { toast } from "react-toastify";
 
 const OrderTrackingPage = () => {
@@ -176,7 +177,7 @@ const OrderTrackingPage = () => {
                 <h3 className="font-bold text-yellow-800 mb-2 font-lg">Acción Requerida</h3>
                 <p className="text-sm text-yellow-700 mb-4">Aún no hemos confirmado tu pago. Envía el comprobante de Zelle por WhatsApp para activar tu orden.</p>
                 <div className="text-xs space-y-2 text-yellow-800">
-                  <p><strong>Zelle:</strong> servicios@yavoycuba.com</p>
+                  <p><strong>Zelle:</strong> {defaults.phone}</p>
                   <p><strong>Total:</strong> ${Number(order.total).toFixed(2)} USD</p>
                 </div>
               </div>

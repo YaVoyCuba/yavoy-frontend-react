@@ -8,7 +8,7 @@ const WA = () => {
   // Format phone for WhatsApp API: digits only, no leading + or non-digits
   const digits = rawPhone.replace(/\D/g, "");
   const waPhone = digits.replace(/^0+/, "");
-  const href = `https://api.whatsapp.com/send?phone=${waPhone}&text=Hola%20necesito%20ayuda%20en%20YaVoy.`;
+  const href = `https://api.whatsapp.com/send?phone=${waPhone}&text=Hola%20necesito%20ayuda%20en%20Ya Voy Marketplace.`;
 
   return (
     <a

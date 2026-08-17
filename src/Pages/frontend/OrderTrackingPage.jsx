@@ -56,10 +56,8 @@ const OrderTrackingPage = () => {
   const getActiveStep = (status) => {
     switch (status) {
       case "pending": return 0;
-      case "paid": return 1;
-      case "active": return 2; // Assuming active means in preparation
-      case "shipping": return 3;
-      case "complete": return 4;
+      case "active": return 1;  // Backend "active" = "Payment Verified"
+      case "complete": return 2;
       default: return 0;
     }
   };

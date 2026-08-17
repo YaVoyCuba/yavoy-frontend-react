@@ -557,22 +557,12 @@ const CheckOut = () => {
           <h2 className="text-3xl font-bold text-gray-800 mb-2">¡Pedido Recibido!</h2>
           <p className="text-xl text-main font-semibold mb-6">Orden #{orderSuccessData.order_id}</p>
           
-          <div className="w-full bg-gray-50 p-6 rounded-lg border border-gray-200 mb-8">
-            <h3 className="font-bold text-lg mb-4 text-gray-700">🚀 Próximos pasos:</h3>
-            <ol className="space-y-4 text-gray-600">
-              <li className="flex gap-3">
-                <span className="bg-main text-white rounded-full h-6 w-6 flex items-center justify-center flex-shrink-0">1</span>
-                <span>Envía <strong>${orderSuccessData.total}</strong> por Zelle a: <strong>{defaults.phone}</strong></span>
-              </li>
-              <li className="flex gap-3">
-                <span className="bg-main text-white rounded-full h-6 w-6 flex items-center justify-center flex-shrink-0">2</span>
-                <span>Envía el comprobante de pago por <strong>WhatsApp</strong>.</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="bg-main text-white rounded-full h-6 w-6 flex items-center justify-center flex-shrink-0">3</span>
-                <span>Una vez validado, procesaremos tu orden inmediatamente.</span>
-              </li>
-            </ol>
+          <div className="w-full bg-blue-50 p-6 rounded-lg border border-blue-200 mb-8">
+            <h3 className="font-bold text-lg mb-4 text-blue-900">⚠️ Próximo paso:</h3>
+            <p className="text-blue-800 mb-4">
+              Para continuar con tu pedido, haz clic en el botón <strong>"Confirmar en WhatsApp"</strong> 👇. 
+              Allí, nuestro operador de YaVoy te guiará a través de los pasos para completar el pago por Zelle.
+            </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -590,7 +580,7 @@ const CheckOut = () => {
               to={`/track/${orderSuccessData.unique_payment_token}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors uppercase text-center"
+              className="hidden flex-1 bg-gray-800 hover:bg-gray-900 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors uppercase text-center"
             >
               Seguir mi pedido
             </Link>

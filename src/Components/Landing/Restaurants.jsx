@@ -166,7 +166,7 @@ const Restaurants = () => {
   const promoSlides = useMemo(() => {
     return promoRestaurants
       ?.map((photo) => {
-        const image = photo?.image || photo?.image_movil;
+        const image = photo?.image;
         if (!image) {
           return null;
         }

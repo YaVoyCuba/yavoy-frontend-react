@@ -344,7 +344,7 @@ const Restaurants = () => {
               </Swiper>
 
               {/* 5. Tarjeta Flotante "Fast delivery" (Se sube a z-20 y se añade hover sutil) */}
-              <div className="absolute bottom-6 right-6 z-20 hidden rounded-2xl bg-white/95 p-5 shadow-2xl backdrop-blur-md border border-white/20 lg:block max-w-[260px] transition-all duration-300 hover:scale-[1.02]">
+              {/* <div className="hover:animate-bounce absolute bottom-6 right-6 z-20 hidden rounded-2xl bg-white/95 p-5 shadow-2xl backdrop-blur-md border border-white/20 lg:block max-w-[260px] transition-all duration-300 hover:scale-[1.02]">
                 <div className="flex items-center gap-2 text-slate-900">
                   <span className="notranslate material-symbols-outlined text-[#f06233] !text-2xl">local_shipping</span>
                   <p className="text-xs font-black uppercase tracking-wider"><Trans>Fast delivery</Trans></p>
@@ -352,7 +352,7 @@ const Restaurants = () => {
                 <p className="mt-2.5 text-xs font-bold leading-relaxed text-slate-600">
                   <Trans>Partner stores deliver quickly with real-time stock availability.</Trans>
                 </p>
-              </div>
+              </div> */}
             </div>
           </section>
 
@@ -500,7 +500,7 @@ const Restaurants = () => {
                 )}
               </section>
 
-              <section className="mx-auto mt-14 w-full max-w-7xl px-4 lg:px-8">
+              <section className=" mx-auto mt-14 w-full max-w-7xl px-4 lg:px-8">
                 <div className="mb-8 flex items-center justify-between">
                   <div>
                     <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>Top rating</Trans></h2>

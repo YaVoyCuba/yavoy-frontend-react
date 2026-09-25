@@ -500,7 +500,7 @@ const Restaurants = () => {
                 )}
               </section>
 
-              <section className=" mx-auto mt-14 w-full max-w-7xl px-4 lg:px-8">
+              <section className="mx-auto mt-14 w-full max-w-7xl px-4 lg:px-8">
                 <div className="mb-8 flex items-center justify-between">
                   <div>
                     <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>Top rating</Trans></h2>

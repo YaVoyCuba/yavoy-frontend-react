@@ -304,18 +304,19 @@ const Restaurants = () => {
                 }}
                 spaceBetween={0}
                 slidesPerView={1}
-                className="w-full h-full"
+                autoHeight
+                className="w-full"
               >
                 {(promoSlides.length > 0 ? promoSlides : [{ id: "fallback", image: "/assets/img/fondo.webp", link: "/restaurants" }]).map(
                   (slide) => (
                     <SwiperSlide key={`hero-${slide.id}`}>
-                      <div className="relative flex h-auto aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden bg-white">
+                      <div className="relative w-full overflow-hidden bg-white">
                         
                         {/* 1. Imagen de fondo optimizada - Ahora con object-contain para no recortar */}
                         <img 
                           src={slide.image} 
                           alt="Promo" 
-                          className="h-full w-full object-contain object-center transition-transform duration-700 ease-out select-none" 
+                          className="block w-full h-auto select-none transition-transform duration-700 ease-out"
                         />
                         
                         {/* 2. Oscurecimiento global opcional */}

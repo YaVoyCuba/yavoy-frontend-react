@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import apiManager from "../../api/apiManager";
 import { removeItem } from "../../redux/cartSlice";
@@ -9,7 +9,6 @@ import { clearCart } from "../../redux/cartSlice";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useWatch } from 'react-hook-form';
-import defaults from "../../config/defaults";
 
 const methodsDeliveries = [
   { name: "Entrega a domicilio", active: true },
@@ -68,6 +67,17 @@ const CheckOut = () => {
       setEmpty(true);
     }
   };
+
+  const successRef = useRef(null);
+
+  useEffect(() => {
+    if (orderSuccessData) {
+      const t = setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
+      return () => clearTimeout(t);
+    }
+  }, [orderSuccessData]);
 
   const getTotalPrice = () => {
     let total = 0;
@@ -552,7 +562,10 @@ const CheckOut = () => {
           </div>
         )
       ) : orderSuccessData ? (
-        <div className="flex flex-col my-20 justify-center items-center max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+        <div
+          // ref={successRef}
+          className="flex flex-col my-20 justify-center items-center max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg"
+        >
           <img src="/assets/img/completed.png" className="h-48 w-auto mb-6" />
           <h2 className="text-3xl font-bold text-gray-800 mb-2">¡Pedido Recibido!</h2>
           <p className="text-xl text-main font-semibold mb-6">Orden #{orderSuccessData.order_id}</p>

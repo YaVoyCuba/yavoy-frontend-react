@@ -136,19 +136,6 @@ const Restaurants = () => {
       }
     }, [path, isMainPage]);
 
-  // Reload on bfcache restore. Needed to guarantee fresh data when returning
-  // (back/forward) with stale restaurant/municipality data, at the cost of
-  // discarding the whole HTTP cache on those navigations.
-  // TODO: the fetch effect above already refetches on getMunicipality/path change,
-  // so this can likely be removed and replaced by a refetch + a scroll restore.
-  useEffect(() => {
-    const onPageShow = (e) => {
-      if (e.persisted) window.location.reload();
-    };
-    window.addEventListener("pageshow", onPageShow);
-    return () => window.removeEventListener("pageshow", onPageShow);
-  }, []);
-
   const categoryI18n = {
     restaurants: {
       label: i18n._(msg`Restaurants`),

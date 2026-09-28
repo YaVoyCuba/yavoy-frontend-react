@@ -1,0 +1,40 @@
+/*
+ * Material Symbols Outlined — self-hosted subset.
+ *
+ * Sustituye a https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1
+ * que servía 1,137,516 B (fuente variable completa, sin subset) y encadenaba dos
+ * orígenes de terceros (googleapis -> gstatic) sin preconnect.
+ *
+ * Este subset contiene solo los 38 iconos usados en src/ (incluidos los dinámicos
+ * de CATEGORY_CARDS y STORE_ICONS) y conserva los ejes wght 100..700 y FILL 0..1,
+ * por lo que `fontVariationSettings: "'FILL' 1"` sigue funcionando.
+ * Tamaño: 18,572 B. Para regenerarlo, ver scripts/fetch-material-symbols.sh.
+ *
+ * Se preloadea desde index.html; al servirse desde el mismo origen y estar en el
+ * caché, font-display: block dura ~1 RTT y evita el flash del texto ligature
+ * crudo ("star", "chevron_left", ...).
+ */
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 100 700;
+  font-display: block;
+  src: url('/fonts/material-symbols-outlined.woff2') format('woff2');
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}

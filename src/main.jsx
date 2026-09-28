@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
+import './styles/material-symbols.css'
 import './index.css'
 import { I18nProvider, i18n } from './i18n'
 

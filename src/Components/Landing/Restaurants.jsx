@@ -134,6 +134,15 @@ const Restaurants = () => {
       }
     }, [path, isMainPage]);
 
+  // Reload the page when it is restored from the back/forward cache (bfcache) to ensure fresh data
+  useEffect(() => {
+    const onPageShow = (e) => {
+      if (e.persisted) window.location.reload();
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, []);
+
   const categoryI18n = {
     restaurants: {
       label: i18n._(msg`Restaurants`),
@@ -310,6 +319,7 @@ const Restaurants = () => {
                 }}
                 spaceBetween={0}
                 slidesPerView={1}
+                initialSlide={0}
                 className="w-full"
               >
                 {(promoSlides.length > 0 ? promoSlides : [{ id: "fallback", image: "/assets/img/fondo.webp", link: "/restaurants" }]).map(

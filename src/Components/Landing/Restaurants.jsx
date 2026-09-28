@@ -110,6 +110,8 @@ const Restaurants = () => {
   const enableMainLanding = import.meta.env.VITE_ENABLE_MAIN_LANDING === "true";
   const isMainPage = path === "/" && enableMainLanding;
 
+  const enableRestaurantsFeaturedSection = import.meta.env.VITE_ENABLE_RESTAURANTS_FEATURED === "true";
+
   // Ref for the catalog section to scroll into view when category changes
   const catalogSectionRef = useRef(null);
 
@@ -183,6 +185,7 @@ const Restaurants = () => {
   }, [promoRestaurants, imageBase]);
 
   const featuredRestaurants = useMemo(() => {
+    if (!enableRestaurantsFeaturedSection) return []; // <- exits without sorting or copying the array
     return [...restaurants]
       .sort((a, b) => (Number(b?.valoration) || 0) - (Number(a?.valoration) || 0))
       .slice(0, 4);
@@ -191,6 +194,7 @@ const Restaurants = () => {
   const featuredIds = useMemo(() => new Set(featuredRestaurants.map((item) => item.id)), [featuredRestaurants]);
 
   const regularRestaurants = useMemo(() => {
+    if (!enableRestaurantsFeaturedSection) return restaurants; // <- returns the list as is, without filtering
     return restaurants.filter((item) => !featuredIds.has(item.id));
   }, [restaurants, featuredIds]);
 
@@ -503,44 +507,46 @@ const Restaurants = () => {
                 )}
               </section>
 
-              <section className="hidden mx-auto mt-14 w-full max-w-7xl px-4 lg:px-8">
-                <div className="mb-8 flex items-center justify-between">
-                  <div>
-                    <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>Top rating</Trans></h2>
-                    <p className="mt-1 text-sm font-semibold text-slate-500"><Trans>Top rated stores selected for this week.</Trans></p>
+              {enableRestaurantsFeaturedSection && (
+                <section className="mx-auto mt-14 w-full max-w-7xl px-4 lg:px-8">
+                  <div className="mb-8 flex items-center justify-between">
+                    <div>
+                      <h2 className="text-4xl font-black uppercase tracking-tight text-slate-900"><Trans>Top rating</Trans></h2>
+                      <p className="mt-1 text-sm font-semibold text-slate-500"><Trans>Top rated stores selected for this week.</Trans></p>
+                    </div>
+                    <div className="hidden items-center gap-2 md:flex">
+                      <button
+                        type="button"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
+                        aria-label="Previous featured stores"
+                      >
+                        <span className="notranslate material-symbols-outlined">chevron_left</span>
+                      </button>
+                      <button
+                        type="button"
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
+                        aria-label="Next featured stores"
+                      >
+                        <span className="notranslate material-symbols-outlined">chevron_right</span>
+                      </button>
+                    </div>
                   </div>
-                  <div className="hidden items-center gap-2 md:flex">
-                    <button
-                      type="button"
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
-                      aria-label="Previous featured stores"
-                    >
-                      <span className="notranslate material-symbols-outlined">chevron_left</span>
-                    </button>
-                    <button
-                      type="button"
-                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 text-slate-400 transition hover:border-[#f06233] hover:text-[#f06233]"
-                      aria-label="Next featured stores"
-                    >
-                      <span className="notranslate material-symbols-outlined">chevron_right</span>
-                    </button>
-                  </div>
-                </div>
 
-                {featuredRestaurants.length > 0 ? (
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-                    {featuredRestaurants.map((restaurant) => (
-                      <StoreCard key={`featured-${restaurant.id}`} restaurant={restaurant} imageBase={imageBase} />
-                    ))}
-                  </div>
-                ) : (
-                  <div className="rounded-2xl bg-white p-6 text-slate-700 shadow-sm">
-                    <p className="text-lg font-semibold">
-                      <Trans>No services available in this area</Trans>
-                    </p>
-                  </div>
-                )}
-              </section>
+                  {featuredRestaurants.length > 0 ? (
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+                      {featuredRestaurants.map((restaurant) => (
+                        <StoreCard key={`featured-${restaurant.id}`} restaurant={restaurant} imageBase={imageBase} />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="rounded-2xl bg-white p-6 text-slate-700 shadow-sm">
+                      <p className="text-lg font-semibold">
+                        <Trans>No services available in this area</Trans>
+                      </p>
+                    </div>
+                  )}
+                </section>
+              )}
             </>
           )}
 

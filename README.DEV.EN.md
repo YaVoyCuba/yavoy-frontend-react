@@ -133,6 +133,46 @@ When the picker is disabled:
 
 When the picker is enabled, all standard behavior is restored: the dialog opens automatically on the first visit if no location has been set, and users can change their delivery zone at any time.
 
+Icons (Material Symbols Outlined)
+Icons are rendered with the `material-symbols-outlined` class and the icon name as text:
+```jsx
+<span className="notranslate material-symbols-outlined !text-2xl">restaurant</span>
+```
+
+The font is **self-hosted and subsetted**: `public/fonts/material-symbols-outlined.woff2` (18 KB) contains only the icons the project actually uses. It used to come from Google Fonts without subsetting (`wght,FILL@100..700,0..1`), which meant 1.09 MB, two chained third-party origins, and a missing `font-display` (3 s of invisible glyphs before the swap). The `href` of the `<link rel="preload">` in [index.html](index.html) and the `src()` in [src/styles/material-symbols.css](src/styles/material-symbols.css) must match exactly.
+
+### Adding a new icon
+1. Add the icon name (no `.woff2`, with underscores, exactly as it appears on https://fonts.google.com/icons) to the `ICONS` array in [scripts/fetch-material-symbols.sh](scripts/fetch-material-symbols.sh):
+   ```bash
+   ICONS=(
+     account_tree ads_click call cake
+     # ... add the new icon here, for example: rocket_launch
+   )
+   ```
+2. Regenerate the subset (**mandatory**, the `.woff2` is versioned in the repo):
+   ```bash
+   ./scripts/fetch-material-symbols.sh
+   ```
+   The script queries the Google Fonts API with `icon_names=<list>` and overwrites `public/fonts/material-symbols-outlined.woff2`. It prints the resulting size and how many icons are included.
+3. Commit **both** changes (the script and the regenerated `.woff2`).
+4. Verify:
+   ```bash
+   npm run dev
+   ```
+   The new icon renders as a glyph. There is no need to touch `index.html` or the CSS.
+
+### If you forget to regenerate the subset
+The icon **will not draw**: you see the plain ligature text (`rocket_launch`) instead of the symbol. There is no console error or warning, so it is easy to miss in review. That is the only symptom.
+
+### Icons with a dynamic value
+If the icon name comes from a variable, the name still has to be present in the script's `ICONS` array. Examples in this project:
+- `CATEGORY_CARDS` and `STORE_ICONS` in [src/Components/Landing/Restaurants.jsx](src/Components/Landing/Restaurants.jsx), rendered as `{category.icon}` and `{icon}`.
+
+### Notes
+- The subset keeps the `wght` (100–700) and `FILL` (0–1) variable axes, so `style={{ fontVariationSettings: "'FILL' 1" }}` keeps working.
+- Do not change the `font-family` by hand or add another `<link>` to Google Fonts: it would reintroduce the two-origin waterfall this removes.
+- Do not accidentally commit the full font (1.09 MB); check the size the script prints.
+
 Environment variables and local overrides
 - Vite supports multiple `.env` files and a precedence order: `.env` → `.env.[mode]` → `.env.[mode].local`.
 - Recommended workflow:

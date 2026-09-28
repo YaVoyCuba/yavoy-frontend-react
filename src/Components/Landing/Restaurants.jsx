@@ -73,6 +73,8 @@ const StoreCard = ({ restaurant, imageBase }) => {
           <img
             src={image}
             alt={restaurant?.name || "Store"}
+            loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
           {rating > 0 && (
@@ -308,19 +310,20 @@ const Restaurants = () => {
                 }}
                 spaceBetween={0}
                 slidesPerView={1}
-                autoHeight
                 className="w-full"
               >
                 {(promoSlides.length > 0 ? promoSlides : [{ id: "fallback", image: "/assets/img/fondo.webp", link: "/restaurants" }]).map(
-                  (slide) => (
-                    <SwiperSlide key={`hero-${slide.id}`}>
-                      <div className="relative w-full overflow-hidden bg-white">
+                  (slide, index) => (
+                    <SwiperSlide key={`hero-${slide.id}-${index}`}>
+                      <div className="relative aspect-[3/1] w-full overflow-hidden bg-slate-100">
                         
                         {/* 1. Imagen de fondo optimizada - Ahora con object-contain para no recortar */}
                         <img 
                           src={slide.image} 
                           alt="Promo" 
-                          className="block w-full h-auto select-none transition-transform duration-700 ease-out"
+                          loading={index === 0 ? "eager" : "lazy"}
+                          decoding="async"  
+                          className="h-full w-full object-cover object-center select-none transition-transform duration-700 ease-out"
                         />
                         
                         {/* 2. Oscurecimiento global opcional */}
@@ -370,7 +373,14 @@ const Restaurants = () => {
                     <div className="bg-color rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-1 lg:gap-4">
                       <div className="bg-color rounded-lg lg:grid lg:grid-cols-2 lg:gap-4">
                         <div className="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
-                          <img className="transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-12 lg:translate-y-16"  src="/assets/img/product_by_libras.jpg" style={{ height:'90%' }} alt={""}/>
+                          <img
+                            className="transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-12 lg:translate-y-16"
+                            src="/assets/img/product_by_libras.jpg"
+                            loading="lazy"
+                            decoding="async"
+                            style={{ height: "90%" }}
+                            alt=""
+                          />
                         </div>
                         <div className="pt-10 pb-2 px-4 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
                           <div className="lg:self-center">

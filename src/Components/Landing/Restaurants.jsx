@@ -56,7 +56,7 @@ const CATEGORY_CARDS = [
 
 const STORE_ICONS = ["restaurant", "local_cafe", "storefront", "shopping_bag", "lunch_dining"];
 
-const StoreCard = ({ restaurant, imageBase }) => {
+const StoreCard = ({ restaurant, imageBase, priority = false }) => {
   const rating = Number(restaurant?.valoration) || 0;
   const productsCount = Number(restaurant?.products_count) || 0;
   const image = restaurant?.avatar ? `${imageBase}${restaurant.avatar}` : "/assets/img/fondo.webp";
@@ -73,7 +73,9 @@ const StoreCard = ({ restaurant, imageBase }) => {
           <img
             src={image}
             alt={restaurant?.name || "Store"}
-            loading="lazy"
+            // The first card is the page's LCP: set to 'eager' so it doesn't depend
+            // on lazy-loading or compete with the images below.
+            loading={priority ? "eager" : "lazy"}
             decoding="async"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
@@ -134,7 +136,11 @@ const Restaurants = () => {
       }
     }, [path, isMainPage]);
 
-  // Reload the page when it is restored from the back/forward cache (bfcache) to ensure fresh data
+  // Reload on bfcache restore. Needed to guarantee fresh data when returning
+  // (back/forward) with stale restaurant/municipality data, at the cost of
+  // discarding the whole HTTP cache on those navigations.
+  // TODO: the fetch effect above already refetches on getMunicipality/path change,
+  // so this can likely be removed and replaced by a refetch + a scroll restore.
   useEffect(() => {
     const onPageShow = (e) => {
       if (e.persisted) window.location.reload();
@@ -233,19 +239,15 @@ const Restaurants = () => {
     let type = typeMapping[currentCategoryCard] || "restaurant";
 
     try {
-      const json = await apiManager.getRestaurants(locationFinal, type);
-      if (json !== 500) {
-        setRestaurants(json?.restaurants || []);
-      } else {
-        setRestaurants([]);
-      }
+      // Both requests are independent: running them in parallel avoids the waterfall
+      // of two sequential round-trips.
+      const [json, json2] = await Promise.all([
+        apiManager.getRestaurants(locationFinal, type),
+        apiManager.getPromosRestaurants(),
+      ]);
 
-      const json2 = await apiManager.getPromosRestaurants();
-      if (json2 !== 500) {
-        setPromoRestaurants(json2?.promos || []);
-      } else {
-        setPromoRestaurants([]);
-      }
+      setRestaurants(json !== 500 ? json?.restaurants || [] : []);
+      setPromoRestaurants(json2 !== 500 ? json2?.promos || [] : []);
     } finally {
       setLoading(false);
     }
@@ -504,8 +506,13 @@ const Restaurants = () => {
                 {restaurants.length > 0 ? (
                   <>
                     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-                      {(regularRestaurants.length > 0 ? regularRestaurants : restaurants).map((restaurant) => (
-                        <StoreCard key={`store-${restaurant.id}`} restaurant={restaurant} imageBase={imageBase} />
+                      {(regularRestaurants.length > 0 ? regularRestaurants : restaurants).map((restaurant, index) => (
+                        <StoreCard
+                          key={`store-${restaurant.id}`}
+                          restaurant={restaurant}
+                          imageBase={imageBase}
+                          priority={index === 0}
+                        />
                       ))}
                     </div>
 

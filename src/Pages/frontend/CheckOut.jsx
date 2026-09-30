@@ -228,7 +228,7 @@ const CheckOut = () => {
               <div className="grid grid-cols-12 bg-gray-100 rounded-lg shadow-lg my-20 p-4">
                 <div className="col-span-12 lg:col-span-6">
                   <div className="flex p-3 space-y-3 flex-col mt-2">
-                    <span className="title   ">Información de la entrega</span>
+                    <span className="title">Información de la entrega</span>
 
                     <div>
                       <div className="flex items-center justify-between">

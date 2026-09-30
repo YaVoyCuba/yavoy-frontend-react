@@ -263,29 +263,30 @@ const CheckOut = () => {
                       >
                         <div className="grid grid-cols-2 gap-3 sm:grid-cols-2">
                           {methodsDeliveries.map((option, index) => (
-                            <RadioGroup.Option
-                              key={option.name}
-                              value={option}
-                              className={({ active, checked }) =>
-                                classNames(
-                                  option.active
-                                    ? "cursor-pointer focus:outline-none"
-                                    : "opacity-25 cursor-not-allowed",
-                                  active
-                                    ? "ring-2 ring-offset-2 ring-red-500"
-                                    : "",
-                                  checked
-                                    ? "bg-main border-transparent text-white hover:bg-red-500"
-                                    : "bg-white border-gray-200 text-gray-900 hover:bg-gray-50",
-                                  "border rounded-md py-3 px-3 flex items-center justify-center text-sm font-medium uppercase sm:flex-1"
-                                )
-                              }
-                              disabled={!option.active}
+                          <RadioGroup.Option
+                            key={option.name}
+                            value={option}
+                            className={({ active, checked }) =>
+                              classNames(
+                                option.active
+                                  ? "cursor-pointer focus:outline-none"
+                                  : "opacity-25 cursor-not-allowed",
+                                active ? "ring-2 ring-offset-2 ring-red-500" : "",
+                                checked
+                                  ? "bg-main border-transparent text-white hover:bg-red-500"
+                                  : "bg-white border-gray-200 text-gray-900 hover:bg-gray-50",
+                                "border rounded-md py-2 px-2 flex items-center justify-center text-center min-w-0 break-words text-sm font-medium uppercase sm:flex-1"
+                              )
+                            }
+                            disabled={!option.active}
+                          >
+                            <RadioGroup.Label
+                              as="span"
+                              className="min-w-0 break-words text-center leading-tight"
                             >
-                              <RadioGroup.Label as="span">
-                                {option.name}
-                              </RadioGroup.Label>
-                            </RadioGroup.Option>
+                              {option.name}
+                            </RadioGroup.Label>
+                          </RadioGroup.Option>
                           ))}
                         </div>
                       </RadioGroup>

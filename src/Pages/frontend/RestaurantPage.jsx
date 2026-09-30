@@ -6,9 +6,10 @@ import { Loading } from '../../common/Loading';
 import { useSelector } from 'react-redux';
 
 function RestaurantPage() {
-    useEffect( () => {
-        window.scrollTo( 0, 0 );
-    }, [] );
+    // Scrolling to the top when navigating to this route is handled by the
+    // `useScrollToTop` hook centralized in TemplateLanding, which also disables
+    // the browser's `history.scrollRestoration` (the cause of the "back → footer" bug). 
+    // We no longer need the `useEffect` with `window.scrollTo(0,0)` here.
     const [ loading, setLoading ] = useState( true );
     const [ disabled, setDisabled ] = useState( true );
     const { restaurantSlug } = useParams();

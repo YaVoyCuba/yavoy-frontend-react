@@ -27,6 +27,9 @@ const OrderTrackingPage = () => {
   };
 
   useEffect(() => {
+    // The scroll-to-top when entering this route is handled by the
+    // `useScrollToTop` hook centralized in TemplateLanding. Here we only
+    // take care of fetching the order and scheduling the auto-refresh.
     fetchOrder();
     // Auto refresh every 30 seconds
     const interval = setInterval(fetchOrder, 30000);

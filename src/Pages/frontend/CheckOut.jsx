@@ -70,12 +70,31 @@ const CheckOut = () => {
 
   const successRef = useRef(null);
 
+// Scroll driven by STATE (not navigation): after confirming the order,
+// we take the user to the top of the success message so they can see the
+// "Confirm on WhatsApp" button without having to scroll manually. 
+//
+// Important: Do NOT use `behavior: "smooth"` here. On mobile devices (especially iOS),
+// smooth scrolling conflicts with the rendering of the new panel and can
+// leave the page in an intermediate position. We use "auto" so the
+// jump is instantaneous and the content remains visible below the
+// sticky header. 
+//
+// The scroll-to-top upon ROUTE CHANGE is handled by the `useScrollToTop`
+// hook centralized in TemplateLanding — this useEffect does not interfere
+// with that because it only triggers when `orderSuccessData` changes from null → object.
   useEffect(() => {
-    if (orderSuccessData) {
+    if (orderSuccessData && successRef.current) {
+      // We wait for a tick so the DOM renders the success panel before measuring.
       const t = setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 100);
+        const headerOffset = 80; // altura del header sticky
+        const top = successRef.current.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top: Math.max(top, 0), left: 0, behavior: "auto" });
+      }, 60);
       return () => clearTimeout(t);
+    } else if (orderSuccessData) {
+      // Fallback: if there is no ref, at least scroll to the top of the document.
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     }
   }, [orderSuccessData]);
 
@@ -563,7 +582,7 @@ const CheckOut = () => {
         )
       ) : orderSuccessData ? (
         <div
-          // ref={successRef}
+          ref={successRef}
           className="flex flex-col my-20 justify-center items-center max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg"
         >
           <img src="/assets/img/completed.png" className="h-48 w-auto mb-6" />

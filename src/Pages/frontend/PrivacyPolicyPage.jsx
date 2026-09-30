@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Trans } from "@lingui/react/macro";
 import { Link } from "react-router-dom";
 
 const PrivacyPolicyPage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <main className="-mx-3 bg-[#f2f0f1] py-12 text-slate-900 lg:-mx-14 md:py-16">
       <div className="mx-auto w-full max-w-7xl px-4 lg:px-8">

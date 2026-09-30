@@ -17,6 +17,10 @@ import MainLandingRedesign from "./MainLandingRedesign";
 
 SwiperCore.use([Autoplay]);
 
+// Height of the sticky header in pixels (adjust according to your actual design).
+// Used so that scrolling to a section isn't obscured by the header.
+const STICKY_HEADER_HEIGHT = 200;
+
 const CATEGORY_CARDS = [
   {
     key: "restaurants",
@@ -119,6 +123,14 @@ const Restaurants = () => {
   // Ref for the catalog section to scroll into view when category changes
   const catalogSectionRef = useRef(null);
 
+  // Flag to skip the initial render. 
+  // Scrolling to the top when navigating "back" is handled by the useScrollToTop hook,
+  // centralized in TemplateLanding. Here, we only want to react to category changes
+  // within the SAME mount session (e.g., from /restaurants to
+  // /markets). The initial render is considered part of the initial load and is
+  // ignored to avoid conflicting with the centralized solution.
+  const isFirstRender = useRef(true);
+
   const [restaurants, setRestaurants] = useState([]);
   const [promoRestaurants, setPromoRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -126,15 +138,24 @@ const Restaurants = () => {
 
   const imageBase = apiManager.UrlBase;
 
-  // Scroll to the catalog section when the category changes and it's not the main page
+  // Scroll to the catalog section ONLY when the category changes AFTER the
+  // initial mount. On back navigation the centralized hook in TemplateLanding
+  // already scrolled to top — we must NOT override that here.
   useEffect(() => {
-      if (!isMainPage && catalogSectionRef.current) {
-        catalogSectionRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "start", // Align the top of the section with the top of the viewport
-        });
-      }
-    }, [path, isMainPage]);
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    if (isMainPage || !catalogSectionRef.current) return;
+
+    // Manual offset so the section's top sits BELOW the sticky header.
+    // scrollIntoView({ block: "start" }) ignores sticky/fixed headers and
+    // would hide the section's title behind the header.
+    const rect = catalogSectionRef.current.getBoundingClientRect();
+    const targetTop = rect.top + window.scrollY - STICKY_HEADER_HEIGHT;
+    window.scrollTo({ top: Math.max(targetTop, 0), behavior: "smooth" });
+  }, [path, isMainPage]);
 
   const categoryI18n = {
     restaurants: {

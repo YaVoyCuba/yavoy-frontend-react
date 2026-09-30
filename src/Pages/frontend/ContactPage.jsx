@@ -1,15 +1,23 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Trans } from "@lingui/react/macro";
 import { t } from "@lingui/core/macro";
 import defaults from "../../config/defaults";
 
+/**
+* ContactPage
+* -----------
+* Changes vs. original version:
+* - Removed `useEffect(() => { window.scrollTo(0, 0); }, [])`. 
+*   Scrolling to the top upon navigating to this route is handled by the
+*   `useScrollToTop` hook centralized in TemplateLanding, which also disables
+*   the browser's `history.scrollRestoration` so that the mobile "back"
+*   button doesn't leave the user at the footer. 
+*
+* - Without that hook per page, we also removed the `useEffect` import. 
+*/
 const ContactPage = () => {
   const info = useSelector((state) => state.info.info);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();

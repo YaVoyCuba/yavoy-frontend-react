@@ -1,5 +1,5 @@
 import { setInfo } from "../../redux/infoSlice";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import apiManager from "../../api/apiManager";
 import { Trans } from "@lingui/react/macro";
 
@@ -9,7 +9,18 @@ import { useEffect } from "react";
 import { store } from "../../redux/store";
 import WA from "../Misc/WA";
 
+// --- FIX scroll "back → footer" on mobile ---
+// Import the centralized hook. It handles:
+//   1) Set window.history.scrollRestoration = "manual" (disables the
+//      browser's automatic restoration, which is the cause of the bug).
+//   2) Call window.scrollTo(0,0) on every pathname change.
+import { useScrollToTop } from "../../hooks/useScrollToTop";
+
 const TemplateLanding = () => {
+  // --- FIX scroll "back → footer" on mobile ---
+  // Single call in the layout. No window.scrollTo(0,0) on every page.
+  useScrollToTop();
+
   const locationRouter = useLocation();
 
   const tabs = [
